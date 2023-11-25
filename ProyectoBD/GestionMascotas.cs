@@ -514,5 +514,10 @@ namespace ProyectoBD
             selGenero.SelectedIndex = -1;
             selEstado.SelectedIndex = -1;
         }
+
+        private void mostradorMascotas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

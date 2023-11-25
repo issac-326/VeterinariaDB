@@ -120,5 +120,34 @@ namespace ProyectoBD.Class
             }
         }
 
+
+        public void editarCitas(String tabla, String cadena, int id)
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                String query = "UPDATE " + tabla + " set " + cadena + " WHERE Id = " + id + ";";
+
+                SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
+                SqlDataReader myReader;
+
+                myReader = comando.ExecuteReader();
+
+                while (myReader.Read())
+                {
+
+                }
+                MessageBox.Show("Se modifico la cita");
+                objectConexion.cerrarConexion();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("error al modificar el registro: " + e.ToString());
+            }
+        }
+
+ 
+
     }
 }

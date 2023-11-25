@@ -39,6 +39,7 @@ namespace ProyectoBD.Class
             }
         }
 
+
         public void mostrarData(DataGridView mostrador, String instruccion)
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
@@ -56,7 +57,7 @@ namespace ProyectoBD.Class
             }
             catch (Exception e)
             {
-                MessageBox.Show("error al cargar los registros: " + e.ToString());
+                MessageBox.Show("Error al cargar los registros: " + e.ToString());
             }
         }
     }

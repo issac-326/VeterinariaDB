@@ -338,5 +338,10 @@ namespace ProyectoBD
             String cadena = $"'{txtNombre.Text}', '{txtCaracteristicas.Text}', '{fechaFormateada}', {esterilizado}, {agresivo},'{txtPeso.Text}', '{txtTamano.Text}', {idEspecie}, {idRaza}, {idGenero}, {idEstado}";
             objetoCrud.guardar(tabla, cadena);
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

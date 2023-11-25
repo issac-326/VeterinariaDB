@@ -32,10 +32,10 @@
             groupBox1 = new GroupBox();
             txtFechaFin = new DateTimePicker();
             txtFechaInicio = new DateTimePicker();
-            selEstado = new ComboBox();
-            txtFecha = new DateTimePicker();
-            selMascota = new ComboBox();
-            selEmpleado = new ComboBox();
+            selEstadoCitas = new ComboBox();
+            txtFechaCita = new DateTimePicker();
+            selMascotaCita = new ComboBox();
+            selEmpleadoCitas = new ComboBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -57,10 +57,10 @@
             // 
             groupBox1.Controls.Add(txtFechaFin);
             groupBox1.Controls.Add(txtFechaInicio);
-            groupBox1.Controls.Add(selEstado);
-            groupBox1.Controls.Add(txtFecha);
-            groupBox1.Controls.Add(selMascota);
-            groupBox1.Controls.Add(selEmpleado);
+            groupBox1.Controls.Add(selEstadoCitas);
+            groupBox1.Controls.Add(txtFechaCita);
+            groupBox1.Controls.Add(selMascotaCita);
+            groupBox1.Controls.Add(selEmpleadoCitas);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
@@ -90,36 +90,36 @@
             txtFechaInicio.Size = new Size(301, 28);
             txtFechaInicio.TabIndex = 10;
             // 
-            // selEstado
+            // selEstadoCitas
             // 
-            selEstado.FormattingEnabled = true;
-            selEstado.Location = new Point(683, 48);
-            selEstado.Name = "selEstado";
-            selEstado.Size = new Size(301, 29);
-            selEstado.TabIndex = 9;
+            selEstadoCitas.FormattingEnabled = true;
+            selEstadoCitas.Location = new Point(683, 48);
+            selEstadoCitas.Name = "selEstadoCitas";
+            selEstadoCitas.Size = new Size(301, 29);
+            selEstadoCitas.TabIndex = 9;
             // 
-            // txtFecha
+            // txtFechaCita
             // 
-            txtFecha.Location = new Point(154, 161);
-            txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(269, 28);
-            txtFecha.TabIndex = 8;
+            txtFechaCita.Location = new Point(154, 161);
+            txtFechaCita.Name = "txtFechaCita";
+            txtFechaCita.Size = new Size(269, 28);
+            txtFechaCita.TabIndex = 8;
             // 
-            // selMascota
+            // selMascotaCita
             // 
-            selMascota.FormattingEnabled = true;
-            selMascota.Location = new Point(154, 104);
-            selMascota.Name = "selMascota";
-            selMascota.Size = new Size(268, 29);
-            selMascota.TabIndex = 7;
+            selMascotaCita.FormattingEnabled = true;
+            selMascotaCita.Location = new Point(154, 104);
+            selMascotaCita.Name = "selMascotaCita";
+            selMascotaCita.Size = new Size(268, 29);
+            selMascotaCita.TabIndex = 7;
             // 
-            // selEmpleado
+            // selEmpleadoCitas
             // 
-            selEmpleado.FormattingEnabled = true;
-            selEmpleado.Location = new Point(154, 48);
-            selEmpleado.Name = "selEmpleado";
-            selEmpleado.Size = new Size(268, 29);
-            selEmpleado.TabIndex = 6;
+            selEmpleadoCitas.FormattingEnabled = true;
+            selEmpleadoCitas.Location = new Point(154, 48);
+            selEmpleadoCitas.Name = "selEmpleadoCitas";
+            selEmpleadoCitas.Size = new Size(268, 29);
+            selEmpleadoCitas.TabIndex = 6;
             // 
             // label6
             // 
@@ -240,6 +240,7 @@
             btnAgregarCitas.Text = "Agregar";
             btnAgregarCitas.TextAlign = ContentAlignment.MiddleRight;
             btnAgregarCitas.UseVisualStyleBackColor = false;
+            btnAgregarCitas.Click += btnAgregarCitas_Click;
             // 
             // btnModificarCitas
             // 
@@ -290,6 +291,7 @@
             Name = "Citas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Citas";
+            Load += Citas_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -305,10 +307,10 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private ComboBox selMascota;
-        private ComboBox selEmpleado;
-        private ComboBox selEstado;
-        private DateTimePicker txtFecha;
+        private ComboBox selMascotaCita;
+        private ComboBox selEmpleadoCitas;
+        private ComboBox selEstadoCitas;
+        private DateTimePicker txtFechaCita;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private DateTimePicker txtFechaFin;
         private DateTimePicker txtFechaInicio;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Citas));
             groupBox1 = new GroupBox();
             txtFechaFin = new DateTimePicker();
@@ -49,8 +50,12 @@
             btnAgregarCitas = new Button();
             btnModificarCitas = new Button();
             btnLimpiarCitas = new Button();
+            citasBindingSource = new BindingSource(components);
+            gestionMascotasBindingSource = new BindingSource(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)citasBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gestionMascotasBindingSource).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -100,6 +105,7 @@
             // 
             // txtFechaCita
             // 
+            txtFechaCita.Enabled = false;
             txtFechaCita.Location = new Point(154, 161);
             txtFechaCita.Name = "txtFechaCita";
             txtFechaCita.Size = new Size(269, 28);
@@ -276,6 +282,14 @@
             btnLimpiarCitas.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiarCitas.UseVisualStyleBackColor = false;
             // 
+            // citasBindingSource
+            // 
+            citasBindingSource.DataSource = typeof(Citas);
+            // 
+            // gestionMascotasBindingSource
+            // 
+            gestionMascotasBindingSource.DataSource = typeof(GestionMascotas);
+            // 
             // Citas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -295,6 +309,8 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)citasBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gestionMascotasBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -320,5 +336,7 @@
         private Button btnAgregarCitas;
         private Button btnModificarCitas;
         private Button btnLimpiarCitas;
+        private BindingSource citasBindingSource;
+        private BindingSource gestionMascotasBindingSource;
     }
 }

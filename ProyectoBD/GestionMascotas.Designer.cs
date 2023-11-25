@@ -78,6 +78,7 @@
             dataGridView2.RowTemplate.Height = 25;
             dataGridView2.Size = new Size(927, 221);
             dataGridView2.TabIndex = 19;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // groupBox2
             // 

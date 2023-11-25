@@ -1,6 +1,7 @@
 ﻿using ProyectoBD.SQLConexion;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,29 @@ using System.Threading.Tasks;
 
 namespace ProyectoBD.Class
 {
-    internal class CrudCitas
+    internal class CrudCitas : ConexionSqlServer
     {
+
+        public void mostrarData(DataGridView mostrador, String instruccion)
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                mostrador.DataSource = null;
+                SqlDataAdapter adapter = new SqlDataAdapter(instruccion, objectConexion.establecerConexion());
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                mostrador.DataSource = dt;
+
+                objectConexion.cerrarConexion();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los registros: " + e.ToString());
+            }
+        }
         public void guardarCitas(String tabla1, String cadenaC)
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
@@ -88,7 +110,7 @@ namespace ProyectoBD.Class
                 {
 
                 }
-                MessageBox.Show("Registro guardado");
+                //MessageBox.Show("Registro guardado");
                 objectConexion.cerrarConexion();
 
             }

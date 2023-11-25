@@ -22,6 +22,7 @@ namespace ProyectoBD
             cargarGeneros();
             cargarEstados();
             cargarEspecies();
+           
         }
 
 
@@ -340,6 +341,11 @@ namespace ProyectoBD
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

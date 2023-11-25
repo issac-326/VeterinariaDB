@@ -25,6 +25,7 @@ namespace ProyectoBD
             cargarTipoEstados();
             cargarMascotas();
             cargarEmpleados();
+            CargarDatos();
         }
 
         ///Estados de las citas
@@ -234,6 +235,17 @@ namespace ProyectoBD
         private void Citas_Load(object sender, EventArgs e)
         {
 
+        }
+
+        //Metodo para mostrar los datos de la tabla
+        private void CargarDatos()
+        {
+            CrudCitas objetoCrud = new Class.CrudCitas();
+            // Define la instrucción SQL para seleccionar datos.
+            string instruccionSql = "EXEC ObtenerDatosCitas;"; 
+
+            // Llama al método mostrarData para cargar y mostrar los datos en el DataGridView
+            objetoCrud.mostrarData(dataGridView1, instruccionSql);
         }
 
         private void btnAgregarCitas_Click(object sender, EventArgs e)

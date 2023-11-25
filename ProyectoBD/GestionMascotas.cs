@@ -10,19 +10,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace ProyectoBD
 {
     public partial class GestionMascotas : Form
     {
         String tabla = "Mascotas";
+        int codigo = 0;
         public GestionMascotas()
         {
             InitializeComponent();
             cargarGeneros();
             cargarEstados();
             cargarEspecies();
-           
+            Class.Crud objetoCrud = new Class.Crud();
+            String instruccion = "SELECT Mascotas.Id, Mascotas.Nombre,  Mascotas.Carac_Distintiva, Mascotas.Fecha_Nacimiento, Mascotas.Esterilizacion, Mascotas.Agresivo, Mascotas.Peso, Mascotas.Tamanio, Especies.Nombre AS Especie, Razas.Nombre AS Raza, Generos.Nombre AS Genero, Estados.Nombre AS Estado FROM  Mascotas JOIN Especies ON Mascotas.Id_Especie = Especies.Id JOIN Razas ON Mascotas.Id_Raza = Razas.Id JOIN Generos ON Mascotas.Id_Genero = Generos.Id JOIN Estados ON Mascotas.Id_Estado = Estados.Id;";
+            objetoCrud.mostrarData(mostradorMascotas, instruccion);
         }
 
 
@@ -338,16 +343,176 @@ namespace ProyectoBD
 
             String cadena = $"'{txtNombre.Text}', '{txtCaracteristicas.Text}', '{fechaFormateada}', {esterilizado}, {agresivo},'{txtPeso.Text}', '{txtTamano.Text}', {idEspecie}, {idRaza}, {idGenero}, {idEstado}";
             objetoCrud.guardar(tabla, cadena);
+            String instruccion = "SELECT Mascotas.Id, Mascotas.Nombre,  Mascotas.Carac_Distintiva, Mascotas.Fecha_Nacimiento, Mascotas.Esterilizacion, Mascotas.Agresivo, Mascotas.Peso, Mascotas.Tamanio, Especies.Nombre AS Especie, Razas.Nombre AS Raza, Generos.Nombre AS Genero, Estados.Nombre AS Estado FROM  Mascotas JOIN Especies ON Mascotas.Id_Especie = Especies.Id JOIN Razas ON Mascotas.Id_Raza = Razas.Id JOIN Generos ON Mascotas.Id_Genero = Generos.Id JOIN Estados ON Mascotas.Id_Estado = Estados.Id;";
+            objetoCrud.mostrarData(mostradorMascotas, instruccion);
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void mostradorMascotas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                object valorCelda = mostradorMascotas.CurrentRow.Cells[0].Value;
+                codigo = Convert.ToInt32(valorCelda);
+                DataGridViewRow filaSeleccionada = mostradorMascotas.Rows[e.RowIndex];
+
+                // Asigna los valores de la fila seleccionada a los controles
+                txtNombre.Text = filaSeleccionada.Cells["Nombre"].Value.ToString();
+                txtCaracteristicas.Text = filaSeleccionada.Cells["Carac_Distintiva"].Value.ToString();
+
+                // Para CheckBox, verifica si el valor es true o false
+                txtEsterilizacion.Checked = (bool)filaSeleccionada.Cells["Esterilizacion"].Value;
+                txtAgresivo.Checked = (bool)filaSeleccionada.Cells["Agresivo"].Value;
+
+                txtPeso.Text = filaSeleccionada.Cells["Peso"].Value.ToString();
+                txtTamano.Text = filaSeleccionada.Cells["Tamanio"].Value.ToString();
+                // Para ComboBox, selecciona el valor correspondiente
+                /*
+                object valorEspecie = filaSeleccionada.Cells["Id_Especie"].Value;
+                object valorRaza = filaSeleccionada.Cells["Id_Raza"].Value;
+                object valorGenero = filaSeleccionada.Cells["Id_Genero"].Value;
+                object valorEstado = filaSeleccionada.Cells["Id_Estado"].Value;
+                int idEspecie = Convert.ToInt32(valorEspecie);
+                int idRaza = Convert.ToInt32(valorRaza);
+                int idGenero = Convert.ToInt32(valorGenero);
+                int idEstado = Convert.ToInt32(valorEstado);
+                selEspecie.SelectedItem = obtenerNombrePorId("Especies", idEspecie);
+                selRaza.SelectedItem = obtenerNombrePorId("Raza", idRaza);
+                selGenero.SelectedItem = obtenerNombrePorId("Generos", idGenero);
+                selEstado.SelectedItem = obtenerNombrePorId("Estados", idEstado);*/
+
+                selEspecie.SelectedItem = filaSeleccionada.Cells["Especie"].Value.ToString();
+                selRaza.SelectedItem = filaSeleccionada.Cells["Raza"].Value.ToString();
+                selGenero.SelectedItem = filaSeleccionada.Cells["Genero"].Value.ToString();
+                selEstado.SelectedItem = filaSeleccionada.Cells["Estado"].Value.ToString();
+
+                object valorFecha = filaSeleccionada.Cells["Fecha_Nacimiento"].Value;
+                if (valorFecha != null && valorFecha != DBNull.Value)
+                {
+                    if (DateTime.TryParse(valorFecha.ToString(), out DateTime fecha))
+                    {
+                        txtFecha.Value = fecha;
+                    }
+                }
+            }
+
+        }
+
+        private String obtenerNombrePorId(String tabla, int codigo)
+        {
+            String nombre = " ";
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                // Establecer la conexión a la base de datos
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Buscar el id de la especie 
+                    string query = "SELECT Nombre FROM" + tabla + " where Id = '" + codigo + "';";
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            reader.Read(); // Solo necesitas leer la primera fila
+
+                            nombre = reader["Nombre"].ToString();
+                        }
+                    }
+                }
+                objectConexion.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error obtener nombre: " + ex.Message);
+            }
+            return nombre;
+        }
+
+        private void mostradorMascotas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Asegurarse de que el clic se haya realizado en una fila válida
+            {
+                DataGridViewRow row = mostradorMascotas.Rows[e.RowIndex];
+
+                // Obtenemso el valor del id del selecinado
+                int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
+
+                // Crear e mostrar el nuevo formulario pasando el ID
+                InfoMascota nuevoFormulario = new InfoMascota(idSeleccionado);
+                nuevoFormulario.Show();
+                this.Hide();
+            }
+        }
+
+        private void mostradorMascotas_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button11_Click(object sender, EventArgs e)
         {
+            int idEspecie = -1;
+            int idGenero = 1;
+            int idRaza = 1;
+            int idEstado = 1;
+            if (selEspecie.SelectedItem != null)
+            {
+                idEspecie = ObtenerIdEspecie(selEspecie.SelectedItem.ToString());
+            }
+            if (selRaza.SelectedItem != null)
+            {
+                idRaza = ObtenerIdRaza(selRaza.SelectedItem.ToString());
+            }
+            if (selGenero.SelectedItem != null)
+            {
+                idGenero = ObtenerIdGenero(selGenero.SelectedItem.ToString());
+            }
+            if (selEstado.SelectedItem != null)
+            {
+                idEstado = ObtenerIdEstado(selEstado.SelectedItem.ToString());
+            }
+            DateTime fechaSeleccionada = txtFecha.Value;
 
+            // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
+            string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
+
+            int esterilizado = txtEsterilizacion.Checked ? 1 : 0;
+            int agresivo = txtAgresivo.Checked ? 1 : 0;
+
+            Class.Crud objetoCrud = new Class.Crud();
+            String cadena = $"Nombre = '{txtNombre.Text}', Carac_Distintiva = '{txtCaracteristicas.Text}', Fecha_Nacimiento = '{fechaFormateada}',Esterilizacion = {esterilizado}, Agresivo = {agresivo}, Peso = '{txtPeso.Text}', Tamanio = '{txtTamano.Text}', Id_Especie = {idEspecie}, Id_Raza = {idRaza}, Id_Genero = {idGenero}, Id_Estado = {idEstado}";
+            objetoCrud.editar("Mascotas", cadena, codigo);
+            String instruccion = "SELECT Mascotas.Id, Mascotas.Nombre,  Mascotas.Carac_Distintiva, Mascotas.Fecha_Nacimiento, Mascotas.Esterilizacion, Mascotas.Agresivo, Mascotas.Peso, Mascotas.Tamanio, Especies.Nombre AS Especie, Razas.Nombre AS Raza, Generos.Nombre AS Genero, Estados.Nombre AS Estado FROM  Mascotas JOIN Especies ON Mascotas.Id_Especie = Especies.Id JOIN Razas ON Mascotas.Id_Raza = Razas.Id JOIN Generos ON Mascotas.Id_Genero = Generos.Id JOIN Estados ON Mascotas.Id_Estado = Estados.Id;";
+            objetoCrud.mostrarData(mostradorMascotas, instruccion);
+            codigo = 0;
+            txtNombre.Text = "";
+            txtCaracteristicas.Text = "";
+            txtEsterilizacion.Checked = false;
+            txtAgresivo.Checked = false;
+            txtPeso.Text = "";
+            txtTamano.Text = "";
+            selEspecie.SelectedIndexChanged -= selEspecie_SelectedIndexChanged;
+            selEspecie.SelectedIndex = -1;
+            selEspecie.SelectedIndexChanged += selEspecie_SelectedIndexChanged;
+            selRaza.SelectedIndex = -1;
+            selGenero.SelectedIndex = -1;
+            selEstado.SelectedIndex = -1;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            codigo = 0;
+            txtNombre.Text = "";
+            txtCaracteristicas.Text = "";
+            txtEsterilizacion.Checked = false;
+            txtAgresivo.Checked = false;
+            txtPeso.Text = "";
+            txtTamano.Text = "";
+            selEspecie.SelectedIndexChanged -= selEspecie_SelectedIndexChanged;
+            selEspecie.SelectedIndex = -1;
+            selEspecie.SelectedIndexChanged += selEspecie_SelectedIndexChanged;
+            selRaza.SelectedIndex = -1;
+            selGenero.SelectedIndex = -1;
+            selEstado.SelectedIndex = -1;
         }
     }
 }

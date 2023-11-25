@@ -39,7 +39,6 @@ namespace ProyectoBD.Class
             }
         }
 
-
         public void mostrarData(DataGridView mostrador, String instruccion)
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
@@ -57,8 +56,35 @@ namespace ProyectoBD.Class
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al cargar los registros: " + e.ToString());
+                MessageBox.Show("error al cargar los registros: " + e.ToString());
             }
         }
+
+        public void editar(String tabla, String cadena, int id)
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                String query = "UPDATE " + tabla +" set " + cadena + " WHERE Id = " + id +";";
+
+                SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
+                SqlDataReader myReader;
+
+                myReader = comando.ExecuteReader();
+
+                while (myReader.Read())
+                {
+
+                }
+                MessageBox.Show("Se modifico alumno");
+                objectConexion.cerrarConexion();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("error al modificar el registro: " + e.ToString());
+            }
+        }
+
     }
 }

@@ -119,5 +119,6 @@ namespace ProyectoBD.Class
                 MessageBox.Show("Error al guardar el registro: " + e.ToString());
             }
         }
+
     }
 }

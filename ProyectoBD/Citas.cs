@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ProyectoBD
 {
-    
+
     public partial class Citas : Form
     {
         String tabla1 = "Citas";
@@ -26,6 +26,9 @@ namespace ProyectoBD
             cargarMascotas();
             cargarEmpleados();
             CargarDatos();
+
+            //Contador para que al hacer clic en el datGridView se muestren los datos en los TextBox.
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
         }
 
         ///Estados de las citas
@@ -242,7 +245,7 @@ namespace ProyectoBD
         {
             CrudCitas objetoCrud = new Class.CrudCitas();
             // Define la instrucción SQL para seleccionar datos.
-            string instruccionSql = "EXEC ObtenerDatosCitas;"; 
+            string instruccionSql = "EXEC ObtenerDatosCitas;";
 
             // Llama al método mostrarData para cargar y mostrar los datos en el DataGridView
             objetoCrud.mostrarData(dataGridView1, instruccionSql);
@@ -296,6 +299,35 @@ namespace ProyectoBD
             }
 
 
+        }
+
+        private void Limpiar()
+        {
+            //Para limpiar los ComboBox
+            selEmpleadoCitas.Text = "";
+            selEstadoCitas.Text = "";
+            selMascotaCita.Text = "";
+        }
+
+        private void btnLimpiarCitas_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void btnModificarCitas_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Para que se muestren los datos en los TextBox
+            selEmpleadoCitas.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtFechaCita.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value).ToString();
+            selMascotaCita.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            selEstadoCitas.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtFechaInicio.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value).ToString();
+            txtFechaFin.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[6].Value).ToString();
         }
     }
 }

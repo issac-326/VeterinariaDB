@@ -83,6 +83,7 @@
             // 
             // txtFechaFin
             // 
+            txtFechaFin.CustomFormat = "";
             txtFechaFin.Location = new Point(683, 161);
             txtFechaFin.Name = "txtFechaFin";
             txtFechaFin.Size = new Size(301, 28);
@@ -105,6 +106,7 @@
             // 
             // txtFechaCita
             // 
+            txtFechaCita.CustomFormat = "";
             txtFechaCita.Enabled = false;
             txtFechaCita.Location = new Point(154, 161);
             txtFechaCita.Name = "txtFechaCita";
@@ -192,9 +194,12 @@
             dataGridView1.Location = new Point(25, 250);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1049, 292);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
@@ -264,6 +269,7 @@
             btnModificarCitas.Text = "Modificar";
             btnModificarCitas.TextAlign = ContentAlignment.MiddleRight;
             btnModificarCitas.UseVisualStyleBackColor = false;
+            btnModificarCitas.Click += btnModificarCitas_Click;
             // 
             // btnLimpiarCitas
             // 
@@ -281,6 +287,7 @@
             btnLimpiarCitas.Text = "Limpiar";
             btnLimpiarCitas.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiarCitas.UseVisualStyleBackColor = false;
+            btnLimpiarCitas.Click += btnLimpiarCitas_Click;
             // 
             // citasBindingSource
             // 

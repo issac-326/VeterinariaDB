@@ -198,10 +198,10 @@
             button1.ForeColor = SystemColors.ActiveCaptionText;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(871, 574);
+            button1.Location = new Point(931, 567);
             button1.Name = "button1";
             button1.Padding = new Padding(10, 10, 25, 10);
-            button1.Size = new Size(138, 50);
+            button1.Size = new Size(138, 57);
             button1.TabIndex = 6;
             button1.Text = "Salir";
             button1.TextAlign = ContentAlignment.MiddleRight;
@@ -215,10 +215,10 @@
             btnEliminarCitas.ForeColor = SystemColors.ActiveCaptionText;
             btnEliminarCitas.Image = (Image)resources.GetObject("btnEliminarCitas.Image");
             btnEliminarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarCitas.Location = new Point(467, 574);
+            btnEliminarCitas.Location = new Point(490, 567);
             btnEliminarCitas.Name = "btnEliminarCitas";
             btnEliminarCitas.Padding = new Padding(10, 10, 25, 10);
-            btnEliminarCitas.Size = new Size(176, 50);
+            btnEliminarCitas.Size = new Size(176, 57);
             btnEliminarCitas.TabIndex = 7;
             btnEliminarCitas.Text = "Eliminar";
             btnEliminarCitas.TextAlign = ContentAlignment.MiddleRight;
@@ -232,10 +232,10 @@
             btnAgregarCitas.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregarCitas.Image = (Image)resources.GetObject("btnAgregarCitas.Image");
             btnAgregarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarCitas.Location = new Point(46, 574);
+            btnAgregarCitas.Location = new Point(33, 567);
             btnAgregarCitas.Name = "btnAgregarCitas";
             btnAgregarCitas.Padding = new Padding(10, 10, 25, 10);
-            btnAgregarCitas.Size = new Size(176, 50);
+            btnAgregarCitas.Size = new Size(176, 57);
             btnAgregarCitas.TabIndex = 8;
             btnAgregarCitas.Text = "Agregar";
             btnAgregarCitas.TextAlign = ContentAlignment.MiddleRight;
@@ -244,15 +244,15 @@
             // btnModificarCitas
             // 
             btnModificarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnModificarCitas.BackColor = Color.FromArgb(0, 192, 192);
+            btnModificarCitas.BackColor = Color.FromArgb(255, 128, 0);
             btnModificarCitas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnModificarCitas.ForeColor = SystemColors.ActiveCaptionText;
             btnModificarCitas.Image = (Image)resources.GetObject("btnModificarCitas.Image");
             btnModificarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificarCitas.Location = new Point(268, 574);
+            btnModificarCitas.Location = new Point(261, 567);
             btnModificarCitas.Name = "btnModificarCitas";
             btnModificarCitas.Padding = new Padding(10, 10, 25, 10);
-            btnModificarCitas.Size = new Size(176, 50);
+            btnModificarCitas.Size = new Size(176, 57);
             btnModificarCitas.TabIndex = 9;
             btnModificarCitas.Text = "Modificar";
             btnModificarCitas.TextAlign = ContentAlignment.MiddleRight;
@@ -266,10 +266,10 @@
             btnLimpiarCitas.ForeColor = SystemColors.ActiveCaptionText;
             btnLimpiarCitas.Image = (Image)resources.GetObject("btnLimpiarCitas.Image");
             btnLimpiarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiarCitas.Location = new Point(664, 574);
+            btnLimpiarCitas.Location = new Point(708, 567);
             btnLimpiarCitas.Name = "btnLimpiarCitas";
             btnLimpiarCitas.Padding = new Padding(10, 10, 25, 10);
-            btnLimpiarCitas.Size = new Size(176, 50);
+            btnLimpiarCitas.Size = new Size(176, 57);
             btnLimpiarCitas.TabIndex = 10;
             btnLimpiarCitas.Text = "Limpiar";
             btnLimpiarCitas.TextAlign = ContentAlignment.MiddleRight;

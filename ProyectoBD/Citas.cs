@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace ProyectoBD
 {
 
-    public partial class Citas : Form
+    public partial class Citas : Form 
     {
         String tabla1 = "Citas";
         String tabla2 = "Estados_Citas";
@@ -28,7 +28,7 @@ namespace ProyectoBD
             CargarDatos();
 
             //Contador para que al hacer clic en el datGridView se muestren los datos en los TextBox.
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellMouseClick += dataGridView1_CellMouseClick;
         }
 
         ///Estados de las citas
@@ -235,8 +235,6 @@ namespace ProyectoBD
             return idEmpleado;
         }
 
-<<<<<<< Updated upstream
-=======
         //Codigo Empleado para traer el Id de la citas y luego utilizarlo para actualizar los Estados_Citas
         private int ObtenerIdCitaPorNombreEmpleado(string nombreEmpleado)
         {
@@ -278,7 +276,6 @@ namespace ProyectoBD
             return idCitaE;
         }
 
->>>>>>> Stashed changes
         private void Citas_Load(object sender, EventArgs e)
         {
 
@@ -324,64 +321,109 @@ namespace ProyectoBD
             objetoCrud1.guardarCitas(tabla1, cadenaC);
 
 
-            // Ahora, obtén el ID de la cita recién insertada
+            // Ahora, obtén el ID de la cita recién insertada para luego insertar en la tabla Estados_Citas.
             int idCita = objetoCrud1.ObtenerIdCitaReciente();
 
             // Luego, inserta en la tabla citas_estados
             if (idCita != -1)
             {
 
-                DateTime fechaSeleccionada1 = txtFechaInicio.Value;
-                DateTime fechaSeleccionada2 = txtFechaFin.Value;
-                // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
-                string fechaFormateada1 = fechaSeleccionada1.ToString("yyyy-MM-dd");
-                string fechaFormateada2 = fechaSeleccionada2.ToString("yyyy-MM-dd");
-
                 // Insertar los datos en la tabla Citas_Estados
-                String cadenaE = $"'{fechaFormateada1}','{fechaFormateada}', {idCita}, {idTipoEstado}";
+                String cadenaE = $"'{txtFechaInicio.Text}','{txtFechaFinal.Text}', {idCita}, {idTipoEstado}";
                 objetoCrud1.guardarCitas(tabla2, cadenaE);
             }
+
+            //Refrescar en el DataGreedView.
+            CargarDatos();
 
 
         }
 
-        private void Limpiar()
+
+        private void btnLimpiarCitas_Click(object sender, EventArgs e)
         {
             //Para limpiar los ComboBox
+            txtFechaCita.Text = "";
+            txtFechaInicio.Text = "";
+            txtFechaFinal.Text = "";
             selEmpleadoCitas.Text = "";
             selEstadoCitas.Text = "";
             selMascotaCita.Text = "";
         }
 
-        private void btnLimpiarCitas_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
         private void btnModificarCitas_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Obtener el código desde la fila seleccionada
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                int idCodigo = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+
+                // Resto del código de tu lógica de modificación
+                int idCitaE = 1;
+                int idTipoEstado = -1;
+                int idEmpleado = 1;
+                int idMascota = 1;
+                CrudCitas objetoCrud1 = new Class.CrudCitas();
+
+                if (selEstadoCitas.SelectedItem != null)
+                {
+                    idTipoEstado = ObtenerIdTipoEstado(selEstadoCitas.SelectedItem.ToString());
+                }
+
+                if (selMascotaCita.SelectedItem != null)
+                {
+                    idMascota = ObtenerIdMascotas(selMascotaCita.SelectedItem.ToString());
+                }
+
+                if (selEmpleadoCitas.SelectedItem != null)
+                {
+                    idEmpleado = ObtenerIdEmpleado(selEmpleadoCitas.SelectedItem.ToString());
+                }
+                if (selEmpleadoCitas.SelectedItem != null)
+                {
+                    idCitaE = ObtenerIdCitaPorNombreEmpleado(selEmpleadoCitas.SelectedItem.ToString());
+                }
+
+                DateTime fechaSeleccionada = txtFechaCita.Value;
+                // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
+                string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
+
+                // Modificar en la tabla Citas
+                String cadenaC = $"Fecha = '{fechaFormateada}', Id_Empleado = {idEmpleado}, Id_Mascota = {idMascota}";
+                objetoCrud1.editarCitas("Citas", cadenaC, idCitaE);
+
+                // Modificar en la tabla Estados de las Citas
+                String cadenaE = $" FechaInicio= '{txtFechaInicio.Text}',FechaFinal= '{txtFechaFinal.Text}', Id_Cita = {idCitaE}, Id_Tipo_Estado= {idTipoEstado}";
+                objetoCrud1.editarCitas("Estados_Citas", cadenaE, idCodigo);
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila antes de intentar modificar.");
+            }
+
+            //Refrescar en el DataGreedView.
+            CargarDatos();
 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
             //Para que se muestren los datos en los TextBox
-            selEmpleadoCitas.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            txtFechaCita.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value).ToString();
-            selMascotaCita.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            selEstadoCitas.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            txtFechaInicio.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value).ToString();
-            txtFechaFin.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[6].Value).ToString();
-        }
-
-        private void txtFechaCita_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+                selEmpleadoCitas.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                txtFechaCita.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value).ToString();
+                selMascotaCita.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                selEstadoCitas.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                txtFechaInicio.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                txtFechaFinal.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
         }
     }
 }
+

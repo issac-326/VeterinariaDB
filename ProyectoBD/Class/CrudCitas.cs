@@ -127,19 +127,14 @@ namespace ProyectoBD.Class
             try
             {
                 String query = "UPDATE " + tabla + " set " + cadena + " WHERE Id = " + id + ";";
-
                 SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
                 SqlDataReader myReader;
-
                 myReader = comando.ExecuteReader();
-
                 while (myReader.Read())
                 {
-
                 }
-                MessageBox.Show("Se modifico la cita");
+                MessageBox.Show("Se modifico la cita" + query +"");
                 objectConexion.cerrarConexion();
-
             }
             catch (Exception e)
             {

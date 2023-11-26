@@ -128,7 +128,6 @@
             // txtFechaCita
             // 
             txtFechaCita.CustomFormat = "";
-            txtFechaCita.Enabled = false;
             txtFechaCita.Location = new Point(154, 161);
             txtFechaCita.Name = "txtFechaCita";
             txtFechaCita.Size = new Size(269, 28);

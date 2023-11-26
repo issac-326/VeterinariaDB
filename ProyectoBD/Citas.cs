@@ -18,7 +18,6 @@ namespace ProyectoBD
     {
         String tabla1 = "Citas";
         String tabla2 = "Estados_Citas";
-        int codigo = 0;
 
         public Citas()
         {
@@ -29,7 +28,7 @@ namespace ProyectoBD
             CargarDatos();
 
             //Contador para que al hacer clic en el datGridView se muestren los datos en los TextBox.
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellMouseClick += dataGridView1_CellMouseClick;
         }
 
         ///Estados de las citas
@@ -236,6 +235,46 @@ namespace ProyectoBD
             return idEmpleado;
         }
 
+        private int ObtenerIdCitaPorNombreEmpleado(string nombreEmpleado)
+        {
+            int idCitaE = -1;
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+
+            try
+            {
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Utilizamos JOIN para relacionar las tablas Empleados y Citas
+                    string query = "SELECT Citas.Id " +
+                                   "FROM Citas " +
+                                   "INNER JOIN Empleados ON Citas.Id_Empleado = Empleados.Id " +
+                                   "INNER JOIN Personas ON Empleados.Id_Persona = Personas.Id " +
+                                   "WHERE Personas.Primer_Nombre = '" + nombreEmpleado + "';";
+
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read()) // Verificar si hay datos antes de intentar leer
+                            {
+                                // Obtener el valor del ID
+                                idCitaE = Convert.ToInt32(reader["Id"]);
+                            }
+                        }
+                    }
+                }
+
+                objectConexion.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el ID de la Cita por nombre de Empleado: " + ex.Message);
+            }
+
+            return idCitaE;
+        }
+
         private void Citas_Load(object sender, EventArgs e)
         {
 
@@ -313,36 +352,55 @@ namespace ProyectoBD
 
         private void btnModificarCitas_Click(object sender, EventArgs e)
         {
-            int idTipoEstado = -1;
-            int idEmpleado = 1;
-            int idMascota = 1;
-            CrudCitas objetoCrud1 = new Class.CrudCitas();
-            if (selEstadoCitas.SelectedItem != null)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                idTipoEstado = ObtenerIdTipoEstado(selEstadoCitas.SelectedItem.ToString());
+                // Obtener el código desde la fila seleccionada
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                int idCodigo = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+
+                // Resto del código de tu lógica de modificación
+                int idCitaE = 1;
+                int idTipoEstado = -1;
+                int idEmpleado = 1;
+                int idMascota = 1;
+                CrudCitas objetoCrud1 = new Class.CrudCitas();
+
+                if (selEstadoCitas.SelectedItem != null)
+                {
+                    idTipoEstado = ObtenerIdTipoEstado(selEstadoCitas.SelectedItem.ToString());
+                }
+
+                if (selMascotaCita.SelectedItem != null)
+                {
+                    idMascota = ObtenerIdMascotas(selMascotaCita.SelectedItem.ToString());
+                }
+
+                if (selEmpleadoCitas.SelectedItem != null)
+                {
+                    idEmpleado = ObtenerIdEmpleado(selEmpleadoCitas.SelectedItem.ToString());
+                }
+                if (selEmpleadoCitas.SelectedItem != null)
+                {
+                    idCitaE = ObtenerIdCitaPorNombreEmpleado(selEmpleadoCitas.SelectedItem.ToString());
+                }
+
+                DateTime fechaSeleccionada = txtFechaCita.Value;
+                // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
+                string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
+
+                // Modificar en la tabla Citas
+                String cadenaC = $"Fecha = '{fechaFormateada}', Id_Empleado = {idEmpleado}, Id_Mascota = {idMascota}";
+                objetoCrud1.editarCitas("Citas", cadenaC, idCitaE);
+
+                // Modificar en la tabla Estados de las Citas
+                String cadenaE = $" FechaInicio= '{txtFechaInicio.Text}',FechaFinal= '{txtFechaFinal.Text}', Id_Cita = {idCitaE}, Id_Tipo_Estado= {idTipoEstado}";
+                objetoCrud1.editarCitas("Estados_Citas", cadenaE, idCodigo);
+
             }
-            if (selMascotaCita.SelectedItem != null)
+            else
             {
-                idMascota = ObtenerIdMascotas(selMascotaCita.SelectedItem.ToString());
+                MessageBox.Show("Seleccione una fila antes de intentar modificar.");
             }
-            if (selEmpleadoCitas.SelectedItem != null)
-            {
-                idEmpleado = ObtenerIdEmpleado(selEmpleadoCitas.SelectedItem.ToString());
-            }
-
-            DateTime fechaSeleccionada = txtFechaCita.Value;
-
-            // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
-            string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
-
-            //Modificar en la tabla Citas
-            String cadenaC = $" Fecha= '{fechaFormateada}',Id_Empleado= {idEmpleado}, Id_Mascota= {idMascota}";
-            objetoCrud1.editarCitas("Citas", cadenaC, codigo);
-
-
-            //Modificar en la tabla Estados de las Citas
-            String cadenaE = $" FechaInicio= '{txtFechaInicio.Text}',FechaFinal= '{txtFechaFinal.Text}',Id_Cita = {codigo}, Id_Tipo_Estado= {idTipoEstado}";
-            objetoCrud1.editarCitas("Estados_Citas", cadenaE, codigo);
 
             //Refrescar en el DataGreedView.
             CargarDatos();
@@ -357,16 +415,14 @@ namespace ProyectoBD
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-                //Para que se muestren los datos en los TextBox
-                object valorCelda = dataGridView1.CurrentRow.Cells[0].Value;
-                codigo = Convert.ToInt32(valorCelda);
+            //Para que se muestren los datos en los TextBox
                 selEmpleadoCitas.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 txtFechaCita.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value).ToString();
                 selMascotaCita.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
                 selEstadoCitas.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                 txtFechaInicio.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                 txtFechaFinal.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-               
+        }
     }
 }
-}
+

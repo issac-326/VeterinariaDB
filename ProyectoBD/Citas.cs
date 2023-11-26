@@ -235,6 +235,50 @@ namespace ProyectoBD
             return idEmpleado;
         }
 
+<<<<<<< Updated upstream
+=======
+        //Codigo Empleado para traer el Id de la citas y luego utilizarlo para actualizar los Estados_Citas
+        private int ObtenerIdCitaPorNombreEmpleado(string nombreEmpleado)
+        {
+            int idCitaE = -1;
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+
+            try
+            {
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Utilizamos JOIN para relacionar las tablas Empleados y Citas
+                    string query = "SELECT Citas.Id " +
+                                   "FROM Citas " +
+                                   "INNER JOIN Empleados ON Citas.Id_Empleado = Empleados.Id " +
+                                   "INNER JOIN Personas ON Empleados.Id_Persona = Personas.Id " +
+                                   "WHERE Personas.Primer_Nombre = '" + nombreEmpleado + "';";
+
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read()) // Verificar si hay datos antes de intentar leer
+                            {
+                                // Obtener el valor del ID
+                                idCitaE = Convert.ToInt32(reader["Id"]);
+                            }
+                        }
+                    }
+                }
+
+                objectConexion.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el ID de la Cita por nombre de Empleado: " + ex.Message);
+            }
+
+            return idCitaE;
+        }
+
+>>>>>>> Stashed changes
         private void Citas_Load(object sender, EventArgs e)
         {
 

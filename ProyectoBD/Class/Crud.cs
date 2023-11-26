@@ -103,7 +103,7 @@ namespace ProyectoBD.Class
                 {
 
                 }
-                MessageBox.Show("Se modifico alumno");
+                MessageBox.Show("Se modifico "+ tabla + " con codigo " + id);
                 objectConexion.cerrarConexion();
 
             }

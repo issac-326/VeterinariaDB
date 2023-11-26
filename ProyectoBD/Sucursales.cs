@@ -50,6 +50,7 @@ namespace ProyectoBD
                 txtEstado.Text = filaSeleccionada.Cells["Estado"].Value.ToString();
                 txtGerente.Text = filaSeleccionada.Cells["Gerente"].Value.ToString();
                 txtFarmacia.Text = filaSeleccionada.Cells["Farmacia"].Value.ToString();
+                txtId.Text = filaSeleccionada.Cells["Id"].Value.ToString();
             }
 
         }
@@ -59,7 +60,7 @@ namespace ProyectoBD
         {
             Crud crud = new Crud();
 
-            string instruccion = "SELECT s.Codigo, s.Nombre, s.Correo, d.Id AS Direccion, es.Nombre AS Estado, \r\nf.Id AS Farmacia, em.Id AS Gerente FROM Sucursales s \r\nINNER JOIN Empresas e ON s.Id_Empresa = e.Id\r\nINNER JOIN Direcciones d ON s.Id_Direccion = d.Id\r\nINNER JOIN Estados_Sucursal es ON s.Id_Estado = es.Id\r\nINNER JOIN Farmacias f ON s.Id_Farmacia = f.Id\r\nINNER JOIN Empleados em ON  s.Id_Gerente = em.Id;\r\n";
+            string instruccion = "SELECT s.Id, s.Codigo, s.Nombre, s.Correo, d.Referencia AS Direccion, es.Nombre AS Estado, \r\nf.Id AS Farmacia, em.Id AS Gerente FROM Sucursales s \r\nINNER JOIN Empresas e ON s.Id_Empresa = e.Id\r\nINNER JOIN Direcciones d ON s.Id_Direccion = d.Id\r\nINNER JOIN Estados_Sucursal es ON s.Id_Estado = es.Id\r\nINNER JOIN Farmacias f ON s.Id_Farmacia = f.Id\r\nINNER JOIN Empleados em ON  s.Id_Gerente = em.Id;\r\n";
 
             crud.mostrarData(dataGridView2, instruccion);
 
@@ -179,7 +180,7 @@ namespace ProyectoBD
                 {
 
 
-                    string query = "SELECT p.Primer_Nombre, p.Primer_Apellido, p.DNI FROM Empleados e\r\nINNER JOIN Personas p ON e.Id_Persona = p.Id;";
+                    string query = "SELECT e.Id, p.Primer_Nombre, p.Primer_Apellido, p.DNI FROM Empleados e\r\nINNER JOIN Personas p ON e.Id_Persona = p.Id;";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
@@ -190,7 +191,7 @@ namespace ProyectoBD
                             while (reader.Read())
                             {
                                 // Concatenar Primer_Nombre, Segundo_Nombre y DNI
-                                string infoEmpleado = $"{reader["Primer_Nombre"]} {reader["Primer_Apellido"]} - {reader["DNI"]}";
+                                string infoEmpleado = $"{reader["Id"]} {reader["Primer_Nombre"]} {reader["Primer_Apellido"]} - {reader["DNI"]}";
 
 
                                 txtGerente.Items.Add($"{infoEmpleado}");
@@ -291,7 +292,7 @@ namespace ProyectoBD
                 // Establecer la conexión a la base de datos
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
-                     
+
                     string query = "SELECT e.Id FROM Empleados e INNER JOIN Personas p ON e.Id_Persona = p.Id WHERE p.DNI LIKE '" + DNI + "'; ";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
@@ -320,7 +321,7 @@ namespace ProyectoBD
             string[] partes = selectedItem.Split(' ');
             if (partes.Length > 0)
             {
-                return partes[3];
+                return partes[4];
             }
             else
             {
@@ -407,6 +408,48 @@ namespace ProyectoBD
 
             farmacias.Show();
             this.Hide();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+            int idDireccion = 0;
+            int idEstado = 0;
+            int idEmpleado = 0;
+            int idFarmacia = Convert.ToInt32(txtFarmacia.Text);
+            int idSucursal = Convert.ToInt32(txtId.Text);
+
+
+            Class.Crud objetoCrud = new Class.Crud();
+
+            try
+            {
+                   string referencia = ObtenerRefrencia(txtDireccion.SelectedItem.ToString());
+                string dni = ObtenerDNI(txtGerente.SelectedItem.ToString());
+
+                if (txtDireccion.SelectedItem != null)
+                {
+                    idDireccion = ObtenerIdDireccion(referencia);
+                }
+                if (txtEstado.SelectedItem != null)
+                {
+                    idEstado = ObtenerIdEstado(txtEstado.SelectedItem.ToString());
+                }
+                if (txtGerente.SelectedItem != null)
+                {
+                    idEmpleado = ObtenerIdEmpleado(dni); ;
+                }
+                String cadena = $"Codigo = '{txtCodigo.Text}', Nombre = '{txtNombre.Text}', Correo = '{txtCorreo.Text}', Id_Empresa = '{1}', Id_Direccion = {idDireccion}, Id_Estado = {idEstado}, Id_Farmacia = '{idFarmacia}', Id_Gerente = {idEmpleado}";
+
+                objetoCrud.editar(tabla, cadena, idSucursal);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            CargarDatos();
         }
     }
 }

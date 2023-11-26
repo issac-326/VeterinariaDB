@@ -34,6 +34,8 @@
             btnModificar = new Button();
             btnSalir = new Button();
             groupBox1 = new GroupBox();
+            txtId = new TextBox();
+            label9 = new Label();
             btnDireccion = new Button();
             btnFarmacia = new Button();
             txtFarmacia = new ComboBox();
@@ -103,6 +105,7 @@
             btnModificar.Text = "Modificar";
             btnModificar.TextAlign = ContentAlignment.MiddleRight;
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnSalir
             // 
@@ -125,6 +128,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtId);
+            groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(btnDireccion);
             groupBox1.Controls.Add(btnFarmacia);
             groupBox1.Controls.Add(txtFarmacia);
@@ -149,6 +154,23 @@
             groupBox1.TabIndex = 21;
             groupBox1.TabStop = false;
             groupBox1.Text = "Formulario";
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(599, 186);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(120, 26);
+            txtId.TabIndex = 28;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(461, 189);
+            label9.Name = "label9";
+            label9.Size = new Size(132, 18);
+            label9.TabIndex = 27;
+            label9.Text = "IdSeleccionado";
             // 
             // btnDireccion
             // 
@@ -200,9 +222,9 @@
             label7.AutoSize = true;
             label7.Location = new Point(381, 27);
             label7.Name = "label7";
-            label7.Size = new Size(79, 18);
+            label7.Size = new Size(83, 18);
             label7.TabIndex = 16;
-            label7.Text = "Farnacia";
+            label7.Text = "Farmacia";
             // 
             // txtGerente
             // 
@@ -387,5 +409,7 @@
         private ComboBox txtFarmacia;
         private Button btnFarmacia;
         private Button btnDireccion;
+        private TextBox txtId;
+        private Label label9;
     }
 }

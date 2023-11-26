@@ -55,12 +55,12 @@
             selGenero = new ComboBox();
             txtEsterilizacion = new CheckBox();
             panel2 = new Panel();
+            label13 = new Label();
             label1 = new Label();
             btnAgregar = new Button();
             btnModificar = new Button();
             btnLimpiar = new Button();
             btnSalir = new Button();
-            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)mostradorMascotas).BeginInit();
             groupBox2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -75,6 +75,7 @@
             mostradorMascotas.RowTemplate.Height = 25;
             mostradorMascotas.Size = new Size(814, 166);
             mostradorMascotas.TabIndex = 19;
+            mostradorMascotas.CellContentClick += mostradorMascotas_CellContentClick;
             mostradorMascotas.CellMouseClick += mostradorMascotas_CellMouseClick;
             mostradorMascotas.CellMouseDoubleClick += mostradorMascotas_CellMouseDoubleClick;
             mostradorMascotas.MouseDoubleClick += mostradorMascotas_MouseDoubleClick;
@@ -281,6 +282,7 @@
             txtFecha.Name = "txtFecha";
             txtFecha.Size = new Size(233, 26);
             txtFecha.TabIndex = 22;
+            txtFecha.ValueChanged += txtFecha_ValueChanged;
             // 
             // txtAgresivo
             // 
@@ -336,6 +338,21 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(867, 52);
             panel2.TabIndex = 17;
+            // 
+            // label13
+            // 
+            label13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label13.AutoSize = true;
+            label13.BackColor = SystemColors.GradientActiveCaption;
+            label13.FlatStyle = FlatStyle.Popup;
+            label13.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.ForeColor = Color.Navy;
+            label13.ImageAlign = ContentAlignment.TopCenter;
+            label13.Location = new Point(272, 21);
+            label13.Name = "label13";
+            label13.Size = new Size(344, 22);
+            label13.TabIndex = 2;
+            label13.Text = "Gestión de expedientes de Mascotas";
             // 
             // label1
             // 
@@ -425,21 +442,7 @@
             btnSalir.Text = "Volver";
             btnSalir.TextAlign = ContentAlignment.MiddleRight;
             btnSalir.UseVisualStyleBackColor = false;
-            // 
-            // label13
-            // 
-            label13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label13.AutoSize = true;
-            label13.BackColor = SystemColors.GradientActiveCaption;
-            label13.FlatStyle = FlatStyle.Popup;
-            label13.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.ForeColor = Color.Navy;
-            label13.ImageAlign = ContentAlignment.TopCenter;
-            label13.Location = new Point(272, 21);
-            label13.Name = "label13";
-            label13.Size = new Size(344, 22);
-            label13.TabIndex = 2;
-            label13.Text = "Gestión de expedientes de Mascotas";
+            btnSalir.Click += btnSalir_Click;
             // 
             // GestionMascotas
             // 

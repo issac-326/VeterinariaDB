@@ -319,5 +319,21 @@ namespace ProyectoBD
             return id;
         }
 
+        private void mostradorResponsables_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Nombre_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

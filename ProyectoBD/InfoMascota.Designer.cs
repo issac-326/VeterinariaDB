@@ -62,6 +62,7 @@
             mostradorResponsables.RowTemplate.Height = 25;
             mostradorResponsables.Size = new Size(349, 166);
             mostradorResponsables.TabIndex = 0;
+            mostradorResponsables.CellContentClick += mostradorResponsables_CellContentClick;
             // 
             // mostradorVacunas
             // 
@@ -91,6 +92,7 @@
             Nombre.Size = new Size(121, 18);
             Nombre.TabIndex = 3;
             Nombre.Text = "Responsables";
+            Nombre.Click += Nombre_Click;
             // 
             // label1
             // 
@@ -110,6 +112,7 @@
             txtDni.Name = "txtDni";
             txtDni.Size = new Size(135, 23);
             txtDni.TabIndex = 15;
+            txtDni.TextChanged += txtDni_TextChanged;
             // 
             // btnAgregar
             // 
@@ -192,6 +195,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(0, 23);
             txtNombre.TabIndex = 27;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // label4
             // 

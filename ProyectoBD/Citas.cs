@@ -316,7 +316,7 @@ namespace ProyectoBD
 
         private void btnModificarCitas_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -328,6 +328,16 @@ namespace ProyectoBD
             selEstadoCitas.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             txtFechaInicio.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value).ToString();
             txtFechaFin.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[6].Value).ToString();
+        }
+
+        private void txtFechaCita_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

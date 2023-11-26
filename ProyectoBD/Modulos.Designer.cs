@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Modulos));
             MÓDULOS = new Panel();
+            button9 = new Button();
             button4 = new Button();
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -41,7 +42,6 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            button9 = new Button();
             MÓDULOS.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -57,6 +57,17 @@
             MÓDULOS.Size = new Size(841, 567);
             MÓDULOS.TabIndex = 2;
             MÓDULOS.Paint += panel2_Paint;
+            // 
+            // button9
+            // 
+            button9.BackColor = SystemColors.ControlLightLight;
+            button9.Image = Properties.Resources.salida;
+            button9.Location = new Point(754, 12);
+            button9.Name = "button9";
+            button9.Size = new Size(75, 23);
+            button9.TabIndex = 2;
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
             // 
             // button4
             // 
@@ -144,6 +155,7 @@
             button7.TextAlign = ContentAlignment.BottomCenter;
             button7.TextImageRelation = TextImageRelation.ImageAboveText;
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button5
             // 
@@ -162,6 +174,7 @@
             button5.Text = "Recursos Humanos";
             button5.TextImageRelation = TextImageRelation.ImageAboveText;
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button8
             // 
@@ -254,17 +267,6 @@
             button1.TextAlign = ContentAlignment.BottomCenter;
             button1.TextImageRelation = TextImageRelation.ImageAboveText;
             button1.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            button9.BackColor = SystemColors.ControlLightLight;
-            button9.Image = Properties.Resources.salida;
-            button9.Location = new Point(754, 12);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 23);
-            button9.TabIndex = 2;
-            button9.UseVisualStyleBackColor = false;
-            button9.Click += button9_Click;
             // 
             // Modulos
             // 

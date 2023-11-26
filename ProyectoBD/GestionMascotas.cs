@@ -523,6 +523,7 @@ namespace ProyectoBD
             {
                 idEstado = ObtenerIdEstado(selEstado.SelectedItem.ToString());
             }
+
             DateTime fechaSeleccionada = txtFecha.Value;
 
             // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
@@ -608,7 +609,7 @@ namespace ProyectoBD
             objetoCrud.editar("Mascotas", cadena, codigo);
             String instruccion = "SELECT Mascotas.Id, Mascotas.Nombre,  Mascotas.Carac_Distintiva, Mascotas.Fecha_Nacimiento, Mascotas.Esterilizacion, Mascotas.Agresivo, Mascotas.Peso, Mascotas.Tamanio, Especies.Nombre AS Especie, Razas.Nombre AS Raza, Generos.Nombre AS Genero, Estados.Nombre AS Estado FROM  Mascotas JOIN Especies ON Mascotas.Id_Especie = Especies.Id JOIN Razas ON Mascotas.Id_Raza = Razas.Id JOIN Generos ON Mascotas.Id_Genero = Generos.Id JOIN Estados ON Mascotas.Id_Estado = Estados.Id;";
             objetoCrud.mostrarData(mostradorMascotas, instruccion);
-            
+
             codigo = 0;
             txtNombre.Text = "";
             txtCaracteristicas.Text = "";
@@ -623,7 +624,7 @@ namespace ProyectoBD
             selGenero.SelectedIndex = -1;
             selEstado.SelectedIndex = -1;
         }
-   
+
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -640,6 +641,23 @@ namespace ProyectoBD
             selRaza.SelectedIndex = -1;
             selGenero.SelectedIndex = -1;
             selEstado.SelectedIndex = -1;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            SubmodulosAtencionCliente submodulosAtencionCliente = new SubmodulosAtencionCliente();
+            submodulosAtencionCliente.Show();
+            this.Hide();
+        }
+
+        private void mostradorMascotas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtFecha_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

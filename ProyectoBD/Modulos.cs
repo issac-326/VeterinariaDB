@@ -88,8 +88,16 @@ namespace ProyectoBD
 
         private void button5_Click(object sender, EventArgs e)
         {
-            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH();   
+            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH();
             submodulosRRHH.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Sucursales sucursales = new Sucursales();
+
+            sucursales.Show();
             this.Hide();
         }
     }

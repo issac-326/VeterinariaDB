@@ -422,7 +422,7 @@ namespace ProyectoBD
                 int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
 
                 // Crear e mostrar el nuevo formulario pasando el ID
-                InfoMascota nuevoFormulario = new InfoMascota(idSeleccionado);
+                ControlMascota nuevoFormulario = new ControlMascota(idSeleccionado);
                 nuevoFormulario.Show();
                 this.Hide();
             }

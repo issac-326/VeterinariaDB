@@ -39,31 +39,27 @@
             mostradorMascotas = new DataGridView();
             groupBox2 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
-            label2 = new Label();
-            txtCaracteristicas = new TextBox();
             txtPeso = new TextBox();
             Nombre = new Label();
             label3 = new Label();
-            label5 = new Label();
-            label7 = new Label();
-            txtNombre = new TextBox();
             label6 = new Label();
             label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
             label4 = new Label();
             label11 = new Label();
             txtTamano = new TextBox();
-            selEstado = new ComboBox();
-            txtFecha = new DateTimePicker();
-            txtAgresivo = new CheckBox();
             selEspecie = new ComboBox();
             selRaza = new ComboBox();
-            selGenero = new ComboBox();
-            txtEsterilizacion = new CheckBox();
+            txtNombre = new TextBox();
+            txtFecha = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
+            label5 = new Label();
+            label7 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
             panel1 = new Panel();
             label12 = new Label();
             label14 = new Label();
+            label9 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mostradorMascotas).BeginInit();
             groupBox2.SuspendLayout();
@@ -215,28 +211,24 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.4130707F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.8013229F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.97350979F));
-            tableLayoutPanel2.Controls.Add(label2, 0, 5);
-            tableLayoutPanel2.Controls.Add(txtCaracteristicas, 1, 1);
             tableLayoutPanel2.Controls.Add(txtPeso, 4, 0);
             tableLayoutPanel2.Controls.Add(Nombre, 0, 0);
             tableLayoutPanel2.Controls.Add(label3, 0, 1);
-            tableLayoutPanel2.Controls.Add(label5, 0, 3);
-            tableLayoutPanel2.Controls.Add(label7, 0, 4);
-            tableLayoutPanel2.Controls.Add(txtNombre, 1, 0);
             tableLayoutPanel2.Controls.Add(label6, 3, 0);
             tableLayoutPanel2.Controls.Add(label10, 3, 2);
             tableLayoutPanel2.Controls.Add(label9, 3, 3);
-            tableLayoutPanel2.Controls.Add(label8, 3, 4);
             tableLayoutPanel2.Controls.Add(label4, 0, 2);
             tableLayoutPanel2.Controls.Add(label11, 3, 1);
             tableLayoutPanel2.Controls.Add(txtTamano, 4, 1);
-            tableLayoutPanel2.Controls.Add(selEstado, 1, 5);
-            tableLayoutPanel2.Controls.Add(txtFecha, 1, 2);
-            tableLayoutPanel2.Controls.Add(txtAgresivo, 1, 4);
             tableLayoutPanel2.Controls.Add(selEspecie, 4, 2);
             tableLayoutPanel2.Controls.Add(selRaza, 4, 3);
-            tableLayoutPanel2.Controls.Add(selGenero, 4, 4);
-            tableLayoutPanel2.Controls.Add(txtEsterilizacion, 1, 3);
+            tableLayoutPanel2.Controls.Add(txtNombre, 1, 2);
+            tableLayoutPanel2.Controls.Add(txtFecha, 1, 0);
+            tableLayoutPanel2.Controls.Add(dateTimePicker1, 1, 1);
+            tableLayoutPanel2.Controls.Add(label5, 0, 4);
+            tableLayoutPanel2.Controls.Add(label7, 0, 3);
+            tableLayoutPanel2.Controls.Add(textBox1, 1, 3);
+            tableLayoutPanel2.Controls.Add(textBox2, 1, 4);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.ImeMode = ImeMode.KatakanaHalf;
             tableLayoutPanel2.Location = new Point(3, 22);
@@ -250,22 +242,6 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
             tableLayoutPanel2.Size = new Size(811, 209);
             tableLayoutPanel2.TabIndex = 4;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 175);
-            label2.Name = "label2";
-            label2.Size = new Size(64, 18);
-            label2.TabIndex = 20;
-            label2.Text = "Estado";
-            // 
-            // txtCaracteristicas
-            // 
-            txtCaracteristicas.Location = new Point(137, 38);
-            txtCaracteristicas.Name = "txtCaracteristicas";
-            txtCaracteristicas.Size = new Size(233, 26);
-            txtCaracteristicas.TabIndex = 14;
             // 
             // txtPeso
             // 
@@ -292,66 +268,23 @@
             label3.TabIndex = 1;
             label3.Text = "Hora";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(3, 105);
-            label5.Name = "label5";
-            label5.Size = new Size(40, 18);
-            label5.TabIndex = 3;
-            label5.Text = "Cita";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(3, 140);
-            label7.Name = "label7";
-            label7.Size = new Size(79, 18);
-            label7.TabIndex = 5;
-            label7.Text = "Agresivo";
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(137, 3);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(233, 26);
-            txtNombre.TabIndex = 10;
-            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Location = new Point(414, 0);
             label6.Name = "label6";
-            label6.Size = new Size(48, 18);
+            label6.Size = new Size(65, 18);
             label6.TabIndex = 4;
-            label6.Text = "Peso";
+            label6.Text = "Medico";
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Location = new Point(414, 70);
             label10.Name = "label10";
-            label10.Size = new Size(72, 18);
+            label10.Size = new Size(97, 18);
             label10.TabIndex = 8;
-            label10.Text = "Especie";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(414, 105);
-            label9.Name = "label9";
-            label9.Size = new Size(48, 18);
-            label9.TabIndex = 7;
-            label9.Text = "Raza";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(414, 140);
-            label8.Name = "label8";
-            label8.Size = new Size(68, 18);
-            label8.TabIndex = 6;
-            label8.Text = "Genero";
+            label10.Text = "Expediente";
             // 
             // label4
             // 
@@ -367,9 +300,9 @@
             label11.AutoSize = true;
             label11.Location = new Point(414, 35);
             label11.Name = "label11";
-            label11.Size = new Size(72, 18);
+            label11.Size = new Size(112, 18);
             label11.TabIndex = 9;
-            label11.Text = "Tamaño";
+            label11.Text = "Responsable";
             // 
             // txtTamano
             // 
@@ -377,32 +310,6 @@
             txtTamano.Name = "txtTamano";
             txtTamano.Size = new Size(233, 26);
             txtTamano.TabIndex = 13;
-            // 
-            // selEstado
-            // 
-            selEstado.FormattingEnabled = true;
-            selEstado.Location = new Point(137, 178);
-            selEstado.Name = "selEstado";
-            selEstado.Size = new Size(233, 26);
-            selEstado.TabIndex = 21;
-            // 
-            // txtFecha
-            // 
-            txtFecha.CustomFormat = "";
-            txtFecha.Location = new Point(137, 73);
-            txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(233, 26);
-            txtFecha.TabIndex = 22;
-            // 
-            // txtAgresivo
-            // 
-            txtAgresivo.AutoSize = true;
-            txtAgresivo.Location = new Point(137, 143);
-            txtAgresivo.Name = "txtAgresivo";
-            txtAgresivo.Size = new Size(70, 22);
-            txtAgresivo.TabIndex = 24;
-            txtAgresivo.Text = "Lo es";
-            txtAgresivo.UseVisualStyleBackColor = true;
             // 
             // selEspecie
             // 
@@ -420,23 +327,61 @@
             selRaza.Size = new Size(233, 26);
             selRaza.TabIndex = 26;
             // 
-            // selGenero
+            // txtNombre
             // 
-            selGenero.FormattingEnabled = true;
-            selGenero.Location = new Point(539, 143);
-            selGenero.Name = "selGenero";
-            selGenero.Size = new Size(233, 26);
-            selGenero.TabIndex = 27;
+            txtNombre.Location = new Point(137, 73);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(233, 26);
+            txtNombre.TabIndex = 10;
             // 
-            // txtEsterilizacion
+            // txtFecha
             // 
-            txtEsterilizacion.AutoSize = true;
-            txtEsterilizacion.Location = new Point(137, 108);
-            txtEsterilizacion.Name = "txtEsterilizacion";
-            txtEsterilizacion.Size = new Size(86, 22);
-            txtEsterilizacion.TabIndex = 28;
-            txtEsterilizacion.Text = "Lo está";
-            txtEsterilizacion.UseVisualStyleBackColor = true;
+            txtFecha.CustomFormat = "";
+            txtFecha.Location = new Point(137, 3);
+            txtFecha.Name = "txtFecha";
+            txtFecha.Size = new Size(233, 26);
+            txtFecha.TabIndex = 22;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CustomFormat = "";
+            dateTimePicker1.Format = DateTimePickerFormat.Time;
+            dateTimePicker1.Location = new Point(137, 38);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(233, 26);
+            dateTimePicker1.TabIndex = 29;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 140);
+            label5.Name = "label5";
+            label5.Size = new Size(40, 18);
+            label5.TabIndex = 3;
+            label5.Text = "Cita";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 105);
+            label7.Name = "label7";
+            label7.Size = new Size(103, 18);
+            label7.TabIndex = 5;
+            label7.Text = "Diagnostico";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(137, 108);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(233, 26);
+            textBox1.TabIndex = 30;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(137, 143);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(233, 26);
+            textBox2.TabIndex = 31;
             // 
             // panel1
             // 
@@ -477,6 +422,15 @@
             label14.Size = new Size(0, 22);
             label14.TabIndex = 0;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(414, 105);
+            label9.Name = "label9";
+            label9.Size = new Size(42, 18);
+            label9.TabIndex = 7;
+            label9.Text = "Tipo";
+            // 
             // RegistroConsulta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -514,8 +468,6 @@
         private DataGridView mostradorMascotas;
         private GroupBox groupBox2;
         private TableLayoutPanel tableLayoutPanel2;
-        private Label label2;
-        private TextBox txtCaracteristicas;
         private TextBox txtPeso;
         private Label Nombre;
         private Label label3;
@@ -524,20 +476,18 @@
         private TextBox txtNombre;
         private Label label6;
         private Label label10;
-        private Label label9;
-        private Label label8;
         private Label label4;
         private Label label11;
         private TextBox txtTamano;
-        private ComboBox selEstado;
         private DateTimePicker txtFecha;
-        private CheckBox txtAgresivo;
         private ComboBox selEspecie;
         private ComboBox selRaza;
-        private ComboBox selGenero;
-        private CheckBox txtEsterilizacion;
         private Panel panel1;
         private Label label12;
         private Label label14;
+        private DateTimePicker dateTimePicker1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Label label9;
     }
 }

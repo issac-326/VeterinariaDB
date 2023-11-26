@@ -10,19 +10,24 @@ using System.Windows.Forms;
 
 namespace ProyectoBD
 {
-    public partial class EstandarFormulario : Form
+    public partial class FormularioFactura : Form
     {
-        public EstandarFormulario()
+        public FormularioFactura()
         {
             InitializeComponent();
         }
 
-        private void btnModificarCitas_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnAgregarCitas_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -35,7 +35,34 @@ namespace ProyectoBD.Class
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al guardar el registro: " + e.ToString());
+                MessageBox.Show("Error al guardar el registro");
+            }
+        }
+
+        public void guardarSinNotificacion(String tabla, String cadena)
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+
+                String query = "Insert INTO " + tabla + " values (" + cadena + ");";
+
+                SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
+                SqlDataReader myReader;
+
+                myReader = comando.ExecuteReader();
+
+                while (myReader.Read())
+                {
+
+                }
+                MessageBox.Show("Siuuuuuu");
+                objectConexion.cerrarConexion();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al guardar el registro");
             }
         }
 
@@ -76,7 +103,7 @@ namespace ProyectoBD.Class
                 {
 
                 }
-                MessageBox.Show("Se modifico alumno");
+                MessageBox.Show("Se modifico "+ tabla + " con codigo " + id);
                 objectConexion.cerrarConexion();
 
             }
@@ -85,6 +112,7 @@ namespace ProyectoBD.Class
                 MessageBox.Show("error al modificar el registro: " + e.ToString());
             }
         }
+        
 
     }
 }

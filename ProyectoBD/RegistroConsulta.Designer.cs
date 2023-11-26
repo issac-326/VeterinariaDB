@@ -1,6 +1,6 @@
 ﻿namespace ProyectoBD
 {
-    partial class GestionMascotas
+    partial class RegistroConsulta
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionMascotas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroConsulta));
+            panel2 = new Panel();
+            label13 = new Label();
+            label1 = new Label();
+            btnSalir = new Button();
+            btnLimpiar = new Button();
+            btnModificar = new Button();
+            btnAgregar = new Button();
             mostradorMascotas = new DataGridView();
             groupBox2 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -54,31 +61,135 @@
             selRaza = new ComboBox();
             selGenero = new ComboBox();
             txtEsterilizacion = new CheckBox();
-            panel2 = new Panel();
-            label13 = new Label();
-            label1 = new Label();
-            btnAgregar = new Button();
-            btnModificar = new Button();
-            btnLimpiar = new Button();
-            btnSalir = new Button();
+            panel1 = new Panel();
+            label12 = new Label();
+            label14 = new Label();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mostradorMascotas).BeginInit();
             groupBox2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            panel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(label13);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(-33, -53);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(908, 52);
+            panel2.TabIndex = 24;
+            // 
+            // label13
+            // 
+            label13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label13.AutoSize = true;
+            label13.BackColor = SystemColors.GradientActiveCaption;
+            label13.FlatStyle = FlatStyle.Popup;
+            label13.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.ForeColor = Color.Navy;
+            label13.ImageAlign = ContentAlignment.TopCenter;
+            label13.Location = new Point(272, 21);
+            label13.Name = "label13";
+            label13.Size = new Size(344, 22);
+            label13.TabIndex = 2;
+            label13.Text = "Gestión de expedientes de Mascotas";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.GradientActiveCaption;
+            label1.FlatStyle = FlatStyle.Popup;
+            label1.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Navy;
+            label1.ImageAlign = ContentAlignment.TopCenter;
+            label1.Location = new Point(306, 33);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 22);
+            label1.TabIndex = 0;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnSalir.BackColor = Color.Red;
+            btnSalir.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.ForeColor = SystemColors.ActiveCaptionText;
+            btnSalir.Image = (Image)resources.GetObject("btnSalir.Image");
+            btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSalir.Location = new Point(670, 519);
+            btnSalir.Margin = new Padding(3, 2, 3, 2);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Padding = new Padding(9, 8, 22, 8);
+            btnSalir.Size = new Size(154, 43);
+            btnSalir.TabIndex = 31;
+            btnSalir.Text = "Volver";
+            btnSalir.TextAlign = ContentAlignment.MiddleRight;
+            btnSalir.UseVisualStyleBackColor = false;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnLimpiar.BackColor = Color.FromArgb(192, 255, 255);
+            btnLimpiar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiar.ForeColor = SystemColors.ActiveCaptionText;
+            btnLimpiar.Image = (Image)resources.GetObject("btnLimpiar.Image");
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLimpiar.Location = new Point(447, 519);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Padding = new Padding(9, 8, 22, 8);
+            btnLimpiar.Size = new Size(154, 43);
+            btnLimpiar.TabIndex = 30;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnModificar.BackColor = Color.FromArgb(255, 128, 0);
+            btnModificar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificar.ForeColor = SystemColors.ActiveCaptionText;
+            btnModificar.Image = (Image)resources.GetObject("btnModificar.Image");
+            btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnModificar.Location = new Point(229, 519);
+            btnModificar.Margin = new Padding(3, 2, 3, 2);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Padding = new Padding(9, 8, 22, 8);
+            btnModificar.Size = new Size(154, 43);
+            btnModificar.TabIndex = 29;
+            btnModificar.Text = "Modificar";
+            btnModificar.TextAlign = ContentAlignment.MiddleRight;
+            btnModificar.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnAgregar.BackColor = Color.FromArgb(0, 192, 0);
+            btnAgregar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
+            btnAgregar.Image = (Image)resources.GetObject("btnAgregar.Image");
+            btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAgregar.Location = new Point(16, 519);
+            btnAgregar.Margin = new Padding(3, 2, 3, 2);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Padding = new Padding(9, 8, 22, 8);
+            btnAgregar.Size = new Size(154, 43);
+            btnAgregar.TabIndex = 28;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.TextAlign = ContentAlignment.MiddleRight;
+            btnAgregar.UseVisualStyleBackColor = false;
             // 
             // mostradorMascotas
             // 
             mostradorMascotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mostradorMascotas.Location = new Point(14, 302);
+            mostradorMascotas.Location = new Point(13, 321);
             mostradorMascotas.Name = "mostradorMascotas";
             mostradorMascotas.RowTemplate.Height = 25;
             mostradorMascotas.Size = new Size(814, 166);
-            mostradorMascotas.TabIndex = 19;
-            mostradorMascotas.CellContentClick += mostradorMascotas_CellContentClick;
-            mostradorMascotas.CellMouseClick += mostradorMascotas_CellMouseClick;
-            mostradorMascotas.CellMouseDoubleClick += mostradorMascotas_CellMouseDoubleClick;
-            mostradorMascotas.MouseDoubleClick += mostradorMascotas_MouseDoubleClick;
+            mostradorMascotas.TabIndex = 27;
             // 
             // groupBox2
             // 
@@ -88,10 +199,10 @@
             groupBox2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.Navy;
             groupBox2.ImeMode = ImeMode.Disable;
-            groupBox2.Location = new Point(11, 44);
+            groupBox2.Location = new Point(10, 63);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(817, 234);
-            groupBox2.TabIndex = 18;
+            groupBox2.TabIndex = 26;
             groupBox2.TabStop = false;
             groupBox2.Text = "Formulario";
             // 
@@ -168,27 +279,27 @@
             Nombre.AutoSize = true;
             Nombre.Location = new Point(3, 0);
             Nombre.Name = "Nombre";
-            Nombre.Size = new Size(71, 18);
+            Nombre.Size = new Size(58, 18);
             Nombre.TabIndex = 0;
-            Nombre.Text = "Nombre";
+            Nombre.Text = "Fecha";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(3, 35);
             label3.Name = "label3";
-            label3.Size = new Size(123, 18);
+            label3.Size = new Size(47, 18);
             label3.TabIndex = 1;
-            label3.Text = "Caracteristica";
+            label3.Text = "Hora";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(3, 105);
             label5.Name = "label5";
-            label5.Size = new Size(101, 18);
+            label5.Size = new Size(40, 18);
             label5.TabIndex = 3;
-            label5.Text = "Esterilizado";
+            label5.Text = "Cita";
             // 
             // label7
             // 
@@ -247,9 +358,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(3, 70);
             label4.Name = "label4";
-            label4.Size = new Size(96, 18);
+            label4.Size = new Size(82, 18);
             label4.TabIndex = 2;
-            label4.Text = "Fecha_nac";
+            label4.Text = "Sintomas";
             // 
             // label11
             // 
@@ -282,7 +393,6 @@
             txtFecha.Name = "txtFecha";
             txtFecha.Size = new Size(233, 26);
             txtFecha.TabIndex = 22;
-            txtFecha.ValueChanged += txtFecha_ValueChanged;
             // 
             // txtAgresivo
             // 
@@ -301,7 +411,6 @@
             selEspecie.Name = "selEspecie";
             selEspecie.Size = new Size(233, 26);
             selEspecie.TabIndex = 25;
-            selEspecie.SelectedIndexChanged += selEspecie_SelectedIndexChanged;
             // 
             // selRaza
             // 
@@ -329,123 +438,46 @@
             txtEsterilizacion.Text = "Lo está";
             txtEsterilizacion.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // panel1
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.Controls.Add(label13);
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(-12, -14);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(867, 52);
-            panel2.TabIndex = 17;
-            panel2.Paint += panel2_Paint;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(label14);
+            panel1.Location = new Point(-13, 5);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(867, 52);
+            panel1.TabIndex = 25;
             // 
-            // label13
+            // label12
             // 
-            label13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label13.AutoSize = true;
-            label13.BackColor = SystemColors.GradientActiveCaption;
-            label13.FlatStyle = FlatStyle.Popup;
-            label13.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.ForeColor = Color.Navy;
-            label13.ImageAlign = ContentAlignment.TopCenter;
-            label13.Location = new Point(272, 21);
-            label13.Name = "label13";
-            label13.Size = new Size(344, 22);
-            label13.TabIndex = 2;
-            label13.Text = "Gestión de expedientes de Mascotas";
+            label12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label12.AutoSize = true;
+            label12.BackColor = SystemColors.GradientActiveCaption;
+            label12.FlatStyle = FlatStyle.Popup;
+            label12.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.ForeColor = Color.Navy;
+            label12.ImageAlign = ContentAlignment.TopCenter;
+            label12.Location = new Point(326, 15);
+            label12.Name = "label12";
+            label12.Size = new Size(215, 22);
+            label12.TabIndex = 2;
+            label12.Text = "Creacion de Consultas";
             // 
-            // label1
+            // label14
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.GradientActiveCaption;
-            label1.FlatStyle = FlatStyle.Popup;
-            label1.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.Navy;
-            label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(306, 33);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 22);
-            label1.TabIndex = 0;
+            label14.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label14.AutoSize = true;
+            label14.BackColor = SystemColors.GradientActiveCaption;
+            label14.FlatStyle = FlatStyle.Popup;
+            label14.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.ForeColor = Color.Navy;
+            label14.ImageAlign = ContentAlignment.TopCenter;
+            label14.Location = new Point(306, 33);
+            label14.Name = "label14";
+            label14.Size = new Size(0, 22);
+            label14.TabIndex = 0;
             // 
-            // btnAgregar
-            // 
-            btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnAgregar.BackColor = Color.FromArgb(0, 192, 0);
-            btnAgregar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
-            btnAgregar.Image = (Image)resources.GetObject("btnAgregar.Image");
-            btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(17, 500);
-            btnAgregar.Margin = new Padding(3, 2, 3, 2);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Padding = new Padding(9, 8, 22, 8);
-            btnAgregar.Size = new Size(154, 43);
-            btnAgregar.TabIndex = 20;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.TextAlign = ContentAlignment.MiddleRight;
-            btnAgregar.UseVisualStyleBackColor = false;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
-            // btnModificar
-            // 
-            btnModificar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnModificar.BackColor = Color.FromArgb(255, 128, 0);
-            btnModificar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificar.ForeColor = SystemColors.ActiveCaptionText;
-            btnModificar.Image = (Image)resources.GetObject("btnModificar.Image");
-            btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(230, 500);
-            btnModificar.Margin = new Padding(3, 2, 3, 2);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Padding = new Padding(9, 8, 22, 8);
-            btnModificar.Size = new Size(154, 43);
-            btnModificar.TabIndex = 21;
-            btnModificar.Text = "Modificar";
-            btnModificar.TextAlign = ContentAlignment.MiddleRight;
-            btnModificar.UseVisualStyleBackColor = false;
-            btnModificar.Click += btnModificar_Click;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnLimpiar.BackColor = Color.FromArgb(192, 255, 255);
-            btnLimpiar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpiar.ForeColor = SystemColors.ActiveCaptionText;
-            btnLimpiar.Image = (Image)resources.GetObject("btnLimpiar.Image");
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(448, 500);
-            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Padding = new Padding(9, 8, 22, 8);
-            btnLimpiar.Size = new Size(154, 43);
-            btnLimpiar.TabIndex = 22;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.UseVisualStyleBackColor = false;
-            btnLimpiar.Click += btnLimpiar_Click;
-            // 
-            // btnSalir
-            // 
-            btnSalir.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnSalir.BackColor = Color.Red;
-            btnSalir.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalir.ForeColor = SystemColors.ActiveCaptionText;
-            btnSalir.Image = (Image)resources.GetObject("btnSalir.Image");
-            btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalir.Location = new Point(671, 500);
-            btnSalir.Margin = new Padding(3, 2, 3, 2);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Padding = new Padding(9, 8, 22, 8);
-            btnSalir.Size = new Size(154, 43);
-            btnSalir.TabIndex = 23;
-            btnSalir.Text = "Volver";
-            btnSalir.TextAlign = ContentAlignment.MiddleRight;
-            btnSalir.UseVisualStyleBackColor = false;
-            btnSalir.Click += btnSalir_Click;
-            // 
-            // GestionMascotas
+            // RegistroConsulta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -456,28 +488,31 @@
             Controls.Add(btnAgregar);
             Controls.Add(mostradorMascotas);
             Controls.Add(groupBox2);
+            Controls.Add(panel1);
             Controls.Add(panel2);
-            Name = "GestionMascotas";
-            Text = "GestionMascotas";
-            Load += GestionMascotas_Load;
+            Name = "RegistroConsulta";
+            Text = "RegistroConsulta";
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)mostradorMascotas).EndInit();
             groupBox2.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
+        private Panel panel2;
+        private Label label13;
+        private Label label1;
+        private Button btnSalir;
+        private Button btnLimpiar;
+        private Button btnModificar;
+        private Button btnAgregar;
         private DataGridView mostradorMascotas;
         private GroupBox groupBox2;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox11;
-        private Panel panel2;
-        private Label label1;
         private TableLayoutPanel tableLayoutPanel2;
         private Label label2;
         private TextBox txtCaracteristicas;
@@ -501,10 +536,8 @@
         private ComboBox selRaza;
         private ComboBox selGenero;
         private CheckBox txtEsterilizacion;
-        private Button btnAgregar;
-        private Button btnModificar;
-        private Button btnLimpiar;
-        private Button btnSalir;
-        private Label label13;
+        private Panel panel1;
+        private Label label12;
+        private Label label14;
     }
 }

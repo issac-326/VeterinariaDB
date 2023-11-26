@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace ProyectoBD
 {
-    public partial class RegistrarEmpleado : Form
+    public partial class RegistroConsulta : Form
     {
-        public RegistrarEmpleado()
+        public RegistroConsulta()
         {
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void btnModificarCitas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarCitas_Click(object sender, EventArgs e)
         {
 
         }

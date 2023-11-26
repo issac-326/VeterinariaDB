@@ -103,7 +103,7 @@ namespace ProyectoBD
                             idCiudad = Convert.ToInt32(reader["Id"]);
                         }
                     }
-                }                
+                }
                 objectConexion.cerrarConexion();
             }
             catch (Exception ex)
@@ -164,6 +164,12 @@ namespace ProyectoBD
 
             CargarDatos();
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCiudad.Text = null;
+            txtReferencia.Text = null;
         }
     }
 }

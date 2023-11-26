@@ -147,15 +147,15 @@ namespace ProyectoBD
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-            int idEmpleado = 0;           
+
+            int idEmpleado = 0;
 
             Class.Crud objetoCrud = new Class.Crud();
 
             try
-            {                
+            {
                 string dni = ObtenerDNI(txtEncargado.SelectedItem.ToString());
-               
+
                 if (txtEncargado.SelectedItem != null)
                 {
                     idEmpleado = ObtenerIdEmpleado(dni); ;
@@ -170,6 +170,11 @@ namespace ProyectoBD
             }
 
             CargarDatos();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtEncargado.Text = null;
         }
     }
 }

@@ -11,7 +11,15 @@ namespace ProyectoBD
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+<<<<<<< HEAD
             Application.Run(new Sucursales());
+=======
+<<<<<<< HEAD
+            Application.Run(new Factura());
+=======
+            Application.Run(new Login());
+>>>>>>> 1458c6f4de74d04bb1bdc84643213af4d8c264b6
+>>>>>>> 457640ff82b4875a5aeac0539af908793a10503c
         }
     }
 }

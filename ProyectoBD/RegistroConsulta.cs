@@ -16,5 +16,15 @@ namespace ProyectoBD
         {
             InitializeComponent();
         }
+
+        private void btnModificarCitas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarCitas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

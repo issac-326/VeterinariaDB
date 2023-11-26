@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstandarFormulario));
             panel3 = new Panel();
             button7 = new Button();
             button6 = new Button();
@@ -37,10 +38,6 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             textBox5 = new TextBox();
             textBox3 = new TextBox();
-            panel1 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
             dataGridView2 = new DataGridView();
             groupBox2 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -66,21 +63,23 @@
             textBox12 = new TextBox();
             panel2 = new Panel();
             label1 = new Label();
-            panel4 = new Panel();
-            button5 = new Button();
+            btnLimpiarCitas = new Button();
+            btnModificarCitas = new Button();
+            btnAgregarCitas = new Button();
+            btnEliminarCitas = new Button();
             button4 = new Button();
-            button8 = new Button();
-            button10 = new Button();
-            button11 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            panel1 = new Panel();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             groupBox2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
-            panel4.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -192,67 +191,6 @@
             textBox3.Size = new Size(53, 23);
             textBox3.TabIndex = 12;
             // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.Navy;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button3);
-            panel1.Location = new Point(7, 248);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(814, 45);
-            panel1.TabIndex = 15;
-            // 
-            // button1
-            // 
-            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button1.BackColor = SystemColors.ButtonFace;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatAppearance.BorderColor = Color.Navy;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.Navy;
-            button1.Location = new Point(682, 10);
-            button1.Name = "button1";
-            button1.Size = new Size(105, 24);
-            button1.TabIndex = 8;
-            button1.Text = "EXTRA";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button2.BackColor = SystemColors.ButtonFace;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatAppearance.BorderColor = Color.Navy;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = Color.Navy;
-            button2.Location = new Point(350, 10);
-            button2.Name = "button2";
-            button2.Size = new Size(105, 24);
-            button2.TabIndex = 7;
-            button2.Text = "EXTRA";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button3.BackColor = SystemColors.ButtonFace;
-            button3.BackgroundImageLayout = ImageLayout.Center;
-            button3.FlatAppearance.BorderColor = Color.Navy;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.ForeColor = Color.Navy;
-            button3.Location = new Point(28, 11);
-            button3.Name = "button3";
-            button3.Size = new Size(105, 24);
-            button3.TabIndex = 6;
-            button3.Text = "EXTRA";
-            button3.UseVisualStyleBackColor = false;
-            // 
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -279,33 +217,33 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.ColumnCount = 6;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5562935F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.8013229F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.97350979F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.8940392F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.8013229F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.97350979F));
+            tableLayoutPanel2.ColumnCount = 4;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.985611F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.3741035F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.26619F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.3740959F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Controls.Add(textBox1, 1, 1);
-            tableLayoutPanel2.Controls.Add(textBox2, 4, 0);
+            tableLayoutPanel2.Controls.Add(textBox2, 3, 0);
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
             tableLayoutPanel2.Controls.Add(label3, 0, 1);
             tableLayoutPanel2.Controls.Add(label5, 0, 3);
             tableLayoutPanel2.Controls.Add(label7, 0, 4);
             tableLayoutPanel2.Controls.Add(textBox4, 1, 0);
-            tableLayoutPanel2.Controls.Add(label6, 3, 0);
-            tableLayoutPanel2.Controls.Add(label10, 3, 2);
-            tableLayoutPanel2.Controls.Add(label9, 3, 3);
-            tableLayoutPanel2.Controls.Add(label8, 3, 4);
+            tableLayoutPanel2.Controls.Add(label6, 2, 0);
+            tableLayoutPanel2.Controls.Add(label10, 2, 2);
+            tableLayoutPanel2.Controls.Add(label9, 2, 3);
+            tableLayoutPanel2.Controls.Add(label8, 2, 4);
             tableLayoutPanel2.Controls.Add(textBox6, 1, 2);
             tableLayoutPanel2.Controls.Add(textBox7, 1, 3);
             tableLayoutPanel2.Controls.Add(textBox8, 1, 4);
-            tableLayoutPanel2.Controls.Add(textBox9, 4, 2);
-            tableLayoutPanel2.Controls.Add(textBox10, 4, 3);
-            tableLayoutPanel2.Controls.Add(textBox11, 4, 4);
+            tableLayoutPanel2.Controls.Add(textBox9, 3, 2);
+            tableLayoutPanel2.Controls.Add(textBox10, 3, 3);
+            tableLayoutPanel2.Controls.Add(textBox11, 3, 4);
             tableLayoutPanel2.Controls.Add(label4, 0, 2);
-            tableLayoutPanel2.Controls.Add(label11, 3, 1);
-            tableLayoutPanel2.Controls.Add(textBox12, 4, 1);
+            tableLayoutPanel2.Controls.Add(label11, 2, 1);
+            tableLayoutPanel2.Controls.Add(textBox12, 3, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.ImeMode = ImeMode.KatakanaHalf;
             tableLayoutPanel2.Location = new Point(3, 22);
@@ -321,14 +259,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(137, 37);
+            textBox1.Location = new Point(148, 37);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(233, 26);
             textBox1.TabIndex = 14;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(538, 3);
+            textBox2.Location = new Point(550, 3);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(233, 26);
             textBox2.TabIndex = 12;
@@ -338,9 +276,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(56, 18);
+            label2.Size = new Size(97, 18);
             label2.TabIndex = 0;
-            label2.Text = "label2";
+            label2.Text = "DNI Cliente";
             // 
             // label3
             // 
@@ -371,7 +309,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(137, 3);
+            textBox4.Location = new Point(148, 3);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(233, 26);
             textBox4.TabIndex = 10;
@@ -414,42 +352,42 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(137, 71);
+            textBox6.Location = new Point(148, 71);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(233, 26);
             textBox6.TabIndex = 11;
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(137, 105);
+            textBox7.Location = new Point(148, 105);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(233, 26);
             textBox7.TabIndex = 15;
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(137, 139);
+            textBox8.Location = new Point(148, 139);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(233, 26);
             textBox8.TabIndex = 16;
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(538, 71);
+            textBox9.Location = new Point(550, 71);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(233, 26);
             textBox9.TabIndex = 17;
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(538, 105);
+            textBox10.Location = new Point(550, 105);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(233, 26);
             textBox10.TabIndex = 18;
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(538, 139);
+            textBox11.Location = new Point(550, 139);
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(233, 26);
             textBox11.TabIndex = 19;
@@ -474,7 +412,7 @@
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(538, 37);
+            textBox12.Location = new Point(550, 37);
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(233, 26);
             textBox12.TabIndex = 13;
@@ -482,6 +420,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = SystemColors.GradientActiveCaption;
             panel2.Controls.Add(label1);
             panel2.Location = new Point(-22, -14);
             panel2.Name = "panel2";
@@ -503,125 +442,187 @@
             label1.TabIndex = 0;
             label1.Text = "Nombre de lo que se esta haciendo";
             // 
-            // panel4
+            // btnLimpiarCitas
             // 
-            panel4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.BackColor = Color.Navy;
-            panel4.BackgroundImageLayout = ImageLayout.Stretch;
-            panel4.Controls.Add(button5);
-            panel4.Controls.Add(button4);
-            panel4.Controls.Add(button8);
-            panel4.Controls.Add(button10);
-            panel4.Controls.Add(button11);
-            panel4.Location = new Point(-22, 480);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(885, 100);
-            panel4.TabIndex = 11;
+            btnLimpiarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnLimpiarCitas.BackColor = Color.FromArgb(192, 255, 255);
+            btnLimpiarCitas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiarCitas.ForeColor = SystemColors.ActiveCaptionText;
+            btnLimpiarCitas.Image = (Image)resources.GetObject("btnLimpiarCitas.Image");
+            btnLimpiarCitas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLimpiarCitas.Location = new Point(502, 493);
+            btnLimpiarCitas.Margin = new Padding(3, 2, 3, 2);
+            btnLimpiarCitas.Name = "btnLimpiarCitas";
+            btnLimpiarCitas.Padding = new Padding(9, 8, 22, 8);
+            btnLimpiarCitas.Size = new Size(152, 52);
+            btnLimpiarCitas.TabIndex = 20;
+            btnLimpiarCitas.Text = "Limpiar";
+            btnLimpiarCitas.TextAlign = ContentAlignment.MiddleRight;
+            btnLimpiarCitas.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnModificarCitas
             // 
-            button5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button5.BackColor = SystemColors.ButtonFace;
-            button5.BackgroundImageLayout = ImageLayout.Center;
-            button5.FlatAppearance.BorderColor = Color.Navy;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Arial Rounded MT Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.ForeColor = Color.Navy;
-            button5.Location = new Point(563, 15);
-            button5.Name = "button5";
-            button5.Size = new Size(105, 55);
-            button5.TabIndex = 9;
-            button5.Text = "LIMPIAR ";
-            button5.UseVisualStyleBackColor = false;
+            btnModificarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnModificarCitas.BackColor = Color.FromArgb(255, 128, 0);
+            btnModificarCitas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificarCitas.ForeColor = SystemColors.ActiveCaptionText;
+            btnModificarCitas.Image = (Image)resources.GetObject("btnModificarCitas.Image");
+            btnModificarCitas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnModificarCitas.Location = new Point(170, 493);
+            btnModificarCitas.Margin = new Padding(3, 2, 3, 2);
+            btnModificarCitas.Name = "btnModificarCitas";
+            btnModificarCitas.Padding = new Padding(9, 8, 22, 8);
+            btnModificarCitas.Size = new Size(152, 52);
+            btnModificarCitas.TabIndex = 19;
+            btnModificarCitas.Text = "Modificar";
+            btnModificarCitas.TextAlign = ContentAlignment.MiddleRight;
+            btnModificarCitas.UseVisualStyleBackColor = false;
+            btnModificarCitas.Click += btnModificarCitas_Click;
+            // 
+            // btnAgregarCitas
+            // 
+            btnAgregarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnAgregarCitas.BackColor = Color.FromArgb(0, 192, 0);
+            btnAgregarCitas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgregarCitas.ForeColor = SystemColors.ActiveCaptionText;
+            btnAgregarCitas.Image = (Image)resources.GetObject("btnAgregarCitas.Image");
+            btnAgregarCitas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAgregarCitas.Location = new Point(7, 493);
+            btnAgregarCitas.Margin = new Padding(3, 2, 3, 2);
+            btnAgregarCitas.Name = "btnAgregarCitas";
+            btnAgregarCitas.Padding = new Padding(9, 8, 22, 8);
+            btnAgregarCitas.Size = new Size(152, 52);
+            btnAgregarCitas.TabIndex = 18;
+            btnAgregarCitas.Text = "Agregar";
+            btnAgregarCitas.TextAlign = ContentAlignment.MiddleRight;
+            btnAgregarCitas.UseVisualStyleBackColor = false;
+            btnAgregarCitas.Click += btnAgregarCitas_Click;
+            // 
+            // btnEliminarCitas
+            // 
+            btnEliminarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnEliminarCitas.BackColor = Color.Red;
+            btnEliminarCitas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminarCitas.ForeColor = SystemColors.ActiveCaptionText;
+            btnEliminarCitas.Image = (Image)resources.GetObject("btnEliminarCitas.Image");
+            btnEliminarCitas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminarCitas.Location = new Point(337, 493);
+            btnEliminarCitas.Margin = new Padding(3, 2, 3, 2);
+            btnEliminarCitas.Name = "btnEliminarCitas";
+            btnEliminarCitas.Padding = new Padding(9, 8, 22, 8);
+            btnEliminarCitas.Size = new Size(152, 52);
+            btnEliminarCitas.TabIndex = 17;
+            btnEliminarCitas.Text = "Eliminar";
+            btnEliminarCitas.TextAlign = ContentAlignment.MiddleRight;
+            btnEliminarCitas.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
-            button4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button4.BackColor = SystemColors.ButtonFace;
-            button4.BackgroundImageLayout = ImageLayout.Center;
-            button4.FlatAppearance.BorderColor = Color.Navy;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Arial Rounded MT Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.ForeColor = Color.Navy;
-            button4.Location = new Point(26, 15);
+            button4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button4.BackColor = Color.Red;
+            button4.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.ForeColor = SystemColors.ActiveCaptionText;
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(669, 493);
+            button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(105, 55);
-            button4.TabIndex = 8;
-            button4.Text = "AGREGAR";
+            button4.Padding = new Padding(9, 8, 22, 8);
+            button4.Size = new Size(152, 52);
+            button4.TabIndex = 16;
+            button4.Text = "Salir";
+            button4.TextAlign = ContentAlignment.MiddleRight;
             button4.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // button3
             // 
-            button8.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button8.BackColor = SystemColors.ButtonFace;
-            button8.BackgroundImageLayout = ImageLayout.Center;
-            button8.FlatAppearance.BorderColor = Color.Navy;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Arial Rounded MT Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.ForeColor = Color.Navy;
-            button8.Location = new Point(738, 15);
-            button8.Name = "button8";
-            button8.Size = new Size(105, 55);
-            button8.TabIndex = 7;
-            button8.Text = "SALIR";
-            button8.UseVisualStyleBackColor = false;
+            button3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button3.BackColor = SystemColors.ButtonFace;
+            button3.BackgroundImageLayout = ImageLayout.Center;
+            button3.FlatAppearance.BorderColor = Color.Navy;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.ForeColor = Color.Navy;
+            button3.Location = new Point(28, 11);
+            button3.Name = "button3";
+            button3.Size = new Size(105, 24);
+            button3.TabIndex = 6;
+            button3.Text = "EXTRA";
+            button3.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // button2
             // 
-            button10.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button10.BackColor = SystemColors.ButtonFace;
-            button10.BackgroundImageLayout = ImageLayout.Center;
-            button10.FlatAppearance.BorderColor = Color.Navy;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Arial Rounded MT Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button10.ForeColor = Color.Navy;
-            button10.Location = new Point(379, 15);
-            button10.Name = "button10";
-            button10.Size = new Size(105, 55);
-            button10.TabIndex = 6;
-            button10.Text = "BORRAR";
-            button10.UseVisualStyleBackColor = false;
+            button2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button2.BackColor = SystemColors.ButtonFace;
+            button2.BackgroundImageLayout = ImageLayout.Center;
+            button2.FlatAppearance.BorderColor = Color.Navy;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = Color.Navy;
+            button2.Location = new Point(350, 10);
+            button2.Name = "button2";
+            button2.Size = new Size(105, 24);
+            button2.TabIndex = 7;
+            button2.Text = "EXTRA";
+            button2.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // button1
             // 
-            button11.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button11.BackColor = SystemColors.ButtonFace;
-            button11.BackgroundImageLayout = ImageLayout.Center;
-            button11.FlatAppearance.BorderColor = Color.Navy;
-            button11.FlatStyle = FlatStyle.Flat;
-            button11.Font = new Font("Arial Rounded MT Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button11.ForeColor = Color.Navy;
-            button11.Location = new Point(203, 15);
-            button11.Name = "button11";
-            button11.Size = new Size(105, 55);
-            button11.TabIndex = 5;
-            button11.Text = "MODIFICAR";
-            button11.UseVisualStyleBackColor = false;
+            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button1.BackColor = SystemColors.ButtonFace;
+            button1.BackgroundImageLayout = ImageLayout.Center;
+            button1.FlatAppearance.BorderColor = Color.Navy;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.Navy;
+            button1.Location = new Point(682, 10);
+            button1.Name = "button1";
+            button1.Size = new Size(105, 24);
+            button1.TabIndex = 8;
+            button1.Text = "EXTRA";
+            button1.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.Navy;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button3);
+            panel1.Location = new Point(7, 248);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(814, 45);
+            panel1.TabIndex = 15;
+            // 
+            // EstandarFormulario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(841, 567);
+            Controls.Add(btnLimpiarCitas);
+            Controls.Add(btnModificarCitas);
+            Controls.Add(btnAgregarCitas);
+            Controls.Add(btnEliminarCitas);
+            Controls.Add(button4);
             Controls.Add(panel1);
             Controls.Add(dataGridView2);
             Controls.Add(groupBox2);
             Controls.Add(panel2);
-            Controls.Add(panel4);
-            Name = "Form1";
+            Name = "EstandarFormulario";
             Text = "Form1";
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             groupBox2.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel4.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -636,10 +637,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TextBox textBox5;
         private TextBox textBox3;
-        private Panel panel1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
         private DataGridView dataGridView2;
         private GroupBox groupBox2;
         private TableLayoutPanel tableLayoutPanel2;
@@ -665,11 +662,14 @@
         private TextBox textBox12;
         private Panel panel2;
         private Label label1;
-        private Panel panel4;
-        private Button button5;
+        private Button btnLimpiarCitas;
+        private Button btnModificarCitas;
+        private Button btnAgregarCitas;
+        private Button btnEliminarCitas;
         private Button button4;
-        private Button button8;
-        private Button button10;
-        private Button button11;
+        private Button button3;
+        private Button button2;
+        private Button button1;
+        private Panel panel1;
     }
 }

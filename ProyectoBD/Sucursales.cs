@@ -180,7 +180,7 @@ namespace ProyectoBD
                 {
 
 
-                    string query = "SELECT e.Id, p.Primer_Nombre, p.Primer_Apellido, p.DNI FROM Empleados e\r\nINNER JOIN Personas p ON e.Id_Persona = p.Id;";
+                    string query = "SELECT e.Id, p.Primer_Nombre, p.Primer_Apellido, p.DNI FROM Empleados e\r\nINNER JOIN Personas p ON e.Id_Persona = p.Id\r\nINNER JOIN Contratos c ON e.Id_Contrato = c.Id\r\nINNER JOIN Tipos_Empleados te ON c.Id_Tipo = te.Id\r\nWHERE te.Nombre = 'Gerente General';";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())

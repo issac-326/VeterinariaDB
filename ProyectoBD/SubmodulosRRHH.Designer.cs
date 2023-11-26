@@ -71,6 +71,7 @@
             button5.Text = "Gestión de Personal";
             button5.TextImageRelation = TextImageRelation.ImageAboveText;
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // label2
             // 

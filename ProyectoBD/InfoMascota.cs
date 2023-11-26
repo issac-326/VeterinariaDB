@@ -298,7 +298,7 @@ namespace ProyectoBD
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
                     // Buscar el id de la especie 
-                    string query = "SELECT Id FROM " + tabla + " where Id_Enfermedad = " + enfermedad + ";";
+                    string query = "SELECT Id FROM " + tabla + " where Nombre = '" + enfermedad + "';";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
@@ -314,7 +314,7 @@ namespace ProyectoBD
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error idVacuna: " + ex.Message);
+                MessageBox.Show("Error Enfermedad: " + ex.Message);
             }
             return id;
         }

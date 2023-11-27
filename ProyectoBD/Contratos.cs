@@ -11,19 +11,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ProyectoBD.Class;
 
 namespace ProyectoBD
 {
     public partial class Contratos : Form
     {
         String nombreTabla = "Contratos";
-        public Contratos()
+        private int  idSucursal;
+        public Contratos( int idSucursal)
         {
             InitializeComponent();
-            cargarCargos();
-            cargarHorarios();
-            cargarPeriodoslab();
-            cargarPeriodosPago();
+            this.idSucursal = idSucursal;
+            Class1.cargarComboBox("Id", "Horarios", comboBoxHorario);
+            Class1.cargarComboBox("Nombre", "Tipos_Empleados", comboBoxCargos);
+            Class1.cargarComboBox("Periodo", "Periodos_Pago", comboBoxPeriodoPago);
+            Class1.cargarComboBox("Periodo_Laboral", "Periodos_Laborales", comboBoxPeriodoLaboral);
             mostrarInfo();
 
             mostradorContratos.CellDoubleClick += mostradorContratos_CellDoubleClick;
@@ -59,150 +62,6 @@ namespace ProyectoBD
             objetoCrud.mostrarData(mostradorContratos, instruccion);
         }
 
-        public void cargarCargos()
-        {
-
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-
-
-                    // Consulta SQL para obtener nombres de especies
-                    string query = "SELECT Nombre  FROM Tipos_Empleados";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            // Limpiar el ComboBox antes de agregar nuevos elementos
-                            comboBoxCargos.Items.Clear();
-
-                            // Agregar cada nombre de especie al ComboBox
-                            while (reader.Read())
-                            {
-                                comboBoxCargos.Items.Add(reader["Nombre"].ToString());
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los cargos");
-            }
-        }
-
-        public void cargarPeriodoslab()
-        {
-
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-
-
-                    // Consulta SQL para obtener nombres de especies
-                    string query = "SELECT Periodo_Laboral  FROM Periodos_laborales";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            // Limpiar el ComboBox antes de agregar nuevos elementos
-                            comboBoxPeriodoLaboral.Items.Clear();
-
-                            // Agregar cada nombre de especie al ComboBox
-                            while (reader.Read())
-                            {
-                                comboBoxPeriodoLaboral.Items.Add(reader["Periodo_Laboral"].ToString());
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los periodos laborales");
-            }
-        }
-
-        public void cargarPeriodosPago()
-        {
-
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-
-
-                    // Consulta SQL para obtener nombres de especies
-                    string query = "SELECT Periodo  FROM Periodos_Pago";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            // Limpiar el ComboBox antes de agregar nuevos elementos
-                            comboBoxPeriodoPago.Items.Clear();
-
-                            // Agregar cada nombre de especie al ComboBox
-                            while (reader.Read())
-                            {
-                                comboBoxPeriodoPago.Items.Add(reader["Periodo"].ToString());
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los periodos de pago");
-            }
-        }
-
-        public void cargarHorarios()
-        {
-
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-
-
-                    // Consulta SQL para obtener nombres de especies
-                    string query = "SELECT Id  FROM Horarios";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            // Limpiar el ComboBox antes de agregar nuevos elementos
-                            comboBoxHorario.Items.Clear();
-
-                            // Agregar cada nombre de especie al ComboBox
-                            while (reader.Read())
-                            {
-                                comboBoxHorario.Items.Add(reader["Id"].ToString());
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los horarios");
-            }
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -235,69 +94,6 @@ namespace ProyectoBD
 
         }
 
-        public static int ObtenerId(String nombreTabla, String nombreFiltro, String valorFiltro)
-        {
-            int id = -1;
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-                    // Buscar el id de la especie 
-                    string query = "SELECT Id FROM " + nombreTabla + " WHERE " + nombreFiltro + " = '" + valorFiltro + "';";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            reader.Read(); // Solo necesitas leer la primera fila
-
-                            // Obtener el valor del ID
-                            id = Convert.ToInt32(reader["Id"]);
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al encontrar el id de " + nombreTabla);
-            }
-            return id;
-        }
-
-        public int ObtenerIdUltimoRegistro(String nombreTabla)
-        {
-            int id = 0;
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-                    // Buscar el id
-                    string query = "SELECT IDENT_CURRENT('" + nombreTabla + "') AS Id;";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            reader.Read(); // Solo necesitas leer la primera fila
-
-                            // Obtener el valor del ID
-                            id = Convert.ToInt32(reader["Id"]);
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error id: " + ex.Message);
-            }
-
-            return id;
-        }
-
         /*
         * Metodo para ingresar Nuevo Contrato.
         */
@@ -313,19 +109,19 @@ namespace ProyectoBD
             Class.Crud objetoCrud = new Class.Crud();
             if (comboBoxPeriodoPago.SelectedItem != null)
             {
-                idPeriodoPago = ObtenerId("Periodos_Pago", "Periodo", comboBoxPeriodoPago.SelectedItem.ToString());
+                idPeriodoPago = Class1.ObtenerId("Periodos_Pago", "Periodo", comboBoxPeriodoPago.SelectedItem.ToString());
             }
             if (comboBoxHorario.SelectedItem != null)
             {
-                idHorario = ObtenerId("Horarios", "Id", comboBoxHorario.SelectedItem.ToString());
+                idHorario = Class1.ObtenerId("Horarios", "Id", comboBoxHorario.SelectedItem.ToString());
             }
             if (comboBoxCargos.SelectedItem != null)
             {
-                idCargo = ObtenerId("Tipos_Empleados", "Nombre", comboBoxCargos.SelectedItem.ToString());
+                idCargo = Class1.ObtenerId("Tipos_Empleados", "Nombre", comboBoxCargos.SelectedItem.ToString());
             }
             if (comboBoxPeriodoLaboral.SelectedItem != null)
             {
-                idPeriodoLab = ObtenerId("Periodos_Laborales", "Periodo_Laboral", comboBoxPeriodoLaboral.SelectedItem.ToString());
+                idPeriodoLab = Class1.ObtenerId("Periodos_Laborales", "Periodo_Laboral", comboBoxPeriodoLaboral.SelectedItem.ToString());
             }
 
             DateTime fechaInicio = dateTimePickerFechaI.Value;
@@ -339,19 +135,37 @@ namespace ProyectoBD
             objetoCrud.guardar("Salarios (Salario_Bruto, Id_Periodo_Pago) ", values);
 
             //Obtener Id del salario registrado recién
-            idSalario = ObtenerIdUltimoRegistro("Salarios");
+            idSalario = Class1.ObtenerIdUltimoRegistro("Salarios");
 
             //Insertar Contrato
             String values1 = $"'{fechaInicioFormateada}', '{fechaFinFormateada}', {idPeriodoLab}, {idHorario}, {idCargo},{idSalario}";
-            objetoCrud.guardar(nombreTabla, values1);
 
-            mostrarInfo();
+            try
+            {
+                objetoCrud.guardar(nombreTabla, values1);
+                mostrarInfo();
+
+                //Me llevo el id del contrato insertado
+                int idContrato = Class1.ObtenerIdUltimoRegistro("Contratos");
+
+                GestionEmpleados win = new GestionEmpleados(idContrato, idSucursal);
+                win.Show();
+                this.Hide();
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un problema.");
+            }   
 
         }
 
         private void btnLimpiarCitas_Click(object sender, EventArgs e)
         {
             textBoxSalarioBruto.Text = "";
+            comboBoxCargos.SelectedIndex = 0;
+            comboBoxHorario.SelectedIndex = 0;
+            comboBoxPeriodoLaboral.SelectedIndex = 0;   
+            comboBoxPeriodoPago.SelectedIndex = 0;
         }
 
         private void button4_Click_1(object sender, EventArgs e)
@@ -362,6 +176,16 @@ namespace ProyectoBD
         }
 
         private void btnModificarCitas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxPeriodoPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Contratos_Load(object sender, EventArgs e)
         {
 
         }

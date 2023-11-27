@@ -22,8 +22,8 @@ namespace ProyectoBD
             objetoCrud = new Crud();
             this.idContrato = idContrato;
             InitializeComponent();
-            cargarDeducciones();
-            cargarBeneficios();
+            Class1.cargarComboBox("Nombre", "Deducciones", comboBoxDeducciones);
+            Class1.cargarComboBox("Nombre", "Beneficios", comboBoxBeneficios);
             mostrarInfoBonificaciones();
             mostrarInfoDeducciones();
 
@@ -35,79 +35,7 @@ namespace ProyectoBD
             EncabezadoBeneficios.Text = "Beneficios y Deducciones del contrato #" + idContrato;
         }
 
-        public void cargarDeducciones()
-        {
-
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-
-
-                    // Consulta SQL para obtener nombres de especies
-                    string query = "SELECT Nombre FROM Deducciones";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            // Limpiar el ComboBox antes de agregar nuevos elementos
-                            comboBoxDeducciones.Items.Clear();
-
-                            // Agregar cada nombre de especie al ComboBox
-                            while (reader.Read())
-                            {
-                                comboBoxDeducciones.Items.Add(reader["Nombre"].ToString());
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar las deducciones");
-            }
-        }
-
-        public void cargarBeneficios()
-        {
-
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-
-
-                    // Consulta SQL para obtener nombres de especies
-                    string query = "SELECT Nombre FROM Beneficios";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            // Limpiar el ComboBox antes de agregar nuevos elementos
-                            comboBoxBeneficios.Items.Clear();
-
-                            // Agregar cada nombre de especie al ComboBox
-                            while (reader.Read())
-                            {
-                                comboBoxBeneficios.Items.Add(reader["Nombre"].ToString());
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los beneficios");
-            }
-        }
-
-
+        
         public void mostrarInfoDeducciones()
         {
             Class.Crud objetoCrud = new Class.Crud();
@@ -136,7 +64,7 @@ namespace ProyectoBD
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string beneficio = comboBoxBeneficios.Text;
-            int idBeneficio = Contratos.ObtenerId("Beneficios", "Nombre", beneficio);
+            int idBeneficio = Class1.ObtenerId("Beneficios", "Nombre", beneficio);
             objetoCrud.guardar("Contratos_Beneficios", " " + idContrato + ", " + idBeneficio + " ");
             mostrarInfoBonificaciones();
 
@@ -145,14 +73,14 @@ namespace ProyectoBD
         private void button1_Click(object sender, EventArgs e)
         {
             string deduccion = comboBoxDeducciones.Text;
-            int idDeduccion = Contratos.ObtenerId("Deducciones", "Nombre", deduccion);
+            int idDeduccion = Class1.ObtenerId("Deducciones", "Nombre", deduccion);
             objetoCrud.guardar("Contratos_Deducciones", " " + idContrato + ", " + idDeduccion + " ");
             mostrarInfoDeducciones();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Contratos contratos = new Contratos();
+            Contratos contratos = new Contratos(1);
             contratos.Show();
             this.Hide();
         }

@@ -423,6 +423,16 @@ namespace ProyectoBD
             ControlMascota ctrlMascotas = new ControlMascota(identificador);
             this.Hide();
         }
+
+        private void txtFechaInicio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFechaCita_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

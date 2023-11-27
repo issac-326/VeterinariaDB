@@ -236,6 +236,7 @@
             comboBoxPeriodoPago.Name = "comboBoxPeriodoPago";
             comboBoxPeriodoPago.Size = new Size(233, 26);
             comboBoxPeriodoPago.TabIndex = 17;
+            comboBoxPeriodoPago.SelectedIndexChanged += comboBoxPeriodoPago_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -345,6 +346,7 @@
             Controls.Add(panel2);
             Name = "Contratos";
             Text = "Gestión de Contratos";
+            Load += Contratos_Load;
             ((System.ComponentModel.ISupportInitialize)mostradorContratos).EndInit();
             groupBox2.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

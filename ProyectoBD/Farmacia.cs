@@ -39,7 +39,7 @@ namespace ProyectoBD
 
         }
 
-      
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -50,6 +50,13 @@ namespace ProyectoBD
             form2.Show();
 
             // Opcionalmente, ocultar el primer formulario
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Modulos modulos = new Modulos();
+            modulos.Show();
             this.Hide();
         }
     }

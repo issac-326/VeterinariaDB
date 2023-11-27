@@ -211,6 +211,7 @@
             button6.Text = "Farmacia";
             button6.TextImageRelation = TextImageRelation.ImageAboveText;
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button3
             // 

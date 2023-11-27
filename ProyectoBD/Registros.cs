@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -232,27 +234,17 @@ namespace ProyectoBD
                 decimal precio = Convert.ToInt32(txtPrecio.Text);
 
                 // Realizar la suma
-                suma = cantidad + precio;
+                suma = cantidad * precio;
                 String cadena = $"'{fechaFormateada}', {cantidad}, {precio}, {suma}, {idTipo},{idMedicamento}, {idProveedor}";
                 objetoCrud.guardar(tabla, cadena);
-                MessageBox.Show("Se realizo una " + comboTipo.SelectedItem.ToString());
-
-                cantidadTotal = TotalCantidad(cantidad, idTipo);
-
-                total = TotalRegistro(suma, idTipo, cantidadTotal);
                 if (idTipo == 1 || idTipo == 3)
                 {
-                    precioTotal = total / cantidadTotal;
+                    RegistroCompra(idMedicamento, cantidad, suma, Obtenerfactor(idTipo) );
                 }
-                else
+                else if (idTipo == 2 || idTipo == 4)
                 {
-                    precioTotal = ObtenerUltimoRegistro("Precio_Unitario");
+                    RegistroVenta(idMedicamento, cantidad, Obtenerfactor(idTipo));
                 }
-
-
-                String cadena1 = $"'{fechaFormateada}', {cantidadTotal}, {precioTotal}, {total}, 5 ,{idMedicamento}, {idProveedor}";
-                objetoCrud.guardar(tabla, cadena1);
-
             }
             else
             {
@@ -263,42 +255,92 @@ namespace ProyectoBD
 
         }
 
+        public void RegistroCompra(int idProducto, int Cantidad, decimal Total, int Factor )
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                
+                String query = $"EXEC movimientoCompra {idProducto}, 5, {Cantidad}, {Total}, {Factor};";
 
+                SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
+                SqlDataReader myReader;
 
+                myReader = comando.ExecuteReader();
+
+                while (myReader.Read())
+                {
+
+                }
+                MessageBox.Show("Registro Movimiento en Compra");
+                objectConexion.cerrarConexion();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al Registrar el movimiento Compra");
+            }
+            decimal precio = 0;
+            try
+            {
+                // Establecer la conexión a la base de datos
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Buscar el id de la forma
+                    string query = "SELECT Precio_Unitario FROM Registros where Id_Tipo = 5 AND  Id_Producto = '" + idProducto + "';";
+
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            reader.Read(); // Solo necesitas leer la primera fila
+
+                            // Obtener el valor del ID
+                            precio = Convert.ToInt32(reader["Precio_Unitario"]);
+                        }
+                    }
+                }
+                objectConexion.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error preciodecimal: " + ex.Message);
+            }
+            MessageBox.Show("EXEC precioProducto " + idProducto + ", " + precio);
+            PrecioProducto(idProducto, precio);
+
+        }
+        public void RegistroVenta(int idProducto, int Cantidad, int Factor)
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+
+                String query = $"EXEC movimientoVenta {idProducto}, 5, {Cantidad}, {Factor};";
+
+                SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
+                SqlDataReader myReader;
+
+                myReader = comando.ExecuteReader();
+
+                while (myReader.Read())
+                {
+
+                }
+                MessageBox.Show("Registro Movimiento en Venta");
+                objectConexion.cerrarConexion();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al Registrar el movimiento Venta");
+            }
+        }
         private bool EsNumero(string cadena)
         {
             return int.TryParse(cadena, out _);
         }
-        private decimal TotalRegistro(decimal total, int id, int cantidad)
-        {
-            int factor;
-            factor = Obtenerfactor(id);
-            decimal TotalR = 0;
-            decimal ultimoTotal = ObtenerUltimoRegistro("Total");
-            if (id == 1 || id == 3)
-            {
-                TotalR = ultimoTotal + (total * factor);
-            }
-            else
-            {
-                TotalR = ObtenerUltimoRegistro("Precio_Unitario") * (cantidad);
-
-            }
-            return TotalR;
-        }
-        private int TotalCantidad(int total, int id)
-        {
-            int factor;
-            int cantidaT = 0;
-            factor = Obtenerfactor(id);
-            int ultimoTotal = ObtenerUltimoRegistroCantidad("Cantidad");
-            if (ultimoTotal == 0 && factor == -1)
-            {
-                return cantidaT;
-            }
-            cantidaT = ultimoTotal + (total * factor);
-            return cantidaT;
-        }
+        
         private int Obtenerfactor(int id)
         {
             int factor = 0;
@@ -331,75 +373,7 @@ namespace ProyectoBD
             return factor;
         }
 
-        private decimal ObtenerUltimoRegistro(String nombre)
-        {
-            decimal dato = 0;
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-                    // Buscar el id de la especie 
-                    string query = "SELECT TOP 1 " + nombre + " FROM Registros where id = '5' ORDER BY Fecha DESC;";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-
-                            if (reader.HasRows)
-                            {
-                                reader.Read(); // Solo necesitas leer la primera fila
-
-                                // Obtener el valor del ID
-                                dato = Convert.ToDecimal(reader[nombre]);
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error se encontro dato : " + ex.Message);
-            }
-            return dato;
-        }
-        private int ObtenerUltimoRegistroCantidad(String nombre)
-        {
-            int dato = 0;
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-                    // Buscar el id de la especie 
-                    string query = "SELECT TOP 1 " + nombre + " FROM Registros where id = '5' ORDER BY Fecha DESC;";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-
-                            if (reader.HasRows)
-                            {
-                                reader.Read(); // Solo necesitas leer la primera fila
-
-                                // Obtener el valor del ID
-                                dato = Convert.ToInt32(reader[nombre]);
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error se encontro dato : " + ex.Message);
-            }
-            return dato;
-        }
-
+      
         private void button2_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
@@ -420,5 +394,34 @@ namespace ProyectoBD
             txtPrecio.Text = "";
             txtCantidad.Text = "";
         }
-    }
+        public void PrecioProducto(int idProducto, decimal Precio)
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+
+                String query = $"EXEC precioProducto {idProducto}, {Precio};";
+
+                SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
+                SqlDataReader myReader;
+
+                myReader = comando.ExecuteReader();
+
+                while (myReader.Read())
+                {
+
+                }
+                MessageBox.Show("Registro PRECIO");
+                objectConexion.cerrarConexion();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al Registrar PRECIO");
+            }
+        }
+
+
+        }
+
 }

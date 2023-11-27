@@ -19,13 +19,13 @@ namespace ProyectoBD
         String tabla1 = "Citas";
         String tabla2 = "Estados_Citas";
         int idMascota = 0;
-        public Citas(int idMascota)
+        public Citas(int idMascotas)
         {
             InitializeComponent();
             cargarTipoEstados();
             cargarMascotas();
             cargarEmpleados();
-            idMascota = idMascota;
+            idMascota = idMascotas;
             CargarDatos();
             
             //Contador para que al hacer clic en el datGridView se muestren los datos en los TextBox.

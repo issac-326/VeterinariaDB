@@ -124,7 +124,7 @@
     <value>169, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnVolver.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAA59JREFUSEuNlrtrFFEUxmdfWTcmJEtYY1BJlGiRSgiChZA/QCwsUtgKpvDR2PnA
@@ -144,23 +144,6 @@
         N2v8p7GG3lm5hYHxp8bwP/gHcBvuzH9kzqyhRP0/ItkmkpWY7U5Q7+PvJg2MfwQPgxXcLG5WN0O5flqt
         sa4J2Uzdv2WhUFgP3c0N6H/1ED6hpY+e+ab+/v4loDOraXWiZvAg+AeIuz2PnAUM+QAAAABJRU5ErkJg
         gg==
-</value>
-  </data>
-  <data name="btnEliminarCitas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        5gAADeYBS1NIwgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJ9SURBVEhL3ddb
-        iE1RHMfx4x4iTCOEEEKj5oUnkVCUMSkvJE9KURK5PIgHKS8uSZSS8iJyj9ySaEQeSAnJNSHS5D4uYb7f
-        c/aqTZlZe8+ZSX71afZee+/13+ectdbeU/hf0gftSpvlzSwsLm3+lo5YinrMtaFcGYOz+IXPGIyQqbgN
-        j+kpuqFF6YWt+AY7vZz83Y9hOJrse3wzNiT765A7k/AadnQLk2HO4Se+wGOnMQpmKGz/iIE25Ek/vEv0
-        hINmHp7BgvcxE6YL1uA9PHYRw5E7q2BHe1CXbHsjtlvM1OIBPKa7cLC1KA6iBtjhD+xFf5j0gPuE9diX
-        7Of+jTtjBd7Cjq5hPExvbIMDyt/6AMIonwbP313cy5gZuAc7eIEFaI8OWIQ38Jg+4GbKS9j+BN54VEbi
-        JLzQkbkJPWAm4gY85oh93oRX8LwtiMoyeIGfNozIQXDO+pV+x3a4LDYVr81UuBMs6so0Gg4QP52dnEcV
-        Qlw655c2ixmHhXDByVzYOC+9yE/n34eYjT9zFS4uIf4snu8N5ypszsALNR3OySNYiZBWKeyytxGhsFPL
-        7UMIaZXCxqnjyuQ0atPCLvBTUIE2LezD3ovzfNWV2IU5yJxqLMcQZC1ctmQt3BUH4QB17e6O6PjedAcT
-        EFO4LyzqgPQB4fnBVxxDVFyVHsG3kJjCId6w516C67urn89n28JbSnRiC4+ALwm2p197auD1a4t7zWQs
-        lsDnrHN6B1yLQ3zk+bumcxwWSJ9n7MP2K8W9ZpKeTrHxZdC3FL8NbzbkMOwr/VD5a0Lh6zgVIczZnQif
-        zvYLyf4JRCUUjrUaxheHx0gf87+LAfgXUig0AjXG8mTdJ/vxAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnAgregarCitas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

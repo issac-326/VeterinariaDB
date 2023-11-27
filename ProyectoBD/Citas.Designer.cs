@@ -48,8 +48,7 @@
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             dataGridView1 = new DataGridView();
             citasBindingSource = new BindingSource(components);
-            button1 = new Button();
-            btnEliminarCitas = new Button();
+            btnVolver = new Button();
             btnAgregarCitas = new Button();
             btnModificarCitas = new Button();
             btnLimpiarCitas = new Button();
@@ -78,9 +77,9 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = Color.Navy;
-            groupBox1.Location = new Point(12, 21);
+            groupBox1.Location = new Point(2, 21);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1248, 217);
+            groupBox1.Size = new Size(958, 217);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Formulario de Citas";
@@ -88,71 +87,73 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(1020, 137);
+            label8.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(793, 134);
             label8.Name = "label8";
-            label8.Size = new Size(203, 21);
+            label8.Size = new Size(164, 17);
             label8.TabIndex = 13;
             label8.Text = "yyyy/MM/dd hh:mm:ss";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(1020, 108);
+            label7.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(793, 105);
             label7.Name = "label7";
-            label7.Size = new Size(90, 21);
+            label7.Size = new Size(74, 17);
             label7.TabIndex = 12;
             label7.Text = "Formato:";
             // 
             // txtFechaFinal
             // 
-            txtFechaFinal.Location = new Point(687, 161);
+            txtFechaFinal.Location = new Point(568, 161);
             txtFechaFinal.Name = "txtFechaFinal";
-            txtFechaFinal.Size = new Size(301, 28);
+            txtFechaFinal.Size = new Size(219, 28);
             txtFechaFinal.TabIndex = 11;
             // 
             // txtFechaInicio
             // 
-            txtFechaInicio.Location = new Point(687, 105);
+            txtFechaInicio.Location = new Point(568, 105);
             txtFechaInicio.Name = "txtFechaInicio";
-            txtFechaInicio.Size = new Size(301, 28);
+            txtFechaInicio.Size = new Size(219, 28);
             txtFechaInicio.TabIndex = 10;
             // 
             // selEstadoCitas
             // 
             selEstadoCitas.FormattingEnabled = true;
-            selEstadoCitas.Location = new Point(687, 48);
+            selEstadoCitas.Location = new Point(568, 48);
             selEstadoCitas.Name = "selEstadoCitas";
-            selEstadoCitas.Size = new Size(301, 29);
+            selEstadoCitas.Size = new Size(219, 29);
             selEstadoCitas.TabIndex = 9;
             // 
             // txtFechaCita
             // 
             txtFechaCita.CustomFormat = "";
-            txtFechaCita.Location = new Point(154, 161);
+            txtFechaCita.Location = new Point(136, 161);
             txtFechaCita.Name = "txtFechaCita";
-            txtFechaCita.Size = new Size(269, 28);
+            txtFechaCita.Size = new Size(187, 28);
             txtFechaCita.TabIndex = 8;
             // 
             // selMascotaCita
             // 
             selMascotaCita.FormattingEnabled = true;
-            selMascotaCita.Location = new Point(154, 104);
+            selMascotaCita.Location = new Point(136, 104);
             selMascotaCita.Name = "selMascotaCita";
-            selMascotaCita.Size = new Size(268, 29);
+            selMascotaCita.Size = new Size(186, 29);
             selMascotaCita.TabIndex = 7;
             // 
             // selEmpleadoCitas
             // 
             selEmpleadoCitas.FormattingEnabled = true;
-            selEmpleadoCitas.Location = new Point(154, 48);
+            selEmpleadoCitas.Location = new Point(136, 48);
             selEmpleadoCitas.Name = "selEmpleadoCitas";
-            selEmpleadoCitas.Size = new Size(268, 29);
+            selEmpleadoCitas.Size = new Size(186, 29);
             selEmpleadoCitas.TabIndex = 6;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(485, 168);
+            label6.Location = new Point(366, 168);
             label6.Name = "label6";
             label6.Size = new Size(168, 21);
             label6.TabIndex = 5;
@@ -161,7 +162,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(485, 112);
+            label5.Location = new Point(366, 112);
             label5.Name = "label5";
             label5.Size = new Size(190, 21);
             label5.TabIndex = 4;
@@ -170,7 +171,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(485, 56);
+            label4.Location = new Point(366, 56);
             label4.Name = "label4";
             label4.Size = new Size(165, 21);
             label4.TabIndex = 3;
@@ -179,7 +180,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(34, 168);
+            label3.Location = new Point(16, 168);
             label3.Name = "label3";
             label3.Size = new Size(71, 21);
             label3.TabIndex = 2;
@@ -188,7 +189,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 112);
+            label2.Location = new Point(16, 112);
             label2.Name = "label2";
             label2.Size = new Size(91, 21);
             label2.TabIndex = 1;
@@ -197,7 +198,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(34, 56);
+            label1.Location = new Point(16, 56);
             label1.Name = "label1";
             label1.Size = new Size(104, 21);
             label1.TabIndex = 0;
@@ -212,13 +213,13 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(25, 249);
+            dataGridView1.Location = new Point(12, 249);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1235, 292);
+            dataGridView1.Size = new Size(937, 393);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellMouseClick += dataGridView1_CellMouseClick;
@@ -227,39 +228,23 @@
             // 
             citasBindingSource.DataSource = typeof(Citas);
             // 
-            // button1
+            // btnVolver
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.BackColor = Color.Red;
-            button1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(1067, 567);
-            button1.Name = "button1";
-            button1.Padding = new Padding(10, 10, 25, 10);
-            button1.Size = new Size(146, 56);
-            button1.TabIndex = 6;
-            button1.Text = "Salir";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminarCitas
-            // 
-            btnEliminarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnEliminarCitas.BackColor = Color.Red;
-            btnEliminarCitas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEliminarCitas.ForeColor = SystemColors.ActiveCaptionText;
-            btnEliminarCitas.Image = (Image)resources.GetObject("btnEliminarCitas.Image");
-            btnEliminarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarCitas.Location = new Point(555, 567);
-            btnEliminarCitas.Name = "btnEliminarCitas";
-            btnEliminarCitas.Padding = new Padding(10, 10, 25, 10);
-            btnEliminarCitas.Size = new Size(172, 56);
-            btnEliminarCitas.TabIndex = 7;
-            btnEliminarCitas.Text = "Eliminar";
-            btnEliminarCitas.TextAlign = ContentAlignment.MiddleRight;
-            btnEliminarCitas.UseVisualStyleBackColor = false;
+            btnVolver.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnVolver.BackColor = Color.Red;
+            btnVolver.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVolver.ForeColor = SystemColors.ActiveCaptionText;
+            btnVolver.Image = (Image)resources.GetObject("btnVolver.Image");
+            btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVolver.Location = new Point(784, 667);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Padding = new Padding(10, 10, 25, 10);
+            btnVolver.Size = new Size(165, 65);
+            btnVolver.TabIndex = 6;
+            btnVolver.Text = "Volver";
+            btnVolver.TextAlign = ContentAlignment.MiddleRight;
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
             // 
             // btnAgregarCitas
             // 
@@ -269,10 +254,10 @@
             btnAgregarCitas.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregarCitas.Image = (Image)resources.GetObject("btnAgregarCitas.Image");
             btnAgregarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarCitas.Location = new Point(33, 567);
+            btnAgregarCitas.Location = new Point(18, 667);
             btnAgregarCitas.Name = "btnAgregarCitas";
             btnAgregarCitas.Padding = new Padding(10, 10, 25, 10);
-            btnAgregarCitas.Size = new Size(182, 56);
+            btnAgregarCitas.Size = new Size(173, 65);
             btnAgregarCitas.TabIndex = 8;
             btnAgregarCitas.Text = "Agregar";
             btnAgregarCitas.TextAlign = ContentAlignment.MiddleRight;
@@ -287,10 +272,10 @@
             btnModificarCitas.ForeColor = SystemColors.ActiveCaptionText;
             btnModificarCitas.Image = (Image)resources.GetObject("btnModificarCitas.Image");
             btnModificarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificarCitas.Location = new Point(293, 567);
+            btnModificarCitas.Location = new Point(281, 667);
             btnModificarCitas.Name = "btnModificarCitas";
             btnModificarCitas.Padding = new Padding(10, 10, 25, 10);
-            btnModificarCitas.Size = new Size(182, 56);
+            btnModificarCitas.Size = new Size(178, 65);
             btnModificarCitas.TabIndex = 9;
             btnModificarCitas.Text = "Modificar";
             btnModificarCitas.TextAlign = ContentAlignment.MiddleRight;
@@ -305,10 +290,10 @@
             btnLimpiarCitas.ForeColor = SystemColors.ActiveCaptionText;
             btnLimpiarCitas.Image = (Image)resources.GetObject("btnLimpiarCitas.Image");
             btnLimpiarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiarCitas.Location = new Point(811, 567);
+            btnLimpiarCitas.Location = new Point(537, 667);
             btnLimpiarCitas.Name = "btnLimpiarCitas";
             btnLimpiarCitas.Padding = new Padding(10, 10, 25, 10);
-            btnLimpiarCitas.Size = new Size(179, 56);
+            btnLimpiarCitas.Size = new Size(168, 65);
             btnLimpiarCitas.TabIndex = 10;
             btnLimpiarCitas.Text = "Limpiar";
             btnLimpiarCitas.TextAlign = ContentAlignment.MiddleRight;
@@ -323,12 +308,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1286, 651);
+            ClientSize = new Size(961, 756);
             Controls.Add(btnLimpiarCitas);
             Controls.Add(btnModificarCitas);
             Controls.Add(btnAgregarCitas);
-            Controls.Add(btnEliminarCitas);
-            Controls.Add(button1);
+            Controls.Add(btnVolver);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             Name = "Citas";
@@ -358,8 +342,7 @@
         private DateTimePicker txtFechaCita;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private DataGridView dataGridView1;
-        private Button button1;
-        private Button btnEliminarCitas;
+        private Button btnVolver;
         private Button btnAgregarCitas;
         private Button btnModificarCitas;
         private Button btnLimpiarCitas;

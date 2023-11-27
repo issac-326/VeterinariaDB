@@ -14,20 +14,22 @@ using System.Windows.Forms;
 namespace ProyectoBD
 {
 
-    public partial class Citas : Form 
+    public partial class Citas : Form
     {
+        ///Variable de instancia
+        int identificador = 0;
         String tabla1 = "Citas";
         String tabla2 = "Estados_Citas";
-        int idMascota = 0;
-        public Citas(int idMascotas)
+        public Citas(int id)
         {
             InitializeComponent();
+            ///Asignamos el valor a la variable de instancia.
+            identificador = id;
             cargarTipoEstados();
             cargarMascotas();
             cargarEmpleados();
-            idMascota = idMascotas;
             CargarDatos();
-            
+
             //Contador para que al hacer clic en el datGridView se muestren los datos en los TextBox.
             dataGridView1.CellMouseClick += dataGridView1_CellMouseClick;
         }
@@ -139,7 +141,7 @@ namespace ProyectoBD
 
         private string ObtenerNombreporIdMascotas(int idMascota)
         {
-           string nombreMascota = string.Empty;
+            string nombreMascota = string.Empty;
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
             {
@@ -287,7 +289,7 @@ namespace ProyectoBD
         {
             CrudCitas objetoCrud = new Class.CrudCitas();
             // Define la instrucción SQL para seleccionar datos.
-            string instruccionSql = "EXEC ObtenerDatosCitas;";
+            string instruccionSql = "    SELECT est.Id AS 'ID', pe.Primer_Nombre AS 'Nombre del Empleado', ci.Fecha, ma.Nombre AS 'Nombre de la Mascota', ti.Nombre AS 'Estado', est.FechaInicio AS 'Fecha Inicial del Estado', est.FechaFinal AS 'Fecha Final del Estado' FROM Estados_Citas est INNER JOIN Tipo_estados ti ON est.Id_Tipo_Estado = ti.Id INNER JOIN Citas ci ON ci.Id = est.Id_Cita INNER JOIN Mascotas ma ON ma.Id = ci.Id_Mascota INNER JOIN Empleados em ON em.Id = ci.Id_Empleado INNER JOIN Personas pe ON pe.Id = em.Id_Persona WHERE ci.Id_Mascota =" + identificador + "";
 
             // Llama al método mostrarData para cargar y mostrar los datos en el DataGridView
             objetoCrud.mostrarData(dataGridView1, instruccionSql);
@@ -313,7 +315,7 @@ namespace ProyectoBD
             string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
 
 
-            String cadenaC = $"'{fechaFormateada}', {idEmpleado}, {idMascota}";
+            String cadenaC = $"'{fechaFormateada}', {idEmpleado}, {identificador}";
             objetoCrud1.guardarCitas(tabla1, cadenaC);
 
 
@@ -380,8 +382,9 @@ namespace ProyectoBD
                 string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
 
                 // Modificar en la tabla Citas
-                String cadenaC = $"Fecha = '{fechaFormateada}', Id_Empleado = {idEmpleado}, Id_Mascota = {idMascota}";
+                String cadenaC = $"Fecha = '{fechaFormateada}', Id_Empleado = {idEmpleado}, Id_Mascota = {identificador}";
                 objetoCrud1.editarCitas("Citas", cadenaC, idCitaE);
+
 
                 // Modificar en la tabla Estados de las Citas
                 String cadenaE = $" FechaInicio= '{txtFechaInicio.Text}',FechaFinal= '{txtFechaFinal.Text}', Id_Cita = {idCitaE}, Id_Tipo_Estado= {idTipoEstado}";
@@ -406,15 +409,19 @@ namespace ProyectoBD
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            //Para que se muestren los datos en los TextBox
-                selEmpleadoCitas.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                txtFechaCita.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value).ToString();
-                selMascotaCita.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                selEstadoCitas.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                txtFechaInicio.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                txtFechaFinal.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            selEmpleadoCitas.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtFechaCita.Text = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value).ToString();
+            selMascotaCita.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            selEstadoCitas.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtFechaInicio.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            txtFechaFinal.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
 
-            MessageBox.Show("Mensaje: " + idMascota + "");
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            ControlMascota ctrlMascotas = new ControlMascota(identificador);
+            this.Hide();
         }
     }
 }

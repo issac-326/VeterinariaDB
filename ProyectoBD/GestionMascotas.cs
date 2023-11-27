@@ -425,6 +425,7 @@ namespace ProyectoBD
                 ControlMascota nuevoFormulario = new ControlMascota(idSeleccionado);
                 nuevoFormulario.Show();
                 this.Hide();
+
             }
         }
 

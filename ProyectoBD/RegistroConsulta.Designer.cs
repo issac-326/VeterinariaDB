@@ -33,35 +33,40 @@
             label13 = new Label();
             label1 = new Label();
             btnSalir = new Button();
-            btnLimpiar = new Button();
-            btnModificar = new Button();
             btnAgregar = new Button();
-            mostradorMascotas = new DataGridView();
+            mostradorMedicamentos = new DataGridView();
             groupBox2 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
-            txtPeso = new TextBox();
             Nombre = new Label();
             label3 = new Label();
             label6 = new Label();
             label10 = new Label();
+            label9 = new Label();
             label4 = new Label();
             label11 = new Label();
-            txtTamano = new TextBox();
-            selEspecie = new ComboBox();
-            selRaza = new ComboBox();
-            txtNombre = new TextBox();
+            txtResponsable = new TextBox();
+            selTipo = new ComboBox();
+            txtSintoma = new TextBox();
             txtFecha = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
+            txtHora = new DateTimePicker();
             label5 = new Label();
             label7 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtDiagnostico = new TextBox();
+            txtCita = new TextBox();
+            txtExpendiente = new TextBox();
+            selMedico = new ComboBox();
             panel1 = new Panel();
             label12 = new Label();
             label14 = new Label();
-            label9 = new Label();
+            button2 = new Button();
+            button3 = new Button();
+            btnAgregarConsulta = new Button();
+            label2 = new Label();
+            selMedicamento = new ComboBox();
+            label8 = new Label();
+            txtDosis = new TextBox();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)mostradorMascotas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mostradorMedicamentos).BeginInit();
             groupBox2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -124,42 +129,6 @@
             btnSalir.TextAlign = ContentAlignment.MiddleRight;
             btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnLimpiar.BackColor = Color.FromArgb(192, 255, 255);
-            btnLimpiar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpiar.ForeColor = SystemColors.ActiveCaptionText;
-            btnLimpiar.Image = (Image)resources.GetObject("btnLimpiar.Image");
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(447, 519);
-            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Padding = new Padding(9, 8, 22, 8);
-            btnLimpiar.Size = new Size(154, 43);
-            btnLimpiar.TabIndex = 30;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // btnModificar
-            // 
-            btnModificar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnModificar.BackColor = Color.FromArgb(255, 128, 0);
-            btnModificar.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificar.ForeColor = SystemColors.ActiveCaptionText;
-            btnModificar.Image = (Image)resources.GetObject("btnModificar.Image");
-            btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(229, 519);
-            btnModificar.Margin = new Padding(3, 2, 3, 2);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Padding = new Padding(9, 8, 22, 8);
-            btnModificar.Size = new Size(154, 43);
-            btnModificar.TabIndex = 29;
-            btnModificar.Text = "Modificar";
-            btnModificar.TextAlign = ContentAlignment.MiddleRight;
-            btnModificar.UseVisualStyleBackColor = false;
-            // 
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -168,7 +137,7 @@
             btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregar.Image = (Image)resources.GetObject("btnAgregar.Image");
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(16, 519);
+            btnAgregar.Location = new Point(10, 519);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Padding = new Padding(9, 8, 22, 8);
@@ -177,15 +146,16 @@
             btnAgregar.Text = "Agregar";
             btnAgregar.TextAlign = ContentAlignment.MiddleRight;
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
-            // mostradorMascotas
+            // mostradorMedicamentos
             // 
-            mostradorMascotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mostradorMascotas.Location = new Point(13, 321);
-            mostradorMascotas.Name = "mostradorMascotas";
-            mostradorMascotas.RowTemplate.Height = 25;
-            mostradorMascotas.Size = new Size(814, 166);
-            mostradorMascotas.TabIndex = 27;
+            mostradorMedicamentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            mostradorMedicamentos.Location = new Point(10, 364);
+            mostradorMedicamentos.Name = "mostradorMedicamentos";
+            mostradorMedicamentos.RowTemplate.Height = 25;
+            mostradorMedicamentos.Size = new Size(814, 150);
+            mostradorMedicamentos.TabIndex = 27;
             // 
             // groupBox2
             // 
@@ -195,9 +165,9 @@
             groupBox2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.Navy;
             groupBox2.ImeMode = ImeMode.Disable;
-            groupBox2.Location = new Point(10, 63);
+            groupBox2.Location = new Point(10, 51);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(817, 234);
+            groupBox2.Size = new Size(817, 216);
             groupBox2.TabIndex = 26;
             groupBox2.TabStop = false;
             groupBox2.Text = "Formulario";
@@ -211,7 +181,6 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.4130707F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.8013229F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.97350979F));
-            tableLayoutPanel2.Controls.Add(txtPeso, 4, 0);
             tableLayoutPanel2.Controls.Add(Nombre, 0, 0);
             tableLayoutPanel2.Controls.Add(label3, 0, 1);
             tableLayoutPanel2.Controls.Add(label6, 3, 0);
@@ -219,36 +188,29 @@
             tableLayoutPanel2.Controls.Add(label9, 3, 3);
             tableLayoutPanel2.Controls.Add(label4, 0, 2);
             tableLayoutPanel2.Controls.Add(label11, 3, 1);
-            tableLayoutPanel2.Controls.Add(txtTamano, 4, 1);
-            tableLayoutPanel2.Controls.Add(selEspecie, 4, 2);
-            tableLayoutPanel2.Controls.Add(selRaza, 4, 3);
-            tableLayoutPanel2.Controls.Add(txtNombre, 1, 2);
+            tableLayoutPanel2.Controls.Add(txtResponsable, 4, 1);
+            tableLayoutPanel2.Controls.Add(selTipo, 4, 3);
+            tableLayoutPanel2.Controls.Add(txtSintoma, 1, 2);
             tableLayoutPanel2.Controls.Add(txtFecha, 1, 0);
-            tableLayoutPanel2.Controls.Add(dateTimePicker1, 1, 1);
+            tableLayoutPanel2.Controls.Add(txtHora, 1, 1);
             tableLayoutPanel2.Controls.Add(label5, 0, 4);
             tableLayoutPanel2.Controls.Add(label7, 0, 3);
-            tableLayoutPanel2.Controls.Add(textBox1, 1, 3);
-            tableLayoutPanel2.Controls.Add(textBox2, 1, 4);
+            tableLayoutPanel2.Controls.Add(txtDiagnostico, 1, 3);
+            tableLayoutPanel2.Controls.Add(txtCita, 1, 4);
+            tableLayoutPanel2.Controls.Add(txtExpendiente, 4, 2);
+            tableLayoutPanel2.Controls.Add(selMedico, 4, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.ImeMode = ImeMode.KatakanaHalf;
             tableLayoutPanel2.Location = new Point(3, 22);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 6;
+            tableLayoutPanel2.RowCount = 5;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
-            tableLayoutPanel2.Size = new Size(811, 209);
+            tableLayoutPanel2.Size = new Size(811, 191);
             tableLayoutPanel2.TabIndex = 4;
-            // 
-            // txtPeso
-            // 
-            txtPeso.Location = new Point(539, 3);
-            txtPeso.Name = "txtPeso";
-            txtPeso.Size = new Size(233, 26);
-            txtPeso.TabIndex = 12;
             // 
             // Nombre
             // 
@@ -262,7 +224,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(3, 35);
+            label3.Location = new Point(3, 38);
             label3.Name = "label3";
             label3.Size = new Size(47, 18);
             label3.TabIndex = 1;
@@ -280,16 +242,25 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(414, 70);
+            label10.Location = new Point(414, 76);
             label10.Name = "label10";
             label10.Size = new Size(97, 18);
             label10.TabIndex = 8;
             label10.Text = "Expediente";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(414, 114);
+            label9.Name = "label9";
+            label9.Size = new Size(42, 18);
+            label9.TabIndex = 7;
+            label9.Text = "Tipo";
+            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(3, 70);
+            label4.Location = new Point(3, 76);
             label4.Name = "label4";
             label4.Size = new Size(82, 18);
             label4.TabIndex = 2;
@@ -298,41 +269,33 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(414, 35);
+            label11.Location = new Point(414, 38);
             label11.Name = "label11";
             label11.Size = new Size(112, 18);
             label11.TabIndex = 9;
             label11.Text = "Responsable";
             // 
-            // txtTamano
+            // txtResponsable
             // 
-            txtTamano.Location = new Point(539, 38);
-            txtTamano.Name = "txtTamano";
-            txtTamano.Size = new Size(233, 26);
-            txtTamano.TabIndex = 13;
+            txtResponsable.Location = new Point(539, 41);
+            txtResponsable.Name = "txtResponsable";
+            txtResponsable.Size = new Size(233, 26);
+            txtResponsable.TabIndex = 13;
             // 
-            // selEspecie
+            // selTipo
             // 
-            selEspecie.FormattingEnabled = true;
-            selEspecie.Location = new Point(539, 73);
-            selEspecie.Name = "selEspecie";
-            selEspecie.Size = new Size(233, 26);
-            selEspecie.TabIndex = 25;
+            selTipo.FormattingEnabled = true;
+            selTipo.Location = new Point(539, 117);
+            selTipo.Name = "selTipo";
+            selTipo.Size = new Size(233, 26);
+            selTipo.TabIndex = 26;
             // 
-            // selRaza
+            // txtSintoma
             // 
-            selRaza.FormattingEnabled = true;
-            selRaza.Location = new Point(539, 108);
-            selRaza.Name = "selRaza";
-            selRaza.Size = new Size(233, 26);
-            selRaza.TabIndex = 26;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(137, 73);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(233, 26);
-            txtNombre.TabIndex = 10;
+            txtSintoma.Location = new Point(137, 79);
+            txtSintoma.Name = "txtSintoma";
+            txtSintoma.Size = new Size(233, 26);
+            txtSintoma.TabIndex = 10;
             // 
             // txtFecha
             // 
@@ -342,19 +305,19 @@
             txtFecha.Size = new Size(233, 26);
             txtFecha.TabIndex = 22;
             // 
-            // dateTimePicker1
+            // txtHora
             // 
-            dateTimePicker1.CustomFormat = "";
-            dateTimePicker1.Format = DateTimePickerFormat.Time;
-            dateTimePicker1.Location = new Point(137, 38);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(233, 26);
-            dateTimePicker1.TabIndex = 29;
+            txtHora.CustomFormat = "";
+            txtHora.Format = DateTimePickerFormat.Time;
+            txtHora.Location = new Point(137, 41);
+            txtHora.Name = "txtHora";
+            txtHora.Size = new Size(233, 26);
+            txtHora.TabIndex = 29;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(3, 140);
+            label5.Location = new Point(3, 152);
             label5.Name = "label5";
             label5.Size = new Size(40, 18);
             label5.TabIndex = 3;
@@ -363,32 +326,47 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(3, 105);
+            label7.Location = new Point(3, 114);
             label7.Name = "label7";
             label7.Size = new Size(103, 18);
             label7.TabIndex = 5;
             label7.Text = "Diagnostico";
             // 
-            // textBox1
+            // txtDiagnostico
             // 
-            textBox1.Location = new Point(137, 108);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(233, 26);
-            textBox1.TabIndex = 30;
+            txtDiagnostico.Location = new Point(137, 117);
+            txtDiagnostico.Name = "txtDiagnostico";
+            txtDiagnostico.Size = new Size(233, 26);
+            txtDiagnostico.TabIndex = 30;
             // 
-            // textBox2
+            // txtCita
             // 
-            textBox2.Location = new Point(137, 143);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(233, 26);
-            textBox2.TabIndex = 31;
+            txtCita.Location = new Point(137, 155);
+            txtCita.Name = "txtCita";
+            txtCita.Size = new Size(233, 26);
+            txtCita.TabIndex = 31;
+            // 
+            // txtExpendiente
+            // 
+            txtExpendiente.Location = new Point(539, 79);
+            txtExpendiente.Name = "txtExpendiente";
+            txtExpendiente.Size = new Size(233, 26);
+            txtExpendiente.TabIndex = 12;
+            // 
+            // selMedico
+            // 
+            selMedico.FormattingEnabled = true;
+            selMedico.Location = new Point(539, 3);
+            selMedico.Name = "selMedico";
+            selMedico.Size = new Size(233, 26);
+            selMedico.TabIndex = 25;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.Controls.Add(label12);
             panel1.Controls.Add(label14);
-            panel1.Location = new Point(-13, 5);
+            panel1.Location = new Point(-13, -7);
             panel1.Name = "panel1";
             panel1.Size = new Size(867, 52);
             panel1.TabIndex = 25;
@@ -422,39 +400,128 @@
             label14.Size = new Size(0, 22);
             label14.TabIndex = 0;
             // 
-            // label9
+            // button2
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(414, 105);
-            label9.Name = "label9";
-            label9.Size = new Size(42, 18);
-            label9.TabIndex = 7;
-            label9.Text = "Tipo";
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button2.BackColor = Color.FromArgb(192, 255, 255);
+            button2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = SystemColors.ActiveCaptionText;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(447, 265);
+            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Name = "button2";
+            button2.Padding = new Padding(9, 8, 22, 8);
+            button2.Size = new Size(154, 43);
+            button2.TabIndex = 34;
+            button2.Text = "Limpiar";
+            button2.TextAlign = ContentAlignment.MiddleRight;
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button3.BackColor = Color.FromArgb(255, 128, 0);
+            button3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.ActiveCaptionText;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(229, 265);
+            button3.Margin = new Padding(3, 2, 3, 2);
+            button3.Name = "button3";
+            button3.Padding = new Padding(9, 8, 22, 8);
+            button3.Size = new Size(154, 43);
+            button3.TabIndex = 33;
+            button3.Text = "Modificar";
+            button3.TextAlign = ContentAlignment.MiddleRight;
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregarConsulta
+            // 
+            btnAgregarConsulta.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnAgregarConsulta.BackColor = Color.FromArgb(0, 192, 0);
+            btnAgregarConsulta.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgregarConsulta.ForeColor = SystemColors.ActiveCaptionText;
+            btnAgregarConsulta.Image = (Image)resources.GetObject("btnAgregarConsulta.Image");
+            btnAgregarConsulta.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAgregarConsulta.Location = new Point(10, 265);
+            btnAgregarConsulta.Margin = new Padding(3, 2, 3, 2);
+            btnAgregarConsulta.Name = "btnAgregarConsulta";
+            btnAgregarConsulta.Padding = new Padding(9, 8, 22, 8);
+            btnAgregarConsulta.Size = new Size(154, 43);
+            btnAgregarConsulta.TabIndex = 32;
+            btnAgregarConsulta.Text = "Agregar";
+            btnAgregarConsulta.TextAlign = ContentAlignment.MiddleRight;
+            btnAgregarConsulta.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Navy;
+            label2.Location = new Point(12, 331);
+            label2.Name = "label2";
+            label2.Size = new Size(124, 18);
+            label2.TabIndex = 32;
+            label2.Text = "Medicamentos";
+            // 
+            // selMedicamento
+            // 
+            selMedicamento.FormattingEnabled = true;
+            selMedicamento.Location = new Point(150, 331);
+            selMedicamento.Name = "selMedicamento";
+            selMedicamento.Size = new Size(143, 23);
+            selMedicamento.TabIndex = 32;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Navy;
+            label8.Location = new Point(313, 331);
+            label8.Name = "label8";
+            label8.Size = new Size(52, 18);
+            label8.TabIndex = 35;
+            label8.Text = "Dosis";
+            // 
+            // txtDosis
+            // 
+            txtDosis.Location = new Point(381, 331);
+            txtDosis.Name = "txtDosis";
+            txtDosis.Size = new Size(158, 23);
+            txtDosis.TabIndex = 36;
             // 
             // RegistroConsulta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(841, 567);
+            Controls.Add(txtDosis);
+            Controls.Add(label8);
+            Controls.Add(selMedicamento);
+            Controls.Add(label2);
+            Controls.Add(button2);
+            Controls.Add(button3);
+            Controls.Add(btnAgregarConsulta);
             Controls.Add(btnSalir);
-            Controls.Add(btnLimpiar);
-            Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
-            Controls.Add(mostradorMascotas);
+            Controls.Add(mostradorMedicamentos);
             Controls.Add(groupBox2);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "RegistroConsulta";
             Text = "RegistroConsulta";
+            Load += RegistroConsulta_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)mostradorMascotas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mostradorMedicamentos).EndInit();
             groupBox2.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -462,32 +529,37 @@
         private Label label13;
         private Label label1;
         private Button btnSalir;
-        private Button btnLimpiar;
-        private Button btnModificar;
         private Button btnAgregar;
-        private DataGridView mostradorMascotas;
+        private DataGridView mostradorMedicamentos;
         private GroupBox groupBox2;
         private TableLayoutPanel tableLayoutPanel2;
-        private TextBox txtPeso;
+        private TextBox txtExpendiente;
         private Label Nombre;
         private Label label3;
         private Label label5;
         private Label label7;
-        private TextBox txtNombre;
+        private TextBox txtSintoma;
         private Label label6;
         private Label label10;
         private Label label4;
         private Label label11;
-        private TextBox txtTamano;
+        private TextBox txtResponsable;
         private DateTimePicker txtFecha;
-        private ComboBox selEspecie;
-        private ComboBox selRaza;
+        private ComboBox selMedico;
+        private ComboBox selTipo;
         private Panel panel1;
         private Label label12;
         private Label label14;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private DateTimePicker txtHora;
+        private TextBox txtDiagnostico;
         private Label label9;
+        private Button button2;
+        private Button button3;
+        private Button btnAgregarConsulta;
+        private Label label2;
+        private ComboBox selMedicamento;
+        private TextBox txtCita;
+        private Label label8;
+        private TextBox txtDosis;
     }
 }

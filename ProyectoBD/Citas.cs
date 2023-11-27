@@ -18,15 +18,14 @@ namespace ProyectoBD
     {
         String tabla1 = "Citas";
         String tabla2 = "Estados_Citas";
-
-        public Citas()
+        public Citas(int IdMascota)
         {
             InitializeComponent();
             cargarTipoEstados();
             cargarMascotas();
             cargarEmpleados();
             CargarDatos();
-
+            
             //Contador para que al hacer clic en el datGridView se muestren los datos en los TextBox.
             dataGridView1.CellMouseClick += dataGridView1_CellMouseClick;
         }

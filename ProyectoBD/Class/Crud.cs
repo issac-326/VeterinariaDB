@@ -56,7 +56,6 @@ namespace ProyectoBD.Class
                 {
 
                 }
-                MessageBox.Show("Siuuuuuu");
                 objectConexion.cerrarConexion();
 
             }

@@ -413,6 +413,8 @@ namespace ProyectoBD
                 selEstadoCitas.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                 txtFechaInicio.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                 txtFechaFinal.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+
+            MessageBox.Show("Mensaje: " + idMascota + "");
         }
     }
 }

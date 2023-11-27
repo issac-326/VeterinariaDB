@@ -13,9 +13,11 @@ namespace ProyectoBD
     public partial class ControlMascota : Form
     {
         int idMascota = 0;
-        public ControlMascota(int idMascota)
+        public ControlMascota(int idMascotas)
         {
             InitializeComponent();
+            int idMascota =idMascotas;
+
         }
 
         private void ControlMascota_Load(object sender, EventArgs e)
@@ -25,6 +27,7 @@ namespace ProyectoBD
 
         private void button7_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Error: " + idMascota + "");
             Citas citasForm = new Citas(idMascota);
             citasForm.Show();
         }

@@ -12,6 +12,7 @@ namespace ProyectoBD
 {
     public partial class ControlMascota : Form
     {
+        int idMascota = 0;
         public ControlMascota(int idMascota)
         {
             InitializeComponent();
@@ -20,6 +21,12 @@ namespace ProyectoBD
         private void ControlMascota_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Citas citasForm = new Citas(idMascota);
+            citasForm.Show();
         }
     }
 }

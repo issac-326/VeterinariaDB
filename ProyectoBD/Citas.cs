@@ -18,12 +18,14 @@ namespace ProyectoBD
     {
         String tabla1 = "Citas";
         String tabla2 = "Estados_Citas";
-        public Citas(int IdMascota)
+        int idMascota = 0;
+        public Citas(int idMascota)
         {
             InitializeComponent();
             cargarTipoEstados();
             cargarMascotas();
             cargarEmpleados();
+            idMascota = idMascota;
             CargarDatos();
             
             //Contador para que al hacer clic en el datGridView se muestren los datos en los TextBox.
@@ -135,9 +137,9 @@ namespace ProyectoBD
             }
         }
 
-        private int ObtenerIdMascotas(String nombreMascota)
+        private string ObtenerNombreporIdMascotas(int idMascota)
         {
-            int idMascota = -1;
+           string nombreMascota = string.Empty;
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
             {
@@ -153,7 +155,7 @@ namespace ProyectoBD
                             reader.Read(); // Solo necesitas leer la primera fila
 
                             // Obtener el valor del ID
-                            idMascota = Convert.ToInt32(reader["Id"]);
+                            nombreMascota = Convert.ToString(reader["Nombre"]);
                         }
                     }
                 }
@@ -163,7 +165,7 @@ namespace ProyectoBD
             {
                 MessageBox.Show("Error al ver la Mascota: " + ex.Message);
             }
-            return idMascota;
+            return nombreMascota;
         }
 
         ///Empleados de las citas
@@ -295,15 +297,10 @@ namespace ProyectoBD
         {
             int idTipoEstado = -1;
             int idEmpleado = 1;
-            int idMascota = 1;
             CrudCitas objetoCrud1 = new Class.CrudCitas();
             if (selEstadoCitas.SelectedItem != null)
             {
                 idTipoEstado = ObtenerIdTipoEstado(selEstadoCitas.SelectedItem.ToString());
-            }
-            if (selMascotaCita.SelectedItem != null)
-            {
-                idMascota = ObtenerIdMascotas(selMascotaCita.SelectedItem.ToString());
             }
             if (selEmpleadoCitas.SelectedItem != null)
             {
@@ -362,17 +359,11 @@ namespace ProyectoBD
                 int idCitaE = 1;
                 int idTipoEstado = -1;
                 int idEmpleado = 1;
-                int idMascota = 1;
                 CrudCitas objetoCrud1 = new Class.CrudCitas();
 
                 if (selEstadoCitas.SelectedItem != null)
                 {
                     idTipoEstado = ObtenerIdTipoEstado(selEstadoCitas.SelectedItem.ToString());
-                }
-
-                if (selMascotaCita.SelectedItem != null)
-                {
-                    idMascota = ObtenerIdMascotas(selMascotaCita.SelectedItem.ToString());
                 }
 
                 if (selEmpleadoCitas.SelectedItem != null)

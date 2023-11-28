@@ -132,6 +132,7 @@ namespace ProyectoBD.Class
                 myReader = comando.ExecuteReader();
                 while (myReader.Read())
                 {
+
                 }
                 MessageBox.Show("Se modifico la cita" + query +"");
                 objectConexion.cerrarConexion();

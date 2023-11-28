@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             Acceso = new GroupBox();
+            txtUsuario = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            textBox2 = new TextBox();
-            Usuario = new TextBox();
-            button1 = new Button();
+            txtContrasenia = new TextBox();
+            btnIniciar = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             Acceso.SuspendLayout();
@@ -45,92 +45,86 @@
             // Acceso
             // 
             Acceso.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Acceso.Controls.Add(txtUsuario);
             Acceso.Controls.Add(label2);
             Acceso.Controls.Add(label1);
-            Acceso.Controls.Add(textBox2);
-            Acceso.Controls.Add(Usuario);
-            Acceso.Controls.Add(button1);
+            Acceso.Controls.Add(txtContrasenia);
+            Acceso.Controls.Add(btnIniciar);
             Acceso.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Acceso.ForeColor = Color.Navy;
-            Acceso.Location = new Point(471, 156);
+            Acceso.Location = new Point(383, 168);
             Acceso.Margin = new Padding(3, 4, 3, 4);
             Acceso.Name = "Acceso";
             Acceso.Padding = new Padding(3, 4, 3, 4);
-            Acceso.Size = new Size(288, 344);
+            Acceso.Size = new Size(355, 320);
             Acceso.TabIndex = 0;
             Acceso.TabStop = false;
             Acceso.Text = "Bienvenido";
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.BackColor = SystemColors.Window;
+            txtUsuario.BorderStyle = BorderStyle.None;
+            txtUsuario.Location = new Point(50, 78);
+            txtUsuario.Margin = new Padding(3, 4, 3, 4);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(274, 28);
+            txtUsuario.TabIndex = 5;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Navy;
-            label2.Location = new Point(7, 133);
+            label2.Location = new Point(50, 133);
             label2.Name = "label2";
             label2.Size = new Size(130, 23);
             label2.TabIndex = 4;
             label2.Text = "Contraseña:";
-            label2.Click += label2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(7, 51);
+            label1.Location = new Point(50, 51);
             label1.Name = "label1";
             label1.Size = new Size(92, 23);
             label1.TabIndex = 3;
             label1.Text = "Usuario:";
-            label1.Click += label1_Click;
             // 
-            // textBox2
+            // txtContrasenia
             // 
-            textBox2.BackColor = SystemColors.Window;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Location = new Point(7, 161);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(274, 28);
-            textBox2.TabIndex = 2;
+            txtContrasenia.BackColor = SystemColors.Window;
+            txtContrasenia.BorderStyle = BorderStyle.None;
+            txtContrasenia.Location = new Point(50, 161);
+            txtContrasenia.Margin = new Padding(3, 4, 3, 4);
+            txtContrasenia.Name = "txtContrasenia";
+            txtContrasenia.PasswordChar = '*';
+            txtContrasenia.Size = new Size(274, 28);
+            txtContrasenia.TabIndex = 2;
             // 
-            // Usuario
+            // btnIniciar
             // 
-            Usuario.BackColor = SystemColors.Window;
-            Usuario.BorderStyle = BorderStyle.None;
-            Usuario.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Usuario.ForeColor = SystemColors.InactiveCaptionText;
-            Usuario.Location = new Point(7, 84);
-            Usuario.Margin = new Padding(3, 4, 3, 4);
-            Usuario.Name = "Usuario";
-            Usuario.RightToLeft = RightToLeft.Yes;
-            Usuario.ScrollBars = ScrollBars.Both;
-            Usuario.Size = new Size(274, 24);
-            Usuario.TabIndex = 1;
-            Usuario.TextAlign = HorizontalAlignment.Center;
-            // 
-            // button1
-            // 
-            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button1.BackColor = Color.Navy;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = SystemColors.HighlightText;
-            button1.Location = new Point(7, 251);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(274, 52);
-            button1.TabIndex = 0;
-            button1.Text = "Iniciar Sesión ";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnIniciar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnIniciar.BackColor = Color.Navy;
+            btnIniciar.BackgroundImageLayout = ImageLayout.Center;
+            btnIniciar.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            btnIniciar.FlatStyle = FlatStyle.Flat;
+            btnIniciar.ForeColor = SystemColors.HighlightText;
+            btnIniciar.Location = new Point(50, 251);
+            btnIniciar.Margin = new Padding(3, 4, 3, 4);
+            btnIniciar.Name = "btnIniciar";
+            btnIniciar.Size = new Size(274, 52);
+            btnIniciar.TabIndex = 0;
+            btnIniciar.Text = "Iniciar Sesión ";
+            btnIniciar.UseVisualStyleBackColor = false;
+            btnIniciar.Click += btnIniciar_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logo1;
-            pictureBox1.Location = new Point(162, 169);
+            pictureBox1.Location = new Point(54, 168);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(273, 315);
@@ -155,7 +149,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(961, 756);
+            ClientSize = new Size(782, 653);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(Acceso);
@@ -165,7 +159,6 @@
             Name = "Login";
             ShowIcon = false;
             Text = "Inicio de Sesión";
-            Load += Login_Load;
             Acceso.ResumeLayout(false);
             Acceso.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -176,12 +169,12 @@
         #endregion
 
         private GroupBox Acceso;
-        private Button button1;
-        private TextBox textBox2;
-        private TextBox Usuario;
+        private Button btnIniciar;
+        private TextBox txtContrasenia;
         private Label label2;
         private Label label1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private TextBox txtUsuario;
     }
 }

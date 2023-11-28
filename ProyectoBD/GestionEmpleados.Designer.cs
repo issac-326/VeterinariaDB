@@ -33,42 +33,36 @@
             textBoxSalarioBruto = new TextBox();
             label2 = new Label();
             btnLimpiarCitas = new Button();
-            btnModificarCitas = new Button();
             btnAgregarCitas = new Button();
-            btnEliminarCitas = new Button();
             button4 = new Button();
-            dataGridView2 = new DataGridView();
             label1 = new Label();
             groupBox2 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
-            label14 = new Label();
+            fechaNacimiento = new DateTimePicker();
             label12 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            primerApellido = new TextBox();
+            segundoNombre = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label7 = new Label();
-            textBox4 = new TextBox();
+            primerNombre = new TextBox();
             label6 = new Label();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
-            textBox6 = new TextBox();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
-            textBox11 = new TextBox();
+            identidad = new TextBox();
+            referencia = new TextBox();
+            correo = new TextBox();
+            telefono = new TextBox();
             label11 = new Label();
             label13 = new Label();
-            textBox12 = new TextBox();
-            textBox3 = new TextBox();
-            comboBoxImagenes = new ComboBox();
-            comboBox2 = new ComboBox();
+            segundoApellido = new TextBox();
+            seguroSocial = new TextBox();
             label15 = new Label();
-            comboBox3 = new ComboBox();
+            comboBoxCiudad = new ComboBox();
+            foto = new TextBox();
             tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             groupBox2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -124,24 +118,7 @@
             btnLimpiarCitas.Text = "Limpiar";
             btnLimpiarCitas.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiarCitas.UseVisualStyleBackColor = false;
-            // 
-            // btnModificarCitas
-            // 
-            btnModificarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnModificarCitas.BackColor = Color.FromArgb(255, 128, 0);
-            btnModificarCitas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarCitas.ForeColor = SystemColors.ActiveCaptionText;
-            btnModificarCitas.Image = (Image)resources.GetObject("btnModificarCitas.Image");
-            btnModificarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificarCitas.Location = new Point(179, 482);
-            btnModificarCitas.Margin = new Padding(3, 2, 3, 2);
-            btnModificarCitas.Name = "btnModificarCitas";
-            btnModificarCitas.Padding = new Padding(9, 8, 22, 8);
-            btnModificarCitas.Size = new Size(152, 52);
-            btnModificarCitas.TabIndex = 41;
-            btnModificarCitas.Text = "Modificar";
-            btnModificarCitas.TextAlign = ContentAlignment.MiddleRight;
-            btnModificarCitas.UseVisualStyleBackColor = false;
+            btnLimpiarCitas.Click += btnLimpiarCitas_Click;
             // 
             // btnAgregarCitas
             // 
@@ -162,24 +139,6 @@
             btnAgregarCitas.UseVisualStyleBackColor = false;
             btnAgregarCitas.Click += btnAgregarCitas_Click;
             // 
-            // btnEliminarCitas
-            // 
-            btnEliminarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnEliminarCitas.BackColor = Color.Red;
-            btnEliminarCitas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEliminarCitas.ForeColor = SystemColors.ActiveCaptionText;
-            btnEliminarCitas.Image = (Image)resources.GetObject("btnEliminarCitas.Image");
-            btnEliminarCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarCitas.Location = new Point(346, 482);
-            btnEliminarCitas.Margin = new Padding(3, 2, 3, 2);
-            btnEliminarCitas.Name = "btnEliminarCitas";
-            btnEliminarCitas.Padding = new Padding(9, 8, 22, 8);
-            btnEliminarCitas.Size = new Size(152, 52);
-            btnEliminarCitas.TabIndex = 39;
-            btnEliminarCitas.Text = "Eliminar";
-            btnEliminarCitas.TextAlign = ContentAlignment.MiddleRight;
-            btnEliminarCitas.UseVisualStyleBackColor = false;
-            // 
             // button4
             // 
             button4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -199,15 +158,6 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(16, 291);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(811, 166);
-            dataGridView2.TabIndex = 37;
-            // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -219,9 +169,9 @@
             label1.ImageAlign = ContentAlignment.TopCenter;
             label1.Location = new Point(364, 32);
             label1.Name = "label1";
-            label1.Size = new Size(112, 22);
+            label1.Size = new Size(98, 22);
             label1.TabIndex = 36;
-            label1.Text = "Empleados";
+            label1.Text = "Contratar";
             // 
             // groupBox2
             // 
@@ -247,78 +197,74 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.3740959F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Controls.Add(label14, 0, 6);
+            tableLayoutPanel1.Controls.Add(fechaNacimiento, 3, 2);
             tableLayoutPanel1.Controls.Add(label12, 0, 5);
-            tableLayoutPanel1.Controls.Add(textBox1, 1, 1);
-            tableLayoutPanel1.Controls.Add(textBox2, 3, 0);
+            tableLayoutPanel1.Controls.Add(primerApellido, 1, 1);
+            tableLayoutPanel1.Controls.Add(segundoNombre, 3, 0);
             tableLayoutPanel1.Controls.Add(label3, 0, 0);
             tableLayoutPanel1.Controls.Add(label4, 0, 1);
             tableLayoutPanel1.Controls.Add(label5, 0, 3);
             tableLayoutPanel1.Controls.Add(label7, 0, 4);
-            tableLayoutPanel1.Controls.Add(textBox4, 1, 0);
+            tableLayoutPanel1.Controls.Add(primerNombre, 1, 0);
             tableLayoutPanel1.Controls.Add(label6, 2, 0);
             tableLayoutPanel1.Controls.Add(label10, 2, 2);
             tableLayoutPanel1.Controls.Add(label9, 2, 3);
             tableLayoutPanel1.Controls.Add(label8, 2, 4);
-            tableLayoutPanel1.Controls.Add(textBox6, 1, 2);
-            tableLayoutPanel1.Controls.Add(textBox8, 1, 4);
-            tableLayoutPanel1.Controls.Add(textBox9, 3, 2);
-            tableLayoutPanel1.Controls.Add(textBox10, 3, 3);
-            tableLayoutPanel1.Controls.Add(textBox11, 3, 4);
+            tableLayoutPanel1.Controls.Add(identidad, 1, 2);
+            tableLayoutPanel1.Controls.Add(referencia, 1, 4);
+            tableLayoutPanel1.Controls.Add(correo, 3, 3);
+            tableLayoutPanel1.Controls.Add(telefono, 3, 4);
             tableLayoutPanel1.Controls.Add(label11, 0, 2);
             tableLayoutPanel1.Controls.Add(label13, 2, 1);
-            tableLayoutPanel1.Controls.Add(textBox12, 3, 1);
-            tableLayoutPanel1.Controls.Add(textBox3, 1, 5);
-            tableLayoutPanel1.Controls.Add(comboBoxImagenes, 3, 5);
-            tableLayoutPanel1.Controls.Add(comboBox2, 1, 6);
+            tableLayoutPanel1.Controls.Add(segundoApellido, 3, 1);
+            tableLayoutPanel1.Controls.Add(seguroSocial, 1, 5);
             tableLayoutPanel1.Controls.Add(label15, 2, 5);
-            tableLayoutPanel1.Controls.Add(comboBox3, 1, 3);
+            tableLayoutPanel1.Controls.Add(comboBoxCiudad, 1, 3);
+            tableLayoutPanel1.Controls.Add(foto, 3, 5);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.ImeMode = ImeMode.KatakanaHalf;
             tableLayoutPanel1.Location = new Point(3, 22);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.391304F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.0140839F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.0140839F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 22.608696F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanel1.Size = new Size(811, 173);
             tableLayoutPanel1.TabIndex = 4;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
-            // label14
+            // fechaNacimiento
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(3, 142);
-            label14.Name = "label14";
-            label14.Size = new Size(79, 18);
-            label14.TabIndex = 24;
-            label14.Text = "Contrato";
+            fechaNacimiento.Location = new Point(550, 59);
+            fechaNacimiento.Name = "fechaNacimiento";
+            fechaNacimiento.Size = new Size(233, 26);
+            fechaNacimiento.TabIndex = 43;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(3, 120);
+            label12.Location = new Point(3, 142);
             label12.Name = "label12";
             label12.Size = new Size(150, 18);
             label12.TabIndex = 20;
             label12.Text = "No. Seguro Social";
             // 
-            // textBox1
+            // primerApellido
             // 
-            textBox1.Location = new Point(162, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(228, 26);
-            textBox1.TabIndex = 14;
+            primerApellido.Location = new Point(162, 31);
+            primerApellido.Name = "primerApellido";
+            primerApellido.Size = new Size(228, 26);
+            primerApellido.TabIndex = 14;
             // 
-            // textBox2
+            // segundoNombre
             // 
-            textBox2.Location = new Point(550, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(233, 26);
-            textBox2.TabIndex = 12;
+            segundoNombre.Location = new Point(550, 3);
+            segundoNombre.Name = "segundoNombre";
+            segundoNombre.Size = new Size(233, 26);
+            segundoNombre.TabIndex = 12;
             // 
             // label3
             // 
@@ -328,11 +274,12 @@
             label3.Size = new Size(128, 18);
             label3.TabIndex = 0;
             label3.Text = "Primer Nombre";
+            label3.Click += label3_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(3, 24);
+            label4.Location = new Point(3, 28);
             label4.Name = "label4";
             label4.Size = new Size(129, 18);
             label4.TabIndex = 1;
@@ -341,7 +288,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(3, 69);
+            label5.Location = new Point(3, 83);
             label5.Name = "label5";
             label5.Size = new Size(64, 18);
             label5.TabIndex = 3;
@@ -350,18 +297,18 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(3, 93);
+            label7.Location = new Point(3, 110);
             label7.Name = "label7";
             label7.Size = new Size(96, 18);
             label7.TabIndex = 5;
             label7.Text = "Referencia";
             // 
-            // textBox4
+            // primerNombre
             // 
-            textBox4.Location = new Point(162, 3);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(228, 26);
-            textBox4.TabIndex = 10;
+            primerNombre.Location = new Point(162, 3);
+            primerNombre.Name = "primerNombre";
+            primerNombre.Size = new Size(228, 26);
+            primerNombre.TabIndex = 10;
             // 
             // label6
             // 
@@ -375,7 +322,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(396, 48);
+            label10.Location = new Point(396, 56);
             label10.Name = "label10";
             label10.Size = new Size(123, 18);
             label10.TabIndex = 8;
@@ -384,7 +331,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(396, 69);
+            label9.Location = new Point(396, 83);
             label9.Name = "label9";
             label9.Size = new Size(64, 18);
             label9.TabIndex = 7;
@@ -393,51 +340,44 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(396, 93);
+            label8.Location = new Point(396, 110);
             label8.Name = "label8";
             label8.Size = new Size(77, 18);
             label8.TabIndex = 6;
             label8.Text = "Teléfono";
             // 
-            // textBox6
+            // identidad
             // 
-            textBox6.Location = new Point(162, 51);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(228, 26);
-            textBox6.TabIndex = 11;
+            identidad.Location = new Point(162, 59);
+            identidad.Name = "identidad";
+            identidad.Size = new Size(228, 26);
+            identidad.TabIndex = 11;
             // 
-            // textBox8
+            // referencia
             // 
-            textBox8.Location = new Point(162, 96);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(228, 26);
-            textBox8.TabIndex = 16;
+            referencia.Location = new Point(162, 113);
+            referencia.Name = "referencia";
+            referencia.Size = new Size(228, 26);
+            referencia.TabIndex = 16;
             // 
-            // textBox9
+            // correo
             // 
-            textBox9.Location = new Point(550, 51);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(233, 26);
-            textBox9.TabIndex = 17;
+            correo.Location = new Point(550, 86);
+            correo.Name = "correo";
+            correo.Size = new Size(233, 26);
+            correo.TabIndex = 18;
             // 
-            // textBox10
+            // telefono
             // 
-            textBox10.Location = new Point(550, 72);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(233, 26);
-            textBox10.TabIndex = 18;
-            // 
-            // textBox11
-            // 
-            textBox11.Location = new Point(550, 96);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(233, 26);
-            textBox11.TabIndex = 19;
+            telefono.Location = new Point(550, 113);
+            telefono.Name = "telefono";
+            telefono.Size = new Size(233, 26);
+            telefono.TabIndex = 19;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(3, 48);
+            label11.Location = new Point(3, 56);
             label11.Name = "label11";
             label11.Size = new Size(138, 18);
             label11.TabIndex = 2;
@@ -446,58 +386,49 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(396, 24);
+            label13.Location = new Point(396, 28);
             label13.Name = "label13";
             label13.Size = new Size(147, 18);
             label13.TabIndex = 9;
             label13.Text = "Segundo Apellido";
             // 
-            // textBox12
+            // segundoApellido
             // 
-            textBox12.Location = new Point(550, 27);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(233, 26);
-            textBox12.TabIndex = 13;
+            segundoApellido.Location = new Point(550, 31);
+            segundoApellido.Name = "segundoApellido";
+            segundoApellido.Size = new Size(233, 26);
+            segundoApellido.TabIndex = 13;
             // 
-            // textBox3
+            // seguroSocial
             // 
-            textBox3.Location = new Point(162, 123);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(228, 26);
-            textBox3.TabIndex = 21;
-            // 
-            // comboBoxImagenes
-            // 
-            comboBoxImagenes.FormattingEnabled = true;
-            comboBoxImagenes.Location = new Point(550, 123);
-            comboBoxImagenes.Name = "comboBoxImagenes";
-            comboBoxImagenes.Size = new Size(233, 26);
-            comboBoxImagenes.TabIndex = 23;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(162, 145);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(228, 26);
-            comboBox2.TabIndex = 25;
+            seguroSocial.Location = new Point(162, 145);
+            seguroSocial.Name = "seguroSocial";
+            seguroSocial.Size = new Size(228, 26);
+            seguroSocial.TabIndex = 21;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(396, 120);
+            label15.Location = new Point(396, 142);
             label15.Name = "label15";
             label15.Size = new Size(113, 18);
             label15.TabIndex = 22;
             label15.Text = "Foto de Perfil";
             // 
-            // comboBox3
+            // comboBoxCiudad
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(162, 72);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(228, 26);
-            comboBox3.TabIndex = 26;
+            comboBoxCiudad.FormattingEnabled = true;
+            comboBoxCiudad.Location = new Point(162, 86);
+            comboBoxCiudad.Name = "comboBoxCiudad";
+            comboBoxCiudad.Size = new Size(228, 26);
+            comboBoxCiudad.TabIndex = 26;
+            // 
+            // foto
+            // 
+            foto.Location = new Point(550, 145);
+            foto.Name = "foto";
+            foto.Size = new Size(233, 26);
+            foto.TabIndex = 27;
             // 
             // GestionEmpleados
             // 
@@ -506,11 +437,8 @@
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(841, 567);
             Controls.Add(btnLimpiarCitas);
-            Controls.Add(btnModificarCitas);
             Controls.Add(btnAgregarCitas);
-            Controls.Add(btnEliminarCitas);
             Controls.Add(button4);
-            Controls.Add(dataGridView2);
             Controls.Add(label1);
             Controls.Add(groupBox2);
             Name = "GestionEmpleados";
@@ -518,7 +446,6 @@
             Load += GestionEmpleados_Load;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             groupBox2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -540,31 +467,29 @@
         private Label label1;
         private GroupBox groupBox2;
         private TableLayoutPanel tableLayoutPanel1;
-        private Label label14;
         private Label label12;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox primerApellido;
+        private TextBox segundoNombre;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label7;
-        private TextBox textBox4;
+        private TextBox primerNombre;
         private Label label6;
         private Label label10;
         private Label label9;
         private Label label8;
-        private TextBox textBox6;
-        private TextBox textBox8;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox11;
+        private TextBox identidad;
+        private TextBox referencia;
+        private TextBox correo;
+        private TextBox telefono;
         private Label label11;
         private Label label13;
-        private TextBox textBox12;
-        private TextBox textBox3;
-        private ComboBox comboBoxImagenes;
-        private ComboBox comboBox2;
+        private TextBox segundoApellido;
+        private TextBox seguroSocial;
         private Label label15;
-        private ComboBox comboBox3;
+        private ComboBox comboBoxCiudad;
+        private TextBox foto;
+        private DateTimePicker fechaNacimiento;
     }
 }

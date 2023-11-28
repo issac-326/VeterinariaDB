@@ -182,40 +182,60 @@ namespace ProyectoBD
                 txtDNIEmpleado.Text = dgvUsuarios.CurrentRow.Cells[5].Value.ToString();
 
             }
-           
+
 
         }
 
         private void btnModificarUsuarios_Click(object sender, EventArgs e)
         {
 
-        if (dgvUsuarios.SelectedRows.Count > 0)
-        {
-            // Obtener el código desde la fila seleccionada
-            DataGridViewRow selectedRow = dgvUsuarios.SelectedRows[0];
-            int idCodigo = Convert.ToInt32(selectedRow.Cells["Id"].Value);
-            int idRol = 1;
-            String tablaU = "Usuarios";
-
-            int idPersona = ObtenerIdDniEmpleado(txtDNIEmpleado.Text);
-            Class.Crud objetoCrud = new Class.Crud();
-
-            if (selRoles.SelectedItem != null)
+            if (dgvUsuarios.SelectedRows.Count > 0)
             {
-                idRol = ObtenerIdRol(selRoles.SelectedItem.ToString());
+                // Obtener el código desde la fila seleccionada
+                DataGridViewRow selectedRow = dgvUsuarios.SelectedRows[0];
+                int idCodigo = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+                int idRol = 1;
+                String tablaU = "Usuarios";
+
+                int idPersona = ObtenerIdDniEmpleado(txtDNIEmpleado.Text);
+                Class.Crud objetoCrud = new Class.Crud();
+
+                if (selRoles.SelectedItem != null)
+                {
+                    idRol = ObtenerIdRol(selRoles.SelectedItem.ToString());
+                }
+
+                int Activo = txtActivo.Checked ? 1 : 0;
+
+                String cadena = $"Usuario = '{txtUsuario.Text}', Contrasenia = '{txtContrasenia.Text}', Activo = {Activo}, Id_Empleado = {idPersona}, Id_Roles = {idRol}";
+                objetoCrud.editar(tablaU, cadena, idCodigo);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila antes de intentar modificar.");
             }
 
-            int Activo = txtActivo.Checked ? 1 : 0;
-
-            String cadena = $"Usuario = '{txtUsuario.Text}', Contrasenia = '{txtContrasenia.Text}', Activo = {Activo}, Id_Empleado = {idPersona}, Id_Roles = {idRol}";
-            objetoCrud.editar(tablaU, cadena, idCodigo);
+            CargarDatosUsuarios();
         }
-        else
+
+        private void btnEliminarUsuarios_Click(object sender, EventArgs e)
         {
-           MessageBox.Show("Seleccione una fila antes de intentar modificar.");
-        }
+            if (dgvUsuarios.SelectedRows.Count > 0)
+            {
+                // Obtener el código desde la fila seleccionada
+                DataGridViewRow selectedRow = dgvUsuarios.SelectedRows[0];
+                int idCodigo = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+                String tablaU = "Usuarios";
 
-        CargarDatosUsuarios();
+                Class.Crud objetoCrud = new Class.Crud();
+
+                objetoCrud.eliminar(tablaU,idCodigo);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila antes de intentar eliminar.");
+            }
+            CargarDatosUsuarios();
         }
     }
 }

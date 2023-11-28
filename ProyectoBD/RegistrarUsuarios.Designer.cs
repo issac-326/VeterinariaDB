@@ -262,6 +262,7 @@
             btnEliminarUsuarios.Text = "Eliminar";
             btnEliminarUsuarios.TextAlign = ContentAlignment.MiddleRight;
             btnEliminarUsuarios.UseVisualStyleBackColor = false;
+            btnEliminarUsuarios.Click += btnEliminarUsuarios_Click;
             // 
             // RegistrarUsuarios
             // 

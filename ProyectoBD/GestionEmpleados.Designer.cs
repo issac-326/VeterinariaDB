@@ -35,7 +35,6 @@
             btnLimpiarCitas = new Button();
             btnAgregarCitas = new Button();
             button4 = new Button();
-            dataGridView2 = new DataGridView();
             label1 = new Label();
             groupBox2 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -64,7 +63,6 @@
             comboBoxCiudad = new ComboBox();
             foto = new TextBox();
             tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             groupBox2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -160,15 +158,6 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(16, 291);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(811, 166);
-            dataGridView2.TabIndex = 37;
-            // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -239,12 +228,13 @@
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.391304F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.0140839F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.0140839F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 22.608696F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanel1.Size = new Size(811, 173);
             tableLayoutPanel1.TabIndex = 4;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // fechaNacimiento
             // 
@@ -256,7 +246,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(3, 141);
+            label12.Location = new Point(3, 142);
             label12.Name = "label12";
             label12.Size = new Size(150, 18);
             label12.TabIndex = 20;
@@ -298,7 +288,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(3, 81);
+            label5.Location = new Point(3, 83);
             label5.Name = "label5";
             label5.Size = new Size(64, 18);
             label5.TabIndex = 3;
@@ -307,7 +297,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(3, 109);
+            label7.Location = new Point(3, 110);
             label7.Name = "label7";
             label7.Size = new Size(96, 18);
             label7.TabIndex = 5;
@@ -341,7 +331,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(396, 81);
+            label9.Location = new Point(396, 83);
             label9.Name = "label9";
             label9.Size = new Size(64, 18);
             label9.TabIndex = 7;
@@ -350,7 +340,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(396, 109);
+            label8.Location = new Point(396, 110);
             label8.Name = "label8";
             label8.Size = new Size(77, 18);
             label8.TabIndex = 6;
@@ -365,21 +355,21 @@
             // 
             // referencia
             // 
-            referencia.Location = new Point(162, 112);
+            referencia.Location = new Point(162, 113);
             referencia.Name = "referencia";
             referencia.Size = new Size(228, 26);
             referencia.TabIndex = 16;
             // 
             // correo
             // 
-            correo.Location = new Point(550, 84);
+            correo.Location = new Point(550, 86);
             correo.Name = "correo";
             correo.Size = new Size(233, 26);
             correo.TabIndex = 18;
             // 
             // telefono
             // 
-            telefono.Location = new Point(550, 112);
+            telefono.Location = new Point(550, 113);
             telefono.Name = "telefono";
             telefono.Size = new Size(233, 26);
             telefono.TabIndex = 19;
@@ -411,7 +401,7 @@
             // 
             // seguroSocial
             // 
-            seguroSocial.Location = new Point(162, 144);
+            seguroSocial.Location = new Point(162, 145);
             seguroSocial.Name = "seguroSocial";
             seguroSocial.Size = new Size(228, 26);
             seguroSocial.TabIndex = 21;
@@ -419,7 +409,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(396, 141);
+            label15.Location = new Point(396, 142);
             label15.Name = "label15";
             label15.Size = new Size(113, 18);
             label15.TabIndex = 22;
@@ -428,14 +418,14 @@
             // comboBoxCiudad
             // 
             comboBoxCiudad.FormattingEnabled = true;
-            comboBoxCiudad.Location = new Point(162, 84);
+            comboBoxCiudad.Location = new Point(162, 86);
             comboBoxCiudad.Name = "comboBoxCiudad";
             comboBoxCiudad.Size = new Size(228, 26);
             comboBoxCiudad.TabIndex = 26;
             // 
             // foto
             // 
-            foto.Location = new Point(550, 144);
+            foto.Location = new Point(550, 145);
             foto.Name = "foto";
             foto.Size = new Size(233, 26);
             foto.TabIndex = 27;
@@ -449,7 +439,6 @@
             Controls.Add(btnLimpiarCitas);
             Controls.Add(btnAgregarCitas);
             Controls.Add(button4);
-            Controls.Add(dataGridView2);
             Controls.Add(label1);
             Controls.Add(groupBox2);
             Name = "GestionEmpleados";
@@ -457,7 +446,6 @@
             Load += GestionEmpleados_Load;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             groupBox2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

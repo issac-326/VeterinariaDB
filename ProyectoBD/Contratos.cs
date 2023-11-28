@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ProyectoBD.Class;
+using ProyectoBD.SQLConexion;
 
 namespace ProyectoBD
 {
@@ -19,7 +20,10 @@ namespace ProyectoBD
     {
         String nombreTabla = "Contratos";
         private int  idSucursal;
-        public Contratos( int idSucursal)
+        private string accion;
+        private int idPersona;
+
+        public Contratos( int idSucursal, string accion, int idPersona)
         {
             InitializeComponent();
             this.idSucursal = idSucursal;
@@ -29,8 +33,13 @@ namespace ProyectoBD
             Class1.cargarComboBox("Periodo_Laboral", "Periodos_Laborales", comboBoxPeriodoLaboral);
             mostrarInfo();
 
-            mostradorContratos.CellDoubleClick += mostradorContratos_CellDoubleClick;
-
+            if (accion != "Renovar")
+            {
+                mostradorContratos.CellDoubleClick += mostradorContratos_CellDoubleClick;
+            }
+            
+            this.accion = accion;
+            this.idPersona = idPersona;
         }
 
         private void mostradorContratos_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
@@ -145,12 +154,35 @@ namespace ProyectoBD
                 objetoCrud.guardar(nombreTabla, values1);
                 mostrarInfo();
 
-                //Me llevo el id del contrato insertado
-                int idContrato = Class1.ObtenerIdUltimoRegistro("Contratos");
+                if (accion.Equals("Renovar"))
+                {
+                    mostradorContratos.Enabled = false;
+                    //obtengo el id del contrato insertado
+                    int idContrato = Class1.ObtenerIdUltimoRegistro("Contratos");
 
-                GestionEmpleados win = new GestionEmpleados(idContrato, idSucursal);
-                win.Show();
-                this.Hide();
+                    //Actualizo el contrato del Empleado
+                    string query = $"UPDATE Empleados SET Id_Contrato = {idContrato} WHERE Id = {idPersona};";
+
+                    ConexionSqlServer conn = new ConexionSqlServer();
+                    SqlCommand comando = new SqlCommand(query, conn.establecerConexion());
+                    comando.ExecuteNonQuery();
+                    conn.cerrarConexion();
+                    MessageBox.Show("Se renovó el contrato.");
+
+                    InfoEmpleados win = new InfoEmpleados(idPersona, idSucursal);
+                    win.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    //Me llevo el id del contrato insertado
+                    int idContrato = Class1.ObtenerIdUltimoRegistro("Contratos");
+
+                    GestionEmpleados win = new GestionEmpleados(idContrato, idSucursal);
+                    win.Show();
+                    this.Hide();
+                }
+
 
             }catch (Exception ex)
             {

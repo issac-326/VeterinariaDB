@@ -2,9 +2,11 @@
 {
     public partial class SubmodulosRRHH : Form
     {
+        private int idSucursal; 
         public SubmodulosRRHH()
         {
             InitializeComponent();
+            this.idSucursal = 2;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -28,13 +30,16 @@
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Contratos contratos = new Contratos(1);
+            Contratos contratos = new Contratos(2, "", 0);
             contratos.Show();
             this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Empleados win = new Empleados(idSucursal);
+            win.Show();
+            this.Hide();
         }
     }
 }

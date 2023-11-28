@@ -1,5 +1,6 @@
 ﻿using ProyectoBD.SQLConexion;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,7 +19,7 @@ namespace ProyectoBD.Class
             try
             {
 
-                String query = "Insert INTO " + tabla + " values (" + cadena + ");";
+                String query = "Insert INTO " + tabla + " Values (" + cadena + ");";
 
                 SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
                 SqlDataReader myReader;
@@ -61,7 +62,8 @@ namespace ProyectoBD.Class
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al guardar el registro");
+                MessageBox.Show("Error al guardar el registro:");
+
             }
         }
 
@@ -102,7 +104,7 @@ namespace ProyectoBD.Class
                 {
 
                 }
-                MessageBox.Show("Se modifico "+ tabla + " con codigo " + id);
+                MessageBox.Show("Se modifico "+ tabla + " con codigo: " + id);
                 objectConexion.cerrarConexion();
 
             }
@@ -111,7 +113,33 @@ namespace ProyectoBD.Class
                 MessageBox.Show("error al modificar el registro: " + e.ToString());
             }
         }
-        
+
+        public void eliminar(String tabla, int id)
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                String query = "DELETE FROM " + tabla + " WHERE Id = " + id + ";";
+
+                SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
+                SqlDataReader myReader;
+
+                myReader = comando.ExecuteReader();
+
+                while (myReader.Read())
+                {
+
+                }
+                MessageBox.Show("Se elimino " + tabla + " con codigo: " + id);
+                objectConexion.cerrarConexion();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("error al eliminar el registro: " + e.ToString());
+            }
+        }
+
 
     }
 }

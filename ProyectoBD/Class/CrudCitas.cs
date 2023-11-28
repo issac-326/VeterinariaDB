@@ -32,6 +32,7 @@ namespace ProyectoBD.Class
                 MessageBox.Show("Error al cargar los registros: " + e.ToString());
             }
         }
+
         public void guardarCitas(String tabla1, String cadenaC)
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
@@ -142,8 +143,6 @@ namespace ProyectoBD.Class
                 MessageBox.Show("error al modificar el registro: " + e.ToString());
             }
         }
-
- 
 
     }
 }

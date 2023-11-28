@@ -139,36 +139,6 @@ namespace ProyectoBD
             }
         }
 
-        private string ObtenerNombreporIdMascotas(int idMascota)
-        {
-            string nombreMascota = string.Empty;
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-                    // Buscar el id de la especie 
-                    string query = "SELECT Id FROM Mascotas where Nombre = '" + nombreMascota + "';";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            reader.Read(); // Solo necesitas leer la primera fila
-
-                            // Obtener el valor del ID
-                            nombreMascota = Convert.ToString(reader["Nombre"]);
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al ver la Mascota: " + ex.Message);
-            }
-            return nombreMascota;
-        }
 
         ///Empleados de las citas
         public void cargarEmpleados()

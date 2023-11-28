@@ -13,9 +13,9 @@ namespace ProyectoBD.SQLConexion
     {
         SqlConnection conex = new SqlConnection();
 
-        static String servidor = "DESKTOP-OP5FNV4\\SQLEXPRESS";
+        static String servidor = "HAROLD";
         static String usuario = "sa";
-        static String contrasenia = "katy1234";
+        static String contrasenia = "1234";
         static String puerto = "1433";
         static String db = "Veterinaria";
         String cadenaConexion;

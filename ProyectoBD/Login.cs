@@ -1,3 +1,7 @@
+using ProyectoBD.Class;
+using ProyectoBD.SQLConexion;
+using System.Data.SqlClient;
+
 namespace ProyectoBD
 {
     public partial class Login : Form
@@ -7,31 +11,53 @@ namespace ProyectoBD
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnIniciar_Click(object sender, EventArgs e)
         {
+            string usuario = txtUsuario.Text;
+            string contrasenia = txtContrasenia.Text;
 
-        }
+            ctrlUsuarios controlador = new ctrlUsuarios();
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Crear una instancia del segundo formulario (Form2)
-            Modulos form2 = new Modulos();
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contrasenia))
+            {
+                MessageBox.Show("Debe llenar todos los campos");
 
-            // Mostrar el segundo formulario
-            form2.Show();
+            }
+            else
+            {
+                if (controlador.existeUsuario(usuario, contrasenia))
+                {
+                    // Las credenciales son válidas, puedes permitir el acceso
+                    string rol = controlador.ObtenerRol(usuario);
 
-            // Opcionalmente, ocultar el primer formulario
-            this.Hide();
-        }
+                    if (rol == "Administrador")
+                    {
+                        // Usuario es un administrador
+                        MessageBox.Show("Inicio de sesión exitoso como Administrador");
+                        Modulos principal = new Modulos();
+                        principal.Visible = true;
+                        this.Hide();
+                    }
+                    else if (rol == "Usuario Normal")
+                    {
+                        // Usuario es un usuario normal
+                        MessageBox.Show("Inicio de sesión exitoso como Usuario Normal");
+                    }
+                    else
+                    {
+                        // Rol desconocido
+                        MessageBox.Show("Inicio de sesión exitoso, pero rol desconocido");
+                    }
+                }
+                else
+                {
+                    // Las credenciales son inválidas, muestra un mensaje de error
+                    MessageBox.Show("Usuario o contraseña incorrectos");
+                }
+            }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
+            
         }
     }
+
 }

@@ -25,7 +25,7 @@ namespace ProyectoBD
             cargarTipoEstados();
             cargarMascotas();
             cargarEmpleados();
-            idMascota = idMascota;
+            this.idMascota = idMascota;
             CargarDatos();
             
             //Contador para que al hacer clic en el datGridView se muestren los datos en los TextBox.

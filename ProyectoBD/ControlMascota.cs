@@ -13,9 +13,10 @@ namespace ProyectoBD
     public partial class ControlMascota : Form
     {
         int idMascota = 0;
-        public ControlMascota(int idMascota)
+        public ControlMascota(int idMascotas)
         {
             InitializeComponent();
+            idMascota = idMascotas;
         }
 
         private void ControlMascota_Load(object sender, EventArgs e)

@@ -80,7 +80,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Contratos contratos = new Contratos(1);
+            Contratos contratos = new Contratos(2, "", 0);
             contratos.Show();
             this.Hide();
         }

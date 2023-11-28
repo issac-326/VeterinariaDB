@@ -53,7 +53,7 @@ namespace ProyectoBD
                     $"          DECLARE @Id_Direccion AS INT" +
                     $"          SET @Id_Direccion = (SELECT IDENT_CURRENT('Direcciones') AS Id);" +
 
-                    $"          INSERT INTO Personas VALUES('{primerNombre.Text}', '{segundoNombre.Text}', '{primerApellido.Text}', '{primerApellido.Text}', '{identidad.Text}', '{fechaFormateada}', @Id_Direccion);" +
+                    $"          INSERT INTO Personas VALUES('{primerNombre.Text}', '{segundoNombre.Text}', '{primerApellido.Text}', '{segundoApellido.Text}', '{identidad.Text}', '{fechaFormateada}', @Id_Direccion);" +
                     $"          DECLARE @Id_Persona AS INT" +
                     $"          SET @Id_Persona = (SELECT IDENT_CURRENT('Personas') AS Id);" +
 
@@ -72,8 +72,8 @@ namespace ProyectoBD
                 comando.ExecuteNonQuery();
                 conn.cerrarConexion();
 
-                MessageBox.Show("Se ha contratado correctamente a " + primerNombre.Text + " " + primerApellido + ". ");
-                Contratos win = new Contratos(1);
+                MessageBox.Show("Se ha contratado correctamente a " + primerNombre.Text + " " + primerApellido.Text + ". ");
+                Contratos win = new Contratos(2, "", 0);
                 win.Show();
                 this.Close();
             }
@@ -112,6 +112,11 @@ namespace ProyectoBD
             foto.Text = "";
             seguroSocial.Text = "";
             comboBoxCiudad.SelectedValue = null;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -16,7 +16,7 @@ namespace ProyectoBD
         public ControlMascota(int idMascotas)
         {
             InitializeComponent();
-            idMascota = idMascotas;
+            this.idMascota = idMascotas;
         }
 
         private void ControlMascota_Load(object sender, EventArgs e)
@@ -29,6 +29,11 @@ namespace ProyectoBD
 
             Citas citasForm = new Citas(idMascota);
             citasForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -81,7 +81,7 @@ namespace ProyectoBD
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
                     // Buscar el id de la especie 
-                    string query = "SELECT Id FROM Tipo_estados where Nombre = '" + nombreEstado + "';";
+                    string query = "SELECT Id FROM Tipo_Estados where Nombre = '" + nombreEstado + "';";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())

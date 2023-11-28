@@ -158,6 +158,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio de Sesión";
             Acceso.ResumeLayout(false);
             Acceso.PerformLayout();

@@ -1,5 +1,6 @@
 ﻿using ProyectoBD.SQLConexion;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,7 +19,7 @@ namespace ProyectoBD.Class
             try
             {
 
-                String query = "Insert INTO " + tabla + " values (" + cadena + ");";
+                String query = "Insert INTO " + tabla + " Values (" + cadena + ");";
 
                 SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
                 SqlDataReader myReader;
@@ -61,7 +62,8 @@ namespace ProyectoBD.Class
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al guardar el registro");
+                MessageBox.Show("Error al guardar el registro:");
+
             }
         }
 

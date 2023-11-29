@@ -99,5 +99,12 @@ namespace ProyectoBD
             F.Show();
             this.Hide();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Factura F = new Factura();
+            F.Show();
+            this.Hide();
+        }
     }
 }

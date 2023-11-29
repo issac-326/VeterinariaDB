@@ -28,12 +28,20 @@ namespace ProyectoBD
                 if (controlador.existeUsuario(usuario, contrasenia))
                 {
                     // Las credenciales son válidas, puedes permitir el acceso
-                    string permiso = controlador.ObtenerPermiso(usuario);
+                    List<string> permisos = controlador.ObtenerPermisos(usuario);
 
-                    Modulos principal = new Modulos(permiso);
+                    if (permisos.Count > 0)
+                    {
+
+                    Modulos principal = new Modulos(permisos);
                     principal.Visible = true;
                     this.Hide();
-
+                    }
+                    else
+                    {
+                        // Si el usuario no tiene ningún permiso
+                        MessageBox.Show("El usuario no tiene permisos asignados");
+                    }
                 }
                 else
                 {
@@ -42,7 +50,12 @@ namespace ProyectoBD
                 }
             }
 
-            
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

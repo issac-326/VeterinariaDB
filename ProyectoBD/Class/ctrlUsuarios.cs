@@ -53,8 +53,9 @@ namespace ProyectoBD.Class
         }
 
 
-        public string ObtenerPermiso(string usuario)
+        public List<string> ObtenerPermisos(string usuario)
         {
+            List<string> permisos = new List<string>();
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             {
                 using (SqlConnection conexion = objectConexion.establecerConexion())
@@ -63,15 +64,17 @@ namespace ProyectoBD.Class
                     string query = "SELECT pe.Nombre as'Nombre del Permiso', us.Usuario, ro.Nombre as 'Nombre del rol' FROM Usuarios_Permisos usp INNER JOIN Usuarios us ON usp.Id_Usuario = us.Id INNER JOIN Permisos pe ON usp.Id_Permiso = pe.Id INNER JOIN Roles ro ON ro.Id = us.Id_Roles WHERE us.Usuario = '" + usuario + "'";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
-
-                        ///Ejecuta la consulta y devuelve un solo valor que en este caso es el nombre del Rol
-                        object result = comando.ExecuteScalar();
-
-                        ///Verifica si el resultado no es nulo y, en caso afirmativo, lo convierte a una cadena y lo devuelve. Si el resultado es nulo, devuelve null.
-                        return result != null ? result.ToString() : null;
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                permisos.Add(reader["Nombre del Permiso"].ToString());
+                            }
+                        }
                     }
                 }
             }
+            return permisos;
         }
 
 

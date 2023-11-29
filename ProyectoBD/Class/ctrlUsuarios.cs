@@ -53,14 +53,14 @@ namespace ProyectoBD.Class
         }
 
 
-        public string ObtenerRol(string usuario)
+        public string ObtenerPermiso(string usuario)
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             {
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
 
-                    string query = "SELECT r.Nombre FROM Roles r INNER JOIN Usuarios u ON r.Id = u.Id_Roles WHERE u.Usuario = '"+usuario+"'";
+                    string query = "SELECT us.Usuario, pe.Nombre as'Nombre del Permiso', ro.Nombre as 'Nombre del rol' FROM Usuarios_Permisos usp INNER JOIN Usuarios us\r\nON usp.Id_Usuario = us.Id INNER JOIN Permisos pe ON usp.Id_Permiso = pe.Id INNER JOIN Roles ro ON ro.Id = us.Id_Roles WHERE us.Usuario = '" + usuario+"'";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
 

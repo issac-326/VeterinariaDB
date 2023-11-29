@@ -22,6 +22,9 @@ namespace ProyectoBD
         private string permiso;
         String tabla = "Sucursales";
 
+        String tablaSucursales = "Sucursales";
+        String tablaDirecciones = "Direcciones";
+
         public Sucursales()
         {
             InitializeComponent();

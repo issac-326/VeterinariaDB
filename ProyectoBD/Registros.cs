@@ -287,7 +287,7 @@ namespace ProyectoBD
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
                     // Buscar el id de la forma
-                    string query = "SELECT Precio_Unitario FROM Registros where Id_Tipo = 5 AND  Id_Producto = '" + idProducto + "';";
+                    string query = "SELECT Precio_Unitario FROM Registros where Id_Tipo = 5 AND  Id_Producto = " + idProducto + ";";
 
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {

@@ -16,8 +16,6 @@ namespace ProyectoBD
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-=======
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -58,6 +56,5 @@ namespace ProyectoBD
         {
 
         }
->>>>>>> 1458c6f4de74d04bb1bdc84643213af4d8c264b6
     }
 }

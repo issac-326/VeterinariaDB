@@ -28,15 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-            components = new System.ComponentModel.Container();
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Text = "Form1";
-        }
-
-        #endregion
-=======
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label34 = new Label();
@@ -614,6 +605,5 @@
         private Label label34;
         private Label label35;
         private PictureBox pictureBox1;
->>>>>>> 1458c6f4de74d04bb1bdc84643213af4d8c264b6
     }
 }

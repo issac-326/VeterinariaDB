@@ -60,7 +60,7 @@ namespace ProyectoBD.Class
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
 
-                    string query = "SELECT us.Usuario, pe.Nombre as'Nombre del Permiso', ro.Nombre as 'Nombre del rol' FROM Usuarios_Permisos usp INNER JOIN Usuarios us\r\nON usp.Id_Usuario = us.Id INNER JOIN Permisos pe ON usp.Id_Permiso = pe.Id INNER JOIN Roles ro ON ro.Id = us.Id_Roles WHERE us.Usuario = '" + usuario+"'";
+                    string query = "SELECT pe.Nombre as'Nombre del Permiso', us.Usuario, ro.Nombre as 'Nombre del rol' FROM Usuarios_Permisos usp INNER JOIN Usuarios us ON usp.Id_Usuario = us.Id INNER JOIN Permisos pe ON usp.Id_Permiso = pe.Id INNER JOIN Roles ro ON ro.Id = us.Id_Roles WHERE us.Usuario = '" + usuario + "'";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
 

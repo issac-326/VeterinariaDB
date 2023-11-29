@@ -34,14 +34,14 @@
             button4 = new Button();
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            button10 = new Button();
-            button7 = new Button();
-            button5 = new Button();
-            button8 = new Button();
-            button6 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnUsuarios = new Button();
+            btnAtencion = new Button();
+            btnRHH = new Button();
+            btnFacturas = new Button();
+            btnFarmacia = new Button();
+            btnSucursal = new Button();
+            btnInformacion = new Button();
+            btnInfoPersonal = new Button();
             MÓDULOS.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -53,8 +53,9 @@
             MÓDULOS.Controls.Add(label1);
             MÓDULOS.Dock = DockStyle.Fill;
             MÓDULOS.Location = new Point(0, 0);
+            MÓDULOS.Margin = new Padding(4, 5, 4, 5);
             MÓDULOS.Name = "MÓDULOS";
-            MÓDULOS.Size = new Size(841, 567);
+            MÓDULOS.Size = new Size(1201, 945);
             MÓDULOS.TabIndex = 2;
             MÓDULOS.Paint += panel2_Paint;
             // 
@@ -62,9 +63,10 @@
             // 
             button9.BackColor = SystemColors.ControlLightLight;
             button9.Image = Properties.Resources.salida;
-            button9.Location = new Point(754, 12);
+            button9.Location = new Point(1077, 20);
+            button9.Margin = new Padding(4, 5, 4, 5);
             button9.Name = "button9";
-            button9.Size = new Size(75, 23);
+            button9.Size = new Size(107, 38);
             button9.TabIndex = 2;
             button9.UseVisualStyleBackColor = false;
             button9.Click += button9_Click;
@@ -73,9 +75,10 @@
             // 
             button4.BackColor = SystemColors.ButtonHighlight;
             button4.Image = Properties.Resources.back;
-            button4.Location = new Point(15, 13);
+            button4.Location = new Point(21, 22);
+            button4.Margin = new Padding(4, 5, 4, 5);
             button4.Name = "button4";
-            button4.Size = new Size(75, 23);
+            button4.Size = new Size(107, 38);
             button4.TabIndex = 1;
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
@@ -86,9 +89,10 @@
             label1.BackColor = SystemColors.InactiveCaption;
             label1.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(366, 9);
+            label1.Location = new Point(523, 15);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(120, 24);
+            label1.Size = new Size(182, 37);
             label1.TabIndex = 0;
             label1.Text = "MÓDULOS";
             label1.Click += label1_Click_1;
@@ -99,187 +103,197 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 198F));
-            tableLayoutPanel1.Controls.Add(button10, 1, 2);
-            tableLayoutPanel1.Controls.Add(button7, 2, 1);
-            tableLayoutPanel1.Controls.Add(button5, 0, 1);
-            tableLayoutPanel1.Controls.Add(button8, 3, 1);
-            tableLayoutPanel1.Controls.Add(button6, 1, 1);
-            tableLayoutPanel1.Controls.Add(button3, 2, 0);
-            tableLayoutPanel1.Controls.Add(button2, 1, 0);
-            tableLayoutPanel1.Controls.Add(button1, 2, 2);
-            tableLayoutPanel1.Location = new Point(12, 50);
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 283F));
+            tableLayoutPanel1.Controls.Add(btnUsuarios, 1, 2);
+            tableLayoutPanel1.Controls.Add(btnAtencion, 2, 1);
+            tableLayoutPanel1.Controls.Add(btnRHH, 0, 1);
+            tableLayoutPanel1.Controls.Add(btnFacturas, 3, 1);
+            tableLayoutPanel1.Controls.Add(btnFarmacia, 1, 1);
+            tableLayoutPanel1.Controls.Add(btnSucursal, 2, 0);
+            tableLayoutPanel1.Controls.Add(btnInformacion, 1, 0);
+            tableLayoutPanel1.Controls.Add(btnInfoPersonal, 2, 2);
+            tableLayoutPanel1.Location = new Point(17, 83);
+            tableLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Size = new Size(817, 449);
+            tableLayoutPanel1.Size = new Size(1167, 748);
             tableLayoutPanel1.TabIndex = 3;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
-            // button10
+            // btnUsuarios
             // 
-            button10.BackColor = SystemColors.Window;
-            button10.BackgroundImageLayout = ImageLayout.Center;
-            button10.CausesValidation = false;
-            button10.FlatAppearance.BorderColor = Color.Navy;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button10.ForeColor = Color.Navy;
-            button10.Image = Properties.Resources.cerrar_con_llave;
-            button10.Location = new Point(209, 301);
-            button10.Name = "button10";
-            button10.Size = new Size(200, 143);
-            button10.TabIndex = 14;
-            button10.Text = "Usuarios del Sistema";
-            button10.TextImageRelation = TextImageRelation.ImageAboveText;
-            button10.UseVisualStyleBackColor = false;
-            button10.Click += button10_Click;
+            btnUsuarios.BackColor = SystemColors.Window;
+            btnUsuarios.BackgroundImageLayout = ImageLayout.Center;
+            btnUsuarios.CausesValidation = false;
+            btnUsuarios.FlatAppearance.BorderColor = Color.Navy;
+            btnUsuarios.FlatStyle = FlatStyle.Flat;
+            btnUsuarios.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUsuarios.ForeColor = Color.Navy;
+            btnUsuarios.Image = Properties.Resources.cerrar_con_llave;
+            btnUsuarios.Location = new Point(298, 503);
+            btnUsuarios.Margin = new Padding(4, 5, 4, 5);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Size = new Size(286, 238);
+            btnUsuarios.TabIndex = 14;
+            btnUsuarios.Text = "Usuarios del Sistema";
+            btnUsuarios.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnUsuarios.UseVisualStyleBackColor = false;
+            btnUsuarios.Click += button10_Click;
             // 
-            // button7
+            // btnAtencion
             // 
-            button7.BackColor = SystemColors.Window;
-            button7.BackgroundImageLayout = ImageLayout.Center;
-            button7.CausesValidation = false;
-            button7.FlatAppearance.BorderColor = Color.Navy;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button7.ForeColor = Color.Navy;
-            button7.Image = Properties.Resources.atencion_al_cliente;
-            button7.Location = new Point(415, 152);
-            button7.Name = "button7";
-            button7.Size = new Size(200, 143);
-            button7.TabIndex = 13;
-            button7.Text = "Atención al Cliente";
-            button7.TextAlign = ContentAlignment.BottomCenter;
-            button7.TextImageRelation = TextImageRelation.ImageAboveText;
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += button7_Click;
+            btnAtencion.BackColor = SystemColors.Window;
+            btnAtencion.BackgroundImageLayout = ImageLayout.Center;
+            btnAtencion.CausesValidation = false;
+            btnAtencion.FlatAppearance.BorderColor = Color.Navy;
+            btnAtencion.FlatStyle = FlatStyle.Flat;
+            btnAtencion.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAtencion.ForeColor = Color.Navy;
+            btnAtencion.Image = Properties.Resources.atencion_al_cliente;
+            btnAtencion.Location = new Point(592, 254);
+            btnAtencion.Margin = new Padding(4, 5, 4, 5);
+            btnAtencion.Name = "btnAtencion";
+            btnAtencion.Size = new Size(286, 238);
+            btnAtencion.TabIndex = 13;
+            btnAtencion.Text = "Atención al Cliente";
+            btnAtencion.TextAlign = ContentAlignment.BottomCenter;
+            btnAtencion.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnAtencion.UseVisualStyleBackColor = false;
+            btnAtencion.Click += button7_Click;
             // 
-            // button5
+            // btnRHH
             // 
-            button5.BackColor = SystemColors.Window;
-            button5.BackgroundImageLayout = ImageLayout.Center;
-            button5.CausesValidation = false;
-            button5.FlatAppearance.BorderColor = Color.Navy;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.ForeColor = Color.Navy;
-            button5.Image = Properties.Resources.mano;
-            button5.Location = new Point(3, 152);
-            button5.Name = "button5";
-            button5.Size = new Size(200, 143);
-            button5.TabIndex = 12;
-            button5.Text = "Recursos Humanos";
-            button5.TextImageRelation = TextImageRelation.ImageAboveText;
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            btnRHH.BackColor = SystemColors.Window;
+            btnRHH.BackgroundImageLayout = ImageLayout.Center;
+            btnRHH.CausesValidation = false;
+            btnRHH.FlatAppearance.BorderColor = Color.Navy;
+            btnRHH.FlatStyle = FlatStyle.Flat;
+            btnRHH.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRHH.ForeColor = Color.Navy;
+            btnRHH.Image = Properties.Resources.mano;
+            btnRHH.Location = new Point(4, 254);
+            btnRHH.Margin = new Padding(4, 5, 4, 5);
+            btnRHH.Name = "btnRHH";
+            btnRHH.Size = new Size(286, 238);
+            btnRHH.TabIndex = 12;
+            btnRHH.Text = "Recursos Humanos";
+            btnRHH.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnRHH.UseVisualStyleBackColor = false;
+            btnRHH.Click += button5_Click;
             // 
-            // button8
+            // btnFacturas
             // 
-            button8.BackColor = Color.Navy;
-            button8.BackgroundImageLayout = ImageLayout.Center;
-            button8.CausesValidation = false;
-            button8.FlatAppearance.BorderColor = Color.Navy;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.ForeColor = SystemColors.Window;
-            button8.Image = Properties.Resources.facturas;
-            button8.Location = new Point(621, 152);
-            button8.Name = "button8";
-            button8.Size = new Size(193, 143);
-            button8.TabIndex = 7;
-            button8.Text = "Facturas";
-            button8.TextImageRelation = TextImageRelation.ImageAboveText;
-            button8.UseVisualStyleBackColor = false;
+            btnFacturas.BackColor = Color.Navy;
+            btnFacturas.BackgroundImageLayout = ImageLayout.Center;
+            btnFacturas.CausesValidation = false;
+            btnFacturas.FlatAppearance.BorderColor = Color.Navy;
+            btnFacturas.FlatStyle = FlatStyle.Flat;
+            btnFacturas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFacturas.ForeColor = SystemColors.Window;
+            btnFacturas.Image = Properties.Resources.facturas;
+            btnFacturas.Location = new Point(886, 254);
+            btnFacturas.Margin = new Padding(4, 5, 4, 5);
+            btnFacturas.Name = "btnFacturas";
+            btnFacturas.Size = new Size(276, 238);
+            btnFacturas.TabIndex = 7;
+            btnFacturas.Text = "Facturas";
+            btnFacturas.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFacturas.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnFarmacia
             // 
-            button6.BackColor = Color.Navy;
-            button6.BackgroundImageLayout = ImageLayout.Center;
-            button6.CausesValidation = false;
-            button6.FlatAppearance.BorderColor = Color.Navy;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button6.ForeColor = SystemColors.Window;
-            button6.Image = Properties.Resources.farmacia;
-            button6.Location = new Point(209, 152);
-            button6.Name = "button6";
-            button6.Size = new Size(200, 143);
-            button6.TabIndex = 5;
-            button6.Text = "Farmacia";
-            button6.TextImageRelation = TextImageRelation.ImageAboveText;
-            button6.UseVisualStyleBackColor = false;
+            btnFarmacia.BackColor = Color.Navy;
+            btnFarmacia.BackgroundImageLayout = ImageLayout.Center;
+            btnFarmacia.CausesValidation = false;
+            btnFarmacia.FlatAppearance.BorderColor = Color.Navy;
+            btnFarmacia.FlatStyle = FlatStyle.Flat;
+            btnFarmacia.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFarmacia.ForeColor = SystemColors.Window;
+            btnFarmacia.Image = Properties.Resources.farmacia;
+            btnFarmacia.Location = new Point(298, 254);
+            btnFarmacia.Margin = new Padding(4, 5, 4, 5);
+            btnFarmacia.Name = "btnFarmacia";
+            btnFarmacia.Size = new Size(286, 238);
+            btnFarmacia.TabIndex = 5;
+            btnFarmacia.Text = "Farmacia";
+            btnFarmacia.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFarmacia.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnSucursal
             // 
-            button3.BackColor = Color.Navy;
-            button3.BackgroundImageLayout = ImageLayout.Center;
-            button3.CausesValidation = false;
-            button3.FlatAppearance.BorderColor = Color.Navy;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.Window;
-            button3.Image = Properties.Resources.sucursales;
-            button3.Location = new Point(415, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(200, 143);
-            button3.TabIndex = 2;
-            button3.Text = "Sucursales";
-            button3.TextImageRelation = TextImageRelation.ImageAboveText;
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            btnSucursal.BackColor = Color.Navy;
+            btnSucursal.BackgroundImageLayout = ImageLayout.Center;
+            btnSucursal.CausesValidation = false;
+            btnSucursal.FlatAppearance.BorderColor = Color.Navy;
+            btnSucursal.FlatStyle = FlatStyle.Flat;
+            btnSucursal.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSucursal.ForeColor = SystemColors.Window;
+            btnSucursal.Image = Properties.Resources.sucursales;
+            btnSucursal.Location = new Point(592, 5);
+            btnSucursal.Margin = new Padding(4, 5, 4, 5);
+            btnSucursal.Name = "btnSucursal";
+            btnSucursal.Size = new Size(286, 238);
+            btnSucursal.TabIndex = 2;
+            btnSucursal.Text = "Sucursales";
+            btnSucursal.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnSucursal.UseVisualStyleBackColor = false;
+            btnSucursal.Click += button3_Click;
             // 
-            // button2
+            // btnInformacion
             // 
-            button2.BackColor = SystemColors.Window;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.CausesValidation = false;
-            button2.FlatAppearance.BorderColor = Color.Navy;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = Color.Navy;
-            button2.Image = Properties.Resources.empresa;
-            button2.Location = new Point(209, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(200, 143);
-            button2.TabIndex = 1;
-            button2.Text = "Información de la Empresa";
-            button2.TextImageRelation = TextImageRelation.ImageAboveText;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnInformacion.BackColor = SystemColors.Window;
+            btnInformacion.BackgroundImageLayout = ImageLayout.Center;
+            btnInformacion.CausesValidation = false;
+            btnInformacion.FlatAppearance.BorderColor = Color.Navy;
+            btnInformacion.FlatStyle = FlatStyle.Flat;
+            btnInformacion.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnInformacion.ForeColor = Color.Navy;
+            btnInformacion.Image = Properties.Resources.empresa;
+            btnInformacion.Location = new Point(298, 5);
+            btnInformacion.Margin = new Padding(4, 5, 4, 5);
+            btnInformacion.Name = "btnInformacion";
+            btnInformacion.Size = new Size(286, 238);
+            btnInformacion.TabIndex = 1;
+            btnInformacion.Text = "Información de la Empresa";
+            btnInformacion.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnInformacion.UseVisualStyleBackColor = false;
+            btnInformacion.Click += button2_Click;
             // 
-            // button1
+            // btnInfoPersonal
             // 
-            button1.BackColor = Color.Navy;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.CausesValidation = false;
-            button1.FlatAppearance.BorderColor = Color.Navy;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.Window;
-            button1.Image = Properties.Resources.usuario;
-            button1.Location = new Point(415, 301);
-            button1.Name = "button1";
-            button1.Size = new Size(200, 143);
-            button1.TabIndex = 15;
-            button1.Text = "Tu Información\r\n";
-            button1.TextAlign = ContentAlignment.BottomCenter;
-            button1.TextImageRelation = TextImageRelation.ImageAboveText;
-            button1.UseVisualStyleBackColor = false;
+            btnInfoPersonal.BackColor = Color.Navy;
+            btnInfoPersonal.BackgroundImageLayout = ImageLayout.Center;
+            btnInfoPersonal.CausesValidation = false;
+            btnInfoPersonal.FlatAppearance.BorderColor = Color.Navy;
+            btnInfoPersonal.FlatStyle = FlatStyle.Flat;
+            btnInfoPersonal.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnInfoPersonal.ForeColor = SystemColors.Window;
+            btnInfoPersonal.Image = Properties.Resources.usuario;
+            btnInfoPersonal.Location = new Point(592, 503);
+            btnInfoPersonal.Margin = new Padding(4, 5, 4, 5);
+            btnInfoPersonal.Name = "btnInfoPersonal";
+            btnInfoPersonal.Size = new Size(286, 238);
+            btnInfoPersonal.TabIndex = 15;
+            btnInfoPersonal.Text = "Tu Información\r\n";
+            btnInfoPersonal.TextAlign = ContentAlignment.BottomCenter;
+            btnInfoPersonal.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnInfoPersonal.UseVisualStyleBackColor = false;
             // 
             // Modulos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(841, 567);
+            ClientSize = new Size(1201, 945);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(MÓDULOS);
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Modulos";
             Text = "Módulos";
             Load += Modulos_Load;
@@ -293,14 +307,14 @@
 
         private Panel MÓDULOS;
         private TableLayoutPanel tableLayoutPanel1;
-        private Button button10;
-        private Button button7;
-        private Button button5;
-        private Button button8;
-        private Button button6;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnUsuarios;
+        private Button btnAtencion;
+        private Button btnRHH;
+        private Button btnFacturas;
+        private Button btnFarmacia;
+        private Button btnSucursal;
+        private Button btnInformacion;
+        private Button btnInfoPersonal;
         private Label label1;
         private Button button4;
         private Button button9;

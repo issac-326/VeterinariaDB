@@ -2,6 +2,7 @@
 {
     public partial class SubmodulosRRHH : Form
     {
+        private string permiso;
         private int idSucursal; 
         public SubmodulosRRHH()
         {
@@ -16,14 +17,14 @@
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos();
+            Modulos modulos = new Modulos(permiso);
             modulos.Show();
             this.Hide();
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            Modulos modulos1 = new Modulos();
+            Modulos modulos1 = new Modulos(permiso);
             modulos1.Show();
             this.Hide();
         }

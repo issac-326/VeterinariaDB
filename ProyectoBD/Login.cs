@@ -28,9 +28,9 @@ namespace ProyectoBD
                 if (controlador.existeUsuario(usuario, contrasenia))
                 {
                     // Las credenciales son válidas, puedes permitir el acceso
-                    string rol = controlador.ObtenerRol(usuario);
+                    string permiso = controlador.ObtenerPermiso(usuario);
 
-                    if (rol == "Administrador")
+                    if (permiso == "Administrador")
                     {
                         // Usuario es un administrador
                         MessageBox.Show("Inicio de sesión exitoso como Administrador");
@@ -38,7 +38,7 @@ namespace ProyectoBD
                         principal.Visible = true;
                         this.Hide();
                     }
-                    else if (rol == "Usuario Normal")
+                    else if (permiso == "Usuario Normal")
                     {
                         // Usuario es un usuario normal
                         MessageBox.Show("Inicio de sesión exitoso como Usuario Normal");

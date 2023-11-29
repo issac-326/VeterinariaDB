@@ -36,7 +36,7 @@ namespace ProyectoBD.Class
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al guardar el registro");
+                MessageBox.Show("Error al guardar el registro" + e.ToString());
             }
         }
 
@@ -57,13 +57,12 @@ namespace ProyectoBD.Class
                 {
 
                 }
-                MessageBox.Show("SIUUUUU");
                 objectConexion.cerrarConexion();
 
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al guardar el registro:");
+                MessageBox.Show("Error al guardar el registro:" + e.ToString());
 
             }
         }

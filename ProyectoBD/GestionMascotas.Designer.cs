@@ -70,12 +70,11 @@
             // mostradorMascotas
             // 
             mostradorMascotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mostradorMascotas.Location = new Point(20, 504);
-            mostradorMascotas.Margin = new Padding(4, 5, 4, 5);
+            mostradorMascotas.Location = new Point(14, 302);
             mostradorMascotas.Name = "mostradorMascotas";
             mostradorMascotas.RowHeadersWidth = 51;
             mostradorMascotas.RowTemplate.Height = 25;
-            mostradorMascotas.Size = new Size(1162, 276);
+            mostradorMascotas.Size = new Size(813, 166);
             mostradorMascotas.TabIndex = 19;
             mostradorMascotas.CellContentClick += mostradorMascotas_CellContentClick;
             mostradorMascotas.CellMouseClick += mostradorMascotas_CellMouseClick;
@@ -90,11 +89,9 @@
             groupBox2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.Navy;
             groupBox2.ImeMode = ImeMode.Disable;
-            groupBox2.Location = new Point(16, 74);
-            groupBox2.Margin = new Padding(4, 5, 4, 5);
+            groupBox2.Location = new Point(11, 44);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(4, 5, 4, 5);
-            groupBox2.Size = new Size(1168, 390);
+            groupBox2.Size = new Size(818, 234);
             groupBox2.TabIndex = 18;
             groupBox2.TabStop = false;
             groupBox2.Text = "Formulario";
@@ -132,8 +129,7 @@
             tableLayoutPanel2.Controls.Add(txtEsterilizacion, 1, 3);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.ImeMode = ImeMode.KatakanaHalf;
-            tableLayoutPanel2.Location = new Point(4, 33);
-            tableLayoutPanel2.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel2.Location = new Point(3, 22);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 6;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
@@ -141,178 +137,160 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 54F));
-            tableLayoutPanel2.Size = new Size(1160, 352);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel2.Size = new Size(812, 209);
             tableLayoutPanel2.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(4, 295);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(3, 175);
             label2.Name = "label2";
-            label2.Size = new Size(92, 28);
+            label2.Size = new Size(64, 18);
             label2.TabIndex = 20;
             label2.Text = "Estado";
             // 
             // txtCaracteristicas
             // 
-            txtCaracteristicas.Location = new Point(196, 64);
-            txtCaracteristicas.Margin = new Padding(4, 5, 4, 5);
+            txtCaracteristicas.Location = new Point(137, 38);
             txtCaracteristicas.Name = "txtCaracteristicas";
-            txtCaracteristicas.Size = new Size(332, 35);
+            txtCaracteristicas.Size = new Size(234, 26);
             txtCaracteristicas.TabIndex = 14;
             // 
             // txtPeso
             // 
-            txtPeso.Location = new Point(771, 5);
-            txtPeso.Margin = new Padding(4, 5, 4, 5);
+            txtPeso.Location = new Point(539, 3);
             txtPeso.Name = "txtPeso";
-            txtPeso.Size = new Size(332, 35);
+            txtPeso.Size = new Size(234, 26);
             txtPeso.TabIndex = 12;
             // 
             // Nombre
             // 
             Nombre.AutoSize = true;
-            Nombre.Location = new Point(4, 0);
-            Nombre.Margin = new Padding(4, 0, 4, 0);
+            Nombre.Location = new Point(3, 0);
             Nombre.Name = "Nombre";
-            Nombre.Size = new Size(105, 28);
+            Nombre.Size = new Size(71, 18);
             Nombre.TabIndex = 0;
             Nombre.Text = "Nombre";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(4, 59);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(3, 35);
             label3.Name = "label3";
-            label3.Size = new Size(179, 28);
+            label3.Size = new Size(123, 18);
             label3.TabIndex = 1;
             label3.Text = "Caracteristica";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(4, 177);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(3, 105);
             label5.Name = "label5";
-            label5.Size = new Size(151, 28);
+            label5.Size = new Size(101, 18);
             label5.TabIndex = 3;
             label5.Text = "Esterilizado";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(4, 236);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(3, 140);
             label7.Name = "label7";
-            label7.Size = new Size(116, 28);
+            label7.Size = new Size(79, 18);
             label7.TabIndex = 5;
             label7.Text = "Agresivo";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(196, 5);
-            txtNombre.Margin = new Padding(4, 5, 4, 5);
+            txtNombre.Location = new Point(137, 3);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(332, 35);
+            txtNombre.Size = new Size(234, 26);
             txtNombre.TabIndex = 10;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(592, 0);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(414, 0);
             label6.Name = "label6";
-            label6.Size = new Size(69, 28);
+            label6.Size = new Size(48, 18);
             label6.TabIndex = 4;
             label6.Text = "Peso";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(592, 118);
-            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Location = new Point(414, 70);
             label10.Name = "label10";
-            label10.Size = new Size(105, 28);
+            label10.Size = new Size(72, 18);
             label10.TabIndex = 8;
             label10.Text = "Especie";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(592, 177);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(414, 105);
             label9.Name = "label9";
-            label9.Size = new Size(70, 28);
+            label9.Size = new Size(48, 18);
             label9.TabIndex = 7;
             label9.Text = "Raza";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(592, 236);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(414, 140);
             label8.Name = "label8";
-            label8.Size = new Size(98, 28);
+            label8.Size = new Size(68, 18);
             label8.TabIndex = 6;
             label8.Text = "Genero";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(4, 118);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(3, 70);
             label4.Name = "label4";
-            label4.Size = new Size(136, 28);
+            label4.Size = new Size(96, 18);
             label4.TabIndex = 2;
             label4.Text = "Fecha_nac";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(592, 59);
-            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Location = new Point(414, 35);
             label11.Name = "label11";
-            label11.Size = new Size(104, 28);
+            label11.Size = new Size(72, 18);
             label11.TabIndex = 9;
             label11.Text = "Tamaño";
             // 
             // txtTamano
             // 
-            txtTamano.Location = new Point(771, 64);
-            txtTamano.Margin = new Padding(4, 5, 4, 5);
+            txtTamano.Location = new Point(539, 38);
             txtTamano.Name = "txtTamano";
-            txtTamano.Size = new Size(332, 35);
+            txtTamano.Size = new Size(234, 26);
             txtTamano.TabIndex = 13;
             // 
             // selEstado
             // 
             selEstado.FormattingEnabled = true;
-            selEstado.Location = new Point(196, 300);
-            selEstado.Margin = new Padding(4, 5, 4, 5);
+            selEstado.Location = new Point(137, 178);
             selEstado.Name = "selEstado";
-            selEstado.Size = new Size(332, 36);
+            selEstado.Size = new Size(234, 26);
             selEstado.TabIndex = 21;
             // 
             // txtFecha
             // 
             txtFecha.CustomFormat = "";
-            txtFecha.Location = new Point(196, 123);
-            txtFecha.Margin = new Padding(4, 5, 4, 5);
+            txtFecha.Location = new Point(137, 73);
             txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(332, 35);
+            txtFecha.Size = new Size(234, 26);
             txtFecha.TabIndex = 22;
             txtFecha.ValueChanged += txtFecha_ValueChanged;
             // 
             // txtAgresivo
             // 
             txtAgresivo.AutoSize = true;
-            txtAgresivo.Location = new Point(196, 241);
-            txtAgresivo.Margin = new Padding(4, 5, 4, 5);
+            txtAgresivo.Location = new Point(137, 143);
             txtAgresivo.Name = "txtAgresivo";
-            txtAgresivo.Size = new Size(99, 32);
+            txtAgresivo.Size = new Size(70, 22);
             txtAgresivo.TabIndex = 24;
             txtAgresivo.Text = "Lo es";
             txtAgresivo.UseVisualStyleBackColor = true;
@@ -320,38 +298,34 @@
             // selEspecie
             // 
             selEspecie.FormattingEnabled = true;
-            selEspecie.Location = new Point(771, 123);
-            selEspecie.Margin = new Padding(4, 5, 4, 5);
+            selEspecie.Location = new Point(539, 73);
             selEspecie.Name = "selEspecie";
-            selEspecie.Size = new Size(332, 36);
+            selEspecie.Size = new Size(234, 26);
             selEspecie.TabIndex = 25;
             selEspecie.SelectedIndexChanged += selEspecie_SelectedIndexChanged;
             // 
             // selRaza
             // 
             selRaza.FormattingEnabled = true;
-            selRaza.Location = new Point(771, 182);
-            selRaza.Margin = new Padding(4, 5, 4, 5);
+            selRaza.Location = new Point(539, 108);
             selRaza.Name = "selRaza";
-            selRaza.Size = new Size(332, 36);
+            selRaza.Size = new Size(234, 26);
             selRaza.TabIndex = 26;
             // 
             // selGenero
             // 
             selGenero.FormattingEnabled = true;
-            selGenero.Location = new Point(771, 241);
-            selGenero.Margin = new Padding(4, 5, 4, 5);
+            selGenero.Location = new Point(539, 143);
             selGenero.Name = "selGenero";
-            selGenero.Size = new Size(332, 36);
+            selGenero.Size = new Size(234, 26);
             selGenero.TabIndex = 27;
             // 
             // txtEsterilizacion
             // 
             txtEsterilizacion.AutoSize = true;
-            txtEsterilizacion.Location = new Point(196, 182);
-            txtEsterilizacion.Margin = new Padding(4, 5, 4, 5);
+            txtEsterilizacion.Location = new Point(137, 108);
             txtEsterilizacion.Name = "txtEsterilizacion";
-            txtEsterilizacion.Size = new Size(121, 32);
+            txtEsterilizacion.Size = new Size(86, 22);
             txtEsterilizacion.TabIndex = 28;
             txtEsterilizacion.Text = "Lo está";
             txtEsterilizacion.UseVisualStyleBackColor = true;
@@ -361,11 +335,11 @@
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.Controls.Add(label13);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(-18, -24);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(-13, -14);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1239, 86);
+            panel2.Size = new Size(867, 52);
             panel2.TabIndex = 17;
+            panel2.Paint += panel2_Paint;
             // 
             // label13
             // 
@@ -376,10 +350,9 @@
             label13.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label13.ForeColor = Color.Navy;
             label13.ImageAlign = ContentAlignment.TopCenter;
-            label13.Location = new Point(389, 35);
-            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Location = new Point(272, 21);
             label13.Name = "label13";
-            label13.Size = new Size(529, 33);
+            label13.Size = new Size(344, 22);
             label13.TabIndex = 2;
             label13.Text = "Gestión de expedientes de Mascotas";
             // 
@@ -392,10 +365,9 @@
             label1.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Navy;
             label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(438, 55);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(307, 33);
             label1.Name = "label1";
-            label1.Size = new Size(0, 33);
+            label1.Size = new Size(0, 22);
             label1.TabIndex = 0;
             // 
             // btnAgregar
@@ -406,11 +378,11 @@
             btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregar.Image = (Image)resources.GetObject("btnAgregar.Image");
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(24, 834);
-            btnAgregar.Margin = new Padding(4);
+            btnAgregar.Location = new Point(17, 500);
+            btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Padding = new Padding(12, 14, 31, 14);
-            btnAgregar.Size = new Size(220, 71);
+            btnAgregar.Padding = new Padding(8, 8, 22, 8);
+            btnAgregar.Size = new Size(154, 161);
             btnAgregar.TabIndex = 20;
             btnAgregar.Text = "Agregar";
             btnAgregar.TextAlign = ContentAlignment.MiddleRight;
@@ -425,11 +397,11 @@
             btnModificar.ForeColor = SystemColors.ActiveCaptionText;
             btnModificar.Image = (Image)resources.GetObject("btnModificar.Image");
             btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(329, 834);
-            btnModificar.Margin = new Padding(4);
+            btnModificar.Location = new Point(230, 500);
+            btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
-            btnModificar.Padding = new Padding(12, 14, 31, 14);
-            btnModificar.Size = new Size(220, 71);
+            btnModificar.Padding = new Padding(8, 8, 22, 8);
+            btnModificar.Size = new Size(154, 161);
             btnModificar.TabIndex = 21;
             btnModificar.Text = "Modificar";
             btnModificar.TextAlign = ContentAlignment.MiddleRight;
@@ -444,11 +416,11 @@
             btnLimpiar.ForeColor = SystemColors.ActiveCaptionText;
             btnLimpiar.Image = (Image)resources.GetObject("btnLimpiar.Image");
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(640, 834);
-            btnLimpiar.Margin = new Padding(4);
+            btnLimpiar.Location = new Point(448, 500);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Padding = new Padding(12, 14, 31, 14);
-            btnLimpiar.Size = new Size(220, 71);
+            btnLimpiar.Padding = new Padding(8, 8, 22, 8);
+            btnLimpiar.Size = new Size(154, 161);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
@@ -463,11 +435,11 @@
             btnSalir.ForeColor = SystemColors.ActiveCaptionText;
             btnSalir.Image = (Image)resources.GetObject("btnSalir.Image");
             btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalir.Location = new Point(959, 834);
-            btnSalir.Margin = new Padding(4);
+            btnSalir.Location = new Point(671, 500);
+            btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Padding = new Padding(12, 14, 31, 14);
-            btnSalir.Size = new Size(220, 71);
+            btnSalir.Padding = new Padding(8, 8, 22, 8);
+            btnSalir.Size = new Size(154, 161);
             btnSalir.TabIndex = 23;
             btnSalir.Text = "Volver";
             btnSalir.TextAlign = ContentAlignment.MiddleRight;
@@ -476,9 +448,9 @@
             // 
             // GestionMascotas
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1201, 945);
+            ClientSize = new Size(841, 567);
             Controls.Add(btnSalir);
             Controls.Add(btnLimpiar);
             Controls.Add(btnModificar);
@@ -486,7 +458,6 @@
             Controls.Add(mostradorMascotas);
             Controls.Add(groupBox2);
             Controls.Add(panel2);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "GestionMascotas";
             Text = "GestionMascotas";
             Load += GestionMascotas_Load;

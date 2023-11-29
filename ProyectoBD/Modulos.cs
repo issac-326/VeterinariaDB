@@ -54,7 +54,9 @@ namespace ProyectoBD
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            subModuloUsuarios subUsuarios  = new subModuloUsuarios();  
+            subUsuarios.Visible = true;
+            this.Hide();
         }
 
         private void label1_Click_1(object sender, EventArgs e)

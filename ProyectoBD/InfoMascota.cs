@@ -21,7 +21,7 @@ namespace ProyectoBD
             InitializeComponent();
             cargarVacunas();
             cargarEnfermedades();
-            idMascota = id;
+            this.idMascota = id;
             int idExpediente = 0;
             idExpediente = ObtenerIdExpediente("Expedientes", idMascota);
             Class.Crud objetoCrud = new Class.Crud();
@@ -219,7 +219,7 @@ namespace ProyectoBD
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error idVacuna: " + ex.Message);
+                MessageBox.Show("Error idexpediente: " + ex.Message);
             }
             return id;
         }
@@ -235,7 +235,7 @@ namespace ProyectoBD
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
                     // Buscar el id de la especie 
-                    string query = "SELECT Id FROM " + tabla + " where Id_Macota = '" + id + "';";
+                    string query = "SELECT Id FROM " + tabla + " where Id_Macota = " + id + ";";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
@@ -251,7 +251,7 @@ namespace ProyectoBD
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error idVacuna: " + ex.Message);
+                MessageBox.Show("Error idVacunaaaaa: " + ex.Message);
             }
             return idVacuna;
         }
@@ -334,6 +334,13 @@ namespace ProyectoBD
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            ControlMascota vista = new ControlMascota(idMascota);
+            vista.Show();
+            this.Hide();
         }
     }
 }

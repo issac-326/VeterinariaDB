@@ -48,6 +48,7 @@
             selEnferdad = new ComboBox();
             label6 = new Label();
             label7 = new Label();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)mostradorResponsables).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mostradorVacunas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mostradorConsultas).BeginInit();
@@ -57,7 +58,7 @@
             // mostradorResponsables
             // 
             mostradorResponsables.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mostradorResponsables.Location = new Point(32, 88);
+            mostradorResponsables.Location = new Point(32, 73);
             mostradorResponsables.Name = "mostradorResponsables";
             mostradorResponsables.RowTemplate.Height = 25;
             mostradorResponsables.Size = new Size(349, 166);
@@ -67,7 +68,7 @@
             // mostradorVacunas
             // 
             mostradorVacunas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mostradorVacunas.Location = new Point(32, 345);
+            mostradorVacunas.Location = new Point(32, 330);
             mostradorVacunas.Name = "mostradorVacunas";
             mostradorVacunas.RowTemplate.Height = 25;
             mostradorVacunas.Size = new Size(349, 166);
@@ -76,7 +77,7 @@
             // mostradorConsultas
             // 
             mostradorConsultas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mostradorConsultas.Location = new Point(461, 87);
+            mostradorConsultas.Location = new Point(461, 72);
             mostradorConsultas.Name = "mostradorConsultas";
             mostradorConsultas.RowTemplate.Height = 25;
             mostradorConsultas.Size = new Size(341, 214);
@@ -87,7 +88,7 @@
             Nombre.AutoSize = true;
             Nombre.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Nombre.ForeColor = Color.Navy;
-            Nombre.Location = new Point(32, 56);
+            Nombre.Location = new Point(32, 41);
             Nombre.Name = "Nombre";
             Nombre.Size = new Size(121, 18);
             Nombre.TabIndex = 3;
@@ -99,7 +100,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 11F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(30, 276);
+            label1.Location = new Point(30, 261);
             label1.Name = "label1";
             label1.Size = new Size(129, 17);
             label1.TabIndex = 4;
@@ -108,7 +109,7 @@
             // 
             // txtDni
             // 
-            txtDni.Location = new Point(163, 270);
+            txtDni.Location = new Point(163, 255);
             txtDni.Name = "txtDni";
             txtDni.Size = new Size(135, 23);
             txtDni.TabIndex = 15;
@@ -122,7 +123,7 @@
             btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregar.Image = (Image)resources.GetObject("btnAgregar.Image");
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(304, 259);
+            btnAgregar.Location = new Point(304, 244);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Padding = new Padding(9, 8, 22, 8);
@@ -137,7 +138,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 11F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Navy;
-            label2.Location = new Point(32, 316);
+            label2.Location = new Point(32, 301);
             label2.Name = "label2";
             label2.Size = new Size(147, 17);
             label2.TabIndex = 22;
@@ -148,7 +149,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial Rounded MT Bold", 11F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Navy;
-            label3.Location = new Point(32, 529);
+            label3.Location = new Point(32, 514);
             label3.Name = "label3";
             label3.Size = new Size(128, 17);
             label3.TabIndex = 23;
@@ -157,7 +158,7 @@
             // selVacuna
             // 
             selVacuna.FormattingEnabled = true;
-            selVacuna.Location = new Point(163, 524);
+            selVacuna.Location = new Point(163, 509);
             selVacuna.Name = "selVacuna";
             selVacuna.Size = new Size(135, 23);
             selVacuna.TabIndex = 24;
@@ -170,7 +171,7 @@
             btnAgregarVacuna.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregarVacuna.Image = (Image)resources.GetObject("btnAgregarVacuna.Image");
             btnAgregarVacuna.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarVacuna.Location = new Point(304, 516);
+            btnAgregarVacuna.Location = new Point(304, 501);
             btnAgregarVacuna.Margin = new Padding(3, 2, 3, 2);
             btnAgregarVacuna.Name = "btnAgregarVacuna";
             btnAgregarVacuna.Padding = new Padding(9, 8, 22, 8);
@@ -183,7 +184,7 @@
             // mostradorEnfermedades
             // 
             mostradorEnfermedades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mostradorEnfermedades.Location = new Point(461, 345);
+            mostradorEnfermedades.Location = new Point(461, 330);
             mostradorEnfermedades.Name = "mostradorEnfermedades";
             mostradorEnfermedades.RowTemplate.Height = 25;
             mostradorEnfermedades.Size = new Size(341, 167);
@@ -191,7 +192,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(304, 291);
+            txtNombre.Location = new Point(304, 276);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(0, 23);
             txtNombre.TabIndex = 27;
@@ -202,7 +203,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Navy;
-            label4.Location = new Point(465, 56);
+            label4.Location = new Point(465, 41);
             label4.Name = "label4";
             label4.Size = new Size(149, 18);
             label4.TabIndex = 28;
@@ -213,7 +214,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Arial Rounded MT Bold", 11F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Navy;
-            label5.Location = new Point(461, 316);
+            label5.Location = new Point(461, 301);
             label5.Name = "label5";
             label5.Size = new Size(153, 17);
             label5.TabIndex = 29;
@@ -227,7 +228,7 @@
             btnAgregarEnfermedad.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregarEnfermedad.Image = (Image)resources.GetObject("btnAgregarEnfermedad.Image");
             btnAgregarEnfermedad.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarEnfermedad.Location = new Point(771, 517);
+            btnAgregarEnfermedad.Location = new Point(771, 502);
             btnAgregarEnfermedad.Margin = new Padding(3, 2, 3, 2);
             btnAgregarEnfermedad.Name = "btnAgregarEnfermedad";
             btnAgregarEnfermedad.Padding = new Padding(9, 8, 22, 8);
@@ -240,7 +241,7 @@
             // selEnferdad
             // 
             selEnferdad.FormattingEnabled = true;
-            selEnferdad.Location = new Point(630, 523);
+            selEnferdad.Location = new Point(630, 508);
             selEnferdad.Name = "selEnferdad";
             selEnferdad.Size = new Size(135, 23);
             selEnferdad.TabIndex = 31;
@@ -250,7 +251,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Arial Rounded MT Bold", 11F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Navy;
-            label6.Location = new Point(461, 525);
+            label6.Location = new Point(461, 510);
             label6.Name = "label6";
             label6.Size = new Size(163, 17);
             label6.TabIndex = 30;
@@ -271,11 +272,31 @@
             label7.TabIndex = 33;
             label7.Text = "Informacion de Eduardo";
             // 
+            // btnVolver
+            // 
+            btnVolver.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnVolver.BackColor = Color.Red;
+            btnVolver.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVolver.ForeColor = SystemColors.ActiveCaptionText;
+            btnVolver.Image = (Image)resources.GetObject("btnVolver.Image");
+            btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVolver.Location = new Point(675, 9);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Padding = new Padding(9, 8, 22, 8);
+            btnVolver.Size = new Size(127, 41);
+            btnVolver.TabIndex = 34;
+            btnVolver.Text = "Volver";
+            btnVolver.TextAlign = ContentAlignment.MiddleRight;
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // InfoMascota
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(841, 567);
+            Controls.Add(btnVolver);
             Controls.Add(label7);
             Controls.Add(btnAgregarEnfermedad);
             Controls.Add(selEnferdad);
@@ -327,5 +348,6 @@
         private ComboBox selEnferdad;
         private Label label6;
         private Label label7;
+        private Button btnVolver;
     }
 }

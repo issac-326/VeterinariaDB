@@ -102,6 +102,7 @@ namespace ProyectoBD
         {
             int idForma = -1;
             Class.Crud objetoCrud = new Class.Crud();
+            Class.Crud objetoCrud1 = new Class.Crud();
             if (formulaFarmaceutica.SelectedItem != null)
             {
                 idForma = ObtenerIdForma(formulaFarmaceutica.SelectedItem.ToString());
@@ -114,6 +115,37 @@ namespace ProyectoBD
 
             String cadena = $"'{txtNombre.Text}', '{fechaFormateada}', 0 , '{idForma}' , 1 ";
             objetoCrud.guardar(tabla, cadena);
+
+            int id = -1;
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                // Establecer la conexión a la base de datos
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Buscar el id de la forma
+                    string query = "SELECT Id FROM Productos where Nombre = '"+txtNombre.Text +"';";
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            reader.Read(); // Solo necesitas leer la primera fila
+
+                            // Obtener el valor del ID
+                            id = Convert.ToInt32(reader["Id"]);
+                        }
+                    }
+                }
+                objectConexion.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error idMEDICAMENTO: " + ex.Message);
+            }
+
+
+            String cadena1 = $"'{fechaFormateada}', 0 , 0, 0 , 5, '{id}' , NULL ";
+            objetoCrud1.guardar("Registros", cadena1);
 
         }
 

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            button1 = new Button();
             button7 = new Button();
+            button1 = new Button();
             MÓDULOS = new Panel();
             button9 = new Button();
             button4 = new Button();
@@ -57,25 +57,6 @@
             tableLayoutPanel1.Size = new Size(817, 449);
             tableLayoutPanel1.TabIndex = 5;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.Navy;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.CausesValidation = false;
-            button1.FlatAppearance.BorderColor = Color.Navy;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.Window;
-            button1.Image = Properties.Resources.farmacia;
-            button1.Location = new Point(425, 152);
-            button1.Name = "button1";
-            button1.Size = new Size(200, 143);
-            button1.TabIndex = 14;
-            button1.Text = "Recetas";
-            button1.TextImageRelation = TextImageRelation.ImageAboveText;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // button7
             // 
             button7.BackColor = SystemColors.Window;
@@ -95,6 +76,25 @@
             button7.TextImageRelation = TextImageRelation.ImageAboveText;
             button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Navy;
+            button1.BackgroundImageLayout = ImageLayout.Center;
+            button1.CausesValidation = false;
+            button1.FlatAppearance.BorderColor = Color.Navy;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Window;
+            button1.Image = Properties.Resources.farmacia;
+            button1.Location = new Point(425, 152);
+            button1.Name = "button1";
+            button1.Size = new Size(200, 143);
+            button1.TabIndex = 14;
+            button1.Text = "Entregas";
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // MÓDULOS
             // 
@@ -127,6 +127,7 @@
             button4.Size = new Size(75, 23);
             button4.TabIndex = 1;
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // label1
             // 

@@ -11,6 +11,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using ProyectoBD.Class;
 using System.Reflection;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Security.Principal;
+using System.Security.Cryptography.Xml;
 
 namespace ProyectoBD
 {
@@ -18,6 +21,9 @@ namespace ProyectoBD
     {
         private List<string> permisos;
         String tabla = "Sucursales";
+
+        String tablaSucursales = "Sucursales";
+        String tablaDirecciones = "Direcciones";
 
         public Sucursales()
         {
@@ -32,10 +38,8 @@ namespace ProyectoBD
         private void Sucursales_Load(object sender, EventArgs e)
         {
             CargarDatos();
-            CargarDirecciones();
             CargarEstados();
-            CargarEmpleados();
-            CargarFarmacias();
+            CargarCiudades();
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,9 +53,9 @@ namespace ProyectoBD
                 txtCorreo.Text = filaSeleccionada.Cells["Correo"].Value.ToString();
                 txtDireccion.Text = filaSeleccionada.Cells["Direccion"].Value.ToString();
                 txtEstado.Text = filaSeleccionada.Cells["Estado"].Value.ToString();
-                txtGerente.Text = filaSeleccionada.Cells["Gerente"].Value.ToString();
                 txtFarmacia.Text = filaSeleccionada.Cells["Farmacia"].Value.ToString();
                 txtId.Text = filaSeleccionada.Cells["Id"].Value.ToString();
+                txtIdDireccion.Text = filaSeleccionada.Cells["IdDireccion"].Value.ToString();
             }
 
         }
@@ -61,13 +65,14 @@ namespace ProyectoBD
         {
             Crud crud = new Crud();
 
-            string instruccion = "SELECT s.Id, s.Codigo, s.Nombre, s.Correo, d.Referencia AS Direccion, es.Nombre AS Estado, \r\nf.Id AS Farmacia, em.Id AS Gerente FROM Sucursales s \r\nINNER JOIN Empresas e ON s.Id_Empresa = e.Id\r\nINNER JOIN Direcciones d ON s.Id_Direccion = d.Id\r\nINNER JOIN Estados_Sucursal es ON s.Id_Estado = es.Id\r\nINNER JOIN Farmacias f ON s.Id_Farmacia = f.Id\r\nINNER JOIN Empleados em ON  s.Id_Gerente = em.Id;\r\n";
+            string instruccion = "SELECT s.Id, s.Codigo, s.Nombre, s.Correo, d.Id AS IdDireccion, d.Referencia AS Direccion, es.Nombre AS Estado, \r\nf.Id AS Farmacia FROM Sucursales s \r\nINNER JOIN Empresas e ON s.Id_Empresa = e.Id\r\nINNER JOIN Direcciones d ON s.Id_Direccion = d.Id\r\nINNER JOIN Estados_Sucursal es ON s.Id_Estado = es.Id\r\nINNER JOIN Farmacias f ON s.Id_Farmacia = f.Id;";
 
             crud.mostrarData(dataGridView2, instruccion);
 
         }
 
-        private void CargarDirecciones()
+
+        private void CargarCiudades()
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
@@ -76,21 +81,21 @@ namespace ProyectoBD
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
 
-                    string query = "SELECT d.Referencia, c.Nombre AS Ciudad, dep.Nombre AS Departamento FROM Direcciones d\r\nINNER JOIN Ciudades c ON d.Id_Ciudad = c.Id\r\nINNER JOIN Departamentos dep ON c.Id_Departamento = dep.Id;\r\n";
+                    string query = "SELECT c.Nombre AS Ciudad, d.Nombre AS Departamento FROM Ciudades c\r\nINNER JOIN Departamentos d ON c.Id_Departamento = d.Id;";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
                         {
                             // Limpiar el ComboBox antes de agregar nuevos elementos
-                            txtDireccion.Items.Clear();
+                            txtCiudad.Items.Clear();
 
 
                             while (reader.Read())
                             {
 
-                                string infoDirrecion = $"{reader["Referencia"]}, {reader["Ciudad"]}, {reader["Departamento"]}";
+                                string infoDirrecion = $"{reader["Ciudad"]}, {reader["Departamento"]}";
 
-                                txtDireccion.Items.Add($"{infoDirrecion}");
+                                txtCiudad.Items.Add($"{infoDirrecion}");
                             }
                         }
                     }
@@ -102,6 +107,7 @@ namespace ProyectoBD
                 MessageBox.Show("Error al cargar las direcciones: " + ex.Message);
             }
         }
+
 
         private void CargarEstados()
         {
@@ -137,76 +143,7 @@ namespace ProyectoBD
             }
         }
 
-        private void CargarFarmacias()
-        {
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
 
-
-                    string query = "SELECT Id FROM Farmacias;";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            // Limpiar el ComboBox antes de agregar nuevos elementos
-                            txtFarmacia.Items.Clear();
-
-
-                            while (reader.Read())
-                            {
-                                txtFarmacia.Items.Add(reader["Id"].ToString());
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar las farmacias: " + ex.Message);
-            }
-        }
-
-        private void CargarEmpleados()
-        {
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-
-
-                    string query = "SELECT e.Id, p.Primer_Nombre, p.Primer_Apellido, p.DNI FROM Empleados e\r\nINNER JOIN Personas p ON e.Id_Persona = p.Id\r\nINNER JOIN Contratos c ON e.Id_Contrato = c.Id\r\nINNER JOIN Tipos_Empleados te ON c.Id_Tipo = te.Id\r\nWHERE te.Nombre = 'Gerente General';";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            // Limpiar el ComboBox antes de agregar nuevos elementos
-                            txtGerente.Items.Clear();
-
-                            while (reader.Read())
-                            {
-                                // Concatenar Primer_Nombre, Segundo_Nombre y DNI
-                                string infoEmpleado = $"{reader["Id"]} {reader["Primer_Nombre"]} {reader["Primer_Apellido"]} - {reader["DNI"]}";
-
-
-                                txtGerente.Items.Add($"{infoEmpleado}");
-                            }
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los empleados: " + ex.Message);
-            }
-        }
 
         private int ObtenerIdDireccion(String nombreDireccion)
         {
@@ -218,7 +155,7 @@ namespace ProyectoBD
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
                     // Buscar el id de la especie 
-                    string query = "SELECT Id FROM Direcciones WHERE Referencia LIKE '" + nombreDireccion + "%';";
+                    string query = "SELECT Id FROM Direcciones WHERE Referencia LIKE '%" + nombreDireccion + "%';";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
@@ -239,7 +176,40 @@ namespace ProyectoBD
             return idDireccion;
         }
 
-        private string ObtenerRefrencia(string selectedItem)
+
+        private int ObtenerIdCiudad(String nombreCiudad)
+        {
+            int idCiudad = -1;
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                // Establecer la conexión a la base de datos
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Buscar el id de la especie 
+                    string query = "SELECT Id FROM Ciudades WHERE Nombre LIKE '" + nombreCiudad + "%';";
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            reader.Read(); // Solo necesitas leer la primera fila
+
+                            // Obtener el valor del ID
+                            idCiudad = Convert.ToInt32(reader["Id"]);
+                        }
+                    }
+                }
+                objectConexion.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error idCiudad: " + ex.Message);
+            }
+            return idCiudad;
+        }
+
+
+        private string ObtenerReferencia(string selectedItem)
         {
 
             string[] partes = selectedItem.Split(',');
@@ -252,6 +222,7 @@ namespace ProyectoBD
                 return selectedItem;
             }
         }
+
 
         private int ObtenerIdEstado(String nombreEstado)
         {
@@ -284,52 +255,7 @@ namespace ProyectoBD
             return idEstado;
         }
 
-        private int ObtenerIdEmpleado(String DNI)
-        {
-            int idEmpleado = -1;
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
 
-                    string query = "SELECT e.Id FROM Empleados e INNER JOIN Personas p ON e.Id_Persona = p.Id WHERE p.DNI LIKE '" + DNI + "'; ";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            reader.Read(); // Solo necesitas leer la primera fila
-
-                            // Obtener el valor del ID
-                            idEmpleado = Convert.ToInt32(reader["Id"]);
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error idEmpleado: " + ex.Message);
-            }
-            return idEmpleado;
-        }
-
-        private string ObtenerDNI(string selectedItem)
-        {
-            // Aquí puedes implementar la lógica para obtener el primer nombre de la cadena
-            // Por ejemplo, puedes dividir la cadena por espacio y tomar el primer elemento
-            string[] partes = selectedItem.Split(' ');
-            if (partes.Length > 0)
-            {
-                return partes[4];
-            }
-            else
-            {
-                // Si no hay partes, devolver la cadena completa
-                return selectedItem;
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -347,41 +273,32 @@ namespace ProyectoBD
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
 
-            int idDireccion = 0;
             int idEstado = 0;
-            int idEmpleado = 0;
-            int idFarmacia = Convert.ToInt32(txtFarmacia.Text);
+            int idCiudad = 0;
 
-            Class.Crud objetoCrud = new Class.Crud();
+            string referencia = ObtenerReferencia(txtCiudad.SelectedItem.ToString());
 
-            try
+
+            if (txtCiudad != null)
             {
-                string referencia = ObtenerRefrencia(txtDireccion.SelectedItem.ToString());
-                string dni = ObtenerDNI(txtGerente.SelectedItem.ToString());
-
-                if (txtDireccion.SelectedItem != null)
-                {
-                    idDireccion = ObtenerIdDireccion(referencia);
-                }
-                if (txtEstado.SelectedItem != null)
-                {
-                    idEstado = ObtenerIdEstado(txtEstado.SelectedItem.ToString());
-                }
-                if (txtGerente.SelectedItem != null)
-                {
-                    idEmpleado = ObtenerIdEmpleado(dni); ;
-                }
-                String cadena = $"'{txtCodigo.Text}', '{txtNombre.Text}', '{txtCorreo.Text}','{1}', {idDireccion}, {idEstado},'{idFarmacia}', {idEmpleado}";
-
-                objetoCrud.guardar(tabla, cadena);
+                idCiudad = ObtenerIdCiudad(referencia);
             }
-            catch (Exception ex)
+            if (txtEstado != null)
             {
-                MessageBox.Show(ex.Message);
+                idEstado = ObtenerIdEstado(txtEstado.SelectedItem.ToString());
             }
 
+            string consulta = $"BEGIN TRY\tBEGIN TRAN INSERT INTO Farmacias(x) VALUES (NULL); DECLARE @Id_Farmacia AS INT SET @Id_Farmacia = (SELECT IDENT_CURRENT('Farmacias') AS Id); INSERT INTO Direcciones(Referencia, Id_Ciudad) VALUES ('{txtDireccion.Text}', {idCiudad}); DECLARE @Id_Direccion AS INT SET @Id_Direccion = (SELECT IDENT_CURRENT('Direcciones') AS Id); INSERT INTO Sucursales(Codigo, Nombre, Correo, Id_Empresa, Id_Direccion, Id_Estado, Id_Farmacia) VALUES ('{txtCodigo}', '{txtNombre}', '{txtCorreo}', 1, @Id_Direccion, {idEstado}, @Id_Farmacia); \tCOMMIT \tPRINT('SE INSERTO LA SUCURSAL'); END TRY BEGIN CATCH ROLLBACK PRINT('NO SE INSERTO LA SUCURSAL'); END CATCH";
+
+
+            SqlCommand comando = new SqlCommand(consulta, objectConexion.establecerConexion());
+            comando.ExecuteNonQuery();
+            objectConexion.cerrarConexion();
             CargarDatos();
+
+
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -391,58 +308,35 @@ namespace ProyectoBD
             txtCorreo.Text = null;
             txtDireccion.Text = null;
             txtEstado.Text = null;
-            txtGerente.Text = null;
             txtFarmacia.Text = null;
-        }
-
-        private void btnDireccion_Click(object sender, EventArgs e)
-        {
-            Direcciones direcciones = new Direcciones();
-
-            direcciones.Show();
-            this.Hide();
-        }
-
-        private void btnFarmacia_Click(object sender, EventArgs e)
-        {
-            Farmacias farmacias = new Farmacias();
-
-            farmacias.Show();
-            this.Hide();
+            txtCiudad.Text = null;
+            txtId.Text = null;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
 
-            int idDireccion = 0;
             int idEstado = 0;
-            int idEmpleado = 0;
-            int idFarmacia = Convert.ToInt32(txtFarmacia.Text);
+            int idDireccion = Convert.ToInt32(txtIdDireccion.Text);
             int idSucursal = Convert.ToInt32(txtId.Text);
+
 
 
             Class.Crud objetoCrud = new Class.Crud();
 
             try
             {
-                   string referencia = ObtenerRefrencia(txtDireccion.SelectedItem.ToString());
-                string dni = ObtenerDNI(txtGerente.SelectedItem.ToString());
+                //string referencia = ObtenerReferencia(txtCiudad.SelectedItem.ToString());
 
-                if (txtDireccion.SelectedItem != null)
-                {
-                    idDireccion = ObtenerIdDireccion(referencia);
-                }
-                if (txtEstado.SelectedItem != null)
+                if (txtEstado != null)
                 {
                     idEstado = ObtenerIdEstado(txtEstado.SelectedItem.ToString());
                 }
-                if (txtGerente.SelectedItem != null)
-                {
-                    idEmpleado = ObtenerIdEmpleado(dni); ;
-                }
-                String cadena = $"Codigo = '{txtCodigo.Text}', Nombre = '{txtNombre.Text}', Correo = '{txtCorreo.Text}', Id_Empresa = '{1}', Id_Direccion = {idDireccion}, Id_Estado = {idEstado}, Id_Farmacia = '{idFarmacia}', Id_Gerente = {idEmpleado}";
 
-                objetoCrud.editar(tabla, cadena, idSucursal);
+                String cadena = $"Codigo = '{txtCodigo.Text}', Nombre = '{txtNombre.Text}', Correo = '{txtCorreo.Text}', Id_Empresa = '{1}', Id_Estado = {idEstado}";
+                String cadena2 = $"Referencia = '{txtDireccion.Text}'";
+                objetoCrud.editar(tablaSucursales, cadena, idSucursal);
+                objetoCrud.editar(tablaDirecciones, cadena2, idDireccion);
             }
             catch (Exception ex)
             {
@@ -451,6 +345,16 @@ namespace ProyectoBD
 
 
             CargarDatos();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFarmacia_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

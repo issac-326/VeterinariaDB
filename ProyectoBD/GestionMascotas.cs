@@ -414,11 +414,11 @@ namespace ProyectoBD
 
         private void mostradorMascotas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0) // Asegurarse de que el clic se haya realizado en una fila válida
+            if (e.RowIndex >= 0) 
             {
                 DataGridViewRow row = mostradorMascotas.Rows[e.RowIndex];
 
-                // Obtenemso el valor del id del selecinado
+                
                 int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
 
                 // Crear e mostrar el nuevo formulario pasando el ID

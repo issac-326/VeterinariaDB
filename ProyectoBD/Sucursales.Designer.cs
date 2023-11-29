@@ -355,6 +355,7 @@
             Controls.Add(btnSalir);
             Controls.Add(dataGridView2);
             Name = "Sucursales";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Sucursales";
             Load += Sucursales_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();

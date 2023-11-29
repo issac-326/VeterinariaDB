@@ -145,38 +145,6 @@ namespace ProyectoBD
 
 
 
-        private int ObtenerIdDireccion(String nombreDireccion)
-        {
-            int idDireccion = -1;
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-                    // Buscar el id de la especie 
-                    string query = "SELECT Id FROM Direcciones WHERE Referencia LIKE '%" + nombreDireccion + "%';";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            reader.Read(); // Solo necesitas leer la primera fila
-
-                            // Obtener el valor del ID
-                            idDireccion = Convert.ToInt32(reader["Id"]);
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error idDireccion: " + ex.Message);
-            }
-            return idDireccion;
-        }
-
-
         private int ObtenerIdCiudad(String nombreCiudad)
         {
             int idCiudad = -1;
@@ -290,7 +258,7 @@ namespace ProyectoBD
                 idEstado = ObtenerIdEstado(txtEstado.SelectedItem.ToString());
             }
 
-            string consulta = $"BEGIN TRY\tBEGIN TRAN INSERT INTO Farmacias(x) VALUES (NULL); DECLARE @Id_Farmacia AS INT SET @Id_Farmacia = (SELECT IDENT_CURRENT('Farmacias') AS Id); INSERT INTO Direcciones(Referencia, Id_Ciudad) VALUES ('{txtDireccion.Text}', {idCiudad}); DECLARE @Id_Direccion AS INT SET @Id_Direccion = (SELECT IDENT_CURRENT('Direcciones') AS Id); INSERT INTO Sucursales(Codigo, Nombre, Correo, Id_Empresa, Id_Direccion, Id_Estado, Id_Farmacia) VALUES ('{txtCodigo}', '{txtNombre}', '{txtCorreo}', 1, @Id_Direccion, {idEstado}, @Id_Farmacia); \tCOMMIT \tPRINT('SE INSERTO LA SUCURSAL'); END TRY BEGIN CATCH ROLLBACK PRINT('NO SE INSERTO LA SUCURSAL'); END CATCH";
+            string consulta = $"BEGIN TRY\tBEGIN TRAN INSERT INTO Farmacias(codigo) VALUES (NULL); DECLARE @Id_Farmacia AS INT SET @Id_Farmacia = (SELECT IDENT_CURRENT('Farmacias') AS Id); INSERT INTO Direcciones(Referencia, Id_Ciudad) VALUES ('{txtDireccion.Text}', {idCiudad}); DECLARE @Id_Direccion AS INT SET @Id_Direccion = (SELECT IDENT_CURRENT('Direcciones') AS Id); INSERT INTO Sucursales(Codigo, Nombre, Correo, Id_Empresa, Id_Direccion, Id_Estado, Id_Farmacia) VALUES ('{txtCodigo}', '{txtNombre}', '{txtCorreo}', 1, @Id_Direccion, {idEstado}, @Id_Farmacia); \tCOMMIT \tPRINT('SE INSERTO LA SUCURSAL'); END TRY BEGIN CATCH ROLLBACK PRINT('NO SE INSERTO LA SUCURSAL'); END CATCH";
 
 
             SqlCommand comando = new SqlCommand(consulta, objectConexion.establecerConexion());
@@ -311,6 +279,7 @@ namespace ProyectoBD
             txtFarmacia.Text = null;
             txtCiudad.Text = null;
             txtId.Text = null;
+            txtIdDireccion.Text = null;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

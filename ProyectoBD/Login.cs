@@ -30,24 +30,10 @@ namespace ProyectoBD
                     // Las credenciales son válidas, puedes permitir el acceso
                     string permiso = controlador.ObtenerPermiso(usuario);
 
-                    if (permiso == "Administrador")
-                    {
-                        // Usuario es un administrador
-                        MessageBox.Show("Inicio de sesión exitoso como Administrador");
-                        Modulos principal = new Modulos();
-                        principal.Visible = true;
-                        this.Hide();
-                    }
-                    else if (permiso == "Usuario Normal")
-                    {
-                        // Usuario es un usuario normal
-                        MessageBox.Show("Inicio de sesión exitoso como Usuario Normal");
-                    }
-                    else
-                    {
-                        // Rol desconocido
-                        MessageBox.Show("Inicio de sesión exitoso, pero rol desconocido");
-                    }
+                    Modulos principal = new Modulos(permiso);
+                    principal.Visible = true;
+                    this.Hide();
+
                 }
                 else
                 {

@@ -12,9 +12,76 @@ namespace ProyectoBD
 {
     public partial class Modulos : Form
     {
-        public Modulos()
+        private string permiso;
+        public Modulos(string permiso)
         {
             InitializeComponent();
+            this.permiso = permiso;
+            btnAtencion.Enabled = false;
+            btnFacturas.Enabled = false;
+            btnFarmacia.Enabled = false;
+            btnInfoPersonal.Enabled = false;
+            btnInformacion.Enabled = false;
+            btnRHH.Enabled = false;
+            btnSucursal.Enabled = false;
+            btnUsuarios.Enabled = false;
+            btnInfoPersonal.Enabled = false;
+
+
+            if (permiso == "Informacion de la Empresa")
+            {
+                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                btnInformacion.Enabled = true;
+
+            }
+            else if (permiso == "Sucursales")
+            {
+                MessageBox.Show("Felicidades usted puede editar: "+permiso+"");
+                btnSucursal.Enabled=true;
+            }
+            else if (permiso == "Recursos Humanos")
+            {
+                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                btnRHH.Enabled=true;
+            }
+            else if (permiso == "Farmacia")
+            {
+                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                btnFarmacia.Enabled = true;
+            }
+            else if (permiso == "Atencion al Cliente")
+            {
+                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                btnAtencion.Enabled = true;
+            }
+            else if (permiso == "Facturas")
+            {
+                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                btnFacturas.Enabled = true;
+            }
+            else if (permiso == "Usuarios del Sistema")
+            {
+                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                btnUsuarios.Enabled = true;
+            }
+            else if (permiso == "Informacion Personal")
+            {
+                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                btnInfoPersonal.Enabled = true;
+            }
+            else if (permiso == "Todos")
+            {
+                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                btnAtencion.Enabled = true;
+                btnFacturas.Enabled = true;
+                btnFarmacia.Enabled = true;
+                btnInfoPersonal.Enabled = true;
+                btnInformacion.Enabled = true;
+                btnRHH.Enabled = true;
+                btnSucursal.Enabled = true;
+                btnUsuarios.Enabled = true;
+                btnInfoPersonal.Enabled = true;
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

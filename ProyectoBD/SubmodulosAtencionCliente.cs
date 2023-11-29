@@ -12,6 +12,7 @@ namespace ProyectoBD
 {
     public partial class SubmodulosAtencionCliente : Form
     {
+        private string permiso;
         public SubmodulosAtencionCliente()
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Modulos win = new Modulos();
+            Modulos win = new Modulos(permiso);
             win.ShowDialog();
             this.Hide();
         }
@@ -40,7 +41,7 @@ namespace ProyectoBD
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos();
+            Modulos modulos = new Modulos(permiso);
             modulos.Show(); 
             this.Hide();
         }

@@ -17,7 +17,7 @@ namespace ProyectoBD.SQLConexion
         static String usuario = "root";
         static String contrasenia = "root";
         static String puerto = "1433";
-        static String db = "Veterinaria";
+        static String db = "Veterinarias";
         String cadenaConexion;
 
         public ConexionSqlServer()

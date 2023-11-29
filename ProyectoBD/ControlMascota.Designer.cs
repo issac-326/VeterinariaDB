@@ -44,6 +44,7 @@
             button4.Size = new Size(75, 23);
             button4.TabIndex = 30;
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // label2
             // 
@@ -75,6 +76,7 @@
             button6.TextImageRelation = TextImageRelation.ImageAboveText;
             button6.UseMnemonic = false;
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button7
             // 

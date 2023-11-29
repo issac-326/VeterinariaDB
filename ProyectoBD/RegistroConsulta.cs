@@ -37,6 +37,7 @@ namespace ProyectoBD
                 this.idTipo = 1;
                 txtTipo.Text = "Con cita";
             }
+            CargarMedicamentos();
 
         }
 
@@ -74,7 +75,7 @@ namespace ProyectoBD
             }
         }
 
-        private void ObtenerMedicamentos()
+        private void CargarMedicamentos()
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
@@ -84,8 +85,7 @@ namespace ProyectoBD
                 {
 
 
-                    // Consulta SQL para obtener nombres de especies
-                    string query = "SELECT Nombre FROM Productos;";
+                    string query = "SELECT Nombre FROM Productos";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
@@ -105,7 +105,7 @@ namespace ProyectoBD
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los estados: " + ex.Message);
+                MessageBox.Show("Error al cargar los medicos: " + ex.Message);
             }
         }
 
@@ -288,7 +288,7 @@ namespace ProyectoBD
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error idRaza: " + ex.Message);
+                MessageBox.Show("Error idEmpleado: " + ex.Message);
             }
             return id;
         }

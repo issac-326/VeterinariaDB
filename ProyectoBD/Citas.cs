@@ -391,6 +391,7 @@ namespace ProyectoBD
         private void btnVolver_Click(object sender, EventArgs e)
         {
             ControlMascota ctrlMascotas = new ControlMascota(identificador);
+            ctrlMascotas.Show();
             this.Hide();
         }
 

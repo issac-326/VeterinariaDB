@@ -29,11 +29,28 @@ namespace ProyectoBD
 
             Citas citasForm = new Citas(idMascota);
             citasForm.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            RegistroConsulta consultasForm = new RegistroConsulta(0, idMascota);
+            consultasForm.Show();
+            this.Hide();
+        }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            InfoMascota infForm = new InfoMascota(idMascota);
+            infForm.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            GestionMascotas vista = new GestionMascotas();
+            vista.Show();
+            this.Hide();
         }
     }
 }

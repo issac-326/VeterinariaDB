@@ -15,6 +15,7 @@ namespace ProyectoBD
 {
     public partial class OtorgarPermisosUsuarios : Form
     {
+        private List<string> permisos;
         public OtorgarPermisosUsuarios()
         {
             InitializeComponent();
@@ -224,6 +225,13 @@ namespace ProyectoBD
                 MessageBox.Show("Seleccione una fila antes de intentar eliminar.");
             }
             CargarDatosPermisosUsuarios();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Modulos modulos = new Modulos(permisos);
+            modulos.Visible = true;
+            this.Hide();
         }
     }
 }

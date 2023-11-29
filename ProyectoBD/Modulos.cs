@@ -139,7 +139,9 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Login login = new Login();  
+            login.Visible = true;
+            this.Hide();
         }
 
         private void button9_Click(object sender, EventArgs e)

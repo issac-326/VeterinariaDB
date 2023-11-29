@@ -45,6 +45,7 @@
             btnModificarUsuarios = new Button();
             btnAgregarUsuarios = new Button();
             btnEliminarUsuarios = new Button();
+            button4 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
@@ -265,11 +266,24 @@
             btnEliminarUsuarios.UseVisualStyleBackColor = false;
             btnEliminarUsuarios.Click += btnEliminarUsuarios_Click;
             // 
+            // button4
+            // 
+            button4.BackColor = SystemColors.ButtonHighlight;
+            button4.Image = Properties.Resources.back;
+            button4.Location = new Point(697, 14);
+            button4.Margin = new Padding(4, 5, 4, 5);
+            button4.Name = "button4";
+            button4.Size = new Size(68, 28);
+            button4.TabIndex = 15;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // RegistrarUsuarios
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(778, 644);
+            Controls.Add(button4);
             Controls.Add(btnLimpiarUsuarios);
             Controls.Add(btnModificarUsuarios);
             Controls.Add(btnAgregarUsuarios);
@@ -305,5 +319,6 @@
         private Button btnEliminarUsuarios;
         private Label label5;
         private CheckBox txtActivo;
+        private Button button4;
     }
 }

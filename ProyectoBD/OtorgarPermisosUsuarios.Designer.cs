@@ -39,6 +39,7 @@
             selPermisos = new ComboBox();
             label4 = new Label();
             label1 = new Label();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPermisosUsuarios).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -190,11 +191,24 @@
             label1.TabIndex = 0;
             label1.Text = "Usuario:";
             // 
+            // button4
+            // 
+            button4.BackColor = SystemColors.ButtonHighlight;
+            button4.Image = Properties.Resources.back;
+            button4.Location = new Point(675, 7);
+            button4.Margin = new Padding(4, 5, 4, 5);
+            button4.Name = "button4";
+            button4.Size = new Size(89, 33);
+            button4.TabIndex = 21;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // OtorgarPermisosUsuarios
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(778, 644);
+            Controls.Add(button4);
             Controls.Add(btnLimpiarUsuarios);
             Controls.Add(btnModificarUsuarios);
             Controls.Add(btnAgregarUsuarios);
@@ -223,5 +237,6 @@
         private ComboBox selPermisos;
         private Label label4;
         private Label label1;
+        private Button button4;
     }
 }

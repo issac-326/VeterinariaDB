@@ -15,6 +15,7 @@ namespace ProyectoBD
 {
     public partial class RegistrarUsuarios : Form
     {
+        private List<string> permisos;
         public RegistrarUsuarios()
         {
             InitializeComponent();
@@ -229,13 +230,20 @@ namespace ProyectoBD
 
                 Class.Crud objetoCrud = new Class.Crud();
 
-                objetoCrud.eliminar(tablaU,idCodigo);
+                objetoCrud.eliminar(tablaU, idCodigo);
             }
             else
             {
                 MessageBox.Show("Seleccione una fila antes de intentar eliminar.");
             }
             CargarDatosUsuarios();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Modulos modulos = new Modulos(permisos);
+            modulos.Visible = true;
+            this.Hide();
         }
     }
 }

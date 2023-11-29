@@ -12,11 +12,11 @@ namespace ProyectoBD
 {
     public partial class Modulos : Form
     {
-        private string permiso;
-        public Modulos(string permiso)
+        private List<string> permisos;
+        public Modulos(List<string> permisos)
         {
             InitializeComponent();
-            this.permiso = permiso;
+            this.permisos = permisos;
             btnAtencion.Enabled = false;
             btnFacturas.Enabled = false;
             btnFarmacia.Enabled = false;
@@ -28,59 +28,65 @@ namespace ProyectoBD
             btnInfoPersonal.Enabled = false;
 
 
-            if (permiso == "Informacion de la Empresa")
+            foreach (string permiso in permisos)
             {
-                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
-                btnInformacion.Enabled = true;
+                switch (permiso)
+                {
+                    case "Informacion de la Empresa":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnInformacion.Enabled = true;
+                        break;
 
-            }
-            else if (permiso == "Sucursales")
-            {
-                MessageBox.Show("Felicidades usted puede editar: "+permiso+"");
-                btnSucursal.Enabled=true;
-            }
-            else if (permiso == "Recursos Humanos")
-            {
-                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
-                btnRHH.Enabled=true;
-            }
-            else if (permiso == "Farmacia")
-            {
-                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
-                btnFarmacia.Enabled = true;
-            }
-            else if (permiso == "Atencion al Cliente")
-            {
-                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
-                btnAtencion.Enabled = true;
-            }
-            else if (permiso == "Facturas")
-            {
-                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
-                btnFacturas.Enabled = true;
-            }
-            else if (permiso == "Usuarios del Sistema")
-            {
-                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
-                btnUsuarios.Enabled = true;
-            }
-            else if (permiso == "Informacion Personal")
-            {
-                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
-                btnInfoPersonal.Enabled = true;
-            }
-            else if (permiso == "Todos")
-            {
-                MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
-                btnAtencion.Enabled = true;
-                btnFacturas.Enabled = true;
-                btnFarmacia.Enabled = true;
-                btnInfoPersonal.Enabled = true;
-                btnInformacion.Enabled = true;
-                btnRHH.Enabled = true;
-                btnSucursal.Enabled = true;
-                btnUsuarios.Enabled = true;
-                btnInfoPersonal.Enabled = true;
+                    case "Sucursales":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnSucursal.Enabled = true;
+                        break;
+
+                    case "Recursos Humanos":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnRHH.Enabled = true;
+                        break;
+
+                    case "Farmacia":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnFarmacia.Enabled = true;
+                        break;
+
+                    case "Atencion al Cliente":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnAtencion.Enabled = true;
+                        break;
+
+                    case "Facturas":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnFacturas.Enabled = true;
+                        break;
+
+                    case "Usuarios del Sistema":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnUsuarios.Enabled = true;
+                        break;
+
+                    case "Informacion Personal":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnInfoPersonal.Enabled = true;
+                        break;
+                    case "Todos":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnAtencion.Enabled = true;
+                        btnFacturas.Enabled = true;
+                        btnFarmacia.Enabled = true;
+                        btnInfoPersonal.Enabled = true;
+                        btnInformacion.Enabled = true;
+                        btnRHH.Enabled = true;
+                        btnSucursal.Enabled = true;
+                        btnUsuarios.Enabled = true;
+                        btnInfoPersonal.Enabled = true;
+                        break;
+                    default:
+                        // Manejar el caso por defecto si el permiso no coincide con ninguno de los casos anteriores.
+                        break;
+                }
             }
         }
 

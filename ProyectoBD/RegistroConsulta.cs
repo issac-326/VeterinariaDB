@@ -17,7 +17,7 @@ namespace ProyectoBD
     public partial class RegistroConsulta : Form
     {
         int idCita = 0;
-        int idTipo = 0;
+        int idTipo = 2;
         int idMascota = 0;
         public RegistroConsulta(int idCita, int idMascota)
         {
@@ -123,9 +123,10 @@ namespace ProyectoBD
                 idMedicamento = ObtenerIdMedicamento("Productos", selMedicamento.SelectedItem.ToString());
             }
             Class.Crud objetoCrud = new Class.Crud();
-            String cadenaReceta = $"{idMedicamento}, {ultimaConsulta}, {txtDosis.Text}";
+            String cadenaReceta = $"{idMedicamento}, '{txtDosis.Text}', {ultimaConsulta}";
             objetoCrud.guardar("Recetas_Medicamentos", cadenaReceta);
-
+            string instruccion = $"SELECT CM.Id AS Id_Receta, P.Nombre AS Nombre_Medicamento, CM.Dosis, C.Fecha AS Fecha_Consulta, C.Hora AS Hora_Consulta, C.Sintomas, C.Diagnostico FROM Recetas_Medicamentos CM JOIN Consultas C ON CM.Id_Consulta = C.Id JOIN Productos P ON CM.Id_Productos = P.Id WHERE CM.Id_Consulta = {ultimaConsulta}";
+            objetoCrud.mostrarData(mostradorMedicamentos, instruccion);
         }
 
         public int ObtenerIdUltimoRegistro()
@@ -232,11 +233,13 @@ namespace ProyectoBD
         private void btnAgregarConsulta_Click(object sender, EventArgs e)
         {
             DateTime fechaSeleccionada = txtFecha.Value;
-            // Formatea la fecha en el formato deseado en este caso solo ocupamos año, mes, dia
+            // Formatea la fecha en el formato deseado (DATE)
             string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
-            DateTime horaSelecionada = txtHora.Value;
-            // Formato 24H
-            string horaFormateada = horaSelecionada.ToString("HH:mm:ss");
+
+            DateTime horaSeleccionada = txtHora.Value;
+            // Formato 24H, y formatea la hora en el formato deseado (TIME)
+            string horaFormateada = horaSeleccionada.ToString("HH:mm:ss");
+
             int idMedico = 0;
             int idResponsable = 0;
 
@@ -244,24 +247,60 @@ namespace ProyectoBD
             {
                 idMedico = ObtenerIdEmpleado(selMedico.SelectedItem.ToString());
             }
+
             idResponsable = ObtenerIdEmpleado(txtResponsable.Text);
+            int idMascotaResponsable = 0;
+            idMascotaResponsable = ObtenerIdRelacion(idResponsable);
 
             Class.Crud objetoCrud = new Class.Crud();
+
             if (idCita == 0)
             {
-                String cadenaSin = $"'{fechaFormateada}', '{horaFormateada}', '{txtSintoma.Text}', '{txtDiagnostico.Text}', {null}, {idMedico}, {idResponsable}, {idTipo}, {txtExpendiente.Text}";
+                // Insertar nueva consulta
+                String cadenaSin = $"'{fechaFormateada}', '{horaFormateada}', '{txtSintoma.Text}', '{txtDiagnostico.Text}', NULL, {idMedico}, {idMascotaResponsable}, {idTipo}, '{txtExpendiente.Text}'";
                 objetoCrud.guardar("Consultas", cadenaSin);
             }
             else
             {
-                String cadena = $"'{fechaFormateada}', '{horaFormateada}', '{txtSintoma.Text}', '{txtDiagnostico.Text}', {idCita}, {idMedico}, {idResponsable}, {idTipo}, {txtExpendiente.Text}";
+                // Actualizar consulta existente
+                String cadena = $"'{fechaFormateada}', '{horaFormateada}', '{txtSintoma.Text}', '{txtDiagnostico.Text}', {idCita}, {idMedico}, {idMascotaResponsable}, {idTipo}, '{txtExpendiente.Text}'";
                 objetoCrud.guardar("Consultas", cadena);
             }
 
 
 
-
         }
+        private int ObtenerIdRelacion(int idRes)
+        {
+            int id = -1;
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                // Establecer la conexión a la base de datos
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Buscar el id de la especie 
+                    string query = "SELECT Id FROM Responsables_Mascotas where Id_Persona = " + idRes + " AND Id_Mascota = " + idMascota + ";";
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            reader.Read(); // Solo necesitas leer la primera fila
+
+                            // Obtener el valor del ID
+                            id = Convert.ToInt32(reader["Id"]);
+                        }
+                    }
+                }
+                objectConexion.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error idEmpleado: " + ex.Message);
+            }
+            return id;
+        }
+
         private int ObtenerIdEmpleado(string dni)
         {
             int id = -1;
@@ -291,6 +330,18 @@ namespace ProyectoBD
                 MessageBox.Show("Error idEmpleado: " + ex.Message);
             }
             return id;
+        }
+
+        private void mostradorMedicamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnIr_Click(object sender, EventArgs e)
+        {
+            InfoMascota vista = new InfoMascota(idMascota);
+            vista.Show();
+            this.Hide();
         }
     }
 

@@ -382,7 +382,7 @@
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Padding = new Padding(8, 8, 22, 8);
-            btnAgregar.Size = new Size(154, 161);
+            btnAgregar.Size = new Size(154, 43);
             btnAgregar.TabIndex = 20;
             btnAgregar.Text = "Agregar";
             btnAgregar.TextAlign = ContentAlignment.MiddleRight;
@@ -397,11 +397,11 @@
             btnModificar.ForeColor = SystemColors.ActiveCaptionText;
             btnModificar.Image = (Image)resources.GetObject("btnModificar.Image");
             btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(230, 500);
+            btnModificar.Location = new Point(235, 500);
             btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
             btnModificar.Padding = new Padding(8, 8, 22, 8);
-            btnModificar.Size = new Size(154, 161);
+            btnModificar.Size = new Size(154, 43);
             btnModificar.TabIndex = 21;
             btnModificar.Text = "Modificar";
             btnModificar.TextAlign = ContentAlignment.MiddleRight;
@@ -416,11 +416,11 @@
             btnLimpiar.ForeColor = SystemColors.ActiveCaptionText;
             btnLimpiar.Image = (Image)resources.GetObject("btnLimpiar.Image");
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(448, 500);
+            btnLimpiar.Location = new Point(453, 500);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Padding = new Padding(8, 8, 22, 8);
-            btnLimpiar.Size = new Size(154, 161);
+            btnLimpiar.Size = new Size(154, 43);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
@@ -435,11 +435,11 @@
             btnSalir.ForeColor = SystemColors.ActiveCaptionText;
             btnSalir.Image = (Image)resources.GetObject("btnSalir.Image");
             btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalir.Location = new Point(671, 500);
+            btnSalir.Location = new Point(668, 500);
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
             btnSalir.Padding = new Padding(8, 8, 22, 8);
-            btnSalir.Size = new Size(154, 161);
+            btnSalir.Size = new Size(154, 43);
             btnSalir.TabIndex = 23;
             btnSalir.Text = "Volver";
             btnSalir.TextAlign = ContentAlignment.MiddleRight;
@@ -450,7 +450,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(841, 567);
+            ClientSize = new Size(841, 562);
             Controls.Add(btnSalir);
             Controls.Add(btnLimpiar);
             Controls.Add(btnModificar);

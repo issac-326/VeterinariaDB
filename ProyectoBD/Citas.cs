@@ -24,7 +24,7 @@ namespace ProyectoBD
         {
             InitializeComponent();
             ///Asignamos el valor a la variable de instancia.
-            identificador = id;
+            this.identificador = id;
             cargarTipoEstados();
             cargarMascotas();
             cargarEmpleados();
@@ -403,6 +403,21 @@ namespace ProyectoBD
         private void txtFechaCita_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
+      
+                RegistroConsulta nuevoFormulario = new RegistroConsulta(idSeleccionado, identificador);
+                nuevoFormulario.Show();
+                this.Hide();
+
+            }
         }
     }
 }

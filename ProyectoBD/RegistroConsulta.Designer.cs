@@ -158,6 +158,7 @@
             mostradorMedicamentos.RowTemplate.Height = 25;
             mostradorMedicamentos.Size = new Size(814, 150);
             mostradorMedicamentos.TabIndex = 27;
+            mostradorMedicamentos.CellContentClick += mostradorMedicamentos_CellContentClick;
             // 
             // groupBox2
             // 
@@ -510,9 +511,10 @@
             btnIr.Padding = new Padding(9, 8, 22, 8);
             btnIr.Size = new Size(154, 43);
             btnIr.TabIndex = 37;
-            btnIr.Text = "Agregar";
+            btnIr.Text = "Listo";
             btnIr.TextAlign = ContentAlignment.MiddleRight;
             btnIr.UseVisualStyleBackColor = false;
+            btnIr.Click += btnIr_Click;
             // 
             // RegistroConsulta
             // 

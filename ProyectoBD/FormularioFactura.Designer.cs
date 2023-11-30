@@ -29,195 +29,55 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioFactura));
-            panel3 = new Panel();
-            button6 = new Button();
-            label12 = new Label();
-            groupBox2 = new GroupBox();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            comboTipo = new ComboBox();
-            txtCantidad = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
-            label6 = new Label();
-            label11 = new Label();
-            txtPrecio = new TextBox();
             panel2 = new Panel();
             label1 = new Label();
             panel4 = new Panel();
-            textBox1 = new TextBox();
             btnLimpiarCitas = new Button();
             btnAgregarMedicamento = new Button();
             button2 = new Button();
-            txtFecha = new DateTimePicker();
-            dataGridView2 = new DataGridView();
-            label4 = new Label();
+            txtdni = new TextBox();
+            panel3 = new Panel();
+            label3 = new Label();
             groupBox1 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
-            textBox2 = new TextBox();
             label5 = new Label();
+            subtotal = new Label();
+            total = new Label();
             label7 = new Label();
             label8 = new Label();
+            ivs15 = new Label();
+            isv18 = new Label();
             label9 = new Label();
             textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            panel3.SuspendLayout();
-            groupBox2.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            detalleFactura = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            isv = new DataGridViewTextBoxColumn();
+            agregarProduto = new Button();
+            button3 = new Button();
+            panel1 = new Panel();
+            panel5 = new Panel();
+            impuesto = new ComboBox();
+            label10 = new Label();
+            txtCantidad = new TextBox();
+            mostrarProducto = new DataGridView();
+            label17 = new Label();
+            label14 = new Label();
+            txtProducto = new TextBox();
+            buscarProducto = new Button();
+            label15 = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            panel3.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)detalleFactura).BeginInit();
+            panel1.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)mostrarProducto).BeginInit();
             SuspendLayout();
-            // 
-            // panel3
-            // 
-            panel3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.BackColor = Color.Navy;
-            panel3.BackgroundImageLayout = ImageLayout.Stretch;
-            panel3.Controls.Add(textBox1);
-            panel3.Controls.Add(button6);
-            panel3.Controls.Add(label12);
-            panel3.Location = new Point(10, 50);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(814, 45);
-            panel3.TabIndex = 27;
-            // 
-            // button6
-            // 
-            button6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button6.BackColor = Color.Crimson;
-            button6.BackgroundImageLayout = ImageLayout.Center;
-            button6.FlatAppearance.BorderColor = Color.Navy;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button6.ForeColor = Color.Transparent;
-            button6.Location = new Point(551, 9);
-            button6.Name = "button6";
-            button6.Size = new Size(233, 27);
-            button6.TabIndex = 8;
-            button6.Text = "buscar";
-            button6.UseVisualStyleBackColor = false;
-            // 
-            // label12
-            // 
-            label12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label12.AutoSize = true;
-            label12.BackColor = Color.Navy;
-            label12.FlatStyle = FlatStyle.Popup;
-            label12.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.ForeColor = SystemColors.Window;
-            label12.ImageAlign = ContentAlignment.TopCenter;
-            label12.Location = new Point(25, 13);
-            label12.Name = "label12";
-            label12.Size = new Size(145, 18);
-            label12.TabIndex = 1;
-            label12.Text = "Nombre paciente";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox2.Controls.Add(tableLayoutPanel2);
-            groupBox2.FlatStyle = FlatStyle.Popup;
-            groupBox2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.ForeColor = Color.Navy;
-            groupBox2.ImeMode = ImeMode.Disable;
-            groupBox2.Location = new Point(14, 100);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(814, 133);
-            groupBox2.TabIndex = 26;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Formulario";
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 5;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanel2.Controls.Add(comboTipo, 4, 0);
-            tableLayoutPanel2.Controls.Add(txtCantidad, 1, 1);
-            tableLayoutPanel2.Controls.Add(label2, 0, 0);
-            tableLayoutPanel2.Controls.Add(label3, 0, 1);
-            tableLayoutPanel2.Controls.Add(label6, 3, 0);
-            tableLayoutPanel2.Controls.Add(label11, 3, 1);
-            tableLayoutPanel2.Controls.Add(txtPrecio, 4, 1);
-            tableLayoutPanel2.Controls.Add(txtFecha, 1, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.ImeMode = ImeMode.KatakanaHalf;
-            tableLayoutPanel2.Location = new Point(3, 22);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(808, 108);
-            tableLayoutPanel2.TabIndex = 4;
-            // 
-            // comboTipo
-            // 
-            comboTipo.FormattingEnabled = true;
-            comboTipo.Location = new Point(567, 3);
-            comboTipo.Name = "comboTipo";
-            comboTipo.Size = new Size(238, 26);
-            comboTipo.TabIndex = 23;
-            // 
-            // txtCantidad
-            // 
-            txtCantidad.Location = new Point(132, 57);
-            txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(233, 26);
-            txtCantidad.TabIndex = 14;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 18);
-            label2.TabIndex = 0;
-            label2.Text = "Fecha";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 54);
-            label3.Name = "label3";
-            label3.Size = new Size(80, 18);
-            label3.TabIndex = 1;
-            label3.Text = "Cantidad";
-            label3.Click += label3_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(406, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(98, 36);
-            label6.TabIndex = 4;
-            label6.Text = "Tipo de documento";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(406, 54);
-            label11.Name = "label11";
-            label11.Size = new Size(125, 18);
-            label11.TabIndex = 9;
-            label11.Text = "Precio unitario";
-            // 
-            // txtPrecio
-            // 
-            txtPrecio.Location = new Point(567, 57);
-            txtPrecio.Name = "txtPrecio";
-            txtPrecio.Size = new Size(233, 26);
-            txtPrecio.TabIndex = 13;
             // 
             // panel2
             // 
@@ -227,6 +87,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(867, 52);
             panel2.TabIndex = 25;
+            panel2.Paint += panel2_Paint;
             // 
             // label1
             // 
@@ -256,13 +117,6 @@
             panel4.Size = new Size(885, 80);
             panel4.TabIndex = 24;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(176, 13);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(311, 23);
-            textBox1.TabIndex = 24;
-            // 
             // btnLimpiarCitas
             // 
             btnLimpiarCitas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -280,6 +134,7 @@
             btnLimpiarCitas.Text = "Limpiar";
             btnLimpiarCitas.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiarCitas.UseVisualStyleBackColor = false;
+            btnLimpiarCitas.Click += btnLimpiarCitas_Click;
             // 
             // btnAgregarMedicamento
             // 
@@ -298,6 +153,7 @@
             btnAgregarMedicamento.Text = "Factuar";
             btnAgregarMedicamento.TextAlign = ContentAlignment.MiddleRight;
             btnAgregarMedicamento.UseVisualStyleBackColor = false;
+            btnAgregarMedicamento.Click += btnAgregarMedicamento_Click;
             // 
             // button2
             // 
@@ -316,37 +172,42 @@
             button2.Text = "Salir";
             button2.TextAlign = ContentAlignment.MiddleRight;
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // txtFecha
+            // txtdni
             // 
-            txtFecha.Location = new Point(132, 3);
-            txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(227, 26);
-            txtFecha.TabIndex = 23;
+            txtdni.Location = new Point(391, 11);
+            txtdni.Name = "txtdni";
+            txtdni.Size = new Size(190, 23);
+            txtdni.TabIndex = 29;
             // 
-            // dataGridView2
+            // panel3
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(14, 266);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(388, 214);
-            dataGridView2.TabIndex = 30;
+            panel3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BackColor = Color.Navy;
+            panel3.BackgroundImageLayout = ImageLayout.Stretch;
+            panel3.Controls.Add(txtdni);
+            panel3.Controls.Add(label3);
+            panel3.Location = new Point(10, 51);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(814, 55);
+            panel3.TabIndex = 27;
             // 
-            // label4
+            // label3
             // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.BackColor = SystemColors.GradientActiveCaption;
-            label4.FlatStyle = FlatStyle.Popup;
-            label4.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.Navy;
-            label4.ImageAlign = ContentAlignment.TopCenter;
-            label4.Location = new Point(10, 241);
-            label4.Name = "label4";
-            label4.Size = new Size(144, 22);
-            label4.TabIndex = 1;
-            label4.Text = "Detalle factura";
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.BackColor = Color.Navy;
+            label3.FlatStyle = FlatStyle.Popup;
+            label3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.Window;
+            label3.ImageAlign = ContentAlignment.TopCenter;
+            label3.Location = new Point(195, 11);
+            label3.Name = "label3";
+            label3.Size = new Size(173, 18);
+            label3.TabIndex = 26;
+            label3.Text = "Numero de identidad";
+            label3.Click += label3_Click_1;
             // 
             // groupBox1
             // 
@@ -357,48 +218,40 @@
             groupBox1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = Color.Navy;
             groupBox1.ImeMode = ImeMode.Disable;
-            groupBox1.Location = new Point(454, 266);
+            groupBox1.Location = new Point(1, 266);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(374, 228);
+            groupBox1.Size = new Size(814, 100);
             groupBox1.TabIndex = 27;
             groupBox1.TabStop = false;
             groupBox1.Text = "Total";
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.9832649F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.01674F));
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 36.85567F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 63.14433F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 186F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 157F));
             tableLayoutPanel1.Controls.Add(label5, 0, 0);
-            tableLayoutPanel1.Controls.Add(label7, 0, 1);
-            tableLayoutPanel1.Controls.Add(textBox4, 1, 1);
-            tableLayoutPanel1.Controls.Add(textBox2, 1, 0);
-            tableLayoutPanel1.Controls.Add(label8, 0, 2);
-            tableLayoutPanel1.Controls.Add(label9, 0, 3);
-            tableLayoutPanel1.Controls.Add(textBox5, 1, 2);
-            tableLayoutPanel1.Controls.Add(textBox6, 1, 3);
+            tableLayoutPanel1.Controls.Add(subtotal, 1, 0);
+            tableLayoutPanel1.Controls.Add(total, 1, 1);
+            tableLayoutPanel1.Controls.Add(label7, 2, 0);
+            tableLayoutPanel1.Controls.Add(label8, 2, 1);
+            tableLayoutPanel1.Controls.Add(ivs15, 3, 0);
+            tableLayoutPanel1.Controls.Add(isv18, 3, 1);
+            tableLayoutPanel1.Controls.Add(label9, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.ImeMode = ImeMode.KatakanaHalf;
             tableLayoutPanel1.Location = new Point(3, 22);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 47.4074059F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.5925941F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 44F));
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51.515152F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.484848F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(368, 203);
+            tableLayoutPanel1.Size = new Size(808, 75);
             tableLayoutPanel1.TabIndex = 4;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(135, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(230, 26);
-            textBox2.TabIndex = 14;
             // 
             // label5
             // 
@@ -410,10 +263,28 @@
             label5.Text = "Subtotal";
             label5.Click += label5_Click;
             // 
+            // subtotal
+            // 
+            subtotal.AutoSize = true;
+            subtotal.Location = new Point(174, 0);
+            subtotal.Name = "subtotal";
+            subtotal.Size = new Size(43, 18);
+            subtotal.TabIndex = 10;
+            subtotal.Text = "0.00";
+            // 
+            // total
+            // 
+            total.AutoSize = true;
+            total.Location = new Point(174, 38);
+            total.Name = "total";
+            total.Size = new Size(43, 18);
+            total.TabIndex = 12;
+            total.Text = "0.00";
+            // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(3, 45);
+            label7.Location = new Point(467, 0);
             label7.Name = "label7";
             label7.Size = new Size(119, 18);
             label7.TabIndex = 1;
@@ -422,16 +293,34 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(3, 96);
+            label8.Location = new Point(467, 38);
             label8.Name = "label8";
             label8.Size = new Size(119, 18);
             label8.TabIndex = 4;
             label8.Text = "impuesto 18%";
             // 
+            // ivs15
+            // 
+            ivs15.AutoSize = true;
+            ivs15.Location = new Point(653, 0);
+            ivs15.Name = "ivs15";
+            ivs15.Size = new Size(43, 18);
+            ivs15.TabIndex = 11;
+            ivs15.Text = "0.00";
+            // 
+            // isv18
+            // 
+            isv18.AutoSize = true;
+            isv18.Location = new Point(653, 38);
+            isv18.Name = "isv18";
+            isv18.Size = new Size(43, 18);
+            isv18.TabIndex = 13;
+            isv18.Text = "0.00";
+            // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(3, 158);
+            label9.Location = new Point(3, 38);
             label9.Name = "label9";
             label9.Size = new Size(48, 18);
             label9.TabIndex = 9;
@@ -444,26 +333,217 @@
             textBox3.Size = new Size(233, 26);
             textBox3.TabIndex = 13;
             // 
-            // textBox4
+            // detalleFactura
             // 
-            textBox4.Location = new Point(135, 48);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(230, 26);
-            textBox4.TabIndex = 24;
+            detalleFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            detalleFactura.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Precio, cantidad, isv });
+            detalleFactura.Location = new Point(7, 33);
+            detalleFactura.Name = "detalleFactura";
+            detalleFactura.RowTemplate.Height = 25;
+            detalleFactura.Size = new Size(362, 177);
+            detalleFactura.TabIndex = 28;
             // 
-            // textBox5
+            // ID
             // 
-            textBox5.Location = new Point(135, 99);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(230, 26);
-            textBox5.TabIndex = 25;
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
             // 
-            // textBox6
+            // Nombre
             // 
-            textBox6.Location = new Point(135, 161);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(230, 26);
-            textBox6.TabIndex = 26;
+            Nombre.HeaderText = "nombre";
+            Nombre.Name = "Nombre";
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "precio";
+            Precio.Name = "Precio";
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "cantidad";
+            cantidad.Name = "cantidad";
+            // 
+            // isv
+            // 
+            isv.HeaderText = "isv";
+            isv.Name = "isv";
+            // 
+            // agregarProduto
+            // 
+            agregarProduto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            agregarProduto.BackColor = Color.FromArgb(0, 192, 0);
+            agregarProduto.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            agregarProduto.ForeColor = SystemColors.ActiveCaptionText;
+            agregarProduto.Image = (Image)resources.GetObject("agregarProduto.Image");
+            agregarProduto.ImageAlign = ContentAlignment.MiddleLeft;
+            agregarProduto.Location = new Point(125, 208);
+            agregarProduto.Margin = new Padding(3, 2, 3, 2);
+            agregarProduto.Name = "agregarProduto";
+            agregarProduto.Padding = new Padding(9, 8, 22, 8);
+            agregarProduto.Size = new Size(142, 45);
+            agregarProduto.TabIndex = 29;
+            agregarProduto.Text = "Agregar";
+            agregarProduto.TextAlign = ContentAlignment.MiddleRight;
+            agregarProduto.UseVisualStyleBackColor = false;
+            agregarProduto.Click += button1_Click;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button3.BackColor = Color.Red;
+            button3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.ActiveCaptionText;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(112, 215);
+            button3.Margin = new Padding(3, 2, 3, 2);
+            button3.Name = "button3";
+            button3.Padding = new Padding(9, 8, 22, 8);
+            button3.Size = new Size(142, 45);
+            button3.TabIndex = 24;
+            button3.Text = "Eliminar";
+            button3.TextAlign = ContentAlignment.MiddleRight;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(panel5);
+            panel1.Controls.Add(label15);
+            panel1.Controls.Add(detalleFactura);
+            panel1.Controls.Add(groupBox1);
+            panel1.Controls.Add(button3);
+            panel1.Location = new Point(9, 112);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(815, 383);
+            panel1.TabIndex = 28;
+            panel1.Paint += panel1_Paint;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(impuesto);
+            panel5.Controls.Add(label10);
+            panel5.Controls.Add(txtCantidad);
+            panel5.Controls.Add(mostrarProducto);
+            panel5.Controls.Add(label17);
+            panel5.Controls.Add(agregarProduto);
+            panel5.Controls.Add(label14);
+            panel5.Controls.Add(txtProducto);
+            panel5.Controls.Add(buscarProducto);
+            panel5.Location = new Point(389, 7);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(423, 260);
+            panel5.TabIndex = 35;
+            // 
+            // impuesto
+            // 
+            impuesto.FormattingEnabled = true;
+            impuesto.Items.AddRange(new object[] { "0.18", "0.15" });
+            impuesto.Location = new Point(325, 174);
+            impuesto.Name = "impuesto";
+            impuesto.Size = new Size(56, 23);
+            impuesto.TabIndex = 31;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label10.AutoSize = true;
+            label10.BackColor = SystemColors.GradientActiveCaption;
+            label10.FlatStyle = FlatStyle.Popup;
+            label10.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.Navy;
+            label10.ImageAlign = ContentAlignment.TopCenter;
+            label10.Location = new Point(205, 176);
+            label10.Name = "label10";
+            label10.Size = new Size(114, 18);
+            label10.TabIndex = 35;
+            label10.Text = "Impuesto del ";
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.Location = new Point(124, 176);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(54, 23);
+            txtCantidad.TabIndex = 32;
+            // 
+            // mostrarProducto
+            // 
+            mostrarProducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            mostrarProducto.Location = new Point(3, 54);
+            mostrarProducto.Name = "mostrarProducto";
+            mostrarProducto.RowTemplate.Height = 25;
+            mostrarProducto.Size = new Size(417, 111);
+            mostrarProducto.TabIndex = 34;
+            mostrarProducto.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // label17
+            // 
+            label17.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label17.AutoSize = true;
+            label17.BackColor = SystemColors.GradientActiveCaption;
+            label17.FlatStyle = FlatStyle.Popup;
+            label17.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label17.ForeColor = Color.Navy;
+            label17.ImageAlign = ContentAlignment.TopCenter;
+            label17.Location = new Point(19, 176);
+            label17.Name = "label17";
+            label17.Size = new Size(80, 18);
+            label17.TabIndex = 31;
+            label17.Text = "Cantidad";
+            // 
+            // label14
+            // 
+            label14.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label14.AutoSize = true;
+            label14.BackColor = SystemColors.GradientActiveCaption;
+            label14.FlatStyle = FlatStyle.Popup;
+            label14.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.ForeColor = Color.Navy;
+            label14.ImageAlign = ContentAlignment.TopCenter;
+            label14.Location = new Point(3, 3);
+            label14.Name = "label14";
+            label14.Size = new Size(154, 18);
+            label14.TabIndex = 1;
+            label14.Text = "Buscar Procducto";
+            // 
+            // txtProducto
+            // 
+            txtProducto.Location = new Point(3, 26);
+            txtProducto.Name = "txtProducto";
+            txtProducto.Size = new Size(330, 23);
+            txtProducto.TabIndex = 24;
+            // 
+            // buscarProducto
+            // 
+            buscarProducto.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buscarProducto.BackColor = Color.Crimson;
+            buscarProducto.BackgroundImageLayout = ImageLayout.Center;
+            buscarProducto.FlatAppearance.BorderColor = Color.Navy;
+            buscarProducto.FlatStyle = FlatStyle.Flat;
+            buscarProducto.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buscarProducto.ForeColor = Color.Transparent;
+            buscarProducto.Location = new Point(339, 25);
+            buscarProducto.Name = "buscarProducto";
+            buscarProducto.Size = new Size(81, 23);
+            buscarProducto.TabIndex = 8;
+            buscarProducto.Text = "buscar";
+            buscarProducto.UseVisualStyleBackColor = false;
+            buscarProducto.Click += button4_Click;
+            // 
+            // label15
+            // 
+            label15.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label15.AutoSize = true;
+            label15.BackColor = SystemColors.GradientActiveCaption;
+            label15.FlatStyle = FlatStyle.Popup;
+            label15.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.ForeColor = Color.Navy;
+            label15.ImageAlign = ContentAlignment.TopCenter;
+            label15.Location = new Point(3, 7);
+            label15.Name = "label15";
+            label15.Size = new Size(168, 18);
+            label15.TabIndex = 33;
+            label15.Text = "Detalle de la factura";
             // 
             // FormularioFactura
             // 
@@ -471,65 +551,69 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(841, 567);
-            Controls.Add(groupBox1);
-            Controls.Add(label4);
-            Controls.Add(dataGridView2);
+            Controls.Add(panel1);
             Controls.Add(panel3);
-            Controls.Add(groupBox2);
             Controls.Add(panel2);
             Controls.Add(panel4);
             Name = "FormularioFactura";
             Text = "FormularioFactura";
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)detalleFactura).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)mostrarProducto).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        private Panel panel3;
-        private Button button6;
-        private Label label12;
-        private GroupBox groupBox2;
-        private TableLayoutPanel tableLayoutPanel2;
-        private ComboBox comboTipo;
-        private TextBox txtCantidad;
-        private Label label2;
-        private Label label3;
-        private Label label6;
-        private Label label11;
-        private TextBox txtPrecio;
         private Panel panel2;
         private Label label1;
         private Panel panel4;
-        private TextBox textBox1;
-        private DateTimePicker txtFecha;
         private Button btnLimpiarCitas;
         private Button btnAgregarMedicamento;
         private Button button2;
-        private DataGridView dataGridView2;
-        private Label label4;
+        private TextBox txtdni;
+        private Panel panel3;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel1;
         private Label label5;
         private Label label7;
-        private TextBox textBox4;
-        private TextBox textBox2;
         private Label label8;
+        private Label subtotal;
         private Label label9;
+        private Label total;
         private TextBox textBox3;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private DataGridView detalleFactura;
+        private Button agregarProduto;
+        private Button button3;
+        private Panel panel1;
+        private Label ivs15;
+        private Label isv18;
+        private TextBox txtProducto;
+        private Button buscarProducto;
+        private Label label15;
+        private DataGridView mostrarProducto;
+        private Panel panel5;
+        private TextBox txtCantidad;
+        private Label label17;
+        private Label label14;
+        private ComboBox impuesto;
+        private Label label10;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn cantidad;
+        private DataGridViewTextBoxColumn isv;
+        private Label label3;
     }
 }

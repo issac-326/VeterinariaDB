@@ -13,10 +13,12 @@ namespace ProyectoBD
     public partial class Modulos : Form
     {
         private List<string> permisos;
-        public Modulos(List<string> permisos)
+        private int idSucursal;
+        public Modulos(List<string> permisos, int idSucursal)
         {
             InitializeComponent();
             this.permisos = permisos;
+            this.idSucursal = idSucursal;
             btnAtencion.Enabled = false;
             btnFacturas.Enabled = false;
             btnFarmacia.Enabled = false;

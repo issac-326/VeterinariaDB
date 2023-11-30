@@ -29,11 +29,12 @@ namespace ProyectoBD
                 {
                     // Las credenciales son válidas, puedes permitir el acceso
                     List<string> permisos = controlador.ObtenerPermisos(usuario);
+                    int idSucursal = controlador.ObtenerIdSucursal(usuario);
 
-                    if (permisos.Count > 0)
+                    if (permisos.Count > 0 && idSucursal != -1)
                     {
 
-                    Modulos principal = new Modulos(permisos);
+                    Modulos principal = new Modulos(permisos, idSucursal);
                     principal.Visible = true;
                     this.Hide();
                     }

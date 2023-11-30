@@ -12,6 +12,8 @@ namespace ProyectoBD
 {
     public partial class Farmacia : Form
     {
+        private List<string> permisos;
+        private int idSucursal;
         public Farmacia()
         {
             InitializeComponent();
@@ -55,7 +57,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos();
+            Modulos modulos = new Modulos(permisos, idSucursal);
             modulos.Show();
             this.Hide();
         }

@@ -17,14 +17,14 @@
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos(permisos);
+            Modulos modulos = new Modulos(permisos, idSucursal);
             modulos.Show();
             this.Hide();
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            Modulos modulos1 = new Modulos(permisos);
+            Modulos modulos1 = new Modulos(permisos, idSucursal);
             modulos1.Show();
             this.Hide();
         }

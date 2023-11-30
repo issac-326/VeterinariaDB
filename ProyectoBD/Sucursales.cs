@@ -20,6 +20,7 @@ namespace ProyectoBD
     public partial class Sucursales : Form
     {
         private List<string> permisos;
+        private int idSucursal;
         String tabla = "Sucursales";
 
         String tablaSucursales = "Sucursales";
@@ -227,7 +228,7 @@ namespace ProyectoBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos(permisos);
+            Modulos modulos = new Modulos(permisos, idSucursal);
 
             modulos.Show();
             this.Close();

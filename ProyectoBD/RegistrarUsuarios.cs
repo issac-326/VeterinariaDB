@@ -13,9 +13,12 @@ using System.Windows.Forms;
 
 namespace ProyectoBD
 {
+
     public partial class RegistrarUsuarios : Form
     {
         private List<string> permisos;
+       
+        private int idSucursal;
         public RegistrarUsuarios()
         {
             InitializeComponent();
@@ -241,7 +244,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos(permisos);
+            Modulos modulos = new Modulos(permisos, idSucursal);
             modulos.Visible = true;
             this.Hide();
         }

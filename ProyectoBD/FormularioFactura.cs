@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace ProyectoBD
         decimal subtotalF = 0;
         decimal isv15F = 0;
         decimal isv18lF = 0;
-        public FormularioFactura()
+        public FormularioFactura(int idSucursal)
         {
             InitializeComponent();
             cargarDetalle();
@@ -92,7 +93,7 @@ namespace ProyectoBD
                     subtotalF = subtotalF + precio;
                     decimal impuestoSeleccionado = Convert.ToDecimal(impuesto.SelectedItem);
 
-                    if (impuestoSeleccionado == 0.15m)
+                    if (impuestoSeleccionado == 15)
                     {
                         isv15F = isv15F + (precio * 0.15m);
                     }
@@ -101,10 +102,10 @@ namespace ProyectoBD
                         isv18lF = isv18lF + (precio * 0.18m);
                     }
                     totalF = subtotalF + isv15F + isv18lF;
-                    subtotal.Text = subtotalF.ToString();
-                    total.Text = totalF.ToString();
-                    isv18.Text = isv18lF.ToString();
-                    ivs15.Text = isv15F.ToString();
+                    subtotal.Text = subtotalF.ToString(CultureInfo.InvariantCulture) ;
+                    total.Text = totalF.ToString(CultureInfo.InvariantCulture);
+                    isv18.Text = isv18lF.ToString(CultureInfo.InvariantCulture);
+                    ivs15.Text = isv15F.ToString(CultureInfo.InvariantCulture);
                     rowData[4] = impuesto.SelectedItem;
                     detalleFactura.Rows.Add(rowData);
 
@@ -126,7 +127,7 @@ namespace ProyectoBD
         {
 
         }
-
+        //muestra el producto
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -139,7 +140,7 @@ namespace ProyectoBD
         {
 
         }
-
+        //elimar medicamento
         private void button3_Click(object sender, EventArgs e)
         {
             // Verifica si hay alguna fila seleccionada en el DataGridView
@@ -163,11 +164,11 @@ namespace ProyectoBD
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
             {
-                // Establecer la conexión a la base de datos
+                // Buscar id de la persona 
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
                     // Buscar el id de la especie 
-                    string query = "SELECT Id FROM Personas where DNI = '" + txtdni.Text+ "';";
+                    string query = "SELECT Id FROM Personas where DNI = '"+ txtdni.Text+ "';";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
@@ -185,7 +186,7 @@ namespace ProyectoBD
                 MessageBox.Show("Error obtener nombre: " + ex.Message);
             }
             Class.Crud objetoCrud = new Class.Crud();
-            String cadena = $"NULL, '000-001', '2023-02-02', 25.10 , {isv15F} , {isv18lF}, 1, 1, {dni}, 1";
+            String cadena = $"'', '11', '2023-02-02', {totalF.ToString(CultureInfo.InvariantCulture)} , {isv15F.ToString(CultureInfo.InvariantCulture)}, {isv18lF.ToString(CultureInfo.InvariantCulture)}, 1, 1,{dni}, 1";
             objetoCrud.guardar("Facturas", cadena);
 
 

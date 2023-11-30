@@ -129,7 +129,7 @@ namespace ProyectoBD
 
         private void button10_Click(object sender, EventArgs e)
         {
-            subModuloUsuarios subUsuarios  = new subModuloUsuarios();  
+            subModuloUsuarios subUsuarios = new subModuloUsuarios();
             subUsuarios.Visible = true;
             this.Hide();
         }
@@ -141,7 +141,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Login login = new Login();  
+            Login login = new Login();
             login.Visible = true;
             this.Hide();
         }
@@ -177,6 +177,20 @@ namespace ProyectoBD
             Sucursales sucursales = new Sucursales();
 
             sucursales.Show();
+            this.Hide();
+        }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            FormularioFactura F = new FormularioFactura(idSucursal);
+            F.Visible = true;
+            this.Hide();
+        }
+
+        private void btnFarmacia_Click(object sender, EventArgs e)
+        {
+            Farmacia F = new Farmacia(idSucursal);
+            F.Visible = true;
             this.Hide();
         }
     }

@@ -53,9 +53,8 @@
             MÓDULOS.Controls.Add(label1);
             MÓDULOS.Dock = DockStyle.Fill;
             MÓDULOS.Location = new Point(0, 0);
-            MÓDULOS.Margin = new Padding(4, 5, 4, 5);
             MÓDULOS.Name = "MÓDULOS";
-            MÓDULOS.Size = new Size(1201, 945);
+            MÓDULOS.Size = new Size(841, 529);
             MÓDULOS.TabIndex = 2;
             MÓDULOS.Paint += panel2_Paint;
             // 
@@ -63,10 +62,9 @@
             // 
             button9.BackColor = SystemColors.ControlLightLight;
             button9.Image = Properties.Resources.salida;
-            button9.Location = new Point(1077, 20);
-            button9.Margin = new Padding(4, 5, 4, 5);
+            button9.Location = new Point(754, 12);
             button9.Name = "button9";
-            button9.Size = new Size(107, 38);
+            button9.Size = new Size(75, 23);
             button9.TabIndex = 2;
             button9.UseVisualStyleBackColor = false;
             button9.Click += button9_Click;
@@ -75,10 +73,9 @@
             // 
             button4.BackColor = SystemColors.ButtonHighlight;
             button4.Image = Properties.Resources.back;
-            button4.Location = new Point(21, 22);
-            button4.Margin = new Padding(4, 5, 4, 5);
+            button4.Location = new Point(15, 13);
             button4.Name = "button4";
-            button4.Size = new Size(107, 38);
+            button4.Size = new Size(75, 23);
             button4.TabIndex = 1;
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
@@ -89,10 +86,9 @@
             label1.BackColor = SystemColors.InactiveCaption;
             label1.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(523, 15);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(366, 9);
             label1.Name = "label1";
-            label1.Size = new Size(182, 37);
+            label1.Size = new Size(120, 24);
             label1.TabIndex = 0;
             label1.Text = "MÓDULOS";
             label1.Click += label1_Click_1;
@@ -103,7 +99,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 283F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 198F));
             tableLayoutPanel1.Controls.Add(btnUsuarios, 1, 2);
             tableLayoutPanel1.Controls.Add(btnAtencion, 2, 1);
             tableLayoutPanel1.Controls.Add(btnRHH, 0, 1);
@@ -112,14 +108,13 @@
             tableLayoutPanel1.Controls.Add(btnSucursal, 2, 0);
             tableLayoutPanel1.Controls.Add(btnInformacion, 1, 0);
             tableLayoutPanel1.Controls.Add(btnInfoPersonal, 2, 2);
-            tableLayoutPanel1.Location = new Point(17, 83);
-            tableLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel1.Location = new Point(12, 50);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Size = new Size(1167, 748);
+            tableLayoutPanel1.Size = new Size(817, 449);
             tableLayoutPanel1.TabIndex = 3;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -133,10 +128,9 @@
             btnUsuarios.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnUsuarios.ForeColor = Color.Navy;
             btnUsuarios.Image = Properties.Resources.cerrar_con_llave;
-            btnUsuarios.Location = new Point(298, 503);
-            btnUsuarios.Margin = new Padding(4, 5, 4, 5);
+            btnUsuarios.Location = new Point(209, 301);
             btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new Size(286, 238);
+            btnUsuarios.Size = new Size(200, 143);
             btnUsuarios.TabIndex = 14;
             btnUsuarios.Text = "Usuarios del Sistema";
             btnUsuarios.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -153,10 +147,9 @@
             btnAtencion.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnAtencion.ForeColor = Color.Navy;
             btnAtencion.Image = Properties.Resources.atencion_al_cliente;
-            btnAtencion.Location = new Point(592, 254);
-            btnAtencion.Margin = new Padding(4, 5, 4, 5);
+            btnAtencion.Location = new Point(415, 152);
             btnAtencion.Name = "btnAtencion";
-            btnAtencion.Size = new Size(286, 238);
+            btnAtencion.Size = new Size(200, 143);
             btnAtencion.TabIndex = 13;
             btnAtencion.Text = "Atención al Cliente";
             btnAtencion.TextAlign = ContentAlignment.BottomCenter;
@@ -174,10 +167,9 @@
             btnRHH.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnRHH.ForeColor = Color.Navy;
             btnRHH.Image = Properties.Resources.mano;
-            btnRHH.Location = new Point(4, 254);
-            btnRHH.Margin = new Padding(4, 5, 4, 5);
+            btnRHH.Location = new Point(3, 152);
             btnRHH.Name = "btnRHH";
-            btnRHH.Size = new Size(286, 238);
+            btnRHH.Size = new Size(200, 143);
             btnRHH.TabIndex = 12;
             btnRHH.Text = "Recursos Humanos";
             btnRHH.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -194,14 +186,14 @@
             btnFacturas.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnFacturas.ForeColor = SystemColors.Window;
             btnFacturas.Image = Properties.Resources.facturas;
-            btnFacturas.Location = new Point(886, 254);
-            btnFacturas.Margin = new Padding(4, 5, 4, 5);
+            btnFacturas.Location = new Point(621, 152);
             btnFacturas.Name = "btnFacturas";
-            btnFacturas.Size = new Size(276, 238);
+            btnFacturas.Size = new Size(193, 143);
             btnFacturas.TabIndex = 7;
             btnFacturas.Text = "Facturas";
             btnFacturas.TextImageRelation = TextImageRelation.ImageAboveText;
             btnFacturas.UseVisualStyleBackColor = false;
+            btnFacturas.Click += btnFacturas_Click;
             // 
             // btnFarmacia
             // 
@@ -213,14 +205,14 @@
             btnFarmacia.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnFarmacia.ForeColor = SystemColors.Window;
             btnFarmacia.Image = Properties.Resources.farmacia;
-            btnFarmacia.Location = new Point(298, 254);
-            btnFarmacia.Margin = new Padding(4, 5, 4, 5);
+            btnFarmacia.Location = new Point(209, 152);
             btnFarmacia.Name = "btnFarmacia";
-            btnFarmacia.Size = new Size(286, 238);
+            btnFarmacia.Size = new Size(200, 143);
             btnFarmacia.TabIndex = 5;
             btnFarmacia.Text = "Farmacia";
             btnFarmacia.TextImageRelation = TextImageRelation.ImageAboveText;
             btnFarmacia.UseVisualStyleBackColor = false;
+            btnFarmacia.Click += btnFarmacia_Click;
             // 
             // btnSucursal
             // 
@@ -232,10 +224,9 @@
             btnSucursal.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnSucursal.ForeColor = SystemColors.Window;
             btnSucursal.Image = Properties.Resources.sucursales;
-            btnSucursal.Location = new Point(592, 5);
-            btnSucursal.Margin = new Padding(4, 5, 4, 5);
+            btnSucursal.Location = new Point(415, 3);
             btnSucursal.Name = "btnSucursal";
-            btnSucursal.Size = new Size(286, 238);
+            btnSucursal.Size = new Size(200, 143);
             btnSucursal.TabIndex = 2;
             btnSucursal.Text = "Sucursales";
             btnSucursal.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -252,10 +243,9 @@
             btnInformacion.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnInformacion.ForeColor = Color.Navy;
             btnInformacion.Image = Properties.Resources.empresa;
-            btnInformacion.Location = new Point(298, 5);
-            btnInformacion.Margin = new Padding(4, 5, 4, 5);
+            btnInformacion.Location = new Point(209, 3);
             btnInformacion.Name = "btnInformacion";
-            btnInformacion.Size = new Size(286, 238);
+            btnInformacion.Size = new Size(200, 143);
             btnInformacion.TabIndex = 1;
             btnInformacion.Text = "Información de la Empresa";
             btnInformacion.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -272,10 +262,9 @@
             btnInfoPersonal.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnInfoPersonal.ForeColor = SystemColors.Window;
             btnInfoPersonal.Image = Properties.Resources.usuario;
-            btnInfoPersonal.Location = new Point(592, 503);
-            btnInfoPersonal.Margin = new Padding(4, 5, 4, 5);
+            btnInfoPersonal.Location = new Point(415, 301);
             btnInfoPersonal.Name = "btnInfoPersonal";
-            btnInfoPersonal.Size = new Size(286, 238);
+            btnInfoPersonal.Size = new Size(200, 143);
             btnInfoPersonal.TabIndex = 15;
             btnInfoPersonal.Text = "Tu Información\r\n";
             btnInfoPersonal.TextAlign = ContentAlignment.BottomCenter;
@@ -284,16 +273,15 @@
             // 
             // Modulos
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(1201, 945);
+            ClientSize = new Size(841, 529);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(MÓDULOS);
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
-            Margin = new Padding(4, 5, 4, 5);
             Name = "Modulos";
             Text = "Módulos";
             Load += Modulos_Load;

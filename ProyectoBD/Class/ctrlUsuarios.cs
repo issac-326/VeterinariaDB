@@ -85,7 +85,7 @@ namespace ProyectoBD.Class
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
 
-                    string query = "SELECT suc.Id, us.Usuario FROM Usuarios_Permisos usp INNER JOIN Usuarios us ON usp.Id_Usuario = us.Id INNER JOIN Permisos pe ON usp.Id_Permiso = pe.Id INNER JOIN Roles ro ON ro.Id = us.Id_Roles INNER JOIN Empleados em ON us.Id_Empleado = em.Id INNER JOIN Personas per ON per.Id = em.Id_Persona INNER JOIN Sucursales suc ON suc.Id = pe.Id_Sucursal WHERE us.Usuario =  '" + usuario + "'";
+                    string query = "SELECT suc.Id, us.Usuario FROM Usuarios_Permisos usp INNER JOIN Usuarios us ON usp.Id_Usuario = us.Id INNER JOIN Permisos pe ON usp.Id_Permiso = pe.Id INNER JOIN Roles ro ON ro.Id = us.Id_Roles INNER JOIN Empleados em ON us.Id_Empleado = em.Id INNER JOIN Personas per ON per.Id = em.Id_Persona INNER JOIN Sucursales suc ON suc.Id = em.Id_Sucursal WHERE us.Usuario =  '" + usuario + "'";
                     MessageBox.Show("" + query + "");
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {

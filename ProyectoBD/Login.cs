@@ -34,9 +34,9 @@ namespace ProyectoBD
                     if (permisos.Count > 0 && idSucursal != -1)
                     {
 
-                    Modulos principal = new Modulos(permisos, idSucursal);
-                    principal.Visible = true;
-                    this.Hide();
+                        Modulos principal = new Modulos(permisos, idSucursal);
+                        principal.Visible = true;
+                        this.Hide();
                     }
                     else
                     {

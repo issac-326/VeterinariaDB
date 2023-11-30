@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace ProyectoBD
 {
@@ -19,20 +20,55 @@ namespace ProyectoBD
         decimal subtotalF = 0;
         decimal isv15F = 0;
         decimal isv18lF = 0;
+        int idSucursal;
+        int idInscripcion =0;
         public FormularioFactura(int idSucursal)
         {
             InitializeComponent();
+
+            this.idSucursal = idSucursal;
             cargarDetalle();
         }
         public void cargarDetalle()
         {
 
         }
+       
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
+        private int ObtenerId()
+        {
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            try
+            {
+                // Establecer la conexión a la base de datos
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Buscar el id de la forma
+                  
+                    string query = "SELECT TOP 1 * FROM Inscripcion_SAR WHERE Id_Sucursal = " +idSucursal+ " AND activo = 1 ORDER BY Fecha_Limite DESC;";
 
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            reader.Read(); // Solo necesitas leer la primera fila
+
+                            // Obtener el valor del ID
+                            idInscripcion = Convert.ToInt32(reader["Id"]);
+                        }
+                    }
+                }
+                objectConexion.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error idMedicmento: " + ex.Message);
+            }
+            return idInscripcion;
+        }
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -102,7 +138,7 @@ namespace ProyectoBD
                         isv18lF = isv18lF + (precio * 0.18m);
                     }
                     totalF = subtotalF + isv15F + isv18lF;
-                    subtotal.Text = subtotalF.ToString(CultureInfo.InvariantCulture) ;
+                    subtotal.Text = subtotalF.ToString(CultureInfo.InvariantCulture);
                     total.Text = totalF.ToString(CultureInfo.InvariantCulture);
                     isv18.Text = isv18lF.ToString(CultureInfo.InvariantCulture);
                     ivs15.Text = isv15F.ToString(CultureInfo.InvariantCulture);
@@ -168,7 +204,7 @@ namespace ProyectoBD
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
                     // Buscar el id de la especie 
-                    string query = "SELECT Id FROM Personas where DNI = '"+ txtdni.Text+ "';";
+                    string query = "SELECT Id FROM Personas where DNI = '" + txtdni.Text + "';";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
@@ -185,8 +221,12 @@ namespace ProyectoBD
             {
                 MessageBox.Show("Error obtener nombre: " + ex.Message);
             }
+            idSucursal = 1;
+
+            // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
+            string fecha = DateTime.Now.ToString("yyyy-MM-dd");
             Class.Crud objetoCrud = new Class.Crud();
-            String cadena = $"'', '11', '2023-02-02', {totalF.ToString(CultureInfo.InvariantCulture)} , {isv15F.ToString(CultureInfo.InvariantCulture)}, {isv18lF.ToString(CultureInfo.InvariantCulture)}, 1, 1,{dni}, 1";
+            String cadena = $"'', '10000', '{fecha}', {totalF.ToString(CultureInfo.InvariantCulture)} , {isv15F.ToString(CultureInfo.InvariantCulture)}, {isv18lF.ToString(CultureInfo.InvariantCulture)}, {ObtenerId()} , {idSucursal} ,{dni}, 1";
             objetoCrud.guardar("Facturas", cadena);
 
 
@@ -201,6 +241,11 @@ namespace ProyectoBD
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FormularioFactura_Load(object sender, EventArgs e)
         {
 
         }

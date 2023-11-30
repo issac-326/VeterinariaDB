@@ -557,6 +557,7 @@
             Controls.Add(panel4);
             Name = "FormularioFactura";
             Text = "FormularioFactura";
+            Load += FormularioFactura_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel4.ResumeLayout(false);

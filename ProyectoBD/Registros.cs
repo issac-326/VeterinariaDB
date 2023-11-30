@@ -233,11 +233,11 @@ namespace ProyectoBD
                 // Realizar la suma
                 suma = cantidad * precio;
                 String cadena = $"'{fechaFormateada}', {cantidad}, {precio.ToString(CultureInfo.InvariantCulture)}, {suma.ToString(CultureInfo.InvariantCulture)}, {idTipo},{idMedicamento}, {idProveedor}";
-         
+
                 objetoCrud.guardar(tabla, cadena);
                 if (idTipo == 1 || idTipo == 3)
                 {
-                    RegistroCompra(idMedicamento, cantidad, suma, Obtenerfactor(idTipo) );
+                    RegistroCompra(idMedicamento, cantidad, suma, Obtenerfactor(idTipo));
                 }
                 else if (idTipo == 2 || idTipo == 4)
                 {
@@ -253,12 +253,12 @@ namespace ProyectoBD
 
         }
 
-        public void RegistroCompra(int idProducto, int Cantidad, decimal Total, int Factor )
+        public void RegistroCompra(int idProducto, int Cantidad, decimal Total, int Factor)
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
             {
-                
+
                 String query = $"EXEC movimientoCompra {idProducto}, 5, {Cantidad}, {Total.ToString(CultureInfo.InvariantCulture)}, {Factor};";
 
                 SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
@@ -337,7 +337,7 @@ namespace ProyectoBD
         {
             return int.TryParse(cadena, out _);
         }
-        
+
         private int Obtenerfactor(int id)
         {
             int factor = 0;
@@ -370,22 +370,22 @@ namespace ProyectoBD
             return factor;
         }
 
-      
+
         private void button2_Click(object sender, EventArgs e)
         {
-            // Crear una instancia del segundo formulario (Form2)
+            /*/ Crear una instancia del segundo formulario (Form2)
             Farmacia form2 = new Farmacia();
 
             // Mostrar el segundo formulario
             form2.Show();
 
             // Opcionalmente, ocultar el primer formulario
-            this.Hide();
+            this.Hide();*/
         }
 
         private void btnLimpiarCitas_Click(object sender, EventArgs e)
         {
-             comboProveedores.SelectedIndex = -1;
+            comboProveedores.SelectedIndex = -1;
             comboTipo.SelectedIndex = -1;
             nombreMedicamento.SelectedIndex = -1;
             txtPrecio.Text = "";
@@ -418,7 +418,10 @@ namespace ProyectoBD
             }
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
+    }
 
 }

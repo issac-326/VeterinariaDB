@@ -21,14 +21,14 @@ namespace ProyectoBD
     {
         private List<string> permisos;
         private int idSucursal;
-        String tabla = "Sucursales";
 
         String tablaSucursales = "Sucursales";
         String tablaDirecciones = "Direcciones";
 
-        public Sucursales()
+        public Sucursales(List<string> permisos)
         {
             InitializeComponent();
+            this.permisos = permisos;
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -192,7 +192,7 @@ namespace ProyectoBD
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Sucursales sucursales = new Sucursales();
+            Sucursales sucursales = new Sucursales(permisos);
 
             sucursales.Show();
             this.Hide();

@@ -50,11 +50,6 @@
             label9 = new Label();
             textBox3 = new TextBox();
             detalleFactura = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            cantidad = new DataGridViewTextBoxColumn();
-            isv = new DataGridViewTextBoxColumn();
             agregarProduto = new Button();
             button3 = new Button();
             panel1 = new Panel();
@@ -68,6 +63,11 @@
             txtProducto = new TextBox();
             buscarProducto = new Button();
             label15 = new Label();
+            ID = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            isv = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -343,31 +343,6 @@
             detalleFactura.Size = new Size(362, 177);
             detalleFactura.TabIndex = 28;
             // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "nombre";
-            Nombre.Name = "Nombre";
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "precio";
-            Precio.Name = "Precio";
-            // 
-            // cantidad
-            // 
-            cantidad.HeaderText = "cantidad";
-            cantidad.Name = "cantidad";
-            // 
-            // isv
-            // 
-            isv.HeaderText = "isv";
-            isv.Name = "isv";
-            // 
             // agregarProduto
             // 
             agregarProduto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -545,6 +520,31 @@
             label15.TabIndex = 33;
             label15.Text = "Detalle de la factura";
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "cantidad";
+            cantidad.Name = "cantidad";
+            // 
+            // isv
+            // 
+            isv.HeaderText = "isv";
+            isv.Name = "isv";
+            // 
             // FormularioFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -610,11 +610,11 @@
         private Label label14;
         private ComboBox impuesto;
         private Label label10;
+        private Label label3;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn cantidad;
         private DataGridViewTextBoxColumn isv;
-        private Label label3;
     }
 }

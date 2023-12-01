@@ -13,10 +13,10 @@ namespace ProyectoBD.SQLConexion
     {
         SqlConnection conex = new SqlConnection();
 
-        static String servidor = "HAROLD";
+        static String servidor = "LocalHost";
         static String usuario = "sa";
-        static String contrasenia = "1234";
-        static String puerto = "1433";
+        static String contrasenia = "Lesly.1234";
+        static String puerto = "49891";
         static String db = "Veterinaria";
         String cadenaConexion;
 

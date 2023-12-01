@@ -303,7 +303,6 @@ namespace ProyectoBD
             {
                 MessageBox.Show("Error preciodecimal: " + ex.Message);
             }
-            MessageBox.Show("EXEC precioProducto " + idProducto + ", " + precio.ToString(CultureInfo.InvariantCulture));
             PrecioProducto(idProducto, precio);
 
         }
@@ -324,7 +323,6 @@ namespace ProyectoBD
                 {
 
                 }
-                MessageBox.Show("Registro Movimiento en Venta");
                 objectConexion.cerrarConexion();
 
             }

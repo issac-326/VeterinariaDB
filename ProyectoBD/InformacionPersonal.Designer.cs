@@ -522,6 +522,7 @@
             Name = "InformacionPersonal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InformacionPersonal";
+            Load += InformacionPersonal_Load;
             MÓDULOS.ResumeLayout(false);
             MÓDULOS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbPersona).EndInit();

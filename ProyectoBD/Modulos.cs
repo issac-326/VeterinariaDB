@@ -14,6 +14,7 @@ namespace ProyectoBD
     {
         private List<string> permisos;
         private int idSucursal;
+        private int idPersona;
         public Modulos(List<string> permisos, int idSucursal)
         {
             InitializeComponent();
@@ -21,12 +22,14 @@ namespace ProyectoBD
             this.idSucursal = idSucursal;
             VerificarPermisos();
 
+            
+
         }
 
-        public Modulos(int idSucursal)
+        public Modulos(int idPersona)
         {
             InitializeComponent();
-            this.idSucursal = idSucursal;
+            this.idPersona = idPersona;
             VerificarPermisos();
 
         }
@@ -132,7 +135,9 @@ namespace ProyectoBD
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            InformacionEmpresa info = new InformacionEmpresa(idSucursal, permisos);
+            info.Visible = true;
+            this.Hide();
         }
 
         private void button11_Click(object sender, EventArgs e)

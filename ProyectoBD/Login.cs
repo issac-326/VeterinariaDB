@@ -31,6 +31,7 @@ namespace ProyectoBD
                     List<string> permisos = controlador.ObtenerPermisos(usuario);
                     int idSucursal = controlador.ObtenerIdSucursal(usuario);
 
+
                     if (permisos.Count > 0 && idSucursal != -1)
                     {
 

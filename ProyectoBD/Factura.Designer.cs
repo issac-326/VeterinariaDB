@@ -40,11 +40,11 @@
             label26 = new Label();
             label24 = new Label();
             label25 = new Label();
-            label22 = new Label();
+            lblTotal = new Label();
             label23 = new Label();
-            label20 = new Label();
+            lblIsv18 = new Label();
             label21 = new Label();
-            label13 = new Label();
+            lblIsv15 = new Label();
             label15 = new Label();
             label16 = new Label();
             label17 = new Label();
@@ -52,24 +52,24 @@
             label19 = new Label();
             label11 = new Label();
             dataGridView1 = new DataGridView();
-            label7 = new Label();
-            label9 = new Label();
+            lblRtnCliente = new Label();
+            lblFecha = new Label();
             label12 = new Label();
             label14 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            CAIEmp = new Label();
+            lblCliente = new Label();
+            lblNumero = new Label();
+            lblCai = new Label();
             label8 = new Label();
             CAI = new Label();
             label10 = new Label();
             telefonoEmpresa = new Label();
-            RTN = new Label();
-            correoEmpresa = new Label();
+            lblRtn = new Label();
+            lblCorreo = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            direccionEmpresa = new Label();
-            label1 = new Label();
+            lblDireccion = new Label();
+            lblEmpresa = new Label();
             button4 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -89,11 +89,11 @@
             panel1.Controls.Add(label26);
             panel1.Controls.Add(label24);
             panel1.Controls.Add(label25);
-            panel1.Controls.Add(label22);
+            panel1.Controls.Add(lblTotal);
             panel1.Controls.Add(label23);
-            panel1.Controls.Add(label20);
+            panel1.Controls.Add(lblIsv18);
             panel1.Controls.Add(label21);
-            panel1.Controls.Add(label13);
+            panel1.Controls.Add(lblIsv15);
             panel1.Controls.Add(label15);
             panel1.Controls.Add(label16);
             panel1.Controls.Add(label17);
@@ -101,24 +101,24 @@
             panel1.Controls.Add(label19);
             panel1.Controls.Add(label11);
             panel1.Controls.Add(dataGridView1);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label9);
+            panel1.Controls.Add(lblRtnCliente);
+            panel1.Controls.Add(lblFecha);
             panel1.Controls.Add(label12);
             panel1.Controls.Add(label14);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(CAIEmp);
+            panel1.Controls.Add(lblCliente);
+            panel1.Controls.Add(lblNumero);
+            panel1.Controls.Add(lblCai);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(CAI);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(telefonoEmpresa);
-            panel1.Controls.Add(RTN);
-            panel1.Controls.Add(correoEmpresa);
+            panel1.Controls.Add(lblRtn);
+            panel1.Controls.Add(lblCorreo);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(direccionEmpresa);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lblDireccion);
+            panel1.Controls.Add(lblEmpresa);
             panel1.Location = new Point(12, 39);
             panel1.Name = "panel1";
             panel1.Size = new Size(817, 516);
@@ -243,15 +243,15 @@
             label25.TabIndex = 32;
             label25.Text = "Rango Autorizado:";
             // 
-            // label22
+            // lblTotal
             // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label22.Location = new Point(610, 451);
-            label22.Name = "label22";
-            label22.Size = new Size(164, 23);
-            label22.TabIndex = 31;
-            label22.Text = "RTN del Cliente (Opcional)";
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotal.Location = new Point(610, 451);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(164, 23);
+            lblTotal.TabIndex = 31;
+            lblTotal.Text = "RTN del Cliente (Opcional)";
             // 
             // label23
             // 
@@ -263,15 +263,15 @@
             label23.TabIndex = 30;
             label23.Text = "TOTAL A PAGAR:";
             // 
-            // label20
+            // lblIsv18
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label20.Location = new Point(610, 434);
-            label20.Name = "label20";
-            label20.Size = new Size(53, 13);
-            label20.TabIndex = 29;
-            label20.Text = "I.S.V 18%";
+            lblIsv18.AutoSize = true;
+            lblIsv18.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblIsv18.Location = new Point(610, 434);
+            lblIsv18.Name = "lblIsv18";
+            lblIsv18.Size = new Size(53, 13);
+            lblIsv18.TabIndex = 29;
+            lblIsv18.Text = "I.S.V 18%";
             // 
             // label21
             // 
@@ -283,15 +283,15 @@
             label21.TabIndex = 28;
             label21.Text = "I.S.V 18%";
             // 
-            // label13
+            // lblIsv15
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(610, 411);
-            label13.Name = "label13";
-            label13.Size = new Size(115, 23);
-            label13.TabIndex = 27;
-            label13.Text = "Subtotal I.S.V 15%";
+            lblIsv15.AutoSize = true;
+            lblIsv15.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblIsv15.Location = new Point(610, 411);
+            lblIsv15.Name = "lblIsv15";
+            lblIsv15.Size = new Size(115, 23);
+            lblIsv15.TabIndex = 27;
+            lblIsv15.Text = "Subtotal I.S.V 15%";
             // 
             // label15
             // 
@@ -363,26 +363,27 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(642, 114);
             dataGridView1.TabIndex = 20;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // label7
+            // lblRtnCliente
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(554, 196);
-            label7.Name = "label7";
-            label7.Size = new Size(164, 23);
-            label7.TabIndex = 19;
-            label7.Text = "RTN del Cliente (Opcional)";
+            lblRtnCliente.AutoSize = true;
+            lblRtnCliente.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRtnCliente.Location = new Point(554, 196);
+            lblRtnCliente.Name = "lblRtnCliente";
+            lblRtnCliente.Size = new Size(164, 23);
+            lblRtnCliente.TabIndex = 19;
+            lblRtnCliente.Text = "RTN del Cliente (Opcional)";
             // 
-            // label9
+            // lblFecha
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(554, 173);
-            label9.Name = "label9";
-            label9.Size = new Size(123, 23);
-            label9.TabIndex = 18;
-            label9.Text = "Número de Factura";
+            lblFecha.AutoSize = true;
+            lblFecha.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFecha.Location = new Point(554, 173);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(43, 23);
+            lblFecha.TabIndex = 18;
+            lblFecha.Text = "Fecha";
             // 
             // label12
             // 
@@ -404,36 +405,36 @@
             label14.TabIndex = 14;
             label14.Text = "FECHA:";
             // 
-            // label5
+            // lblCliente
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(168, 196);
-            label5.Name = "label5";
-            label5.Size = new Size(142, 23);
-            label5.TabIndex = 13;
-            label5.Text = "NOMBRE DEL CLIENTE";
+            lblCliente.AutoSize = true;
+            lblCliente.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCliente.Location = new Point(168, 196);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new Size(142, 23);
+            lblCliente.TabIndex = 13;
+            lblCliente.Text = "NOMBRE DEL CLIENTE";
             // 
-            // label6
+            // lblNumero
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(168, 173);
-            label6.Name = "label6";
-            label6.Size = new Size(123, 23);
-            label6.TabIndex = 12;
-            label6.Text = "Número de Factura";
+            lblNumero.AutoSize = true;
+            lblNumero.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNumero.Location = new Point(168, 173);
+            lblNumero.Name = "lblNumero";
+            lblNumero.Size = new Size(123, 23);
+            lblNumero.TabIndex = 12;
+            lblNumero.Text = "Número de Factura";
             // 
-            // CAIEmp
+            // lblCai
             // 
-            CAIEmp.AutoSize = true;
-            CAIEmp.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            CAIEmp.Location = new Point(168, 149);
-            CAIEmp.Name = "CAIEmp";
-            CAIEmp.Size = new Size(29, 23);
-            CAIEmp.TabIndex = 11;
-            CAIEmp.Text = "CAI";
-            CAIEmp.TextAlign = ContentAlignment.TopCenter;
+            lblCai.AutoSize = true;
+            lblCai.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCai.Location = new Point(168, 149);
+            lblCai.Name = "lblCai";
+            lblCai.Size = new Size(29, 23);
+            lblCai.TabIndex = 11;
+            lblCai.Text = "CAI";
+            lblCai.TextAlign = ContentAlignment.TopCenter;
             // 
             // label8
             // 
@@ -476,25 +477,25 @@
             telefonoEmpresa.Text = "Teléfono de la Empresa";
             telefonoEmpresa.Click += label7_Click;
             // 
-            // RTN
+            // lblRtn
             // 
-            RTN.AutoSize = true;
-            RTN.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            RTN.Location = new Point(383, 91);
-            RTN.Name = "RTN";
-            RTN.Size = new Size(123, 23);
-            RTN.TabIndex = 6;
-            RTN.Text = "RTN de la Empresa";
+            lblRtn.AutoSize = true;
+            lblRtn.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRtn.Location = new Point(383, 91);
+            lblRtn.Name = "lblRtn";
+            lblRtn.Size = new Size(123, 23);
+            lblRtn.TabIndex = 6;
+            lblRtn.Text = "RTN de la Empresa";
             // 
-            // correoEmpresa
+            // lblCorreo
             // 
-            correoEmpresa.AutoSize = true;
-            correoEmpresa.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            correoEmpresa.Location = new Point(415, 72);
-            correoEmpresa.Name = "correoEmpresa";
-            correoEmpresa.Size = new Size(139, 23);
-            correoEmpresa.TabIndex = 5;
-            correoEmpresa.Text = "Correo de la Empresa";
+            lblCorreo.AutoSize = true;
+            lblCorreo.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCorreo.Location = new Point(415, 72);
+            lblCorreo.Name = "lblCorreo";
+            lblCorreo.Size = new Size(139, 23);
+            lblCorreo.TabIndex = 5;
+            lblCorreo.Text = "Correo de la Empresa";
             // 
             // label4
             // 
@@ -526,26 +527,26 @@
             label2.TabIndex = 2;
             label2.Text = "RTN:";
             // 
-            // direccionEmpresa
+            // lblDireccion
             // 
-            direccionEmpresa.AutoSize = true;
-            direccionEmpresa.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            direccionEmpresa.Location = new Point(339, 48);
-            direccionEmpresa.Name = "direccionEmpresa";
-            direccionEmpresa.Size = new Size(152, 23);
-            direccionEmpresa.TabIndex = 1;
-            direccionEmpresa.Text = "Dirección de la Empresa";
+            lblDireccion.AutoSize = true;
+            lblDireccion.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDireccion.Location = new Point(242, 48);
+            lblDireccion.Name = "lblDireccion";
+            lblDireccion.Size = new Size(64, 23);
+            lblDireccion.TabIndex = 1;
+            lblDireccion.Text = "Direccion";
             // 
-            // label1
+            // lblEmpresa
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(339, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(150, 24);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre de la Empresa";
-            label1.Click += label1_Click;
+            lblEmpresa.AutoSize = true;
+            lblEmpresa.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblEmpresa.Location = new Point(339, 24);
+            lblEmpresa.Name = "lblEmpresa";
+            lblEmpresa.Size = new Size(150, 24);
+            lblEmpresa.TabIndex = 0;
+            lblEmpresa.Text = "Nombre de la Empresa";
+            lblEmpresa.Click += label1_Click;
             // 
             // button4
             // 
@@ -567,7 +568,8 @@
             Controls.Add(button4);
             Controls.Add(panel1);
             Name = "Factura";
-            Text = "Factura";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = " ";
             Load += Factura_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -579,35 +581,35 @@
         #endregion
 
         private Panel panel1;
-        private Label label1;
-        private Label direccionEmpresa;
+        private Label lblEmpresa;
+        private Label lblDireccion;
         private Label label3;
         private Label label2;
         private Label telefonoEmpresa;
-        private Label RTN;
-        private Label correoEmpresa;
+        private Label lblRtn;
+        private Label lblCorreo;
         private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label CAIEmp;
+        private Label lblCliente;
+        private Label lblNumero;
+        private Label lblCai;
         private Label label8;
         private Label CAI;
         private Label label10;
-        private Label label7;
-        private Label label9;
+        private Label lblRtnCliente;
+        private Label lblFecha;
         private Label label12;
         private Label label14;
         private Label label11;
         private DataGridView dataGridView1;
-        private Label label13;
+        private Label lblIsv15;
         private Label label15;
         private Label label16;
         private Label label17;
         private Label label18;
         private Label label19;
-        private Label label20;
+        private Label lblIsv18;
         private Label label21;
-        private Label label22;
+        private Label lblTotal;
         private Label label23;
         private Label label24;
         private Label label25;

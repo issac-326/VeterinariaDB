@@ -44,10 +44,9 @@
             button7.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button7.ForeColor = Color.Navy;
             button7.Image = Properties.Resources.atencion_al_cliente;
-            button7.Location = new Point(679, 310);
-            button7.Margin = new Padding(4, 5, 4, 5);
+            button7.Location = new Point(475, 186);
             button7.Name = "button7";
-            button7.Size = new Size(286, 238);
+            button7.Size = new Size(200, 143);
             button7.TabIndex = 14;
             button7.Text = "Gestión de Contratos";
             button7.TextAlign = ContentAlignment.BottomCenter;
@@ -65,10 +64,9 @@
             button5.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button5.ForeColor = Color.Navy;
             button5.Image = Properties.Resources.mano;
-            button5.Location = new Point(267, 310);
-            button5.Margin = new Padding(4, 5, 4, 5);
+            button5.Location = new Point(187, 186);
             button5.Name = "button5";
-            button5.Size = new Size(286, 238);
+            button5.Size = new Size(200, 143);
             button5.TabIndex = 15;
             button5.Text = "Gestión de Personal";
             button5.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -81,10 +79,9 @@
             label2.BackColor = SystemColors.InactiveCaption;
             label2.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Navy;
-            label2.Location = new Point(493, 145);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(345, 87);
             label2.Name = "label2";
-            label2.Size = new Size(250, 37);
+            label2.Size = new Size(165, 24);
             label2.TabIndex = 25;
             label2.Text = "SUBMÓDULOS";
             // 
@@ -92,28 +89,26 @@
             // 
             button4.BackColor = SystemColors.ButtonHighlight;
             button4.Image = Properties.Resources.back;
-            button4.Location = new Point(17, 20);
-            button4.Margin = new Padding(4, 5, 4, 5);
+            button4.Location = new Point(12, 12);
             button4.Name = "button4";
-            button4.Size = new Size(107, 38);
+            button4.Size = new Size(75, 23);
             button4.TabIndex = 26;
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click_1;
             // 
             // SubmodulosRRHH
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(1201, 945);
+            ClientSize = new Size(841, 567);
             Controls.Add(button4);
             Controls.Add(label2);
             Controls.Add(button5);
             Controls.Add(button7);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "SubmodulosRRHH";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Recursos Humanos";
+            Load += SubmodulosRRHH_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -31,7 +31,6 @@ namespace ProyectoBD
                     List<string> permisos = controlador.ObtenerPermisos(usuario);
                     int idSucursal = controlador.ObtenerIdSucursal(usuario);
 
-
                     if (permisos.Count > 0 && idSucursal != -1)
                     {
 
@@ -56,6 +55,11 @@ namespace ProyectoBD
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

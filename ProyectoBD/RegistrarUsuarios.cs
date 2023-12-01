@@ -13,19 +13,14 @@ using System.Windows.Forms;
 
 namespace ProyectoBD
 {
-
     public partial class RegistrarUsuarios : Form
     {
         private List<string> permisos;
-       
-        private int idSucursal;
-        public RegistrarUsuarios(List<string> permisos)
+        public RegistrarUsuarios()
         {
             InitializeComponent();
             mostrarRolesUsuarios();
             CargarDatosUsuarios();
-            this.permisos = permisos;
-            
         }
 
         private void RegistrarUsuarios_Load(object sender, EventArgs e)
@@ -158,8 +153,6 @@ namespace ProyectoBD
 
             String cadenaU = $"'{txtUsuario.Text}','{txtContrasenia.Text}','{Activo}', {idPersona}, {idRol}";
             objetoCrud.guardar(tablaU, cadenaU);
-
-            ///Cargamos los datos de los usuarios en el dataGreedView.
             CargarDatosUsuarios();
 
         }
@@ -190,6 +183,8 @@ namespace ProyectoBD
                 txtDNIEmpleado.Text = dgvUsuarios.CurrentRow.Cells[5].Value.ToString();
 
             }
+
+
         }
 
         private void btnModificarUsuarios_Click(object sender, EventArgs e)
@@ -246,8 +241,8 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            subModuloUsuarios sub = new subModuloUsuarios(permisos);
-            sub.Visible = true;
+            Modulos modulos = new Modulos(permisos);
+            modulos.Visible = true;
             this.Hide();
         }
     }

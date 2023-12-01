@@ -37,6 +37,12 @@
             button2 = new Button();
             txtdni = new TextBox();
             panel3 = new Panel();
+            textBoxEfectivo = new TextBox();
+            efectivo = new Label();
+            textBoxRTN = new TextBox();
+            RTN = new Label();
+            comboBoxPuntoEmision = new ComboBox();
+            label2 = new Label();
             label3 = new Label();
             groupBox1 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -50,6 +56,11 @@
             label9 = new Label();
             textBox3 = new TextBox();
             detalleFactura = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            isv = new DataGridViewTextBoxColumn();
             agregarProduto = new Button();
             button3 = new Button();
             panel1 = new Panel();
@@ -63,11 +74,6 @@
             txtProducto = new TextBox();
             buscarProducto = new Button();
             label15 = new Label();
-            ID = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            cantidad = new DataGridViewTextBoxColumn();
-            isv = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -85,7 +91,7 @@
             panel2.Controls.Add(label1);
             panel2.Location = new Point(-22, -14);
             panel2.Name = "panel2";
-            panel2.Size = new Size(867, 52);
+            panel2.Size = new Size(867, 36);
             panel2.TabIndex = 25;
             panel2.Paint += panel2_Paint;
             // 
@@ -98,7 +104,7 @@
             label1.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Navy;
             label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(396, 13);
+            label1.Location = new Point(397, 14);
             label1.Name = "label1";
             label1.Size = new Size(80, 22);
             label1.TabIndex = 0;
@@ -176,22 +182,98 @@
             // 
             // txtdni
             // 
-            txtdni.Location = new Point(391, 11);
+            txtdni.Location = new Point(204, 11);
             txtdni.Name = "txtdni";
-            txtdni.Size = new Size(190, 23);
+            txtdni.Size = new Size(164, 23);
             txtdni.TabIndex = 29;
+            txtdni.TextChanged += txtdni_TextChanged;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.Navy;
             panel3.BackgroundImageLayout = ImageLayout.Stretch;
+            panel3.Controls.Add(textBoxEfectivo);
+            panel3.Controls.Add(efectivo);
+            panel3.Controls.Add(textBoxRTN);
+            panel3.Controls.Add(RTN);
+            panel3.Controls.Add(comboBoxPuntoEmision);
+            panel3.Controls.Add(label2);
             panel3.Controls.Add(txtdni);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(10, 51);
+            panel3.Location = new Point(10, 25);
             panel3.Name = "panel3";
-            panel3.Size = new Size(814, 55);
+            panel3.Size = new Size(814, 81);
             panel3.TabIndex = 27;
+            panel3.Paint += panel3_Paint;
+            // 
+            // textBoxEfectivo
+            // 
+            textBoxEfectivo.Location = new Point(583, 46);
+            textBoxEfectivo.Name = "textBoxEfectivo";
+            textBoxEfectivo.Size = new Size(206, 23);
+            textBoxEfectivo.TabIndex = 36;
+            // 
+            // efectivo
+            // 
+            efectivo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            efectivo.AutoSize = true;
+            efectivo.BackColor = Color.Navy;
+            efectivo.FlatStyle = FlatStyle.Popup;
+            efectivo.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            efectivo.ForeColor = SystemColors.Window;
+            efectivo.ImageAlign = ContentAlignment.TopCenter;
+            efectivo.Location = new Point(404, 46);
+            efectivo.Name = "efectivo";
+            efectivo.Size = new Size(147, 18);
+            efectivo.TabIndex = 35;
+            efectivo.Text = "Pago en Efectivo:";
+            // 
+            // textBoxRTN
+            // 
+            textBoxRTN.Location = new Point(204, 46);
+            textBoxRTN.Name = "textBoxRTN";
+            textBoxRTN.Size = new Size(164, 23);
+            textBoxRTN.TabIndex = 34;
+            // 
+            // RTN
+            // 
+            RTN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            RTN.AutoSize = true;
+            RTN.BackColor = Color.Navy;
+            RTN.FlatStyle = FlatStyle.Popup;
+            RTN.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            RTN.ForeColor = SystemColors.Window;
+            RTN.ImageAlign = ContentAlignment.TopCenter;
+            RTN.Location = new Point(25, 46);
+            RTN.Name = "RTN";
+            RTN.Size = new Size(135, 18);
+            RTN.TabIndex = 33;
+            RTN.Text = "RTN del Cliente:";
+            // 
+            // comboBoxPuntoEmision
+            // 
+            comboBoxPuntoEmision.FormattingEnabled = true;
+            comboBoxPuntoEmision.Location = new Point(583, 11);
+            comboBoxPuntoEmision.Name = "comboBoxPuntoEmision";
+            comboBoxPuntoEmision.Size = new Size(206, 23);
+            comboBoxPuntoEmision.TabIndex = 32;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Navy;
+            label2.FlatStyle = FlatStyle.Popup;
+            label2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.Window;
+            label2.ImageAlign = ContentAlignment.TopCenter;
+            label2.Location = new Point(407, 11);
+            label2.Name = "label2";
+            label2.Size = new Size(150, 18);
+            label2.TabIndex = 30;
+            label2.Text = "Punto de Emisión.";
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -202,7 +284,7 @@
             label3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.Window;
             label3.ImageAlign = ContentAlignment.TopCenter;
-            label3.Location = new Point(195, 11);
+            label3.Location = new Point(25, 11);
             label3.Name = "label3";
             label3.Size = new Size(173, 18);
             label3.TabIndex = 26;
@@ -342,6 +424,31 @@
             detalleFactura.RowTemplate.Height = 25;
             detalleFactura.Size = new Size(362, 177);
             detalleFactura.TabIndex = 28;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "nombre";
+            Nombre.Name = "Nombre";
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "precio";
+            Precio.Name = "Precio";
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "cantidad";
+            cantidad.Name = "cantidad";
+            // 
+            // isv
+            // 
+            isv.HeaderText = "isv";
+            isv.Name = "isv";
             // 
             // agregarProduto
             // 
@@ -520,31 +627,6 @@
             label15.TabIndex = 33;
             label15.Text = "Detalle de la factura";
             // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            // 
-            // cantidad
-            // 
-            cantidad.HeaderText = "cantidad";
-            cantidad.Name = "cantidad";
-            // 
-            // isv
-            // 
-            isv.HeaderText = "isv";
-            isv.Name = "isv";
-            // 
             // FormularioFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -610,11 +692,17 @@
         private Label label14;
         private ComboBox impuesto;
         private Label label10;
-        private Label label3;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn cantidad;
         private DataGridViewTextBoxColumn isv;
+        private Label label3;
+        private ComboBox comboBoxPuntoEmision;
+        private Label label2;
+        private TextBox textBoxEfectivo;
+        private Label efectivo;
+        private TextBox textBoxRTN;
+        private Label RTN;
     }
 }

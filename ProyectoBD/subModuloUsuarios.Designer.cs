@@ -38,7 +38,7 @@
             // 
             button4.BackColor = SystemColors.ButtonHighlight;
             button4.Image = Properties.Resources.back;
-            button4.Location = new Point(39, 27);
+            button4.Location = new Point(13, 14);
             button4.Margin = new Padding(4, 5, 4, 5);
             button4.Name = "button4";
             button4.Size = new Size(107, 38);
@@ -52,7 +52,7 @@
             label2.BackColor = SystemColors.InactiveCaption;
             label2.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Navy;
-            label2.Location = new Point(460, 316);
+            label2.Location = new Point(263, 206);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(250, 37);
@@ -69,10 +69,10 @@
             button5.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button5.ForeColor = Color.Navy;
             button5.Image = Properties.Resources.mano;
-            button5.Location = new Point(181, 465);
+            button5.Location = new Point(123, 310);
             button5.Margin = new Padding(4, 5, 4, 5);
             button5.Name = "button5";
-            button5.Size = new Size(315, 222);
+            button5.Size = new Size(227, 172);
             button5.TabIndex = 28;
             button5.Text = "Agregar Usuarios";
             button5.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -89,10 +89,10 @@
             button7.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button7.ForeColor = Color.Navy;
             button7.Image = Properties.Resources.atencion_al_cliente;
-            button7.Location = new Point(661, 465);
+            button7.Location = new Point(440, 310);
             button7.Margin = new Padding(4, 5, 4, 5);
             button7.Name = "button7";
-            button7.Size = new Size(317, 222);
+            button7.Size = new Size(218, 172);
             button7.TabIndex = 27;
             button7.Text = "Otorgar Permisos";
             button7.TextAlign = ContentAlignment.BottomCenter;
@@ -105,7 +105,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(1201, 945);
+            ClientSize = new Size(778, 644);
             Controls.Add(button4);
             Controls.Add(label2);
             Controls.Add(button5);

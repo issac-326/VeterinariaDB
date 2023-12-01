@@ -5,14 +5,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
-using System.Net;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-
+using ProyectoBD.Class;
 namespace ProyectoBD
 {
     public partial class FormularioFactura : Form
@@ -21,44 +19,52 @@ namespace ProyectoBD
         decimal subtotalF = 0;
         decimal isv15F = 0;
         decimal isv18lF = 0;
-        int idSucursal;
-        int idInscripcion = 0;
-        public FormularioFactura(int idSucursal)
+        private List<string> permisos;
+        private int idSucursal;
+        private int puntoEmision;
+
+        private decimal pagoEfectivo;
+        private decimal cambio;
+
+        public FormularioFactura(List<string> permisos, int idSucursal)
         {
             InitializeComponent();
-
+            this.permisos = permisos;
             this.idSucursal = idSucursal;
+
             cargarDetalle();
+            cargarPuntosEmision();
+
         }
         public void cargarDetalle()
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        public void cargarPuntosEmision()
         {
 
-        }
-        private int ObtenerId()
-        {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
             {
                 // Establecer la conexión a la base de datos
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
-                    // Buscar el id de la forma
 
-                    string query = "SELECT TOP 1 * FROM Inscripcion_SAR WHERE Id_Sucursal = " + idSucursal + " AND activo = 1 ORDER BY Fecha_Limite DESC;";
-
+                    // Consulta SQL para obtener nombres de especies
+                    string query = $"SELECT Codigo  FROM Puntos_Emision WHERE Id_Sucursal = {idSucursal} ";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
                         {
-                            reader.Read(); // Solo necesitas leer la primera fila
+                            // Limpiar el ComboBox antes de agregar nuevos elementos
+                            comboBoxPuntoEmision.Items.Clear();
 
-                            // Obtener el valor del ID
-                            idInscripcion = Convert.ToInt32(reader["Id"]);
+                            // Agregar cada nombre de especie al ComboBox
+                            while (reader.Read())
+                            {
+                                comboBoxPuntoEmision.Items.Add(reader["Codigo"].ToString());
+                            }
                         }
                     }
                 }
@@ -66,10 +72,15 @@ namespace ProyectoBD
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error idMedicmento: " + ex.Message);
+                MessageBox.Show("Error al cargar los cargos");
             }
-            return idInscripcion;
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -92,21 +103,17 @@ namespace ProyectoBD
 
         private void btnLimpiarCitas_Click(object sender, EventArgs e)
         {
-           
             subtotal.Text = "00.00";
             total.Text = "00.00";
             isv18.Text = "00.00";
             ivs15.Text = "00.00";
-            detalleFactura.Rows.Clear();
-            txtdni.Text = "";
-            txtCantidad.Text = "";
-            txtProducto.Text = "";
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Modulos win = new Modulos(permisos, idSucursal);
+            win.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -136,7 +143,7 @@ namespace ProyectoBD
                     subtotalF = subtotalF + precio;
                     decimal impuestoSeleccionado = Convert.ToDecimal(impuesto.SelectedItem);
 
-                    if (impuestoSeleccionado == 15)
+                    if (impuestoSeleccionado == 0.15m)
                     {
                         isv15F = isv15F + (precio * 0.15m);
                     }
@@ -145,10 +152,10 @@ namespace ProyectoBD
                         isv18lF = isv18lF + (precio * 0.18m);
                     }
                     totalF = subtotalF + isv15F + isv18lF;
-                    subtotal.Text = subtotalF.ToString(CultureInfo.InvariantCulture);
-                    total.Text = totalF.ToString(CultureInfo.InvariantCulture);
-                    isv18.Text = isv18lF.ToString(CultureInfo.InvariantCulture);
-                    ivs15.Text = isv15F.ToString(CultureInfo.InvariantCulture);
+                    subtotal.Text = subtotalF.ToString();
+                    total.Text = totalF.ToString();
+                    isv18.Text = isv18lF.ToString();
+                    ivs15.Text = isv15F.ToString();
                     rowData[4] = impuesto.SelectedItem;
                     detalleFactura.Rows.Add(rowData);
 
@@ -157,8 +164,7 @@ namespace ProyectoBD
                 {
                     MessageBox.Show("Cantidad a vender mayor que existencia en el inventario.");
                 }
-                txtCantidad.Text = "";
-                txtProducto.Text = "";
+
 
             }
             else
@@ -171,7 +177,7 @@ namespace ProyectoBD
         {
 
         }
-        //muestra el producto
+
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -184,7 +190,7 @@ namespace ProyectoBD
         {
 
         }
-        //elimar medicamento
+
         private void button3_Click(object sender, EventArgs e)
         {
             // Verifica si hay alguna fila seleccionada en el DataGridView
@@ -208,7 +214,7 @@ namespace ProyectoBD
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
             {
-                // Buscar id de la persona 
+                // Obtener id del cliente
                 using (SqlConnection conexion = objectConexion.establecerConexion())
                 {
                     // Buscar el id de la especie 
@@ -229,19 +235,106 @@ namespace ProyectoBD
             {
                 MessageBox.Show("Error obtener nombre: " + ex.Message);
             }
-            idSucursal = 1;
 
-            // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
-            string fecha = DateTime.Now.ToString("yyyy-MM-dd");
-            Class.Crud objetoCrud = new Class.Crud();
-           
-            String cadena = $"'', '{fecha}', {totalF.ToString(CultureInfo.InvariantCulture)} , {isv15F.ToString(CultureInfo.InvariantCulture)}, {isv18lF.ToString(CultureInfo.InvariantCulture)}, {ObtenerId()} , {idSucursal} ,{dni}, 1, 1";
-            objetoCrud.guardar("Facturas (RTN_Cliente, Fecha, Total, Impuesto_15, Impuesto_18, Id_Inscripcion, Id_Scursal, Id_Cliente, Id_Tipo_Documento, Id_Punto_Emision )", cadena);
-            int idF = ObtenerIdFactura(fecha, dni);
-            IngresarProducto(idF);
+            try
+            {
+                Class.Crud objetoCrud = new Class.Crud();
+
+                // Id Del punto de Emisión
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Buscar el id
+                    string query = $"SELECT Id FROM Puntos_Emision WHERE Id_Sucursal = {idSucursal} AND Codigo = '{comboBoxPuntoEmision.Text}'";
+                    using (SqlCommand comand = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = comand.ExecuteReader())
+                        {
+                            reader.Read();
+                            puntoEmision = Convert.ToInt32(reader["Id"]);
+                        }
+                    }
+                }
+                objectConexion.cerrarConexion();
+
+
+                //Verificacion de Rango SAR
+
+                int disponibleSAR = -1;
+
+                // Id Del punto de Emisión
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+                    // Buscar el id
+                    string query1 = $"EXEC verificarSAR {idSucursal}";
+                    using (SqlCommand comand = new SqlCommand(query1, conexion))
+                    {
+                        using (SqlDataReader reader = comand.ExecuteReader())
+                        {
+                            reader.Read();
+                            disponibleSAR = Convert.ToInt32(reader["Disponible"]);
+                        }
+                    }
+                }
+                objectConexion.cerrarConexion();
+
+                //Verificacion de Rango SAR
+
+                if (disponibleSAR == 1)
+                {
+                    ConexionSqlServer conn = new ConexionSqlServer();
+                    string query0 = $"INSERT INTO Facturas (RTN_Cliente, Fecha, Total, Impuesto_15, Impuesto_18," +
+                        $" Id_Scursal, Id_Cliente, Id_Tipo_Documento, Id_Punto_Emision) VALUES " +
+                        $" ( '{textBoxRTN.Text}', GETDATE(), {totalF}, {isv15F}, {isv18lF}, {idSucursal}, {dni}, 1, {puntoEmision});";
+
+                    SqlCommand comando = new SqlCommand(query0, conn.establecerConexion());
+                    comando.ExecuteNonQuery();
+                    conn.cerrarConexion();
+
+                    pagoEfectivo = decimal.Parse(textBoxEfectivo.Text);
+                    cambio = pagoEfectivo - totalF;
+
+                    if (pagoEfectivo != null)
+                    {
+                        if (cambio >= 0)
+                        {
+                            Factura win = new Factura(permisos, pagoEfectivo, cambio, idSucursal);
+                            win.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El efectivo no es suficiente para pagar la cuenta.");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese el Efectivo.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Necesita una nueva inscripción a la SAR para la sucursal " + idSucursal);
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocurrió un error" + ex);
+
+            }
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtdni_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -250,114 +343,15 @@ namespace ProyectoBD
         {
 
         }
-        private int ObtenerIdFactura(string fecha, int idCliente)
+
+        private void label2_Click(object sender, EventArgs e)
         {
-            int idF = 0;
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-                // Establecer la conexión a la base de datos
-                using (SqlConnection conexion = objectConexion.establecerConexion())
-                {
-                    // Buscar el id de la forma
 
-                    string query = "SELECT TOP 1 * FROM Facturas WHERE Id_Cliente = " + idCliente + " AND Fecha = '" + fecha + "' ORDER BY Id DESC;";
-
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader reader = comando.ExecuteReader())
-                        {
-                            reader.Read(); // Solo necesitas leer la primera fila
-
-                            // Obtener el valor del ID
-                            idF = Convert.ToInt32(reader["Id"]);
-                        }
-                    }
-                }
-                objectConexion.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error idMedicmento: " + ex.Message);
-            }
-            return idF;
-        }
-        private void IngresarProducto(int idF)
-        {
-            int totalFilas = detalleFactura.Rows.Count;
-            // Iterar a través de las filas del DataGridView
-            foreach (DataGridViewRow fila in detalleFactura.Rows)
-            {
-                // Obtener el índice de la fila actual
-                int indiceFila = fila.Index;
-
-                // Verificar si la fila actual no es la última
-                if (indiceFila < totalFilas-1)
-                {
-                    // Obtener los valores de cada celda
-                    int id = Convert.ToInt32(fila.Cells["ID"].Value);
-                    decimal precio = Convert.ToDecimal(fila.Cells["Precio"].Value);
-                    int cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value);
-                    decimal impuestos = Convert.ToDecimal(fila.Cells["isv"].Value);
-
-                    Class.Crud objetoCrud = new Class.Crud();
-
-                    if (impuestos == 15)
-                    {
-                        // Insertar en la base de datos 
-                        String cadena = $"{precio.ToString(CultureInfo.InvariantCulture)} , {cantidad}, {impuestos.ToString(CultureInfo.InvariantCulture)}, NULL, {idF} , {id} ";
-                        objetoCrud.guardar("Detalles_Facturas", cadena);
-                        //bajamos el inventario
-                        RegistroVenta(id, cantidad);
-                    }
-                    else
-                    {
-                        String cadena = $"{precio.ToString(CultureInfo.InvariantCulture)} , {cantidad}, NULL, {impuestos.ToString(CultureInfo.InvariantCulture)}, {idF} , {id} ";
-                        objetoCrud.guardar("Detalles_Facturas", cadena);
-                        //bajamos el inventario 
-                        RegistroVenta(id, cantidad);
-
-                    }
-                   
-                }
-
-            }
-
-            // Limpiar el DataGridView después de agregar las filas a la base de datos
-            subtotal.Text = "00.00";
-            total.Text = "00.00";
-            isv18.Text = "00.00";
-            ivs15.Text = "00.00";
-            detalleFactura.Rows.Clear();
-            txtdni.Text = "";
-            txtCantidad.Text = "";
-            txtProducto.Text = "";
-        }
-        public void RegistroVenta(int idProducto, int Cantidad)
-        {
-            ConexionSqlServer objectConexion = new ConexionSqlServer();
-            try
-            {
-
-                String query = $"EXEC movimientoVenta {idProducto}, 5, {Cantidad}, -1;";
-
-                SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
-                SqlDataReader myReader;
-
-                myReader = comando.ExecuteReader();
-
-                while (myReader.Read())
-                {
-
-                }
-                objectConexion.cerrarConexion();
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error al Registrar el movimiento Venta");
-            }
         }
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

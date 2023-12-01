@@ -16,6 +16,16 @@ namespace ProyectoBD
     public partial class Medicamento : Form
     {
         String tabla = "Productos";
+        private List<string> permisos;
+        public Medicamento(List<string> permisos)
+        {
+            InitializeComponent();
+            cargarFormas();
+            Class.Crud objetoCrud = new Class.Crud();
+            this.permisos = permisos;
+
+        }
+
         public Medicamento()
         {
             InitializeComponent();
@@ -23,6 +33,7 @@ namespace ProyectoBD
             Class.Crud objetoCrud = new Class.Crud();
 
         }
+
         public void cargarFormas()
         {
 
@@ -159,7 +170,7 @@ namespace ProyectoBD
         private void button2_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Registros form2 = new Registros();
+            Registros form2 = new Registros(permisos);
 
             // Mostrar el segundo formulario
             form2.Show();

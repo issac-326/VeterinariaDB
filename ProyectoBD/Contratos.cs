@@ -28,8 +28,6 @@ namespace ProyectoBD
         {
             InitializeComponent();
             this.idSucursal = idSucursal;
-            this.permisos = permisos;
-            this.idPersona = idPersona;
             Class1.cargarComboBox("Id", "Horarios", comboBoxHorario);
             Class1.cargarComboBox("Nombre", "Tipos_Empleados", comboBoxCargos);
             Class1.cargarComboBox("Periodo", "Periodos_Pago", comboBoxPeriodoPago);
@@ -43,6 +41,7 @@ namespace ProyectoBD
             
             this.accion = accion;
             this.idPersona = idPersona;
+            this.permisos = permisos;
         }
 
         private void mostradorContratos_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
@@ -55,7 +54,7 @@ namespace ProyectoBD
                 int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
 
                 // Crear e mostrar el nuevo formulario pasando el ID
-                BonosDeducciones nuevoFormulario = new BonosDeducciones(idSeleccionado, idSucursal, permisos);
+                BonosDeducciones nuevoFormulario = new BonosDeducciones(idSeleccionado, permisos);
                 nuevoFormulario.Show();
                 this.Hide();
             }

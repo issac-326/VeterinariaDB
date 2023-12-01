@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarUsuarios));
             groupBox1 = new GroupBox();
             txtActivo = new CheckBox();
@@ -65,13 +62,13 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Font = new Font("Arial Rounded MT Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = Color.Navy;
-            groupBox1.Location = new Point(63, 75);
+            groupBox1.Location = new Point(8, 35);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(1064, 342);
+            groupBox1.Size = new Size(757, 243);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Formulario de Usuarios:";
@@ -79,11 +76,11 @@
             // txtActivo
             // 
             txtActivo.AutoSize = true;
-            txtActivo.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtActivo.Location = new Point(918, 51);
+            txtActivo.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtActivo.Location = new Point(609, 50);
             txtActivo.Margin = new Padding(4, 5, 4, 5);
             txtActivo.Name = "txtActivo";
-            txtActivo.Size = new Size(121, 32);
+            txtActivo.Size = new Size(101, 25);
             txtActivo.TabIndex = 29;
             txtActivo.Text = "Lo está";
             txtActivo.UseVisualStyleBackColor = true;
@@ -91,132 +88,105 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(784, 52);
+            label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(529, 54);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(93, 28);
+            label5.Size = new Size(72, 21);
             label5.TabIndex = 17;
             label5.Text = "Activo:";
             label5.Click += label5_Click;
             // 
             // txtDNIEmpleado
             // 
-            txtDNIEmpleado.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDNIEmpleado.Location = new Point(273, 193);
+            txtDNIEmpleado.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDNIEmpleado.Location = new Point(254, 139);
             txtDNIEmpleado.Margin = new Padding(4);
             txtDNIEmpleado.Name = "txtDNIEmpleado";
-            txtDNIEmpleado.Size = new Size(373, 35);
+            txtDNIEmpleado.Size = new Size(230, 28);
             txtDNIEmpleado.TabIndex = 16;
             // 
             // txtContrasenia
             // 
-            txtContrasenia.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtContrasenia.Location = new Point(273, 122);
+            txtContrasenia.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtContrasenia.Location = new Point(254, 95);
             txtContrasenia.Margin = new Padding(4);
             txtContrasenia.Name = "txtContrasenia";
-            txtContrasenia.PasswordChar = '*';
-            txtContrasenia.Size = new Size(373, 35);
+            txtContrasenia.Size = new Size(230, 28);
             txtContrasenia.TabIndex = 15;
             // 
             // txtUsuario
             // 
-            txtUsuario.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtUsuario.Location = new Point(273, 51);
+            txtUsuario.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUsuario.Location = new Point(254, 48);
             txtUsuario.Margin = new Padding(4);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(373, 35);
+            txtUsuario.Size = new Size(230, 28);
             txtUsuario.TabIndex = 14;
             // 
             // selRoles
             // 
-            selRoles.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            selRoles.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             selRoles.FormattingEnabled = true;
-            selRoles.Location = new Point(273, 265);
+            selRoles.Location = new Point(254, 186);
             selRoles.Margin = new Padding(4);
             selRoles.Name = "selRoles";
-            selRoles.Size = new Size(373, 36);
+            selRoles.Size = new Size(230, 29);
             selRoles.TabIndex = 9;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(53, 273);
+            label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(41, 190);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(203, 28);
+            label4.Size = new Size(156, 21);
             label4.TabIndex = 3;
             label4.Text = "Tipo de Usuario:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(54, 200);
+            label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(42, 143);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(202, 28);
+            label3.Size = new Size(154, 21);
             label3.TabIndex = 2;
             label3.Text = "Empleado (DNI):";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(53, 122);
+            label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(40, 99);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(154, 28);
+            label2.Size = new Size(119, 21);
             label2.TabIndex = 1;
             label2.Text = "Contraseña:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(54, 54);
+            label1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(42, 56);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(111, 28);
+            label1.Size = new Size(86, 21);
             label1.TabIndex = 0;
             label1.Text = "Usuario:";
             // 
             // dgvUsuarios
             // 
-            dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgvUsuarios.ColumnHeadersHeight = 34;
-            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle5;
-            dgvUsuarios.Location = new Point(13, 447);
+            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsuarios.Location = new Point(8, 286);
             dgvUsuarios.Margin = new Padding(4);
             dgvUsuarios.Name = "dgvUsuarios";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.RowTemplate.Height = 29;
-            dgvUsuarios.Size = new Size(1175, 382);
+            dgvUsuarios.Size = new Size(757, 237);
             dgvUsuarios.TabIndex = 2;
             dgvUsuarios.CellMouseClick += dgvUsuarios_CellMouseClick;
             // 
@@ -224,15 +194,15 @@
             // 
             btnLimpiarUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnLimpiarUsuarios.BackColor = Color.FromArgb(192, 255, 255);
-            btnLimpiarUsuarios.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiarUsuarios.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnLimpiarUsuarios.ForeColor = SystemColors.ActiveCaptionText;
             btnLimpiarUsuarios.Image = (Image)resources.GetObject("btnLimpiarUsuarios.Image");
             btnLimpiarUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiarUsuarios.Location = new Point(665, 854);
+            btnLimpiarUsuarios.Location = new Point(397, 549);
             btnLimpiarUsuarios.Margin = new Padding(4);
             btnLimpiarUsuarios.Name = "btnLimpiarUsuarios";
             btnLimpiarUsuarios.Padding = new Padding(12, 14, 25, 14);
-            btnLimpiarUsuarios.Size = new Size(205, 66);
+            btnLimpiarUsuarios.Size = new Size(159, 64);
             btnLimpiarUsuarios.TabIndex = 14;
             btnLimpiarUsuarios.Text = "Limpiar";
             btnLimpiarUsuarios.TextAlign = ContentAlignment.MiddleRight;
@@ -243,15 +213,15 @@
             // 
             btnModificarUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnModificarUsuarios.BackColor = Color.FromArgb(255, 128, 0);
-            btnModificarUsuarios.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificarUsuarios.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnModificarUsuarios.ForeColor = SystemColors.ActiveCaptionText;
             btnModificarUsuarios.Image = (Image)resources.GetObject("btnModificarUsuarios.Image");
             btnModificarUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificarUsuarios.Location = new Point(345, 854);
+            btnModificarUsuarios.Location = new Point(195, 549);
             btnModificarUsuarios.Margin = new Padding(4);
             btnModificarUsuarios.Name = "btnModificarUsuarios";
             btnModificarUsuarios.Padding = new Padding(12, 14, 25, 14);
-            btnModificarUsuarios.Size = new Size(234, 66);
+            btnModificarUsuarios.Size = new Size(175, 64);
             btnModificarUsuarios.TabIndex = 13;
             btnModificarUsuarios.Text = "Modificar";
             btnModificarUsuarios.TextAlign = ContentAlignment.MiddleRight;
@@ -262,15 +232,15 @@
             // 
             btnAgregarUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnAgregarUsuarios.BackColor = Color.FromArgb(0, 192, 0);
-            btnAgregarUsuarios.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgregarUsuarios.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnAgregarUsuarios.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregarUsuarios.Image = (Image)resources.GetObject("btnAgregarUsuarios.Image");
             btnAgregarUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarUsuarios.Location = new Point(36, 854);
+            btnAgregarUsuarios.Location = new Point(14, 549);
             btnAgregarUsuarios.Margin = new Padding(4);
             btnAgregarUsuarios.Name = "btnAgregarUsuarios";
             btnAgregarUsuarios.Padding = new Padding(12, 14, 15, 14);
-            btnAgregarUsuarios.Size = new Size(216, 66);
+            btnAgregarUsuarios.Size = new Size(153, 64);
             btnAgregarUsuarios.TabIndex = 12;
             btnAgregarUsuarios.Text = "Agregar";
             btnAgregarUsuarios.TextAlign = ContentAlignment.MiddleRight;
@@ -281,15 +251,15 @@
             // 
             btnEliminarUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnEliminarUsuarios.BackColor = Color.Red;
-            btnEliminarUsuarios.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminarUsuarios.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnEliminarUsuarios.ForeColor = SystemColors.ActiveCaptionText;
             btnEliminarUsuarios.Image = (Image)resources.GetObject("btnEliminarUsuarios.Image");
             btnEliminarUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarUsuarios.Location = new Point(952, 854);
+            btnEliminarUsuarios.Location = new Point(580, 549);
             btnEliminarUsuarios.Margin = new Padding(4);
             btnEliminarUsuarios.Name = "btnEliminarUsuarios";
             btnEliminarUsuarios.Padding = new Padding(15, 14, 20, 14);
-            btnEliminarUsuarios.Size = new Size(211, 66);
+            btnEliminarUsuarios.Size = new Size(163, 64);
             btnEliminarUsuarios.TabIndex = 11;
             btnEliminarUsuarios.Text = "Eliminar";
             btnEliminarUsuarios.TextAlign = ContentAlignment.MiddleRight;
@@ -300,10 +270,10 @@
             // 
             button4.BackColor = SystemColors.ButtonHighlight;
             button4.Image = Properties.Resources.back;
-            button4.Location = new Point(22, 14);
+            button4.Location = new Point(697, 14);
             button4.Margin = new Padding(4, 5, 4, 5);
             button4.Name = "button4";
-            button4.Size = new Size(107, 38);
+            button4.Size = new Size(68, 28);
             button4.TabIndex = 15;
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
@@ -312,7 +282,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1201, 945);
+            ClientSize = new Size(778, 644);
             Controls.Add(button4);
             Controls.Add(btnLimpiarUsuarios);
             Controls.Add(btnModificarUsuarios);

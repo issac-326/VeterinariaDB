@@ -70,6 +70,7 @@
             label2 = new Label();
             direccionEmpresa = new Label();
             label1 = new Label();
+            button4 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -118,27 +119,28 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(direccionEmpresa);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(12, 39);
             panel1.Name = "panel1";
-            panel1.Size = new Size(817, 543);
+            panel1.Size = new Size(817, 516);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logo1;
-            pictureBox1.Location = new Point(83, 15);
+            pictureBox1.Location = new Point(83, 24);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(121, 113);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 42;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label34
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label34.Location = new Point(241, 447);
+            label34.Location = new Point(242, 425);
             label34.Name = "label34";
             label34.Size = new Size(40, 23);
             label34.TabIndex = 41;
@@ -149,7 +151,7 @@
             // 
             label35.AutoSize = true;
             label35.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label35.Location = new Point(83, 447);
+            label35.Location = new Point(84, 425);
             label35.Name = "label35";
             label35.Size = new Size(152, 23);
             label35.TabIndex = 40;
@@ -159,7 +161,7 @@
             // 
             label30.AutoSize = true;
             label30.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label30.Location = new Point(610, 475);
+            label30.Location = new Point(610, 474);
             label30.Name = "label30";
             label30.Size = new Size(53, 13);
             label30.TabIndex = 39;
@@ -169,7 +171,7 @@
             // 
             label31.AutoSize = true;
             label31.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label31.Location = new Point(491, 474);
+            label31.Location = new Point(491, 473);
             label31.Name = "label31";
             label31.Size = new Size(59, 13);
             label31.TabIndex = 38;
@@ -179,7 +181,7 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label28.Location = new Point(610, 493);
+            label28.Location = new Point(610, 492);
             label28.Name = "label28";
             label28.Size = new Size(53, 13);
             label28.TabIndex = 37;
@@ -190,7 +192,7 @@
             // 
             label29.AutoSize = true;
             label29.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label29.Location = new Point(491, 492);
+            label29.Location = new Point(491, 491);
             label29.Name = "label29";
             label29.Size = new Size(48, 13);
             label29.TabIndex = 36;
@@ -201,7 +203,7 @@
             // 
             label27.AutoSize = true;
             label27.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label27.Location = new Point(287, 424);
+            label27.Location = new Point(288, 402);
             label27.Name = "label27";
             label27.Size = new Size(15, 23);
             label27.TabIndex = 35;
@@ -213,7 +215,7 @@
             // 
             label26.AutoSize = true;
             label26.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label26.Location = new Point(308, 424);
+            label26.Location = new Point(309, 402);
             label26.Name = "label26";
             label26.Size = new Size(26, 23);
             label26.TabIndex = 34;
@@ -224,7 +226,7 @@
             // 
             label24.AutoSize = true;
             label24.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label24.Location = new Point(241, 424);
+            label24.Location = new Point(242, 402);
             label24.Name = "label24";
             label24.Size = new Size(40, 23);
             label24.TabIndex = 33;
@@ -235,7 +237,7 @@
             // 
             label25.AutoSize = true;
             label25.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label25.Location = new Point(83, 424);
+            label25.Location = new Point(84, 402);
             label25.Name = "label25";
             label25.Size = new Size(119, 23);
             label25.TabIndex = 32;
@@ -245,7 +247,7 @@
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label22.Location = new Point(610, 452);
+            label22.Location = new Point(610, 451);
             label22.Name = "label22";
             label22.Size = new Size(164, 23);
             label22.TabIndex = 31;
@@ -255,7 +257,7 @@
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label23.Location = new Point(490, 451);
+            label23.Location = new Point(490, 450);
             label23.Name = "label23";
             label23.Size = new Size(116, 24);
             label23.TabIndex = 30;
@@ -265,7 +267,7 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label20.Location = new Point(610, 435);
+            label20.Location = new Point(610, 434);
             label20.Name = "label20";
             label20.Size = new Size(53, 13);
             label20.TabIndex = 29;
@@ -275,7 +277,7 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label21.Location = new Point(491, 434);
+            label21.Location = new Point(491, 433);
             label21.Name = "label21";
             label21.Size = new Size(53, 13);
             label21.TabIndex = 28;
@@ -285,7 +287,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(610, 412);
+            label13.Location = new Point(610, 411);
             label13.Name = "label13";
             label13.Size = new Size(115, 23);
             label13.TabIndex = 27;
@@ -295,7 +297,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(610, 386);
+            label15.Location = new Point(610, 385);
             label15.Name = "label15";
             label15.Size = new Size(115, 23);
             label15.TabIndex = 26;
@@ -306,7 +308,7 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.Location = new Point(610, 363);
+            label16.Location = new Point(610, 362);
             label16.Name = "label16";
             label16.Size = new Size(115, 23);
             label16.TabIndex = 25;
@@ -317,7 +319,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label17.Location = new Point(491, 411);
+            label17.Location = new Point(491, 410);
             label17.Name = "label17";
             label17.Size = new Size(63, 23);
             label17.TabIndex = 24;
@@ -327,7 +329,7 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label18.Location = new Point(491, 363);
+            label18.Location = new Point(491, 362);
             label18.Name = "label18";
             label18.Size = new Size(115, 23);
             label18.TabIndex = 23;
@@ -337,7 +339,7 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label19.Location = new Point(491, 387);
+            label19.Location = new Point(491, 386);
             label19.Name = "label19";
             label19.Size = new Size(115, 23);
             label19.TabIndex = 22;
@@ -347,7 +349,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(83, 491);
+            label11.Location = new Point(84, 469);
             label11.Name = "label11";
             label11.Size = new Size(180, 23);
             label11.TabIndex = 21;
@@ -356,7 +358,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(83, 229);
+            dataGridView1.Location = new Point(83, 236);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(642, 114);
@@ -366,7 +368,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(561, 185);
+            label7.Location = new Point(554, 196);
             label7.Name = "label7";
             label7.Size = new Size(164, 23);
             label7.TabIndex = 19;
@@ -376,7 +378,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(561, 162);
+            label9.Location = new Point(554, 173);
             label9.Name = "label9";
             label9.Size = new Size(123, 23);
             label9.TabIndex = 18;
@@ -386,7 +388,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(469, 185);
+            label12.Location = new Point(462, 196);
             label12.Name = "label12";
             label12.Size = new Size(40, 24);
             label12.TabIndex = 16;
@@ -396,7 +398,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(469, 161);
+            label14.Location = new Point(462, 172);
             label14.Name = "label14";
             label14.Size = new Size(55, 24);
             label14.TabIndex = 14;
@@ -406,7 +408,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(175, 185);
+            label5.Location = new Point(168, 196);
             label5.Name = "label5";
             label5.Size = new Size(142, 23);
             label5.TabIndex = 13;
@@ -416,7 +418,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(175, 162);
+            label6.Location = new Point(168, 173);
             label6.Name = "label6";
             label6.Size = new Size(123, 23);
             label6.TabIndex = 12;
@@ -426,7 +428,7 @@
             // 
             CAIEmp.AutoSize = true;
             CAIEmp.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            CAIEmp.Location = new Point(175, 138);
+            CAIEmp.Location = new Point(168, 149);
             CAIEmp.Name = "CAIEmp";
             CAIEmp.Size = new Size(29, 23);
             CAIEmp.TabIndex = 11;
@@ -437,7 +439,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(83, 185);
+            label8.Location = new Point(76, 196);
             label8.Name = "label8";
             label8.Size = new Size(65, 24);
             label8.TabIndex = 10;
@@ -447,7 +449,7 @@
             // 
             CAI.AutoSize = true;
             CAI.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            CAI.Location = new Point(83, 137);
+            CAI.Location = new Point(76, 148);
             CAI.Name = "CAI";
             CAI.Size = new Size(39, 24);
             CAI.TabIndex = 9;
@@ -457,7 +459,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(83, 161);
+            label10.Location = new Point(76, 172);
             label10.Name = "label10";
             label10.Size = new Size(72, 24);
             label10.TabIndex = 8;
@@ -467,7 +469,7 @@
             // 
             telefonoEmpresa.AutoSize = true;
             telefonoEmpresa.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            telefonoEmpresa.Location = new Point(378, 105);
+            telefonoEmpresa.Location = new Point(383, 114);
             telefonoEmpresa.Name = "telefonoEmpresa";
             telefonoEmpresa.Size = new Size(149, 23);
             telefonoEmpresa.TabIndex = 7;
@@ -478,7 +480,7 @@
             // 
             RTN.AutoSize = true;
             RTN.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            RTN.Location = new Point(378, 82);
+            RTN.Location = new Point(383, 91);
             RTN.Name = "RTN";
             RTN.Size = new Size(123, 23);
             RTN.TabIndex = 6;
@@ -488,7 +490,7 @@
             // 
             correoEmpresa.AutoSize = true;
             correoEmpresa.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            correoEmpresa.Location = new Point(410, 63);
+            correoEmpresa.Location = new Point(415, 72);
             correoEmpresa.Name = "correoEmpresa";
             correoEmpresa.Size = new Size(139, 23);
             correoEmpresa.TabIndex = 5;
@@ -498,7 +500,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(314, 106);
+            label4.Location = new Point(319, 113);
             label4.Name = "label4";
             label4.Size = new Size(69, 24);
             label4.TabIndex = 4;
@@ -508,7 +510,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(286, 62);
+            label3.Location = new Point(291, 71);
             label3.Name = "label3";
             label3.Size = new Size(127, 24);
             label3.TabIndex = 3;
@@ -518,7 +520,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(343, 82);
+            label2.Location = new Point(348, 91);
             label2.Name = "label2";
             label2.Size = new Size(40, 24);
             label2.TabIndex = 2;
@@ -528,7 +530,7 @@
             // 
             direccionEmpresa.AutoSize = true;
             direccionEmpresa.Font = new Font("Myanmar Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            direccionEmpresa.Location = new Point(334, 39);
+            direccionEmpresa.Location = new Point(339, 48);
             direccionEmpresa.Name = "direccionEmpresa";
             direccionEmpresa.Size = new Size(152, 23);
             direccionEmpresa.TabIndex = 1;
@@ -538,12 +540,23 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Myanmar Text", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(334, 15);
+            label1.Location = new Point(339, 24);
             label1.Name = "label1";
             label1.Size = new Size(150, 24);
             label1.TabIndex = 0;
             label1.Text = "Nombre de la Empresa";
             label1.Click += label1_Click;
+            // 
+            // button4
+            // 
+            button4.BackColor = SystemColors.ButtonHighlight;
+            button4.Image = Properties.Resources.back;
+            button4.Location = new Point(22, 10);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 2;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // Factura
             // 
@@ -551,9 +564,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(841, 567);
+            Controls.Add(button4);
             Controls.Add(panel1);
             Name = "Factura";
             Text = "Factura";
+            Load += Factura_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -605,5 +620,7 @@
         private Label label34;
         private Label label35;
         private PictureBox pictureBox1;
+        private Button button4;
+        private Button button1;
     }
 }

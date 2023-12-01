@@ -20,7 +20,7 @@ namespace ProyectoBD
     public partial class Sucursales : Form
     {
         private List<string> permisos;
-        private int idSucursal;
+        String tabla = "Sucursales";
 
         String tablaSucursales = "Sucursales";
         String tablaDirecciones = "Direcciones";
@@ -29,6 +29,11 @@ namespace ProyectoBD
         {
             InitializeComponent();
             this.permisos = permisos;
+        }
+
+        public Sucursales()
+        {
+            InitializeComponent();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -228,7 +233,7 @@ namespace ProyectoBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos(permisos, idSucursal);
+            Modulos modulos = new Modulos(permisos);
 
             modulos.Show();
             this.Close();
@@ -323,6 +328,11 @@ namespace ProyectoBD
         }
 
         private void txtFarmacia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

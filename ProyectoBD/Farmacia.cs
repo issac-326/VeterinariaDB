@@ -12,11 +12,11 @@ namespace ProyectoBD
 {
     public partial class Farmacia : Form
     {
-        private int idSucursal;
-        public Farmacia(int idSucursal)
+        private List<string> permisos;
+        public Farmacia(List<string> permisos)
         {
             InitializeComponent();
-            this.idSucursal = idSucursal;
+            this.permisos = permisos;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace ProyectoBD
         private void button7_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Registros form2 = new Registros();
+            Registros form2 = new Registros(permisos);
 
             // Mostrar el segundo formulario
             form2.Show();
@@ -46,7 +46,7 @@ namespace ProyectoBD
         private void button1_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Recetas form2 = new Recetas(idSucursal);
+            Recetas form2 = new Recetas(permisos);
 
             // Mostrar el segundo formulario
             form2.Show();
@@ -57,9 +57,14 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-           /* Modulos modulos = new Modulos();
+            Modulos modulos = new Modulos(permisos);
             modulos.Show();
-            this.Hide();*/
+            this.Hide();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

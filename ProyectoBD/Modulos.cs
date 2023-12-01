@@ -14,28 +14,13 @@ namespace ProyectoBD
     {
         private List<string> permisos;
         private int idSucursal;
-        private int idPersona;
+
+
         public Modulos(List<string> permisos, int idSucursal)
         {
             InitializeComponent();
             this.permisos = permisos;
             this.idSucursal = idSucursal;
-            VerificarPermisos();
-
-            
-
-        }
-
-        public Modulos(int idPersona)
-        {
-            InitializeComponent();
-            this.idPersona = idPersona;
-            VerificarPermisos();
-
-        }
-
-        private void VerificarPermisos()
-        {
             btnAtencion.Enabled = false;
             btnFacturas.Enabled = false;
             btnFarmacia.Enabled = false;
@@ -95,6 +80,85 @@ namespace ProyectoBD
                         btnAtencion.Enabled = true;
                         btnFacturas.Enabled = true;
                         btnFarmacia.Enabled = true;
+                        btnInfoPersonal.Enabled = true;
+                        btnInformacion.Enabled = true;
+                        btnRHH.Enabled = true;
+                        btnSucursal.Enabled = true;
+                        btnUsuarios.Enabled = true;
+                        btnInfoPersonal.Enabled = true;
+                        break;
+                    default:
+                        // Manejar el caso por defecto si el permiso no coincide con ninguno de los casos anteriores.
+                        break;
+                }
+            }
+        }
+
+        public Modulos(List<string> permisos)
+        {
+            InitializeComponent();
+            this.permisos = permisos;
+            this.idSucursal = idSucursal;
+            btnAtencion.Enabled = false;
+            btnFacturas.Enabled = false;
+            btnFarmacia.Enabled = false;
+            btnInfoPersonal.Enabled = false;
+            btnInformacion.Enabled = false;
+            btnRHH.Enabled = false;
+            btnSucursal.Enabled = false;
+            btnUsuarios.Enabled = false;
+            btnInfoPersonal.Enabled = false;
+
+
+            foreach (string permiso in permisos)
+            {
+                switch (permiso)
+                {
+                    case "Informacion de la Empresa":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnInformacion.Enabled = true;
+                        break;
+
+                    case "Sucursales":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnSucursal.Enabled = true;
+                        break;
+
+                    case "Recursos Humanos":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnRHH.Enabled = true;
+                        break;
+
+                    case "Farmacia":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnFarmacia.Enabled = true;
+                        break;
+
+                    case "Atencion al Cliente":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnAtencion.Enabled = true;
+                        break;
+
+                    case "Facturas":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnFacturas.Enabled = true;
+                        break;
+
+                    case "Usuarios del Sistema":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnUsuarios.Enabled = true;
+                        break;
+
+                    case "Informacion Personal":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnInfoPersonal.Enabled = true;
+                        break;
+                    case "Todos":
+                        MessageBox.Show("Felicidades usted puede editar: " + permiso + "");
+                        btnAtencion.Enabled = true;
+                        btnFacturas.Enabled = true;
+                        btnFarmacia.Enabled = true;
+                        btnInfoPersonal.Enabled = true;
                         btnInformacion.Enabled = true;
                         btnRHH.Enabled = true;
                         btnSucursal.Enabled = true;
@@ -135,9 +199,7 @@ namespace ProyectoBD
 
         private void button2_Click(object sender, EventArgs e)
         {
-            InformacionEmpresa info = new InformacionEmpresa(idSucursal, permisos);
-            info.Visible = true;
-            this.Hide();
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -147,7 +209,7 @@ namespace ProyectoBD
 
         private void button10_Click(object sender, EventArgs e)
         {
-            subModuloUsuarios subUsuarios = new subModuloUsuarios(permisos);
+            subModuloUsuarios subUsuarios = new subModuloUsuarios();
             subUsuarios.Visible = true;
             this.Hide();
         }
@@ -200,15 +262,15 @@ namespace ProyectoBD
 
         private void btnFacturas_Click(object sender, EventArgs e)
         {
-            FormularioFactura F = new FormularioFactura(idSucursal);
-            F.Visible = true;
+            FormularioFactura win = new FormularioFactura(permisos, idSucursal);
+            win.Show();
             this.Hide();
         }
 
         private void btnFarmacia_Click(object sender, EventArgs e)
         {
-            Farmacia F = new Farmacia(idSucursal);
-            F.Visible = true;
+            Farmacia win = new Farmacia(permisos);
+            win.Show();
             this.Hide();
         }
     }

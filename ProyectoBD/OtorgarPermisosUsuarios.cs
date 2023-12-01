@@ -16,11 +16,10 @@ namespace ProyectoBD
     public partial class OtorgarPermisosUsuarios : Form
     {
         private List<string> permisos;
-        public OtorgarPermisosUsuarios(List<string> permisos)
+        public OtorgarPermisosUsuarios()
         {
             InitializeComponent();
             txtUsuario.Focus();
-            this.permisos = permisos;
             mostrarPermisosUsuarios();
             CargarDatosPermisosUsuarios();
         }
@@ -230,8 +229,8 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            subModuloUsuarios sub = new subModuloUsuarios(permisos);
-            sub.Visible = true;
+            Modulos modulos = new Modulos(permisos);
+            modulos.Visible = true;
             this.Hide();
         }
     }

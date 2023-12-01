@@ -17,13 +17,15 @@ namespace ProyectoBD
     public partial class Registros : Form
     {
         String tabla = "Registros";
-        public Registros()
+        private List<string> permisos;
+        public Registros(List<string> permisos)
         {
             InitializeComponent();
             cargarMedicamentos();
             cargarProveedores();
             cargarTipoRegistro();
             Class.Crud objetoCrud = new Class.Crud();
+            this.permisos = permisos;
         }
         public void cargarMedicamentos()
         {
@@ -172,7 +174,7 @@ namespace ProyectoBD
         private void button6_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Medicamento form2 = new Medicamento();
+            Medicamento form2 = new Medicamento(permisos);
 
             // Mostrar el segundo formulario
             form2.Show();
@@ -182,7 +184,7 @@ namespace ProyectoBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Proveedores form2 = new Proveedores();
+            Proveedores form2 = new Proveedores(permisos);
 
             // Mostrar el segundo formulario
             form2.Show();
@@ -224,20 +226,19 @@ namespace ProyectoBD
 
             // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
             string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
-            if (EsNumero(txtCantidad.Text))
+            if (EsNumero(txtCantidad.Text) && EsNumero(txtPrecio.Text))
             {
                 // Convertir los valores a números enteros
                 int cantidad = Convert.ToInt32(txtCantidad.Text);
-                decimal precio = Convert.ToDecimal(txtPrecio.Text, CultureInfo.InvariantCulture);
+                decimal precio = Convert.ToInt32(txtPrecio.Text);
 
                 // Realizar la suma
                 suma = cantidad * precio;
-                String cadena = $"'{fechaFormateada}', {cantidad}, {precio.ToString(CultureInfo.InvariantCulture)}, {suma.ToString(CultureInfo.InvariantCulture)}, {idTipo},{idMedicamento}, {idProveedor}";
-
+                String cadena = $"'{fechaFormateada}', {cantidad}, {precio}, {suma}, {idTipo},{idMedicamento}, {idProveedor}";
                 objetoCrud.guardar(tabla, cadena);
                 if (idTipo == 1 || idTipo == 3)
                 {
-                    RegistroCompra(idMedicamento, cantidad, suma, Obtenerfactor(idTipo));
+                    RegistroCompra(idMedicamento, cantidad, suma, Obtenerfactor(idTipo) );
                 }
                 else if (idTipo == 2 || idTipo == 4)
                 {
@@ -253,13 +254,13 @@ namespace ProyectoBD
 
         }
 
-        public void RegistroCompra(int idProducto, int Cantidad, decimal Total, int Factor)
+        public void RegistroCompra(int idProducto, int Cantidad, decimal Total, int Factor )
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
             {
-
-                String query = $"EXEC movimientoCompra {idProducto}, 5, {Cantidad}, {Total.ToString(CultureInfo.InvariantCulture)}, {Factor};";
+                
+                String query = $"EXEC movimientoCompra {idProducto}, 5, {Cantidad}, {Total}, {Factor};";
 
                 SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
                 SqlDataReader myReader;
@@ -270,6 +271,7 @@ namespace ProyectoBD
                 {
 
                 }
+                MessageBox.Show("Registro Movimiento en Compra");
                 objectConexion.cerrarConexion();
 
             }
@@ -293,7 +295,7 @@ namespace ProyectoBD
                             reader.Read(); // Solo necesitas leer la primera fila
 
                             // Obtener el valor del ID
-                            precio = Convert.ToDecimal(reader["Precio_Unitario"]);
+                            precio = Convert.ToInt32(reader["Precio_Unitario"]);
                         }
                     }
                 }
@@ -303,6 +305,7 @@ namespace ProyectoBD
             {
                 MessageBox.Show("Error preciodecimal: " + ex.Message);
             }
+            MessageBox.Show("EXEC precioProducto " + idProducto + ", " + precio);
             PrecioProducto(idProducto, precio);
 
         }
@@ -323,6 +326,7 @@ namespace ProyectoBD
                 {
 
                 }
+                MessageBox.Show("Registro Movimiento en Venta");
                 objectConexion.cerrarConexion();
 
             }
@@ -335,7 +339,7 @@ namespace ProyectoBD
         {
             return int.TryParse(cadena, out _);
         }
-
+        
         private int Obtenerfactor(int id)
         {
             int factor = 0;
@@ -368,22 +372,22 @@ namespace ProyectoBD
             return factor;
         }
 
-
+      
         private void button2_Click(object sender, EventArgs e)
         {
-            /*/ Crear una instancia del segundo formulario (Form2)
-            Farmacia form2 = new Farmacia();
+            // Crear una instancia del segundo formulario (Form2)
+            Farmacia form2 = new Farmacia(permisos);
 
             // Mostrar el segundo formulario
             form2.Show();
 
             // Opcionalmente, ocultar el primer formulario
-            this.Hide();*/
+            this.Hide();
         }
 
         private void btnLimpiarCitas_Click(object sender, EventArgs e)
         {
-            comboProveedores.SelectedIndex = -1;
+             comboProveedores.SelectedIndex = -1;
             comboTipo.SelectedIndex = -1;
             nombreMedicamento.SelectedIndex = -1;
             txtPrecio.Text = "";
@@ -395,7 +399,7 @@ namespace ProyectoBD
             try
             {
 
-                String query = $"EXEC precioProducto {idProducto}, {Precio.ToString(CultureInfo.InvariantCulture)};";
+                String query = $"EXEC precioProducto {idProducto}, {Precio};";
 
                 SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
                 SqlDataReader myReader;
@@ -416,10 +420,7 @@ namespace ProyectoBD
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
         }
-    }
 
 }

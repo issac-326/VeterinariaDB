@@ -56,6 +56,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.Size = new Size(817, 449);
             tableLayoutPanel1.TabIndex = 5;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // button7
             // 

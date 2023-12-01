@@ -17,13 +17,11 @@ namespace ProyectoBD
     {
         private int idContrato;
         private Crud objetoCrud;
-        private int idSucursal;
         private List<string> permisos;
-        public BonosDeducciones(int idContrato, int idSucursal, List<string> permisos)
+        public BonosDeducciones(int idContrato, List<string> permisos)
         {
             objetoCrud = new Crud();
             this.idContrato = idContrato;
-            this.idSucursal = idSucursal;
             this.permisos = permisos;
             InitializeComponent();
             Class1.cargarComboBox("Nombre", "Deducciones", comboBoxDeducciones);
@@ -32,7 +30,6 @@ namespace ProyectoBD
             mostrarInfoDeducciones();
 
             mostradorBonificaciones.CellClick += mostradorBonificaciones_CellClick;
-            
         }
 
         private void BonosDeducciones_Load(object sender, EventArgs e)
@@ -85,7 +82,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Contratos contratos = new Contratos(idSucursal, "", 2, permisos);
+            Contratos contratos = new Contratos(2, "", 0, permisos);
             contratos.Show();
             this.Hide();
         }

@@ -17,7 +17,7 @@ namespace ProyectoBD
         private Crud objetoCrud;
         private List<string> permisos;
 
-        public Empleados(List<string> permisos, int idSucursal)
+        public Empleados(int idSucursal, List<string> permisos)
         {
             InitializeComponent();
             this.idSucursal = idSucursal;
@@ -42,7 +42,6 @@ namespace ProyectoBD
                 $"INNER JOIN (Contratos INNER JOIN Tipos_Empleados ON (Contratos.Id_Tipo = Tipos_Empleados.Id)) " +
                 $"ON (Empleados.Id_Contrato = Contratos.Id) " +
                 $"INNER JOIN Telefonos_Personas ON (Personas.Id = Telefonos_Personas.Id_Persona) " +
-                $"GROUP BY Id_Sucursal " +
                 $"WHERE Id_Sucursal = {idSucursal}";
             objetoCrud.mostrarData(dataGridViewEmpleados, query);
         }
@@ -59,7 +58,7 @@ namespace ProyectoBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SubmodulosRRHH win = new SubmodulosRRHH( idSucursal, permisos);
+            SubmodulosRRHH win = new SubmodulosRRHH(idSucursal, permisos);
             win.Show();
             this.Hide();
         }

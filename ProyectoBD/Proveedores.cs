@@ -16,12 +16,14 @@ namespace ProyectoBD
     {
         String tabla = "Proveedores";
         int idDepartamento = 0;
-        public Proveedores()
+        private List<string> permisos;
+        public Proveedores(List<string> permisos)
         {
             InitializeComponent();
             cargarDepartamento();
             cargarCiudad();
             Class.Crud objetoCrud = new Class.Crud();
+            this.permisos = permisos;
         }
         public void cargarDepartamento()
         {
@@ -134,7 +136,7 @@ namespace ProyectoBD
         private void button2_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Registros form2 = new Registros();
+            Registros form2 = new Registros(permisos);
 
             // Mostrar el segundo formulario
             form2.Show();

@@ -193,9 +193,18 @@ namespace ProyectoBD
             this.Hide();
         }
 
-        private void Modulos_Activated(object sender, EventArgs e)
+        private void btnFacturas_Click(object sender, EventArgs e)
         {
-           
+            FormularioFactura F = new FormularioFactura(idSucursal);
+            F.Visible = true;
+            this.Hide();
+        }
+
+        private void btnFarmacia_Click(object sender, EventArgs e)
+        {
+            Farmacia F = new Farmacia(idSucursal);
+            F.Visible = true;
+            this.Hide();
         }
     }
 }

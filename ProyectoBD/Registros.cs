@@ -224,19 +224,20 @@ namespace ProyectoBD
 
             // Formatea la fecha en el formato deseado para SQL Server (puedes ajustar esto según tu configuración)
             string fechaFormateada = fechaSeleccionada.ToString("yyyy-MM-dd");
-            if (EsNumero(txtCantidad.Text) && EsNumero(txtPrecio.Text))
+            if (EsNumero(txtCantidad.Text))
             {
                 // Convertir los valores a números enteros
                 int cantidad = Convert.ToInt32(txtCantidad.Text);
-                decimal precio = Convert.ToInt32(txtPrecio.Text);
+                decimal precio = Convert.ToDecimal(txtPrecio.Text, CultureInfo.InvariantCulture);
 
                 // Realizar la suma
                 suma = cantidad * precio;
-                String cadena = $"'{fechaFormateada}', {cantidad}, {precio}, {suma}, {idTipo},{idMedicamento}, {idProveedor}";
+                String cadena = $"'{fechaFormateada}', {cantidad}, {precio.ToString(CultureInfo.InvariantCulture)}, {suma.ToString(CultureInfo.InvariantCulture)}, {idTipo},{idMedicamento}, {idProveedor}";
+
                 objetoCrud.guardar(tabla, cadena);
                 if (idTipo == 1 || idTipo == 3)
                 {
-                    RegistroCompra(idMedicamento, cantidad, suma, Obtenerfactor(idTipo) );
+                    RegistroCompra(idMedicamento, cantidad, suma, Obtenerfactor(idTipo));
                 }
                 else if (idTipo == 2 || idTipo == 4)
                 {
@@ -252,13 +253,13 @@ namespace ProyectoBD
 
         }
 
-        public void RegistroCompra(int idProducto, int Cantidad, decimal Total, int Factor )
+        public void RegistroCompra(int idProducto, int Cantidad, decimal Total, int Factor)
         {
             ConexionSqlServer objectConexion = new ConexionSqlServer();
             try
             {
-                
-                String query = $"EXEC movimientoCompra {idProducto}, 5, {Cantidad}, {Total}, {Factor};";
+
+                String query = $"EXEC movimientoCompra {idProducto}, 5, {Cantidad}, {Total.ToString(CultureInfo.InvariantCulture)}, {Factor};";
 
                 SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
                 SqlDataReader myReader;
@@ -269,7 +270,6 @@ namespace ProyectoBD
                 {
 
                 }
-                MessageBox.Show("Registro Movimiento en Compra");
                 objectConexion.cerrarConexion();
 
             }
@@ -293,7 +293,7 @@ namespace ProyectoBD
                             reader.Read(); // Solo necesitas leer la primera fila
 
                             // Obtener el valor del ID
-                            precio = Convert.ToInt32(reader["Precio_Unitario"]);
+                            precio = Convert.ToDecimal(reader["Precio_Unitario"]);
                         }
                     }
                 }
@@ -303,7 +303,7 @@ namespace ProyectoBD
             {
                 MessageBox.Show("Error preciodecimal: " + ex.Message);
             }
-            MessageBox.Show("EXEC precioProducto " + idProducto + ", " + precio);
+            MessageBox.Show("EXEC precioProducto " + idProducto + ", " + precio.ToString(CultureInfo.InvariantCulture));
             PrecioProducto(idProducto, precio);
 
         }
@@ -337,7 +337,7 @@ namespace ProyectoBD
         {
             return int.TryParse(cadena, out _);
         }
-        
+
         private int Obtenerfactor(int id)
         {
             int factor = 0;
@@ -370,22 +370,22 @@ namespace ProyectoBD
             return factor;
         }
 
-      
+
         private void button2_Click(object sender, EventArgs e)
         {
-            // Crear una instancia del segundo formulario (Form2)
+            /*/ Crear una instancia del segundo formulario (Form2)
             Farmacia form2 = new Farmacia();
 
             // Mostrar el segundo formulario
             form2.Show();
 
             // Opcionalmente, ocultar el primer formulario
-            this.Hide();
+            this.Hide();*/
         }
 
         private void btnLimpiarCitas_Click(object sender, EventArgs e)
         {
-             comboProveedores.SelectedIndex = -1;
+            comboProveedores.SelectedIndex = -1;
             comboTipo.SelectedIndex = -1;
             nombreMedicamento.SelectedIndex = -1;
             txtPrecio.Text = "";
@@ -397,7 +397,7 @@ namespace ProyectoBD
             try
             {
 
-                String query = $"EXEC precioProducto {idProducto}, {Precio};";
+                String query = $"EXEC precioProducto {idProducto}, {Precio.ToString(CultureInfo.InvariantCulture)};";
 
                 SqlCommand comando = new SqlCommand(query, objectConexion.establecerConexion());
                 SqlDataReader myReader;
@@ -418,7 +418,10 @@ namespace ProyectoBD
             }
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
+    }
 
 }

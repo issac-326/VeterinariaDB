@@ -158,6 +158,8 @@ namespace ProyectoBD
 
             String cadenaU = $"'{txtUsuario.Text}','{txtContrasenia.Text}','{Activo}', {idPersona}, {idRol}";
             objetoCrud.guardar(tablaU, cadenaU);
+
+            ///Cargamos los datos de los usuarios en el dataGreedView.
             CargarDatosUsuarios();
 
         }
@@ -188,8 +190,6 @@ namespace ProyectoBD
                 txtDNIEmpleado.Text = dgvUsuarios.CurrentRow.Cells[5].Value.ToString();
 
             }
-
-
         }
 
         private void btnModificarUsuarios_Click(object sender, EventArgs e)

@@ -36,7 +36,7 @@ namespace ProyectoBD
 
         private void button7_Click(object sender, EventArgs e)
         {
-            OtorgarPermisosUsuarios otorgarPermisos = new OtorgarPermisosUsuarios();
+            OtorgarPermisosUsuarios otorgarPermisos = new OtorgarPermisosUsuarios(permisos);
             otorgarPermisos.Visible = true; 
             this.Close();
         }

@@ -12,9 +12,11 @@ namespace ProyectoBD
 {
     public partial class Farmacia : Form
     {
+        private int idSucursal;
         public Farmacia(int idSucursal)
         {
             InitializeComponent();
+            this.idSucursal = idSucursal;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace ProyectoBD
         private void button1_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Recetas form2 = new Recetas();
+            Recetas form2 = new Recetas(idSucursal);
 
             // Mostrar el segundo formulario
             form2.Show();

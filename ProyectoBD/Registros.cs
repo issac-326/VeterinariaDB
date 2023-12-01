@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
@@ -18,7 +19,9 @@ namespace ProyectoBD
     {
         String tabla = "Registros";
         private List<string> permisos;
-        public Registros(List<string> permisos)
+        private int idSucursal;
+        private int idPersona;
+        public Registros(List<string> permisos, int idSucursal, int idPersona)
         {
             InitializeComponent();
             cargarMedicamentos();
@@ -174,7 +177,7 @@ namespace ProyectoBD
         private void button6_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Medicamento form2 = new Medicamento(permisos);
+            Medicamento form2 = new Medicamento(permisos, idSucursal, idPersona);
 
             // Mostrar el segundo formulario
             form2.Show();
@@ -184,7 +187,7 @@ namespace ProyectoBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Proveedores form2 = new Proveedores(permisos);
+            Proveedores form2 = new Proveedores(permisos, idSucursal, idPersona);
 
             // Mostrar el segundo formulario
             form2.Show();
@@ -376,7 +379,7 @@ namespace ProyectoBD
         private void button2_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Farmacia form2 = new Farmacia(permisos);
+            Farmacia form2 = new Farmacia(permisos, idSucursal, idPersona);
 
             // Mostrar el segundo formulario
             form2.Show();

@@ -19,10 +19,14 @@ namespace ProyectoBD
         int idCita = 0;
         int idTipo = 2;
         int idMascota = 0;
-        public RegistroConsulta(int idCita, int idMascota)
+        private List<string> permisos;
+        private int idSucursal;
+        private int idPersona;
+        public RegistroConsulta(int idCita, int idMascota, List<string>permisos, int idSucursal, int idPersona)
         {
             InitializeComponent();
             CargarEmpleado();
+            this.permisos = permisos;
             this.idMascota = idMascota;
             int idExpediente = ObtenerIdExpediente("Expedientes", idMascota);
             txtExpendiente.Text = $"{idExpediente}";
@@ -339,7 +343,7 @@ namespace ProyectoBD
 
         private void btnIr_Click(object sender, EventArgs e)
         {
-            InfoMascota vista = new InfoMascota(idMascota);
+            InfoMascota vista = new InfoMascota(idMascota, permisos, idSucursal, idPersona);
             vista.Show();
             this.Hide();
         }

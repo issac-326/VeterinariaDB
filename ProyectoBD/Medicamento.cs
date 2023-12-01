@@ -17,7 +17,9 @@ namespace ProyectoBD
     {
         String tabla = "Productos";
         private List<string> permisos;
-        public Medicamento(List<string> permisos)
+        private int idSucursal;
+        private int idPersona;
+        public Medicamento(List<string> permisos, int idSucursal, int idPersona)
         {
             InitializeComponent();
             cargarFormas();
@@ -170,7 +172,7 @@ namespace ProyectoBD
         private void button2_Click(object sender, EventArgs e)
         {
             // Crear una instancia del segundo formulario (Form2)
-            Registros form2 = new Registros(permisos);
+            Registros form2 = new Registros(permisos, idSucursal, idPersona);
 
             // Mostrar el segundo formulario
             form2.Show();

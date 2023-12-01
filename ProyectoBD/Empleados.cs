@@ -16,8 +16,9 @@ namespace ProyectoBD
         private int idSucursal;
         private Crud objetoCrud;
         private List<string> permisos;
+        private int idPersona;
 
-        public Empleados(int idSucursal, List<string> permisos)
+        public Empleados(int idSucursal, List<string> permisos, int idPersona)
         {
             InitializeComponent();
             this.idSucursal = idSucursal;
@@ -58,7 +59,7 @@ namespace ProyectoBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SubmodulosRRHH win = new SubmodulosRRHH(idSucursal, permisos);
+            SubmodulosRRHH win = new SubmodulosRRHH(idSucursal, permisos, idPersona);
             win.Show();
             this.Hide();
         }
@@ -70,7 +71,7 @@ namespace ProyectoBD
                 DataGridViewRow row = dataGridViewEmpleados.Rows[e.RowIndex];
                 int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
 
-                InfoEmpleados nuevoFormulario = new InfoEmpleados(idSeleccionado, idSucursal, permisos);
+                InfoEmpleados nuevoFormulario = new InfoEmpleados(idSeleccionado, idSucursal, permisos, idPersona);
                 nuevoFormulario.Show();
                 this.Hide();
             }

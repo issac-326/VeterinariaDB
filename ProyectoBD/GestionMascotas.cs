@@ -19,9 +19,13 @@ namespace ProyectoBD
     {
         String tabla = "Mascotas";
         int codigo = 0;
-        public GestionMascotas()
+        private List<string> permisos;
+        private int idSucursal;
+        private int idPersona;
+        public GestionMascotas(List<string>permisos, int idSucursal, int idPersona)
         {
             InitializeComponent();
+            this.permisos = permisos;
             cargarGeneros();
             cargarEstados();
             cargarEspecies();
@@ -422,7 +426,7 @@ namespace ProyectoBD
                 int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
 
                 // Crear e mostrar el nuevo formulario pasando el ID
-                ControlMascota nuevoFormulario = new ControlMascota(idSeleccionado);
+                ControlMascota nuevoFormulario = new ControlMascota(idSeleccionado, permisos, idSucursal, idPersona);
                 nuevoFormulario.Show();
                 this.Hide();
 
@@ -646,7 +650,7 @@ namespace ProyectoBD
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            SubmodulosAtencionCliente submodulosAtencionCliente = new SubmodulosAtencionCliente();
+            SubmodulosAtencionCliente submodulosAtencionCliente = new SubmodulosAtencionCliente(permisos, idSucursal, idPersona);
             submodulosAtencionCliente.Show();
             this.Hide();
         }

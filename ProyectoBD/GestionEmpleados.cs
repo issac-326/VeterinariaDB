@@ -24,8 +24,9 @@ namespace ProyectoBD
         private int idSucursal;
         private ConexionSqlServer conn;
         private List<string> permisos;
+        private int idPersona;
 
-        public GestionEmpleados(int idContrato, int idSucursal, List<string> permisos)
+        public GestionEmpleados(int idContrato, int idSucursal, List<string> permisos, int idPersona)
         {
             this.idContrato = idContrato;
             this.idSucursal = idSucursal;
@@ -88,7 +89,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos);
+            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos, idPersona);
             submodulosRRHH.Show();
             this.Hide();
         }

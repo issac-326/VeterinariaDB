@@ -30,11 +30,13 @@ namespace ProyectoBD
                     // Las credenciales son válidas, puedes permitir el acceso
                     List<string> permisos = controlador.ObtenerPermisos(usuario);
                     int idSucursal = controlador.ObtenerIdSucursal(usuario);
+                    int idPersona = controlador.ObtenerIdPersonal(usuario);
 
-                    if (permisos.Count > 0 && idSucursal != -1)
+
+                    if (permisos.Count > 0 && idSucursal != -1 && idPersona != -1)
                     {
 
-                        Modulos principal = new Modulos(permisos, idSucursal);
+                        Modulos principal = new Modulos(permisos, idSucursal, idPersona);
                         principal.Visible = true;
                         this.Hide();
                     }
@@ -55,11 +57,6 @@ namespace ProyectoBD
         }
 
         private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

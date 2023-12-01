@@ -20,12 +20,14 @@ namespace ProyectoBD
     public partial class Sucursales : Form
     {
         private List<string> permisos;
+        private int idSucursal;
+        private int idPersona;
         String tabla = "Sucursales";
 
         String tablaSucursales = "Sucursales";
         String tablaDirecciones = "Direcciones";
 
-        public Sucursales(List<string> permisos)
+        public Sucursales(List<string> permisos, int idSucursal, int idPersona)
         {
             InitializeComponent();
             this.permisos = permisos;
@@ -233,7 +235,7 @@ namespace ProyectoBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos(permisos);
+            Modulos modulos = new Modulos(permisos, idSucursal, idPersona);
 
             modulos.Show();
             this.Close();

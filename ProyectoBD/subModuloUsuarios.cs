@@ -13,28 +13,31 @@ namespace ProyectoBD
     public partial class subModuloUsuarios : Form
     {
         private List<string> permisos;
-        public subModuloUsuarios()
+        private int idSucursal;
+        private int idPersona;
+        public subModuloUsuarios(List<string> permisos)
         {
             InitializeComponent();
+            this.permisos = permisos;   
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos(permisos);
+            Modulos modulos = new Modulos(permisos, idSucursal, idPersona);
             modulos.Visible = true;
             this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            RegistrarUsuarios registrarUsuarios = new RegistrarUsuarios();
+            RegistrarUsuarios registrarUsuarios = new RegistrarUsuarios(permisos);
             registrarUsuarios.Visible = true;
             this.Close();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            OtorgarPermisosUsuarios otorgarPermisos = new OtorgarPermisosUsuarios();
+            OtorgarPermisosUsuarios otorgarPermisos = new OtorgarPermisosUsuarios(permisos);
             otorgarPermisos.Visible = true; 
             this.Close();
         }

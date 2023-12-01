@@ -20,13 +20,14 @@ namespace ProyectoBD
         decimal isv15F = 0;
         decimal isv18lF = 0;
         private List<string> permisos;
+        private int idPersona;
         private int idSucursal;
         private int puntoEmision;
 
         private decimal pagoEfectivo;
         private decimal cambio;
 
-        public FormularioFactura(List<string> permisos, int idSucursal)
+        public FormularioFactura(List<string> permisos, int idSucursal, int idPersona)
         {
             InitializeComponent();
             this.permisos = permisos;
@@ -111,7 +112,7 @@ namespace ProyectoBD
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Modulos win = new Modulos(permisos, idSucursal);
+            Modulos win = new Modulos(permisos, idSucursal, idPersona);
             win.Show();
             this.Hide();
         }
@@ -297,7 +298,7 @@ namespace ProyectoBD
                     {
                         if (cambio >= 0)
                         {
-                            Factura win = new Factura(permisos, pagoEfectivo, cambio, idSucursal);
+                            Factura win = new Factura(permisos, pagoEfectivo, cambio, idSucursal, idPersona);
                             win.Show();
                             this.Hide();
                         }

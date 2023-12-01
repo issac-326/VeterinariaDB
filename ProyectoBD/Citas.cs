@@ -20,11 +20,15 @@ namespace ProyectoBD
         int identificador = 0;
         String tabla1 = "Citas";
         String tabla2 = "Estados_Citas";
-        public Citas(int id)
+        private List<string> permisos;
+        private int idSucursal;
+        private int idPersona;
+        public Citas(int id, List<string>permisos, int idSucursal, int idPersona)
         {
             InitializeComponent();
             ///Asignamos el valor a la variable de instancia.
             this.identificador = id;
+            this.permisos = permisos;
             cargarTipoEstados();
             cargarMascotas();
             cargarEmpleados();
@@ -390,7 +394,7 @@ namespace ProyectoBD
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            ControlMascota ctrlMascotas = new ControlMascota(identificador);
+            ControlMascota ctrlMascotas = new ControlMascota(identificador, permisos,idSucursal, idPersona);
             ctrlMascotas.Show();
             this.Hide();
         }
@@ -413,7 +417,7 @@ namespace ProyectoBD
 
                 int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
       
-                RegistroConsulta nuevoFormulario = new RegistroConsulta(idSeleccionado, identificador);
+                RegistroConsulta nuevoFormulario = new RegistroConsulta(idSeleccionado, identificador, permisos, idSucursal, idPersona);
                 nuevoFormulario.Show();
                 this.Hide();
 

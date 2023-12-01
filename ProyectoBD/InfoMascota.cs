@@ -16,11 +16,15 @@ namespace ProyectoBD
     public partial class InfoMascota : Form
     {
         int idMascota = 0;
-        public InfoMascota(int id)
+        private List<string> permisos;
+        private int idSucursal;
+        private int idPersona;
+        public InfoMascota(int id, List<string>permisos, int idSucursal, int idPersona)
         {
             InitializeComponent();
             cargarVacunas();
             cargarEnfermedades();
+            this.permisos = permisos;
             this.idMascota = id;
             int idExpediente = 0;
             idExpediente = ObtenerIdExpediente("Expedientes", idMascota);
@@ -338,7 +342,7 @@ namespace ProyectoBD
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            ControlMascota vista = new ControlMascota(idMascota);
+            ControlMascota vista = new ControlMascota(idMascota, permisos, idSucursal, idPersona);
             vista.Show();
             this.Hide();
         }

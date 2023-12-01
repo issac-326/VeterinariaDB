@@ -85,7 +85,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos);
+            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos, idPersona);
             submodulosRRHH.Show();
             this.Hide();
         }
@@ -171,7 +171,7 @@ namespace ProyectoBD
                     conn.cerrarConexion();
                     MessageBox.Show("Se renovó el contrato.");
 
-                    InfoEmpleados win = new InfoEmpleados(idPersona, idSucursal, permisos);
+                    InfoEmpleados win = new InfoEmpleados(idPersona, idSucursal, permisos, idPersona);
                     win.Show();
                     this.Hide();
                 }
@@ -180,7 +180,7 @@ namespace ProyectoBD
                     //Me llevo el id del contrato insertado
                     int idContrato = Class1.ObtenerIdUltimoRegistro("Contratos");
 
-                    GestionEmpleados win = new GestionEmpleados(idContrato, idSucursal, permisos);
+                    GestionEmpleados win = new GestionEmpleados(idContrato, idSucursal, permisos, idPersona);
                     win.Show();
                     this.Hide();
                 }
@@ -204,7 +204,7 @@ namespace ProyectoBD
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos);
+            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos, idPersona);
             submodulosRRHH.Show();
             this.Hide();
         }

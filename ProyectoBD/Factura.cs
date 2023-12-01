@@ -16,8 +16,9 @@ namespace ProyectoBD
     {
         private List<string> permisos;
         private int idSucursal;
+        private int idPersona;
 
-        public Factura(List<string> permisos, decimal efectivo, decimal cambio, int idSucursal)
+        public Factura(List<string> permisos, decimal efectivo, decimal cambio, int idSucursal, int idPersona)
         {
             InitializeComponent();
             this.permisos = permisos;
@@ -98,7 +99,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FormularioFactura win = new FormularioFactura(permisos,idSucursal);
+            FormularioFactura win = new FormularioFactura(permisos,idSucursal, idPersona);
             win.Show();
             this.Hide();        }
     }

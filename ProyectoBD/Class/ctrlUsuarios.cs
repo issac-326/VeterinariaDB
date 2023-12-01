@@ -86,7 +86,7 @@ namespace ProyectoBD.Class
                 {
 
                     string query = "SELECT suc.Id, us.Usuario FROM Usuarios_Permisos usp INNER JOIN Usuarios us ON usp.Id_Usuario = us.Id INNER JOIN Permisos pe ON usp.Id_Permiso = pe.Id INNER JOIN Roles ro ON ro.Id = us.Id_Roles INNER JOIN Empleados em ON us.Id_Empleado = em.Id INNER JOIN Personas per ON per.Id = em.Id_Persona INNER JOIN Sucursales suc ON suc.Id = em.Id_Sucursal WHERE us.Usuario =  '" + usuario + "'";
-                    MessageBox.Show("" + query + "");
+
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         using (SqlDataReader reader = comando.ExecuteReader())
@@ -101,5 +101,34 @@ namespace ProyectoBD.Class
             }
             return idSucursal;
         }
+
+
+        public int ObtenerIdPersonal(string usuario)
+        {
+            int idPersona = -1;
+            ConexionSqlServer objectConexion = new ConexionSqlServer();
+            {
+                using (SqlConnection conexion = objectConexion.establecerConexion())
+                {
+
+                    string query = "SELECT per.Id, us.Usuario FROM Usuarios_Permisos usp INNER JOIN Usuarios us ON usp.Id_Usuario = us.Id INNER JOIN Permisos pe ON usp.Id_Permiso = pe.Id INNER JOIN Roles ro ON ro.Id = us.Id_Roles INNER JOIN Empleados em ON us.Id_Empleado = em.Id INNER JOIN Personas per ON per.Id = em.Id_Persona INNER JOIN Sucursales suc ON suc.Id = em.Id_Sucursal WHERE us.Usuario =  '" + usuario + "'";
+
+                    
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                idPersona = Convert.ToInt32(reader["Id"]);
+                            }
+                        }
+                    }
+                }
+            }
+            return idPersona;
+        }
     }
+
 }
+

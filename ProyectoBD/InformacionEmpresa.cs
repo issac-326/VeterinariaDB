@@ -17,6 +17,7 @@ namespace ProyectoBD
     {
         private int idSucursal;
         private List<string> permisos;
+        private int idPersona;
         public InformacionEmpresa(int idSucursal, List<string> permisos)
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos(permisos, idSucursal);
+            Modulos modulos = new Modulos(permisos, idSucursal, idPersona);
             modulos.Visible = true;
             this.Close();
         }
@@ -50,6 +51,8 @@ namespace ProyectoBD
 
                 SqlCommand comando = new SqlCommand(query, conn.establecerConexion());
                 SqlDataReader reader = comando.ExecuteReader();
+
+
 
                 if (reader.Read())
                 {

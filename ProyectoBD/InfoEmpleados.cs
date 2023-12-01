@@ -20,7 +20,8 @@ namespace ProyectoBD
         private int idEmpleado;
         private int idSucursal;
         private List<string> permisos;
-        public InfoEmpleados(int idEmpleado, int idSucursal, List<string> permisos)
+        private int idPersona;
+        public InfoEmpleados(int idEmpleado, int idSucursal, List<string> permisos, int idPersona)
         {
             InitializeComponent();
             this.idEmpleado = idEmpleado;
@@ -111,7 +112,7 @@ namespace ProyectoBD
         private void button1_Click(object sender, EventArgs e)
         {
             //Corregir IdSucursal
-            Empleados win = new Empleados(idSucursal, permisos);
+            Empleados win = new Empleados(idSucursal, permisos, idPersona);
             win.Show();
             this.Hide();
         }

@@ -296,6 +296,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "Modulos";
             Text = "Módulos";
+            Activated += Modulos_Activated;
             Load += Modulos_Load;
             MÓDULOS.ResumeLayout(false);
             MÓDULOS.PerformLayout();

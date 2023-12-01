@@ -4,10 +4,11 @@
     {
         private List<string> permisos;
         private int idSucursal; 
-        public SubmodulosRRHH()
+        public SubmodulosRRHH(int idSucursal, List<string> permisos)
         {
             InitializeComponent();
-            this.idSucursal = 2;
+            this.idSucursal = idSucursal;
+            this.permisos = permisos;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -31,14 +32,14 @@
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Contratos contratos = new Contratos(2, "", 0);
+            Contratos contratos = new Contratos(idSucursal,"", 2, permisos);
             contratos.Show();
             this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Empleados win = new Empleados(idSucursal);
+            Empleados win = new Empleados(permisos, idSucursal);
             win.Show();
             this.Hide();
         }

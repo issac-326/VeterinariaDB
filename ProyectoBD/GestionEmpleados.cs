@@ -23,11 +23,13 @@ namespace ProyectoBD
         private Crud objetoCrud;
         private int idSucursal;
         private ConexionSqlServer conn;
+        private List<string> permisos;
 
-        public GestionEmpleados(int idContrato, int idSucursal)
+        public GestionEmpleados(int idContrato, int idSucursal, List<string> permisos)
         {
             this.idContrato = idContrato;
             this.idSucursal = idSucursal;
+            this.permisos = permisos;
             InitializeComponent();
             Class1.cargarComboBox("Nombre", "Ciudades", comboBoxCiudad);
             objetoCrud = new Crud();
@@ -73,7 +75,7 @@ namespace ProyectoBD
                 conn.cerrarConexion();
 
                 MessageBox.Show("Se ha contratado correctamente a " + primerNombre.Text + " " + primerApellido.Text + ". ");
-                Contratos win = new Contratos(2, "", 0);
+                Contratos win = new Contratos(idSucursal,"", 2, permisos);
                 win.Show();
                 this.Close();
             }
@@ -86,7 +88,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH();
+            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos);
             submodulosRRHH.Show();
             this.Hide();
         }

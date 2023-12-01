@@ -22,11 +22,14 @@ namespace ProyectoBD
         private int  idSucursal;
         private string accion;
         private int idPersona;
+        private List<string> permisos;
 
-        public Contratos( int idSucursal, string accion, int idPersona)
+        public Contratos( int idSucursal, string accion, int idPersona, List<string> permisos)
         {
             InitializeComponent();
             this.idSucursal = idSucursal;
+            this.permisos = permisos;
+            this.idPersona = idPersona;
             Class1.cargarComboBox("Id", "Horarios", comboBoxHorario);
             Class1.cargarComboBox("Nombre", "Tipos_Empleados", comboBoxCargos);
             Class1.cargarComboBox("Periodo", "Periodos_Pago", comboBoxPeriodoPago);
@@ -52,7 +55,7 @@ namespace ProyectoBD
                 int idSeleccionado = Convert.ToInt32(row.Cells["Id"].Value);
 
                 // Crear e mostrar el nuevo formulario pasando el ID
-                BonosDeducciones nuevoFormulario = new BonosDeducciones(idSeleccionado);
+                BonosDeducciones nuevoFormulario = new BonosDeducciones(idSeleccionado, idSucursal, permisos);
                 nuevoFormulario.Show();
                 this.Hide();
             }
@@ -83,7 +86,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH();
+            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos);
             submodulosRRHH.Show();
             this.Hide();
         }
@@ -169,7 +172,7 @@ namespace ProyectoBD
                     conn.cerrarConexion();
                     MessageBox.Show("Se renovó el contrato.");
 
-                    InfoEmpleados win = new InfoEmpleados(idPersona, idSucursal);
+                    InfoEmpleados win = new InfoEmpleados(idPersona, idSucursal, permisos);
                     win.Show();
                     this.Hide();
                 }
@@ -178,7 +181,7 @@ namespace ProyectoBD
                     //Me llevo el id del contrato insertado
                     int idContrato = Class1.ObtenerIdUltimoRegistro("Contratos");
 
-                    GestionEmpleados win = new GestionEmpleados(idContrato, idSucursal);
+                    GestionEmpleados win = new GestionEmpleados(idContrato, idSucursal, permisos);
                     win.Show();
                     this.Hide();
                 }
@@ -202,7 +205,7 @@ namespace ProyectoBD
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH();
+            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos);
             submodulosRRHH.Show();
             this.Hide();
         }

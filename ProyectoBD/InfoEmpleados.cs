@@ -19,12 +19,14 @@ namespace ProyectoBD
     {
         private int idEmpleado;
         private int idSucursal;
-        public InfoEmpleados(int idEmpleado, int idSucursal)
+        private List<string> permisos;
+        public InfoEmpleados(int idEmpleado, int idSucursal, List<string> permisos)
         {
             InitializeComponent();
             this.idEmpleado = idEmpleado;
             this.idSucursal = idSucursal;
             mostrarInfoEmpleado();
+            this.permisos = permisos;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -109,7 +111,7 @@ namespace ProyectoBD
         private void button1_Click(object sender, EventArgs e)
         {
             //Corregir IdSucursal
-            Empleados win = new Empleados(idSucursal);
+            Empleados win = new Empleados(permisos, idSucursal);
             win.Show();
             this.Hide();
         }
@@ -126,7 +128,7 @@ namespace ProyectoBD
 
         private void btnAgregarContrato_Click(object sender, EventArgs e)
         {
-            Contratos win = new Contratos(idSucursal, "Renovar", idEmpleado);
+            Contratos win = new Contratos(idSucursal, "", 2, permisos);
             win.Show();
             this.Hide();
         }

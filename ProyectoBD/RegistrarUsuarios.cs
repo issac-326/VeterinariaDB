@@ -19,11 +19,13 @@ namespace ProyectoBD
         private List<string> permisos;
        
         private int idSucursal;
-        public RegistrarUsuarios()
+        public RegistrarUsuarios(List<string> permisos)
         {
             InitializeComponent();
             mostrarRolesUsuarios();
             CargarDatosUsuarios();
+            this.permisos = permisos;
+            
         }
 
         private void RegistrarUsuarios_Load(object sender, EventArgs e)
@@ -244,8 +246,8 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Modulos modulos = new Modulos(permisos, idSucursal);
-            modulos.Visible = true;
+            subModuloUsuarios sub = new subModuloUsuarios(permisos);
+            sub.Visible = true;
             this.Hide();
         }
     }

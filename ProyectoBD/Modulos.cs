@@ -19,6 +19,20 @@ namespace ProyectoBD
             InitializeComponent();
             this.permisos = permisos;
             this.idSucursal = idSucursal;
+            VerificarPermisos();
+
+        }
+
+        public Modulos(int idSucursal)
+        {
+            InitializeComponent();
+            this.idSucursal = idSucursal;
+            VerificarPermisos();
+
+        }
+
+        private void VerificarPermisos()
+        {
             btnAtencion.Enabled = false;
             btnFacturas.Enabled = false;
             btnFarmacia.Enabled = false;
@@ -78,7 +92,6 @@ namespace ProyectoBD
                         btnAtencion.Enabled = true;
                         btnFacturas.Enabled = true;
                         btnFarmacia.Enabled = true;
-                        btnInfoPersonal.Enabled = true;
                         btnInformacion.Enabled = true;
                         btnRHH.Enabled = true;
                         btnSucursal.Enabled = true;
@@ -129,7 +142,7 @@ namespace ProyectoBD
 
         private void button10_Click(object sender, EventArgs e)
         {
-            subModuloUsuarios subUsuarios  = new subModuloUsuarios();  
+            subModuloUsuarios subUsuarios = new subModuloUsuarios(permisos);
             subUsuarios.Visible = true;
             this.Hide();
         }
@@ -141,7 +154,7 @@ namespace ProyectoBD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Login login = new Login();  
+            Login login = new Login();
             login.Visible = true;
             this.Hide();
         }
@@ -167,7 +180,7 @@ namespace ProyectoBD
 
         private void button5_Click(object sender, EventArgs e)
         {
-            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH();
+            SubmodulosRRHH submodulosRRHH = new SubmodulosRRHH(idSucursal, permisos);
             submodulosRRHH.Show();
             this.Hide();
         }
@@ -178,6 +191,11 @@ namespace ProyectoBD
 
             sucursales.Show();
             this.Hide();
+        }
+
+        private void Modulos_Activated(object sender, EventArgs e)
+        {
+           
         }
     }
 }

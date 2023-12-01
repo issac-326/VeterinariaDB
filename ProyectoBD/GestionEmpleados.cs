@@ -75,7 +75,7 @@ namespace ProyectoBD
                 conn.cerrarConexion();
 
                 MessageBox.Show("Se ha contratado correctamente a " + primerNombre.Text + " " + primerApellido.Text + ". ");
-                Contratos win = new Contratos(idSucursal,"", 2, permisos);
+                Contratos win = new Contratos(idSucursal, "", 2, permisos);
                 win.Show();
                 this.Close();
             }
